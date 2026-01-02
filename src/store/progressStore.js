@@ -1,0 +1,192 @@
+// Progress store for tracking lesson progress
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { db } from '../config/firebase';
+import { useAuthStore } from './authStore';
+
+export const useProgressStore = create(
+    persist(
+        (set, get) => ({
+            // Local code storage for each lesson
+            lessonCode: {},
+
+            // Completion status
+            completedLessons: [],
+
+            // Current progress in each course
+            courseProgress: {},
+
+            // Test scores
+            testScores: {},
+
+            // Certificates earned
+            certificates: [],
+
+            // Activity log for contribution tracker
+            activityLog: {},
+
+            // Save code for a specific lesson
+            saveCode: (lessonId, code) => {
+                set((state) => ({
+                    lessonCode: {
+                        ...state.lessonCode,
+                        [lessonId]: code
+                    }
+                }));
+            },
+
+            // Get code for a specific lesson
+            getCode: (lessonId) => {
+                return get().lessonCode[lessonId] || '';
+            },
+
+            // Mark lesson as complete
+            completeLesson: async (lessonId, courseId) => {
+                const { completedLessons, activityLog } = get();
+
+                if (!completedLessons.includes(lessonId)) {
+                    const today = new Date().toISOString().split('T')[0];
+                    const newCompleted = [...completedLessons, lessonId];
+
+                    // Update activity log
+                    const todayCount = (activityLog[today] || 0) + 1;
+
+                    set((state) => ({
+                        completedLessons: newCompleted,
+                        activityLog: {
+                            ...state.activityLog,
+                            [today]: todayCount
+                        },
+                        courseProgress: {
+                            ...state.courseProgress,
+                            [courseId]: {
+                                ...state.courseProgress[courseId],
+                                lastLesson: lessonId,
+                                lastUpdated: new Date().toISOString()
+                            }
+                        }
+                    }));
+
+                    // Sync to Firebase
+                    const authState = useAuthStore.getState();
+                    if (authState.user) {
+                        try {
+                            const userRef = doc(db, 'users', authState.user.uid);
+                            await setDoc(userRef, {
+                                completedLessons: newCompleted,
+                                activityLog: {
+                                    ...activityLog,
+                                    [today]: todayCount
+                                }
+                            }, { merge: true });
+                        } catch (error) {
+                            console.error('Failed to sync progress:', error);
+                        }
+                    }
+                }
+            },
+
+            // Record test score
+            recordTestScore: async (testId, score, passed) => {
+                set((state) => ({
+                    testScores: {
+                        ...state.testScores,
+                        [testId]: { score, passed, date: new Date().toISOString() }
+                    }
+                }));
+
+                // Sync to Firebase
+                const authState = useAuthStore.getState();
+                if (authState.user) {
+                    try {
+                        const userRef = doc(db, 'users', authState.user.uid);
+                        await setDoc(userRef, {
+                            testScores: get().testScores
+                        }, { merge: true });
+                    } catch (error) {
+                        console.error('Failed to sync test score:', error);
+                    }
+                }
+            },
+
+            // Award certificate
+            awardCertificate: async (courseId, courseName) => {
+                const newCertificate = {
+                    id: `cert_${courseId}_${Date.now()}`,
+                    courseId,
+                    courseName,
+                    awardedAt: new Date().toISOString()
+                };
+
+                set((state) => ({
+                    certificates: [...state.certificates, newCertificate]
+                }));
+
+                // Sync to Firebase
+                const authState = useAuthStore.getState();
+                if (authState.user) {
+                    try {
+                        const userRef = doc(db, 'users', authState.user.uid);
+                        await setDoc(userRef, {
+                            certificates: get().certificates
+                        }, { merge: true });
+                    } catch (error) {
+                        console.error('Failed to sync certificate:', error);
+                    }
+                }
+
+                return newCertificate;
+            },
+
+            // Check if lesson is completed
+            isLessonCompleted: (lessonId) => {
+                return get().completedLessons.includes(lessonId);
+            },
+
+            // Get course completion percentage
+            getCourseProgress: (courseId, totalLessons) => {
+                const { completedLessons } = get();
+                const courseLessons = completedLessons.filter(id => id.startsWith(courseId));
+                return Math.round((courseLessons.length / totalLessons) * 100);
+            },
+
+            // Sync from Firebase (for new login)
+            syncFromFirebase: async () => {
+                const authState = useAuthStore.getState();
+                if (authState.user) {
+                    try {
+                        const userRef = doc(db, 'users', authState.user.uid);
+                        const userSnap = await getDoc(userRef);
+                        if (userSnap.exists()) {
+                            const data = userSnap.data();
+                            set({
+                                completedLessons: data.completedLessons || [],
+                                testScores: data.testScores || {},
+                                certificates: data.certificates || [],
+                                activityLog: data.activityLog || {}
+                            });
+                        }
+                    } catch (error) {
+                        console.error('Failed to sync from Firebase:', error);
+                    }
+                }
+            },
+
+            // Clear all local progress (for logout)
+            clearProgress: () => {
+                set({
+                    lessonCode: {},
+                    completedLessons: [],
+                    courseProgress: {},
+                    testScores: {},
+                    certificates: [],
+                    activityLog: {}
+                });
+            }
+        }),
+        {
+            name: 'startcode-progress'
+        }
+    )
+);

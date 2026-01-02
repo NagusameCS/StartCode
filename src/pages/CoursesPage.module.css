@@ -1,0 +1,417 @@
+.courses {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.header p {
+    color: var(--color-textMuted);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.categoryBtn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-textSecondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.9rem;
+}
+
+.categoryBtn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.categoryBtn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Course Card */
+.courseCard {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all var(--transition-normal);
+    height: 100%;
+}
+
+.courseCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.courseCard.locked {
+    opacity: 0.7;
+}
+
+.courseCard.locked:hover {
+    transform: none;
+    cursor: not-allowed;
+}
+
+.courseIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+}
+
+.lockOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.courseCard h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.courseCard p {
+    font-size: 0.9rem;
+    color: var(--color-textSecondary);
+    flex: 1;
+    margin-bottom: var(--spacing-md);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cardMeta {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.8rem;
+    color: var(--color-textMuted);
+    margin-bottom: var(--spacing-md);
+}
+
+.cardMeta span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.cardProgress {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.cardProgressBar {
+    flex: 1;
+    height: 6px;
+    background-color: var(--color-backgroundTertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.cardProgressFill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width var(--transition-normal);
+}
+
+.cardProgress span {
+    font-size: 0.8rem;
+    color: var(--color-textMuted);
+    min-width: 35px;
+}
+
+.cardFooter {
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.completedBadge,
+.continueBadge,
+.startBadge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.completedBadge {
+    color: var(--color-success);
+}
+
+.continueBadge {
+    color: var(--color-primary);
+}
+
+.startBadge {
+    color: var(--color-textSecondary);
+}
+
+/* Course Detail */
+.courseDetail {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.backButton {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: none;
+    border: none;
+    color: var(--color-textSecondary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-sm) 0;
+}
+
+.backButton:hover {
+    color: var(--color-primary);
+}
+
+.courseHeader {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.courseIconLarge {
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.courseHeaderInfo h1 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.courseHeaderInfo p {
+    color: var(--color-textSecondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.courseMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    font-size: 0.9rem;
+    color: var(--color-textMuted);
+}
+
+.courseMeta span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.progressBadge {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+}
+
+.prerequisiteWarning {
+    display: flex;
+    gap: var(--spacing-md);
+    background-color: rgba(245, 158, 11, 0.1);
+    border: 1px solid var(--color-warning);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-warning);
+}
+
+.prerequisiteWarning svg {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.prerequisiteWarning strong {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.prerequisiteWarning p {
+    margin: 0;
+    color: var(--color-textSecondary);
+    font-size: 0.9rem;
+}
+
+.progressSection {
+    margin-bottom: var(--spacing-xl);
+}
+
+.progressBar {
+    height: 8px;
+    background-color: var(--color-backgroundTertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    border-radius: var(--radius-full);
+}
+
+/* Lessons List */
+.lessonsList h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.lessonCard {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all var(--transition-fast);
+}
+
+.lessonCard:hover:not(.locked) {
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+}
+
+.lessonCard.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.lessonCard.completed {
+    border-color: var(--color-success);
+}
+
+.lessonNumber {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--color-backgroundTertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.lessonCard.completed .lessonNumber {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.lessonCard.locked .lessonNumber {
+    background-color: var(--color-backgroundTertiary);
+    color: var(--color-textMuted);
+}
+
+.lessonInfo {
+    flex: 1;
+}
+
+.lessonInfo h3 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.lessonInfo p {
+    font-size: 0.85rem;
+    color: var(--color-textMuted);
+    margin: 0;
+}
+
+.lessonStage {
+    font-size: 0.75rem;
+    color: var(--color-textMuted);
+    background-color: var(--color-backgroundTertiary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+}
+
+.lessonArrow {
+    color: var(--color-textMuted);
+    transition: transform var(--transition-fast);
+}
+
+.lessonCard:hover:not(.locked) .lessonArrow {
+    transform: translateX(4px);
+    color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .courseHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .courseIconLarge {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

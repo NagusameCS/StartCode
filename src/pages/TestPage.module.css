@@ -1,0 +1,461 @@
+/* Test Page Styles */
+.test {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 4rem);
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.error svg {
+    font-size: 3rem;
+    color: var(--color-error);
+}
+
+/* Intro Screen */
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 500px;
+    padding: 2rem;
+}
+
+.courseIcon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.intro h1 {
+    margin: 0;
+    color: var(--color-text);
+}
+
+.description {
+    color: var(--color-text-secondary);
+    margin: 0.5rem 0 2rem;
+}
+
+.rules {
+    width: 100%;
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.rules h3 {
+    margin: 0 0 1rem;
+    color: var(--color-text);
+}
+
+.rules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.rules li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text-secondary);
+}
+
+.rules li svg {
+    color: var(--color-primary);
+}
+
+.introActions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Active Test */
+.active {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.timerBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-border);
+    z-index: 100;
+}
+
+.timerProgress {
+    height: 100%;
+    background: var(--color-primary);
+    transition: width 1s linear;
+}
+
+.testLayout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1.5rem;
+    flex: 1;
+    min-height: 0;
+}
+
+/* Question Navigation Sidebar */
+aside.questionNav {
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: fit-content;
+    position: sticky;
+    top: 1rem;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    padding: 0.75rem;
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+}
+
+.timer .urgent {
+    color: var(--color-error);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.questionGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+}
+
+.questionBtn {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.questionBtn:hover {
+    border-color: var(--color-text-muted);
+}
+
+.questionBtn.current {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.questionBtn.answered {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.questionBtn.flagged {
+    border-color: var(--color-warning);
+}
+
+.flagIcon {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    font-size: 0.625rem;
+    color: var(--color-warning);
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.submitBtn:hover {
+    background: var(--color-primary-hover);
+}
+
+/* Question Area */
+.questionArea {
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.questionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.questionHeader span {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.flagBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.flagBtn:hover,
+.flagBtn.active {
+    border-color: var(--color-warning);
+    color: var(--color-warning);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.question {
+    flex: 1;
+}
+
+.question h2 {
+    margin: 0 0 1.5rem;
+    color: var(--color-text);
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.codeBlock {
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+}
+
+.codeBlock code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875rem;
+    color: var(--color-text);
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+}
+
+.option:hover {
+    border-color: var(--color-text-muted);
+}
+
+.option.selected {
+    border-color: var(--color-primary);
+    background: var(--color-primary-bg);
+}
+
+.optionLetter {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-card);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.option.selected .optionLetter {
+    background: var(--color-primary);
+    color: white;
+}
+
+.optionText {
+    flex: 1;
+    color: var(--color-text);
+}
+
+/* Bottom navigation inside main area */
+main .questionNav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* Finished Screen */
+.finished {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 400px;
+    padding: 2rem;
+}
+
+.resultIcon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.resultIcon.pass {
+    background: var(--color-success-bg);
+    color: var(--color-success);
+}
+
+.resultIcon.fail {
+    background: var(--color-error-bg);
+    color: var(--color-error);
+}
+
+.finished h1 {
+    margin: 0;
+    color: var(--color-text);
+}
+
+.scoreDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.scoreValue {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.scoreLabel {
+    color: var(--color-text-secondary);
+}
+
+.certMessage {
+    color: var(--color-success);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.resultActions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .testLayout {
+        grid-template-columns: 1fr;
+    }
+
+    aside.questionNav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        gap: 0.75rem;
+        z-index: 50;
+    }
+
+    .timer {
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+    }
+
+    .questionGrid {
+        display: none;
+    }
+
+    .submitBtn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .questionArea {
+        padding-bottom: 5rem;
+    }
+}
