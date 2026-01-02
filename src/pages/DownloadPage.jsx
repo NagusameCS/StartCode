@@ -1,5 +1,5 @@
 // Download Page - Electron client download
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
     FiDownload,
@@ -9,7 +9,8 @@ import {
     FiCloud,
     FiZap,
     FiShield,
-    FiRefreshCw
+    FiRefreshCw,
+    FiExternalLink
 } from 'react-icons/fi';
 import { FaWindows, FaApple, FaLinux } from 'react-icons/fa';
 import Logo from '../components/Logo';
@@ -17,6 +18,52 @@ import styles from './DownloadPage.module.css';
 
 const DownloadPage = () => {
     const [selectedPlatform, setSelectedPlatform] = useState('windows');
+    const [releaseInfo, setReleaseInfo] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    // Fetch latest release from GitHub
+    useEffect(() => {
+        const fetchRelease = async () => {
+            try {
+                const res = await fetch('https://api.github.com/repos/NagusameCS/StartCode/releases/latest');
+                if (res.ok) {
+                    const data = await res.json();
+                    setReleaseInfo(data);
+                }
+            } catch (err) {
+                console.warn('Could not fetch release info:', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchRelease();
+    }, []);
+
+    // Get download URL for platform
+    const getDownloadUrl = (platformId) => {
+        if (!releaseInfo?.assets) return null;
+        const patterns = {
+            windows: /\.exe$/i,
+            mac: /\.dmg$/i,
+            linux: /\.AppImage$/i
+        };
+        const asset = releaseInfo.assets.find(a => patterns[platformId]?.test(a.name));
+        return asset?.browser_download_url || null;
+    };
+
+    // Get file size for platform
+    const getFileSize = (platformId) => {
+        if (!releaseInfo?.assets) return 'Coming soon';
+        const patterns = {
+            windows: /\.exe$/i,
+            mac: /\.dmg$/i,
+            linux: /\.AppImage$/i
+        };
+        const asset = releaseInfo.assets.find(a => patterns[platformId]?.test(a.name));
+        if (!asset) return 'Coming soon';
+        const mb = (asset.size / (1024 * 1024)).toFixed(1);
+        return `${mb} MB`;
+    };
 
     const platforms = [
         {
@@ -24,24 +71,18 @@ const DownloadPage = () => {
             name: 'Windows',
             icon: FaWindows,
             version: '10, 11',
-            filename: 'StartCode-Setup-1.0.0.exe',
-            size: '85 MB'
         },
         {
             id: 'mac',
             name: 'macOS',
             icon: FaApple,
             version: '11+',
-            filename: 'StartCode-1.0.0.dmg',
-            size: '92 MB'
         },
         {
             id: 'linux',
             name: 'Linux',
             icon: FaLinux,
             version: 'Ubuntu, Fedora, etc.',
-            filename: 'StartCode-1.0.0.AppImage',
-            size: '88 MB'
         }
     ];
 
@@ -74,11 +115,16 @@ const DownloadPage = () => {
     ];
 
     const selectedPlatformData = platforms.find(p => p.id === selectedPlatform);
+    const downloadUrl = getDownloadUrl(selectedPlatform);
+    const fileSize = getFileSize(selectedPlatform);
 
     const handleDownload = () => {
-        // Open the GitHub releases page for the appropriate platform
-        const releaseUrl = 'https://github.com/NagusameCS/StartCode/releases/latest';
-        window.open(releaseUrl, '_blank');
+        if (downloadUrl) {
+            window.location.href = downloadUrl;
+        } else {
+            // Fallback to releases page
+            window.open('https://github.com/NagusameCS/StartCode/releases/latest', '_blank');
+        }
     };
 
     return (
@@ -129,19 +175,22 @@ const DownloadPage = () => {
 
                 <div className={styles.downloadBox}>
                     <div className={styles.downloadInfo}>
-                        <span className={styles.filename}>{selectedPlatformData?.filename}</span>
-                        <span className={styles.filesize}>{selectedPlatformData?.size}</span>
+                        <span className={styles.filename}>
+                            {loading ? 'Loading...' : downloadUrl ? `StartCode for ${selectedPlatformData?.name}` : 'Coming Soon'}
+                        </span>
+                        <span className={styles.filesize}>{fileSize}</span>
                     </div>
                     <button
                         className={styles.downloadBtn}
                         onClick={handleDownload}
+                        disabled={loading}
                     >
-                        <FiDownload /> Download for {selectedPlatformData?.name}
+                        <FiDownload /> {downloadUrl ? `Download for ${selectedPlatformData?.name}` : 'View Releases'}
                     </button>
                 </div>
 
                 <p className={styles.note}>
-                    Version 1.0.0 • Requires {selectedPlatformData?.version}
+                    {releaseInfo ? `Version ${releaseInfo.tag_name}` : 'Latest version'} • Requires {selectedPlatformData?.version}
                 </p>
             </motion.div>
 
