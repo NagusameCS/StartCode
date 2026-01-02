@@ -13,27 +13,18 @@ console.log(
 console.log('🚀 StartCode initialized');
 
 // Handle SPA redirect from 404.html (GitHub Pages)
+// The 404.html stores the intended route in sessionStorage
 (function () {
-  const redirect = sessionStorage.redirect;
-  delete sessionStorage.redirect;
-  if (redirect && redirect !== location.href) {
-    history.replaceState(null, null, redirect);
-  }
-})();
-
-// Handle query-based redirect from 404.html
-// Converts /?/path to /path for client-side routing
-(function () {
-  const l = window.location;
-  // Check if we have a /?/ pattern (from 404.html redirect)
-  if (l.search.startsWith('?/')) {
-    // Extract the path from query string: /?/login -> /login
-    const pathFromQuery = l.search.slice(2).split('&')[0].replace(/~and~/g, '&');
-    // Get hash if any
-    const hash = l.hash || '';
-    // Build the new URL with proper path
-    const newPath = l.pathname.replace(/\/$/, '') + '/' + pathFromQuery + hash;
-    window.history.replaceState(null, null, newPath);
+  const redirect = sessionStorage.getItem('spa_redirect');
+  if (redirect) {
+    sessionStorage.removeItem('spa_redirect');
+    // Use replaceState to update URL without reload
+    // This allows React Router to pick up the correct route
+    const base = '/StartCode';
+    const newUrl = base + redirect;
+    if (window.location.pathname + window.location.search !== newUrl) {
+      window.history.replaceState(null, null, newUrl);
+    }
   }
 })();
 

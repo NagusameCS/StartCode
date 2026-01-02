@@ -227,6 +227,11 @@ const CoursesPage = () => {
 
                                     {/* Tags */}
                                     <div className={styles.tags}>
+                                        {course.prerequisites?.length > 0 && (
+                                            <span className={styles.reqTag}>
+                                                <FiLock /> Requires: {course.prerequisites.map(p => getCourse(p)?.name).join(', ')}
+                                            </span>
+                                        )}
                                         <span className={styles.categoryTag}>{course.category}</span>
                                         {course.language && <span className={styles.langTag}>{course.language}</span>}
                                     </div>
