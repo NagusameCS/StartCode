@@ -13,7 +13,7 @@ console.log(
 console.log('🚀 StartCode initialized');
 
 // Handle SPA redirect from 404.html (GitHub Pages)
-(function() {
+(function () {
   const redirect = sessionStorage.redirect;
   delete sessionStorage.redirect;
   if (redirect && redirect !== location.href) {
@@ -22,7 +22,7 @@ console.log('🚀 StartCode initialized');
 })();
 
 // Handle query-based redirect from 404.html
-(function() {
+(function () {
   const l = window.location;
   if (l.search[1] === '/') {
     const decoded = l.search.slice(1).split('&').map(s => s.replace(/~and~/g, '&')).join('?');
