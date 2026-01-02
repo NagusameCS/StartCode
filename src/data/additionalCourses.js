@@ -1,18 +1,16 @@
 // Additional Courses - Firebase, GitHub, VS Code
-// These are merged into the main courses object
 
 export const additionalCourses = {
-    // Firebase Course
     'firebase': {
         id: 'firebase',
         name: 'Firebase',
-        description: 'Build real-time apps with Google Firebase. Learn authentication, databases, and hosting.',
+        description: 'Build real-time apps with Google Firebase. Learn authentication, databases, and security rules.',
         category: 'fullstack',
         icon: '🔥',
         color: '#FFCA28',
         language: 'javascript',
         prerequisites: ['javascript'],
-        estimatedHours: 12,
+        estimatedHours: 15,
         lessons: [
             {
                 id: 'firebase-1',
@@ -22,29 +20,22 @@ export const additionalCourses = {
                 content: `
 # What is Firebase?
 
-Firebase is a Backend-as-a-Service (BaaS) platform by Google that handles the server-side of your app.
+Firebase is a Backend-as-a-Service (BaaS) platform by Google.
 
 ## Core Services:
 - **Authentication**: User login/signup
 - **Firestore**: NoSQL database
-- **Realtime Database**: Live data sync
 - **Storage**: File uploads
 - **Hosting**: Deploy websites
-- **Functions**: Serverless code
 
 ## Why Firebase?
 - No server to manage
 - Real-time updates
 - Scales automatically
 - Free tier available
-
-## Setting Up:
-1. Create project at firebase.google.com
-2. Add Firebase SDK to your app
-3. Initialize with your config
                 `,
                 exercise: {
-                    prompt: 'Firebase is a Backend-as-a-Service. What does that mean for developers?',
+                    prompt: 'Firebase is a Backend-as-a-Service. What does that mean?',
                     type: 'multiple-choice',
                     options: [
                         'You must build your own server',
@@ -70,158 +61,262 @@ Firebase Auth provides easy-to-use authentication.
 - Google
 - GitHub
 - Phone number
-- Anonymous
 
 ## Basic Auth Flow:
-
 \`\`\`
-// Import auth
-import auth from firebase auth
-
-// Sign up new user
 create user with email and password
-
-// Sign in existing user
 sign in with email and password
-
-// Sign out
 sign out current user
-
-// Listen for auth changes
-on auth state changed do
-    if user exists then
-        display "Logged in as " plus user email
-    otherwise
-        display "Not logged in"
-    end if
-end listener
 \`\`\`
-
-## Auth State:
-Firebase automatically persists login state across page refreshes!
                 `,
                 exercise: {
-                    prompt: 'Write the natural language to sign in a user with email and password',
+                    prompt: 'Write the command to create a new user account.',
                     type: 'code',
                     language: 'javascript',
-                    expectedNatural: 'sign in with email and password',
-                    expectedOutput: 'sign in with email and password',
-                    hint: 'Use: sign in with email and password'
+                    expectedOutput: 'create user with email and password',
+                    hint: 'Use: create user with email and password'
                 }
             },
             {
                 id: 'firebase-3',
-                title: 'Reading Code: Auth Setup',
-                description: 'Understand real Firebase auth code',
-                stage: 2,
-                content: `
-# Reading Real Firebase Code
-
-Let's learn to read actual Firebase authentication code!
-
-## Real JavaScript Code:
-\`\`\`javascript
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-
-const auth = getAuth();
-const provider = new GoogleAuthProvider();
-
-async function loginWithGoogle() {
-    try {
-        const result = await signInWithPopup(auth, provider);
-        const user = result.user;
-        console.log('Welcome', user.displayName);
-    } catch (error) {
-        console.error('Login failed:', error.message);
-    }
-}
-\`\`\`
-
-## Breaking It Down:
-1. **import**: Get the functions we need
-2. **getAuth()**: Initialize authentication
-3. **GoogleAuthProvider**: Sets up Google login
-4. **signInWithPopup**: Opens Google login popup
-5. **result.user**: Contains user info after login
-6. **try/catch**: Handle errors gracefully
-                `,
-                exercise: {
-                    prompt: 'In the code above, what does signInWithPopup return when successful?',
-                    type: 'multiple-choice',
-                    options: [
-                        'Just the user email',
-                        'A result object containing the user',
-                        'Nothing (undefined)',
-                        'An error message'
-                    ],
-                    answer: 1
-                }
-            },
-            {
-                id: 'firebase-4',
                 title: 'Firestore Database',
                 description: 'Store and retrieve data',
-                stage: 2,
+                stage: 1,
                 content: `
 # Firestore Database
 
 Firestore is a NoSQL document database.
 
 ## Structure:
-- **Collections**: Groups of documents (like folders)
-- **Documents**: Individual records (like files)
-- **Fields**: Data in documents (like file contents)
-
-## Example Structure:
-\`\`\`
-users (collection)
-  - user123 (document)
-    - name: "Alice"
-    - email: "alice@email.com"
-    - age: 25
-  - user456 (document)
-    - name: "Bob"
-    - email: "bob@email.com"
-\`\`\`
+- **Collections**: Groups of documents
+- **Documents**: Individual records
+- **Fields**: Data in documents
 
 ## Basic Operations:
 \`\`\`
-// Add document
-add document to collection "users" with data name: "Alice", age: 25 end add
-
-// Get document
+add document to collection "users" with data name: "Alice" end add
 get document "user123" from collection "users"
-
-// Update document
-update document "user123" in collection "users" set age to 26 end update
-
-// Delete document
+update document "user123" set role to "admin" end update
 delete document "user123" from collection "users"
 \`\`\`
                 `,
                 exercise: {
-                    prompt: 'Add a document to the "posts" collection with title: "Hello World"',
+                    prompt: 'Write command to add a document to "products" with name: "Laptop".',
                     type: 'code',
-                    language: 'javascript',
-                    expectedNatural: 'add document to collection "posts" with data title: "Hello World" end add',
-                    expectedOutput: 'add document to collection "posts" with data title: "Hello World" end add',
-                    hint: 'Use: add document to collection "name" with data ... end add'
+                    expectedOutput: 'add document to collection "products" with data name: "Laptop" end add',
+                    hint: 'Use: add document to collection "name" with data field: value end add'
+                }
+            },
+            {
+                id: 'firebase-4',
+                title: 'Why Security Rules Matter',
+                description: 'Protect your database',
+                stage: 2,
+                content: `
+# Why Security Rules Matter
+
+Without security rules, ANYONE can read/write your data!
+
+## The Problem:
+\`\`\`
+// BAD - NEVER use in production!
+allow read, write: if true;  // Anyone can do anything!
+\`\`\`
+
+## What Can Go Wrong:
+- Hackers can delete all your data
+- Anyone can read private information
+- Users can modify other users' data
+
+## Rule Structure:
+\`\`\`
+match /collection/{documentId} {
+  allow read: if <condition>;
+  allow write: if <condition>;
+}
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What is the danger of "allow read, write: if true"?',
+                    type: 'multiple-choice',
+                    options: [
+                        'The database runs slower',
+                        'Anyone on the internet can read and modify all your data',
+                        'Users cannot log in',
+                        'The app will not load'
+                    ],
+                    answer: 1
+                }
+            },
+            {
+                id: 'firebase-5',
+                title: 'Require Authentication',
+                description: 'Your first security rule',
+                stage: 2,
+                content: `
+# Require Authentication
+
+The most basic rule: require users to be logged in.
+
+## The request.auth Object:
+- **request.auth**: Info about logged-in user
+- **request.auth.uid**: User's unique ID
+- **request.auth.token.email**: User's email
+
+## Require Authentication:
+\`\`\`
+match /posts/{postId} {
+  allow read, write: if request.auth != null;
+}
+\`\`\`
+
+## Breaking It Down:
+- \`request.auth != null\` = user is logged in
+- If not logged in, request.auth is null
+                `,
+                exercise: {
+                    prompt: 'Write a condition that checks if a user is logged in.',
+                    type: 'code',
+                    expectedOutput: 'request.auth != null',
+                    hint: 'Check if request.auth is not null'
+                }
+            },
+            {
+                id: 'firebase-6',
+                title: 'User-Specific Data Rules',
+                description: 'Users access only their data',
+                stage: 2,
+                content: `
+# User-Specific Data Rules
+
+Users should only read/write their OWN data.
+
+## The Pattern:
+\`\`\`
+match /users/{userId} {
+  allow read, write: if request.auth.uid == userId;
+}
+\`\`\`
+
+## How It Works:
+1. \`{userId}\` captures the document ID
+2. \`request.auth.uid\` is logged-in user's ID
+3. They must match for access
+                `,
+                exercise: {
+                    prompt: 'Write a rule condition allowing access only when user ID matches document userId.',
+                    type: 'code',
+                    expectedOutput: 'request.auth.uid == userId',
+                    hint: 'Compare request.auth.uid with userId'
+                }
+            },
+            {
+                id: 'firebase-7',
+                title: 'Read vs Write Permissions',
+                description: 'Separate permissions',
+                stage: 2,
+                content: `
+# Separating Read and Write
+
+Different actions need different permissions!
+
+## Common Pattern - Public Read, Owner Write:
+\`\`\`
+match /posts/{postId} {
+  allow read: if true;
+  allow write: if request.auth.uid == resource.data.authorId;
+}
+\`\`\`
+
+## Granular Control:
+\`\`\`
+allow read: if true;
+allow create: if request.auth != null;
+allow update, delete: if request.auth.uid == resource.data.authorId;
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write rules: anyone can read, only authenticated users can write.',
+                    type: 'code',
+                    expectedOutput: 'allow read: if true; allow write: if request.auth != null;',
+                    hint: 'Separate read and write rules'
+                }
+            },
+            {
+                id: 'firebase-8',
+                title: 'Validating Data',
+                description: 'Ensure data meets requirements',
+                stage: 3,
+                content: `
+# Data Validation Rules
+
+Prevent bad data from entering your database!
+
+## Validation Examples:
+
+### Required Fields:
+\`\`\`
+allow create: if request.resource.data.title != null;
+\`\`\`
+
+### String Length:
+\`\`\`
+allow create: if request.resource.data.title.size() <= 100;
+\`\`\`
+
+### Valid Values:
+\`\`\`
+allow write: if request.resource.data.status in ['draft', 'published'];
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write validation ensuring title is max 200 characters.',
+                    type: 'code',
+                    expectedOutput: 'request.resource.data.title.size() <= 200',
+                    hint: 'Use .size() for string length'
+                }
+            },
+            {
+                id: 'firebase-9',
+                title: 'Role-Based Access',
+                description: 'Admin vs regular user permissions',
+                stage: 3,
+                content: `
+# Role-Based Access Control
+
+Different users have different permissions.
+
+## Using Custom Claims:
+\`\`\`
+allow write: if request.auth.token.admin == true;
+\`\`\`
+
+## Common Roles:
+- **viewer**: Read only
+- **member**: Read + create
+- **moderator**: Read + create + edit others
+- **admin**: Full access
+                `,
+                exercise: {
+                    prompt: 'Write a condition checking if user has admin claim.',
+                    type: 'code',
+                    expectedOutput: 'request.auth.token.admin == true',
+                    hint: 'Access admin from request.auth.token'
                 }
             }
         ]
     },
 
-    // GitHub Course
     'github': {
         id: 'github',
         name: 'GitHub',
-        description: 'Master GitHub for collaboration, version control, and open source contribution.',
+        description: 'Master GitHub for collaboration, licensing, security, and open source.',
         category: 'tools',
         icon: '🐙',
         color: '#333333',
         language: null,
         prerequisites: ['git'],
-        estimatedHours: 8,
+        estimatedHours: 12,
         lessons: [
             {
                 id: 'github-1',
@@ -231,25 +326,15 @@ delete document "user123" from collection "users"
                 content: `
 # What is GitHub?
 
-GitHub is a web platform for hosting Git repositories and collaborating with others.
+GitHub is a web platform for hosting Git repositories.
 
 ## Git vs GitHub:
 - **Git**: Version control system (local)
 - **GitHub**: Cloud hosting + collaboration (remote)
 
 ## Key Features:
-- **Repositories**: Project storage
-- **Issues**: Bug tracking & features
-- **Pull Requests**: Code review
-- **Actions**: Automation (CI/CD)
-- **Pages**: Free website hosting
-- **Codespaces**: Cloud development
-
-## Why GitHub?
-- Backup your code
-- Collaborate with teams
-- Showcase your work (portfolio!)
-- Contribute to open source
+- Repositories, Issues, Pull Requests
+- Actions (CI/CD), Pages (hosting)
                 `,
                 exercise: {
                     prompt: 'What is the main difference between Git and GitHub?',
@@ -265,302 +350,617 @@ GitHub is a web platform for hosting Git repositories and collaborating with oth
             },
             {
                 id: 'github-2',
-                title: 'Creating a Repository',
-                description: 'Set up your first repo',
+                title: 'Choosing a License',
+                description: 'Protect your work properly',
                 stage: 1,
                 content: `
-# Creating a Repository
+# Choosing a License
 
-A repository (repo) holds all your project files and history.
+A license tells others what they can do with your code.
 
-## On GitHub.com:
-1. Click "+" -> "New repository"
-2. Enter repository name
-3. Choose public or private
-4. Optionally add README, .gitignore, license
-5. Click "Create repository"
+## No License = All Rights Reserved!
 
-## Cloning to Local:
-\`\`\`
-git clone https://github.com/username/repo-name.git
-\`\`\`
+## Popular Licenses:
 
-## Creating from Local:
-\`\`\`
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/username/repo-name.git
-git push -u origin main
-\`\`\`
+### MIT License (Most Popular)
+- ✅ Anyone can use, modify, distribute
+- ✅ Can use in commercial projects
+- ⚠️ Must include license notice
 
-## Repository Structure:
-- **README.md**: Project description
-- **.gitignore**: Files to not track
-- **LICENSE**: Usage permissions
+### Apache 2.0
+- ✅ Similar to MIT + patent protection
+
+### GPL
+- ⚠️ Derivative works MUST also be GPL
+- ⚠️ "Viral" - spreads to your code
+
+## How to Choose:
+- Maximum adoption? → **MIT**
+- Patent protection? → **Apache 2.0**
+- Keep code open? → **GPL**
                 `,
                 exercise: {
-                    prompt: 'What command connects your local repo to GitHub?',
-                    type: 'code',
-                    expectedNatural: 'git remote add origin',
-                    expectedOutput: 'git remote add origin',
-                    hint: 'Use: git remote add origin <url>'
+                    prompt: 'Which license is best for maximum adoption with minimal restrictions?',
+                    type: 'multiple-choice',
+                    options: [
+                        'GPL',
+                        'MIT',
+                        'No license',
+                        'Creative Commons'
+                    ],
+                    answer: 1
                 }
             },
             {
                 id: 'github-3',
-                title: 'Understanding Issues',
-                description: 'Track bugs and features',
+                title: 'Adding a License',
+                description: 'Practical license implementation',
                 stage: 1,
                 content: `
-# GitHub Issues
+# Adding a License
 
-Issues are GitHub's task tracking system.
+## Method 1: When Creating Repo
+Select license from dropdown during creation.
 
-## Creating an Issue:
-1. Go to "Issues" tab
-2. Click "New issue"
-3. Add title and description
-4. Assign labels, assignees, projects
-5. Submit
+## Method 2: Add LICENSE File
+Create file named LICENSE with license text.
 
-## Good Issue Template:
+## Also Add to README:
 \`\`\`markdown
-## Description
-What is the bug or feature?
-
-## Steps to Reproduce (for bugs)
-1. Go to...
-2. Click on...
-3. See error
-
-## Expected Behavior
-What should happen?
-
-## Screenshots
-If applicable, add screenshots.
+## License
+This project is licensed under the MIT License.
 \`\`\`
-
-## Labels:
-- **bug**: Something is broken
-- **enhancement**: New feature
-- **good first issue**: Beginner friendly
-- **help wanted**: Need contributors
                 `,
                 exercise: {
-                    prompt: 'What label indicates an issue is good for beginners?',
-                    type: 'multiple-choice',
-                    options: [
-                        'bug',
-                        'enhancement',
-                        'good first issue',
-                        'help wanted'
-                    ],
-                    answer: 2
+                    prompt: 'What should you name the license file?',
+                    type: 'code',
+                    expectedOutput: 'LICENSE',
+                    hint: 'All uppercase'
                 }
             },
             {
                 id: 'github-4',
+                title: 'Writing Bug Reports',
+                description: 'Report issues effectively',
+                stage: 2,
+                content: `
+# Writing Good Bug Reports
+
+## Essential Elements:
+1. **Clear Title**: "Login button unresponsive on mobile Safari"
+2. **Environment**: Browser, OS, app version
+3. **Steps to Reproduce**: Numbered list
+4. **Expected vs Actual**: What should happen vs what happens
+5. **Screenshots**: If applicable
+
+## Template:
+\`\`\`markdown
+## Bug Description
+Brief description
+
+## Steps to Reproduce
+1. Go to...
+2. Click...
+3. See error
+
+## Expected Behavior
+What should happen
+
+## Actual Behavior  
+What actually happens
+
+## Environment
+- OS: macOS 14.0
+- Browser: Safari 17.0
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write a clear bug title for: dark mode toggle sometimes works, page flickers.',
+                    type: 'code',
+                    expectedOutput: 'Dark mode toggle',
+                    hint: 'Be specific about component and behavior'
+                }
+            },
+            {
+                id: 'github-5',
+                title: 'Security Vulnerability Reporting',
+                description: 'Handle security issues responsibly',
+                stage: 2,
+                content: `
+# Security Vulnerability Reporting
+
+## ⚠️ NEVER Post Security Issues Publicly!
+Public issues expose vulnerabilities to attackers.
+
+## Responsible Disclosure:
+1. Check for SECURITY.md
+2. Use private reporting (GitHub Security tab)
+3. Email security@company.com
+
+## What to Include:
+- Vulnerability type (XSS, SQL injection, etc.)
+- Steps to reproduce
+- Potential impact
+- Suggested fix
+                `,
+                exercise: {
+                    prompt: 'Why should you NEVER post security vulnerabilities as public issues?',
+                    type: 'multiple-choice',
+                    options: [
+                        'It takes too long',
+                        'Public issues expose the vulnerability to attackers',
+                        'Security issues are not allowed',
+                        'Only admins can see issues'
+                    ],
+                    answer: 1
+                }
+            },
+            {
+                id: 'github-6',
+                title: 'Creating SECURITY.md',
+                description: 'Set up security policy',
+                stage: 2,
+                content: `
+# Creating a SECURITY.md
+
+Tell users how to report security issues.
+
+## Create: .github/SECURITY.md
+
+\`\`\`markdown
+# Security Policy
+
+## Reporting a Vulnerability
+
+**Do not report through public issues.**
+
+Report via:
+1. GitHub Security Advisories
+2. Email: security@yourproject.com
+
+### Response Timeline:
+- Initial response: 48 hours
+- Status update: 7 days
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What folder should SECURITY.md be placed in?',
+                    type: 'code',
+                    expectedOutput: '.github',
+                    hint: 'Starts with a dot'
+                }
+            },
+            {
+                id: 'github-7',
                 title: 'Pull Requests',
                 description: 'Propose and review changes',
                 stage: 2,
                 content: `
-# Pull Requests (PRs)
+# Pull Requests
 
-Pull requests let you propose changes and get code review.
+Pull requests let you propose changes.
 
-## PR Workflow:
+## Workflow:
 1. Create a branch
-2. Make your changes
+2. Make changes
 3. Push the branch
 4. Open a pull request
 5. Get reviews
-6. Address feedback
-7. Merge when approved
+6. Merge
 
-## Creating a PR:
+## Commands:
 \`\`\`
-# Create and switch to new branch
 git checkout -b feature/new-button
-
-# Make changes and commit
 git add .
-git commit -m "Add new button component"
-
-# Push branch to GitHub
+git commit -m "Add new button"
 git push origin feature/new-button
 \`\`\`
-
-Then on GitHub, click "Compare & pull request"
-
-## PR Best Practices:
-- Clear title and description
-- Small, focused changes
-- Link related issues
-- Respond to feedback promptly
                 `,
                 exercise: {
-                    prompt: 'Write the command to create and switch to a new branch called "fix/typo"',
+                    prompt: 'Write command to create branch "bugfix/login-error".',
                     type: 'code',
-                    expectedNatural: 'git checkout -b fix/typo',
-                    expectedOutput: 'git checkout -b fix/typo',
+                    expectedOutput: 'git checkout -b bugfix/login-error',
                     hint: 'Use: git checkout -b <branch-name>'
+                }
+            },
+            {
+                id: 'github-8',
+                title: 'Issue Templates',
+                description: 'Standardize bug reports',
+                stage: 3,
+                content: `
+# Issue Templates
+
+Create: .github/ISSUE_TEMPLATE/bug_report.md
+
+\`\`\`markdown
+---
+name: Bug Report
+about: Report a bug
+title: '[BUG] '
+labels: bug
+---
+
+## Description
+A clear description of the bug.
+
+## Steps to Reproduce
+1. Go to '...'
+2. Click on '...'
+
+## Expected Behavior
+What should happen.
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What folder should issue templates be in?',
+                    type: 'code',
+                    expectedOutput: '.github/ISSUE_TEMPLATE',
+                    hint: 'Inside .github folder'
+                }
+            },
+            {
+                id: 'github-9',
+                title: 'GitHub Actions',
+                description: 'Automate your workflow',
+                stage: 3,
+                content: `
+# GitHub Actions
+
+Automate testing and deploying!
+
+## Workflow: .github/workflows/ci.yml
+\`\`\`yaml
+name: CI
+on:
+  push:
+    branches: [main]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install
+      - run: npm test
+\`\`\`
+
+## Key Concepts:
+- **on**: When to run
+- **jobs**: Parallel work units
+- **steps**: Sequential tasks
+                `,
+                exercise: {
+                    prompt: 'What keyword specifies when the workflow runs?',
+                    type: 'code',
+                    expectedOutput: 'on',
+                    hint: 'Two-letter keyword'
+                }
+            },
+            {
+                id: 'github-10',
+                title: 'Dependabot',
+                description: 'Automate dependency updates',
+                stage: 3,
+                content: `
+# Dependabot Security
+
+Keep dependencies secure automatically!
+
+## Create: .github/dependabot.yml
+\`\`\`yaml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+\`\`\`
+
+## What it Does:
+- Scans for vulnerabilities
+- Creates PRs to update
+- Runs CI on updates
+                `,
+                exercise: {
+                    prompt: 'What is the filename for Dependabot config?',
+                    type: 'code',
+                    expectedOutput: 'dependabot.yml',
+                    hint: 'YAML file in .github'
                 }
             }
         ]
     },
 
-    // VS Code Course
     'vscode': {
         id: 'vscode',
         name: 'VS Code Mastery',
-        description: 'Master Visual Studio Code to boost your productivity with shortcuts, extensions, and workflows.',
+        description: 'Master VS Code with shortcuts, debugging, extensions, and workflows.',
         category: 'tools',
         icon: '💻',
         color: '#007ACC',
         language: null,
         prerequisites: [],
-        estimatedHours: 6,
+        estimatedHours: 10,
         lessons: [
             {
                 id: 'vscode-1',
-                title: 'Getting Started with VS Code',
-                description: 'Set up your development environment',
+                title: 'Getting Started',
+                description: 'Set up your environment',
                 stage: 1,
                 content: `
 # Getting Started with VS Code
 
-VS Code is a free, powerful code editor by Microsoft.
+VS Code is a free, powerful code editor.
 
 ## Key Features:
-- **IntelliSense**: Smart code completion
-- **Debugging**: Built-in debugger
-- **Git Integration**: Version control
-- **Extensions**: Thousands of add-ons
-- **Themes**: Customize appearance
-- **Terminal**: Built-in command line
-
-## Installing:
-1. Go to code.visualstudio.com
-2. Download for your OS
-3. Install and launch
+- IntelliSense (smart completion)
+- Debugging
+- Git Integration
+- Extensions
+- Integrated Terminal
 
 ## First Steps:
-- Open a folder (File -> Open Folder)
-- Create a new file (Ctrl/Cmd + N)
-- Open Command Palette (Ctrl/Cmd + Shift + P)
-- Access Settings (Ctrl/Cmd + ,)
+- Open folder: File → Open Folder
+- New file: Ctrl/Cmd + N
+- Command Palette: Ctrl/Cmd + Shift + P
+- Settings: Ctrl/Cmd + ,
                 `,
                 exercise: {
-                    prompt: 'What keyboard shortcut opens the Command Palette?',
+                    prompt: 'What shortcut opens the Command Palette?',
                     type: 'multiple-choice',
-                    options: [
-                        'Ctrl + P',
-                        'Ctrl + Shift + P',
-                        'Ctrl + O',
-                        'Ctrl + N'
-                    ],
+                    options: ['Ctrl + P', 'Ctrl + Shift + P', 'Ctrl + O', 'Ctrl + N'],
                     answer: 1
                 }
             },
             {
                 id: 'vscode-2',
-                title: 'Essential Keyboard Shortcuts',
+                title: 'Essential Shortcuts',
                 description: 'Navigate like a pro',
                 stage: 1,
                 content: `
 # Essential Keyboard Shortcuts
 
-Master these to code faster!
-
 ## File Navigation:
-| Shortcut | Action |
-|----------|--------|
-| Ctrl/Cmd + P | Quick file open |
-| Ctrl/Cmd + Tab | Switch between open files |
-| Ctrl/Cmd + Backslash | Split editor |
-| Ctrl/Cmd + W | Close current file |
-| Ctrl/Cmd + Shift + E | Focus file explorer |
+- Ctrl + P: Quick file open
+- Ctrl + Tab: Switch files
+- Ctrl + W: Close file
 
 ## Editing:
-| Shortcut | Action |
-|----------|--------|
-| Ctrl/Cmd + D | Select next occurrence |
-| Ctrl/Cmd + Shift + L | Select all occurrences |
-| Alt + Up/Down | Move line up/down |
-| Ctrl/Cmd + Shift + K | Delete line |
-| Ctrl/Cmd + / | Toggle comment |
+- Ctrl + D: Select next match
+- Ctrl + Shift + L: Select all matches
+- Alt + Up/Down: Move line
+- Ctrl + /: Toggle comment
 
-## Search:
-| Shortcut | Action |
-|----------|--------|
-| Ctrl/Cmd + F | Find in file |
-| Ctrl/Cmd + H | Find and replace |
-| Ctrl/Cmd + Shift + F | Search all files |
-
-## Pro Tips:
-- Hold Alt and click for multiple cursors
-- Ctrl/Cmd + L to select entire line
+## Multi-Cursor:
+- Alt + Click: Add cursor
+- Ctrl + Alt + Up/Down: Add cursor above/below
                 `,
                 exercise: {
-                    prompt: 'What shortcut selects the next occurrence of the current selection?',
+                    prompt: 'What shortcut selects all occurrences of selected text?',
                     type: 'multiple-choice',
-                    options: [
-                        'Ctrl + F',
-                        'Ctrl + D',
-                        'Ctrl + A',
-                        'Ctrl + S'
-                    ],
+                    options: ['Ctrl + D', 'Ctrl + Shift + L', 'Ctrl + A', 'Alt + Click'],
                     answer: 1
                 }
             },
             {
                 id: 'vscode-3',
-                title: 'Must-Have Extensions',
+                title: 'Essential Extensions',
                 description: 'Supercharge your editor',
                 stage: 1,
                 content: `
 # Must-Have Extensions
 
-Extensions add superpowers to VS Code!
+Install: Ctrl + Shift + X
 
-## Install Extensions:
-1. Click Extensions icon (Ctrl/Cmd + Shift + X)
-2. Search for extension
-3. Click "Install"
-
-## Essential Extensions:
-
-### For Everyone:
+## For Everyone:
 - **Prettier**: Auto-format code
-- **GitLens**: Enhanced Git features
-- **Error Lens**: Inline error display
-- **Live Server**: Local development server
+- **ESLint**: Find JS problems
+- **GitLens**: Enhanced Git
 
-### For Web Dev:
-- **ES7+ Snippets**: React/JS shortcuts
-- **Auto Rename Tag**: HTML tag sync
-- **CSS Peek**: Navigate to CSS definitions
+## For Web Dev:
+- **Live Server**: Local dev server
+- **Auto Rename Tag**: Sync HTML tags
 
-### For Python:
-- **Python**: Microsoft's Python extension
-- **Pylance**: Fast language server
-
-### Productivity:
+## Productivity:
 - **Code Spell Checker**: Catch typos
-- **Todo Tree**: Find TODOs in code
-- **Better Comments**: Colored comments
+- **Path Intellisense**: Autocomplete paths
                 `,
                 exercise: {
-                    prompt: 'What extension automatically formats your code on save?',
+                    prompt: 'Which extension auto-formats JavaScript on save?',
+                    type: 'multiple-choice',
+                    options: ['ESLint', 'Prettier', 'GitLens', 'Live Server'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'vscode-4',
+                title: 'Configuring settings.json',
+                description: 'Customize VS Code',
+                stage: 2,
+                content: `
+# Configuring settings.json
+
+Open: Ctrl + Shift + P → "Open User Settings (JSON)"
+
+## Essential Settings:
+\`\`\`json
+{
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "files.autoSave": "onFocusChange"
+}
+\`\`\`
+
+## User vs Workspace:
+- **User**: All projects
+- **Workspace**: Only this project (.vscode/settings.json)
+                `,
+                exercise: {
+                    prompt: 'Write the setting to format code on save.',
+                    type: 'code',
+                    expectedOutput: 'editor.formatOnSave',
+                    hint: 'Starts with editor.'
+                }
+            },
+            {
+                id: 'vscode-5',
+                title: 'Integrated Terminal',
+                description: 'Command line in your editor',
+                stage: 2,
+                content: `
+# Integrated Terminal
+
+## Open Terminal:
+- Ctrl + \` (backtick)
+
+## Features:
+- Multiple terminals (+ button)
+- Split terminals
+- Different shells
+
+## Shortcuts:
+- Ctrl + \`: Toggle terminal
+- Ctrl + Shift + \`: New terminal
+                `,
+                exercise: {
+                    prompt: 'What shortcut toggles the terminal?',
+                    type: 'code',
+                    expectedOutput: 'Ctrl + `',
+                    hint: 'Uses backtick key'
+                }
+            },
+            {
+                id: 'vscode-6',
+                title: 'Debugging',
+                description: 'Find and fix bugs',
+                stage: 2,
+                content: `
+# Debugging in VS Code
+
+Stop using console.log everywhere!
+
+## Breakpoints:
+Click left of line number = red dot
+Code pauses here during debugging
+
+## Debug Controls:
+- ▶️ Continue: Run to next breakpoint
+- ⏭️ Step Over: Execute line
+- ⏬ Step Into: Go inside function
+- ⏫ Step Out: Exit function
+                `,
+                exercise: {
+                    prompt: 'How do you pause execution on line 42?',
                     type: 'multiple-choice',
                     options: [
-                        'GitLens',
-                        'Prettier',
-                        'Error Lens',
-                        'Live Server'
+                        'Add a comment',
+                        'Add a breakpoint (click left of line number)',
+                        'console.log()',
+                        'Type "debugger"'
                     ],
                     answer: 1
+                }
+            },
+            {
+                id: 'vscode-7',
+                title: 'Workspace Setup',
+                description: 'Project-specific settings',
+                stage: 3,
+                content: `
+# Workspace Configuration
+
+## .vscode Folder:
+\`\`\`
+project/
+├── .vscode/
+│   ├── settings.json
+│   ├── launch.json
+│   ├── tasks.json
+│   └── extensions.json
+\`\`\`
+
+## Recommended Extensions:
+.vscode/extensions.json
+\`\`\`json
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ]
+}
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What file specifies recommended extensions for the team?',
+                    type: 'code',
+                    expectedOutput: 'extensions.json',
+                    hint: 'Has "extensions" in name'
+                }
+            },
+            {
+                id: 'vscode-8',
+                title: 'Tasks Automation',
+                description: 'Automate repetitive tasks',
+                stage: 3,
+                content: `
+# Tasks.json
+
+Create: .vscode/tasks.json
+\`\`\`json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "npm",
+      "script": "build",
+      "group": { "kind": "build", "isDefault": true }
+    }
+  ]
+}
+\`\`\`
+
+## Run Tasks:
+- Ctrl + Shift + B: Run build task
+                `,
+                exercise: {
+                    prompt: 'What shortcut runs the default build task?',
+                    type: 'code',
+                    expectedOutput: 'Ctrl + Shift + B',
+                    hint: 'Ctrl + Shift + B for Build'
+                }
+            },
+            {
+                id: 'vscode-9',
+                title: 'Git Integration',
+                description: 'Version control in VS Code',
+                stage: 3,
+                content: `
+# Git Integration
+
+## Source Control: Ctrl + Shift + G
+
+## Inline Indicators:
+- 🟢 Green: Added lines
+- 🔵 Blue: Modified lines
+- 🔺 Red: Deleted lines
+
+## Merge Conflict Resolution:
+- Accept Current Change
+- Accept Incoming Change
+- Accept Both Changes
+                `,
+                exercise: {
+                    prompt: 'What does a blue bar in the gutter indicate?',
+                    type: 'multiple-choice',
+                    options: [
+                        'An error',
+                        'A breakpoint',
+                        'A modified line not yet committed',
+                        'A bookmark'
+                    ],
+                    answer: 2
                 }
             }
         ]

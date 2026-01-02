@@ -72,7 +72,7 @@ const UsersPage = () => {
                 }
 
                 setUsers(userData);
-                
+
                 // If we only got the current user, might be a permissions issue
                 if (userData.length <= 1 && user) {
                     setFetchError('permissions');
