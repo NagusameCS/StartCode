@@ -49,6 +49,38 @@
     gap: var(--spacing-sm);
 }
 
+/* Permissions warning */
+.permissionsWarning {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+.permissionsWarning svg {
+    color: #f59e0b;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.permissionsWarning strong {
+    color: #f59e0b;
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.permissionsWarning p {
+    color: var(--color-textMuted);
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
 .filterBtn {
     display: flex;
     align-items: center;

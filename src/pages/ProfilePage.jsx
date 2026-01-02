@@ -10,8 +10,7 @@ import {
     FiGithub,
     FiMail,
     FiBookmark,
-    FiExternalLink,
-    FiUsers
+    FiExternalLink
 } from 'react-icons/fi';
 import { FaGoogle, FaMicrosoft, FaApple } from 'react-icons/fa';
 import { doc, getDoc } from 'firebase/firestore';
@@ -25,7 +24,7 @@ import styles from './ProfilePage.module.css';
 const ProfilePage = () => {
     const { userId } = useParams();
     const { user, userProfile } = useAuthStore();
-    const { saveUser, unsaveUser, isUserSaved, isTeacherMode, toggleTeacherMode } = useTeacherStore();
+    const { saveUser, unsaveUser, isUserSaved } = useTeacherStore();
     const [profile, setProfile] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -199,7 +198,7 @@ const ProfilePage = () => {
                                         className={styles.certIcon}
                                         style={{ backgroundColor: course?.color || '#6366f1' }}
                                     >
-                                        <FiAward />
+                                        <span className={styles.certEmoji}>{course?.icon || '🏆'}</span>
                                     </div>
                                     <div className={styles.certInfo}>
                                         <h3>{cert.courseName}</h3>
@@ -209,33 +208,6 @@ const ProfilePage = () => {
                                 </Link>
                             );
                         })}
-                    </div>
-                </motion.section>
-            )}
-
-            {/* Teacher Mode Toggle (only for own profile) */}
-            {isOwnProfile && (
-                <motion.section
-                    className={styles.section}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.35 }}
-                >
-                    <h2>Teacher Mode</h2>
-                    <div className={styles.teacherToggle}>
-                        <div className={styles.teacherInfo}>
-                            <FiUsers className={styles.teacherIcon} />
-                            <div>
-                                <h3>Enable Teacher Mode</h3>
-                                <p>Access class management, student tracking, and teaching tools.</p>
-                            </div>
-                        </div>
-                        <button
-                            className={`${styles.toggleBtn} ${isTeacherMode ? styles.active : ''}`}
-                            onClick={toggleTeacherMode}
-                        >
-                            <span className={styles.toggleKnob} />
-                        </button>
                     </div>
                 </motion.section>
             )}

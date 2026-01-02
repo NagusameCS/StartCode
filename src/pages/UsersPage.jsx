@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiSearch, FiUser, FiStar, FiBookmark, FiAward } from 'react-icons/fi';
+import { FiSearch, FiUser, FiStar, FiBookmark, FiAward, FiAlertCircle } from 'react-icons/fi';
 import { collection, query, orderBy, limit, getDocs, where, startAt, endAt } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { useAuthStore } from '../store/authStore';
@@ -14,6 +14,7 @@ const UsersPage = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(true);
     const [showSaved, setShowSaved] = useState(false);
+    const [fetchError, setFetchError] = useState(null);
     const { savedUsers, saveUser, unsaveUser, isUserSaved } = useTeacherStore();
     const { user, userProfile } = useAuthStore();
 
@@ -21,6 +22,7 @@ const UsersPage = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             setLoading(true);
+            setFetchError(null);
             try {
                 const usersRef = collection(db, 'users');
                 let q;
@@ -70,8 +72,14 @@ const UsersPage = () => {
                 }
 
                 setUsers(userData);
+                
+                // If we only got the current user, might be a permissions issue
+                if (userData.length <= 1 && user) {
+                    setFetchError('permissions');
+                }
             } catch (error) {
                 console.error('Error fetching users:', error);
+                setFetchError(error.code === 'permission-denied' ? 'permissions' : 'error');
                 // If Firestore fails, at least show the current user
                 if (user && userProfile) {
                     setUsers([{
@@ -154,6 +162,21 @@ const UsersPage = () => {
                     </button>
                 </div>
             </motion.div>
+
+            {/* Permissions warning */}
+            {fetchError === 'permissions' && !showSaved && (
+                <motion.div
+                    className={styles.permissionsWarning}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                >
+                    <FiAlertCircle />
+                    <div>
+                        <strong>Limited Access</strong>
+                        <p>Firestore security rules need to be updated to see other users. Go to Firebase Console → Firestore → Rules and allow authenticated users to read the users collection.</p>
+                    </div>
+                </motion.div>
+            )}
 
             {/* Users grid */}
             <div className={styles.grid}>

@@ -14,13 +14,15 @@ import {
     FiCheck,
     FiEye,
     FiEyeOff,
-    FiZap
+    FiZap,
+    FiUsers
 } from 'react-icons/fi';
 import { FaGoogle, FaMicrosoft, FaApple } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useThemeStore, themes } from '../store/themeStore';
 import { useProgressStore } from '../store/progressStore';
+import { useTeacherStore } from '../store/teacherStore';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import toast from 'react-hot-toast';
@@ -30,6 +32,7 @@ const SettingsPage = () => {
     const { user, userProfile, logout, updateProfile } = useAuthStore();
     const { currentTheme, setTheme } = useThemeStore();
     const { expertMode, toggleExpertMode } = useProgressStore();
+    const { isTeacherMode, toggleTeacherMode } = useTeacherStore();
 
     const [username, setUsername] = useState(userProfile?.username || '');
     const [displayName, setDisplayName] = useState(userProfile?.displayName || '');
@@ -357,6 +360,19 @@ const SettingsPage = () => {
                             <button
                                 className={`${styles.toggle} ${expertMode ? styles.active : ''}`}
                                 onClick={toggleExpertMode}
+                            >
+                                <span className={styles.toggleSlider} />
+                            </button>
+                        </div>
+
+                        <div className={styles.dangerItem}>
+                            <div>
+                                <h3><FiUsers /> Teacher Mode</h3>
+                                <p>Access class management, student tracking, and teaching tools.</p>
+                            </div>
+                            <button
+                                className={`${styles.toggle} ${isTeacherMode ? styles.active : ''}`}
+                                onClick={toggleTeacherMode}
                             >
                                 <span className={styles.toggleSlider} />
                             </button>

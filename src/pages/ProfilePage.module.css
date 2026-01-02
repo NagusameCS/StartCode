@@ -191,6 +191,12 @@
     border-radius: var(--radius-md);
     color: white;
     font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.certEmoji {
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
 .certInfo {

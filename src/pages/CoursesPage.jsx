@@ -212,6 +212,18 @@ const CoursesPage = () => {
                                     to={`/course/${course.id}`}
                                     className={`${styles.courseCard} ${!prerequisitesMet ? styles.locked : ''}`}
                                 >
+                                    {/* Requires tag - top right corner */}
+                                    {course.prerequisites?.length > 0 && !prerequisitesMet && (
+                                        <div className={styles.requiresTag} onClick={(e) => e.stopPropagation()}>
+                                            <FiLock /> Requires: {course.prerequisites.map((p, i) => (
+                                                <span key={p}>
+                                                    {i > 0 && ', '}
+                                                    <Link to={`/course/${p}`} className={styles.prereqLink} onClick={(e) => e.stopPropagation()}>{getCourse(p)?.name}</Link>
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+
                                     <div
                                         className={styles.courseIcon}
                                         style={{ backgroundColor: course.color }}
@@ -229,16 +241,6 @@ const CoursesPage = () => {
 
                                     {/* Tags */}
                                     <div className={styles.tags}>
-                                        {course.prerequisites?.length > 0 && (
-                                            <span className={styles.reqTag} onClick={(e) => e.stopPropagation()}>
-                                                <FiLock /> Requires: {course.prerequisites.map((p, i) => (
-                                                    <span key={p}>
-                                                        {i > 0 && ', '}
-                                                        <Link to={`/course/${p}`} className={styles.prereqLink} onClick={(e) => e.stopPropagation()}>{getCourse(p)?.name}</Link>
-                                                    </span>
-                                                ))}
-                                            </span>
-                                        )}
                                         <span className={styles.categoryTag}>{course.category}</span>
                                         {course.language && <span className={styles.langTag}>{course.language}</span>}
                                     </div>

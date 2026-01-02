@@ -110,6 +110,31 @@
     color: var(--color-text);
     transition: all var(--transition-normal);
     height: 100%;
+    position: relative;
+}
+
+/* Requires tag at top-right */
+.requiresTag {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.65rem;
+    padding: 4px 8px;
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--color-error, #ef4444);
+    border-radius: var(--radius-full);
+    z-index: 1;
+    flex-wrap: wrap;
+    max-width: 60%;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.requiresTag svg {
+    flex-shrink: 0;
 }
 
 .courseCard:hover {
