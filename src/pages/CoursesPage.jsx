@@ -17,6 +17,17 @@ const CoursesPage = () => {
     const selectedCourse = courseId ? getCourse(courseId) : null;
     const lessons = selectedCourse ? getLessons(courseId) : [];
 
+    // Sort courses: incomplete first, completed last
+    const sortedCourses = [...courses].sort((a, b) => {
+        const aLessons = a.lessons?.map(l => l.id) || [];
+        const bLessons = b.lessons?.map(l => l.id) || [];
+        const aComplete = aLessons.length > 0 && aLessons.every(id => completedLessons.includes(id));
+        const bComplete = bLessons.length > 0 && bLessons.every(id => completedLessons.includes(id));
+        if (aComplete && !bComplete) return 1;
+        if (!aComplete && bComplete) return -1;
+        return 0;
+    });
+
     // Group courses by category
     const categories = [
         { id: 'all', name: 'All Courses' },
@@ -32,8 +43,8 @@ const CoursesPage = () => {
     ];
 
     const filteredCourses = selectedCategory === 'all'
-        ? courses
-        : courses.filter(c => c.category === selectedCategory);
+        ? sortedCourses
+        : sortedCourses.filter(c => c.category === selectedCategory);
 
     // Check if prerequisites are met (expert mode skips this)
     const arePrerequisitesMet = (course) => {
@@ -84,19 +95,30 @@ const CoursesPage = () => {
                         </div>
                     </div>
 
-                    {/* Prerequisites warning - top right corner */}
+                    {/* Prerequisites - show icons */}
                     {!prerequisitesMet && !expertMode && selectedCourse.prerequisites?.length > 0 && (
                         <div className={styles.prerequisiteWarning}>
-                            <FiLock />
-                            <div>
-                                <strong>Prerequisites Required</strong>
-                                <p>Complete first: {selectedCourse.prerequisites.map((p, i) => (
-                                    <span key={p}>
-                                        {i > 0 && ', '}
-                                        <Link to={`/course/${p}`} className={styles.prereqLink}>{getCourse(p)?.name}</Link>
-                                    </span>
-                                ))}</p>
+                            <div className={styles.prereqIcons}>
+                                {selectedCourse.prerequisites.map(p => {
+                                    const prereqCourse = getCourse(p);
+                                    return (
+                                        <Link 
+                                            key={p} 
+                                            to={`/course/${p}`} 
+                                            className={styles.prereqIcon}
+                                            style={{ backgroundColor: prereqCourse?.color }}
+                                        >
+                                            <span>{prereqCourse?.icon}</span>
+                                            <span className={styles.prereqTooltip}>
+                                                Complete {prereqCourse?.name} first
+                                            </span>
+                                        </Link>
+                                    );
+                                })}
                             </div>
+                            <span style={{ marginLeft: '8px', fontSize: '0.85rem', color: 'var(--color-textMuted)' }}>
+                                Complete these first
+                            </span>
                         </div>
                     )}
                 </motion.div>
@@ -212,15 +234,28 @@ const CoursesPage = () => {
                                     to={`/course/${course.id}`}
                                     className={`${styles.courseCard} ${!prerequisitesMet ? styles.locked : ''}`}
                                 >
-                                    {/* Requires tag - top right corner */}
+                                    {/* Requires icons - top right corner */}
                                     {course.prerequisites?.length > 0 && !prerequisitesMet && (
-                                        <div className={styles.requiresTag} onClick={(e) => e.stopPropagation()}>
-                                            <FiLock /> Requires: {course.prerequisites.map((p, i) => (
-                                                <span key={p}>
-                                                    {i > 0 && ', '}
-                                                    <Link to={`/course/${p}`} className={styles.prereqLink} onClick={(e) => e.stopPropagation()}>{getCourse(p)?.name}</Link>
-                                                </span>
-                                            ))}
+                                        <div className={styles.requiresTag}>
+                                            <div className={styles.prereqIcons}>
+                                                {course.prerequisites.map(p => {
+                                                    const prereqCourse = getCourse(p);
+                                                    return (
+                                                        <Link 
+                                                            key={p} 
+                                                            to={`/course/${p}`} 
+                                                            className={styles.prereqIcon}
+                                                            style={{ backgroundColor: prereqCourse?.color }}
+                                                            onClick={(e) => e.stopPropagation()}
+                                                        >
+                                                            <span>{prereqCourse?.icon}</span>
+                                                            <span className={styles.prereqTooltip}>
+                                                                Complete {prereqCourse?.name} first
+                                                            </span>
+                                                        </Link>
+                                                    );
+                                                })}
+                                            </div>
                                         </div>
                                     )}
 
@@ -268,7 +303,7 @@ const CoursesPage = () => {
                                         ) : progress > 0 ? (
                                             <span className={styles.continueBadge}>Continue <FiArrowRight /></span>
                                         ) : !prerequisitesMet ? (
-                                            <span className={styles.lockedBadge}><FiLock /> {course.prerequisites?.map(p => getCourse(p)?.name).join(', ')} required</span>
+                                            <span className={styles.lockedBadge}><FiLock /> Locked</span>
                                         ) : (
                                             <span className={styles.startBadge}>Start Learning <FiArrowRight /></span>
                                         )}
