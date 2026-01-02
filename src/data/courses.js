@@ -1,5 +1,6 @@
 // Course and Lesson Definitions
 // This defines all available courses and their lessons
+import { additionalCourses } from './additionalCourses';
 
 export const COURSE_CATEGORIES = {
     FUNDAMENTALS: 'fundamentals',
@@ -14,6 +15,7 @@ export const COURSE_CATEGORIES = {
 };
 
 export const courses = {
+    ...additionalCourses,
     // Introduction to Logic (prerequisite for all)
     'intro-logic': {
         id: 'intro-logic',

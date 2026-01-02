@@ -109,15 +109,6 @@ const ContributionTracker = ({ activityLog: externalLog }) => {
             </div>
 
             <div className={styles.tracker}>
-                {/* Day labels */}
-                <div className={styles.dayLabels}>
-                    {dayNames.map((day, i) => (
-                        <span key={day} className={styles.dayLabel} style={{ gridRow: i + 1 }}>
-                            {i % 2 === 1 ? day : ''}
-                        </span>
-                    ))}
-                </div>
-
                 {/* Grid */}
                 <div className={styles.grid}>
                     {/* Month labels */}
