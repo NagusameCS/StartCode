@@ -1,29 +1,40 @@
 // Firebase configuration for StartCode
-// Replace these with your actual Firebase project credentials
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, GithubAuthProvider, OAuthProvider } from 'firebase/auth';
+import { getAnalytics } from 'firebase/analytics';
+import { getAuth, GoogleAuthProvider, GithubAuthProvider, EmailAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "YOUR_API_KEY",
-    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "YOUR_AUTH_DOMAIN",
-    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "YOUR_PROJECT_ID",
-    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "YOUR_STORAGE_BUCKET",
-    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "YOUR_MESSAGING_SENDER_ID",
-    appId: import.meta.env.VITE_FIREBASE_APP_ID || "YOUR_APP_ID"
+  apiKey: "AIzaSyBoaDx24qTMWb9snZwkyh0aH_YjHfAw49M",
+  authDomain: "startcode.firebaseapp.com",
+  projectId: "startcode",
+  storageBucket: "startcode.firebasestorage.app",
+  messagingSenderId: "585392626036",
+  appId: "1:585392626036:web:46ac3a774b4a0730a83421",
+  measurementId: "G-0CWSZTSX1T",
+  databaseURL: "https://startcode-default-rtdb.firebaseio.com"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+// Analytics (only in browser)
+let analytics = null;
+if (typeof window !== 'undefined') {
+  analytics = getAnalytics(app);
+}
+
 // Auth providers
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 export const githubProvider = new GithubAuthProvider();
-export const microsoftProvider = new OAuthProvider('microsoft.com');
-export const appleProvider = new OAuthProvider('apple.com');
 
 // Firestore
 export const db = getFirestore(app);
 
+// Realtime Database
+export const realtimeDb = getDatabase(app);
+
+export { analytics };
 export default app;
