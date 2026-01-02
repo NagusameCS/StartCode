@@ -28,7 +28,7 @@ import styles from './LessonPage.module.css';
 const LessonPage = () => {
     const { courseId, lessonId } = useParams();
     const navigate = useNavigate();
-    const { saveCode, getCode, completeLesson, isLessonCompleted, saveCodeToHistory, getCodeHistory } = useProgressStore();
+    const { saveCode, getCode, completeLesson, isLessonCompleted, saveCodeToHistory, getCodeHistory, awardCertificate, certificates } = useProgressStore();
 
     const course = getCourse(courseId);
     const lesson = getLesson(courseId, lessonId);
@@ -182,6 +182,20 @@ const LessonPage = () => {
         if (nextLesson) {
             navigate(`/lesson/${courseId}/${nextLesson.id}`);
         } else {
+            // Last lesson - check if all lessons are completed and award certificate
+            const allCompleted = lessons.every(l => 
+                l.id === lessonId || isLessonCompleted(l.id)
+            );
+            
+            if (allCompleted) {
+                // Check if certificate already awarded for this course
+                const hasCertificate = certificates.some(c => c.courseId === courseId);
+                if (!hasCertificate) {
+                    await awardCertificate(courseId, course.name);
+                    toast.success('🏆 Certificate earned! Check your profile!');
+                }
+            }
+            
             toast.success('🎉 Congratulations! You completed the course!');
             navigate(`/course/${courseId}`);
         }

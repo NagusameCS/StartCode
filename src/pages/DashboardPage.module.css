@@ -1,6 +1,9 @@
 .dashboard {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Header */
@@ -244,6 +247,12 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+    .statsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .greeting {
         font-size: 1.5rem;
@@ -260,5 +269,24 @@
 
     .recommendedGrid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .statCard {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .courseCard {
+        padding: var(--spacing-sm) var(--spacing-md);
     }
 }

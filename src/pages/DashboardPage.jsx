@@ -1,10 +1,10 @@
 // Dashboard Page - Main landing after login
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiArrowRight, FiBook, FiAward, FiTrendingUp, FiClock } from 'react-icons/fi';
+import { FiArrowRight, FiBook, FiAward, FiTrendingUp, FiClock, FiCheckCircle } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useProgressStore } from '../store/progressStore';
-import { getAllCourses, getCourse } from '../data/courses';
+import { getAllCourses, getCourse, getLessons } from '../data/courses';
 import ContributionTracker from '../components/ContributionTracker';
 import styles from './DashboardPage.module.css';
 
@@ -13,6 +13,14 @@ const DashboardPage = () => {
     const { completedLessons, certificates, courseProgress } = useProgressStore();
 
     const courses = getAllCourses();
+
+    // Count completed courses
+    const completedCourses = courses.filter(course => {
+        const courseLessons = getLessons(course.id);
+        return courseLessons.length > 0 && courseLessons.every(l => completedLessons.includes(l.id));
+    }).length;
+
+    const startedCourses = Object.keys(courseProgress).length;
 
     // Get recently active courses
     const recentCourses = Object.entries(courseProgress)
@@ -38,6 +46,12 @@ const DashboardPage = () => {
             color: '#6366f1'
         },
         {
+            label: 'Courses Completed',
+            value: `${completedCourses}/${startedCourses || 0}`,
+            icon: FiCheckCircle,
+            color: '#10b981'
+        },
+        {
             label: 'Certificates Earned',
             value: certificates.length,
             icon: FiAward,
@@ -45,7 +59,7 @@ const DashboardPage = () => {
         },
         {
             label: 'Courses Started',
-            value: Object.keys(courseProgress).length,
+            value: startedCourses,
             icon: FiTrendingUp,
             color: '#f59e0b'
         },

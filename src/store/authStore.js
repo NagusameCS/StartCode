@@ -2,8 +2,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import {
-    signInWithRedirect,
-    getRedirectResult,
+    signInWithPopup,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
     sendPasswordResetEmail,
@@ -117,7 +116,7 @@ export const useAuthStore = create(
 
             setRememberMe: (value) => set({ rememberMe: value }),
 
-            // Sign in with OAuth provider (Google or GitHub) - uses redirect for COOP compatibility
+            // Sign in with OAuth provider (Google or GitHub) - uses popup
             signInWithProvider: async (providerName) => {
                 set({ loading: true, error: null });
 
@@ -135,10 +134,29 @@ export const useAuthStore = create(
                 }
 
                 try {
-                    // Use redirect instead of popup to avoid COOP issues on GitHub Pages
-                    await signInWithRedirect(auth, provider);
+                    // Use popup for simpler auth flow
+                    const result = await signInWithPopup(auth, provider);
+                    const user = result.user;
+                    const ip = await getIPAddress();
+
+                    await createUserProfile(user);
+
+                    const userRef = doc(db, 'users', user.uid);
+                    await updateFirestoreSafe(userRef, { lastIP: ip, rememberMe: get().rememberMe });
+
+                    const userProfile = await getUserProfileSafe(user);
+
+                    set({
+                        user,
+                        userProfile,
+                        lastIP: ip,
+                        loading: false
+                    });
+
+                    localStorage.setItem('startcode_last_ip', ip);
+                    return user;
                 } catch (error) {
-                    console.error('Sign in redirect error:', error);
+                    console.error('Sign in error:', error);
                     set({ error: error.message, loading: false });
                     throw error;
                 }
@@ -248,32 +266,6 @@ export const useAuthStore = create(
             // Initialize auth listener
             initializeAuth: () => {
                 set({ loading: true });
-
-                // Check for redirect result first
-                getRedirectResult(auth).then(async (result) => {
-                    if (result) {
-                        const user = result.user;
-                        const ip = await getIPAddress();
-
-                        await createUserProfile(user);
-
-                        const userRef = doc(db, 'users', user.uid);
-                        await updateFirestoreSafe(userRef, { lastIP: ip, rememberMe: get().rememberMe });
-
-                        const userProfile = await getUserProfileSafe(user);
-
-                        set({
-                            user,
-                            userProfile,
-                            lastIP: ip,
-                            loading: false
-                        });
-
-                        localStorage.setItem('startcode_last_ip', ip);
-                    }
-                }).catch((error) => {
-                    console.warn('Redirect result error:', error.message);
-                });
 
                 return onAuthStateChanged(auth, async (user) => {
                     if (user) {

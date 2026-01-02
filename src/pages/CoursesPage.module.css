@@ -204,6 +204,16 @@
     margin-bottom: var(--spacing-xs);
 }
 
+.prereqLink {
+    color: var(--color-primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.prereqLink:hover {
+    color: var(--color-primaryHover, #4f46e5);
+}
+
 .cardMeta {
     display: flex;
     gap: var(--spacing-md);

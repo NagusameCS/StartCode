@@ -29,6 +29,14 @@ export const useProgressStore = create(
             // Activity log for contribution tracker
             activityLog: {},
 
+            // Expert mode - skip prerequisite blocking
+            expertMode: false,
+
+            // Toggle expert mode
+            toggleExpertMode: () => {
+                set((state) => ({ expertMode: !state.expertMode }));
+            },
+
             // Save code for a specific lesson
             saveCode: (lessonId, code) => {
                 set((state) => ({

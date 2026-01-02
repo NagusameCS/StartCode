@@ -13,12 +13,14 @@ import {
     FiTrash2,
     FiCheck,
     FiEye,
-    FiEyeOff
+    FiEyeOff,
+    FiZap
 } from 'react-icons/fi';
 import { FaGoogle, FaMicrosoft, FaApple } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useThemeStore, themes } from '../store/themeStore';
+import { useProgressStore } from '../store/progressStore';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import toast from 'react-hot-toast';
@@ -27,6 +29,7 @@ import styles from './SettingsPage.module.css';
 const SettingsPage = () => {
     const { user, userProfile, logout, updateProfile } = useAuthStore();
     const { currentTheme, setTheme } = useThemeStore();
+    const { expertMode, toggleExpertMode } = useProgressStore();
 
     const [username, setUsername] = useState(userProfile?.username || '');
     const [displayName, setDisplayName] = useState(userProfile?.displayName || '');
@@ -180,6 +183,32 @@ const SettingsPage = () => {
                                 </button>
                             );
                         })}
+                    </div>
+                </motion.section>
+
+                {/* Expert Mode Section */}
+                <motion.section
+                    className={styles.section}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.15 }}
+                >
+                    <h2>
+                        <FiZap /> Expert Mode
+                    </h2>
+                    <p>Skip prerequisite course requirements</p>
+
+                    <div className={styles.toggleContainer}>
+                        <div className={styles.toggleInfo}>
+                            <strong>Enable Expert Mode</strong>
+                            <span>Access any course without completing prerequisites first. Recommended for experienced programmers.</span>
+                        </div>
+                        <button
+                            className={`${styles.toggle} ${expertMode ? styles.active : ''}`}
+                            onClick={toggleExpertMode}
+                        >
+                            <span className={styles.toggleSlider} />
+                        </button>
                     </div>
                 </motion.section>
 

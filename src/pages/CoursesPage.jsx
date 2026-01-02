@@ -10,7 +10,7 @@ import styles from './CoursesPage.module.css';
 const CoursesPage = () => {
     const { courseId } = useParams();
     const navigate = useNavigate();
-    const { completedLessons, isLessonCompleted, getCourseProgress } = useProgressStore();
+    const { completedLessons, isLessonCompleted, getCourseProgress, expertMode } = useProgressStore();
     const [selectedCategory, setSelectedCategory] = useState('all');
 
     const courses = getAllCourses();
@@ -35,8 +35,9 @@ const CoursesPage = () => {
         ? courses
         : courses.filter(c => c.category === selectedCategory);
 
-    // Check if prerequisites are met
+    // Check if prerequisites are met (expert mode skips this)
     const arePrerequisitesMet = (course) => {
+        if (expertMode) return true;
         if (!course.prerequisites || course.prerequisites.length === 0) return true;
         return course.prerequisites.every(prereq => {
             const prereqCourse = getCourse(prereq);
@@ -94,7 +95,12 @@ const CoursesPage = () => {
                         <FiLock />
                         <div>
                             <strong>Prerequisites Required</strong>
-                            <p>Complete these courses first: {selectedCourse.prerequisites.map(p => getCourse(p)?.name).join(', ')}</p>
+                            <p>Complete these courses first: {selectedCourse.prerequisites.map((p, i) => (
+                                <span key={p}>
+                                    {i > 0 && ', '}
+                                    <Link to={`/course/${p}`} className={styles.prereqLink}>{getCourse(p)?.name}</Link>
+                                </span>
+                            ))}</p>
                         </div>
                     </motion.div>
                 )}
@@ -228,8 +234,13 @@ const CoursesPage = () => {
                                     {/* Tags */}
                                     <div className={styles.tags}>
                                         {course.prerequisites?.length > 0 && (
-                                            <span className={styles.reqTag}>
-                                                <FiLock /> Requires: {course.prerequisites.map(p => getCourse(p)?.name).join(', ')}
+                                            <span className={styles.reqTag} onClick={(e) => e.stopPropagation()}>
+                                                <FiLock /> Requires: {course.prerequisites.map((p, i) => (
+                                                    <span key={p}>
+                                                        {i > 0 && ', '}
+                                                        <Link to={`/course/${p}`} className={styles.prereqLink} onClick={(e) => e.stopPropagation()}>{getCourse(p)?.name}</Link>
+                                                    </span>
+                                                ))}
                                             </span>
                                         )}
                                         <span className={styles.categoryTag}>{course.category}</span>
