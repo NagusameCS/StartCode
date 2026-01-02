@@ -200,10 +200,10 @@ end if
 \`\`\`
         `,
                 exercise: {
-                    prompt: 'Write an if statement that checks if x is equal to 5, then displays "Found it!"',
-                    type: 'code',
-                    expectedOutput: 'if x is equal to 5 then\n    display "Found it!"\nend if',
-                    hint: 'Remember: if, then, display, end if'
+                    prompt: 'What would this code do if x = 5?\n\nif x is equal to 5 then\n    display "Found it!"\nend if',
+                    type: 'multiple-choice',
+                    options: ['Display "Found it!"', 'Display nothing', 'Show an error', 'Display "x"'],
+                    answer: 0
                 }
             },
             {
@@ -578,12 +578,11 @@ end if
 \`\`\`
         `,
                 exercise: {
-                    prompt: 'Write code that displays "Big!" if x is greater than 100. Set x to 150.',
+                    prompt: 'Create a variable x set to 150. Check if it\'s greater than 100, and if so, display "Big!"',
                     type: 'code',
                     language: 'python',
-                    expectedNatural: 'create variable x to 150\nif x is greater than 100 then\n    display "Big!" end display\nend if',
                     expectedOutput: 'Big!',
-                    hint: 'Create x, then use if with is greater than'
+                    hint: 'Start with: create variable x to 150'
                 }
             },
             {

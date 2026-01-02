@@ -93,22 +93,19 @@ const LessonPage = () => {
         setExerciseResult(null);
 
         try {
-            // Check if this is a natural language exercise (no real execution needed)
-            if (!course?.language || !transpiler) {
-                // For natural language exercises, just check the answer
+            // For pure logic exercises with no language, check conceptually
+            if (!course?.language) {
                 if (lesson?.exercise?.expectedOutput) {
-                    const isCorrect = code.trim().toLowerCase() === lesson.exercise.expectedOutput.trim().toLowerCase();
+                    // Normalize both strings for comparison
+                    const normalize = (s) => s.trim().toLowerCase().replace(/\s+/g, ' ');
+                    const isCorrect = normalize(code) === normalize(lesson.exercise.expectedOutput);
                     setExerciseResult(isCorrect ? 'correct' : 'incorrect');
-                    setOutput(isCorrect ? 'Your answer matches!' : 'Not quite. Check your answer and try again.');
+                    setOutput(isCorrect ? '✓ Correct!' : 'Not quite. Check your answer and try again.');
                     if (isCorrect) {
                         toast.success('Correct! Great job!');
-                    }
-                } else if (lesson?.exercise?.expectedNatural) {
-                    const isCorrect = code.trim().toLowerCase() === lesson.exercise.expectedNatural.trim().toLowerCase();
-                    setExerciseResult(isCorrect ? 'correct' : 'incorrect');
-                    setOutput(isCorrect ? 'Perfect!' : 'Not quite. Try again.');
-                    if (isCorrect) {
-                        toast.success('Correct! Great job!');
+                        saveCodeToHistory(lessonId, code, 'correct');
+                    } else {
+                        saveCodeToHistory(lessonId, code, 'incorrect');
                     }
                 } else {
                     setOutput('Exercise completed.');
@@ -118,8 +115,11 @@ const LessonPage = () => {
                 return;
             }
 
-            // Transpile from natural language to actual code
-            const actualCode = transpiler.toCode(code);
+            // Get transpiled code (works for any stage)
+            let actualCode = code;
+            if (transpiler) {
+                actualCode = transpiler.toCode(code);
+            }
 
             // Execute the code
             const result = await executeCode(actualCode, course.language);
@@ -133,30 +133,24 @@ const LessonPage = () => {
                 setOutput(`Error: ${result.error}`);
             }
 
-            // Check if exercise is correct
+            // Check if exercise is correct based on OUTPUT
             if (lesson?.exercise) {
                 const exercise = lesson.exercise;
 
-                if (exercise.expectedOutput) {
-                    const isCorrect = result.output?.trim() === exercise.expectedOutput.trim();
+                if (exercise.expectedOutput && result.success) {
+                    // Compare outputs, not code
+                    const normalize = (s) => s?.trim().toLowerCase() || '';
+                    const isCorrect = normalize(result.output) === normalize(exercise.expectedOutput);
                     setExerciseResult(isCorrect ? 'correct' : 'incorrect');
 
-                    // Save to history
                     saveCodeToHistory(lessonId, code, isCorrect ? 'correct' : 'incorrect');
 
                     if (isCorrect) {
                         toast.success('Correct! Great job!');
                     }
-                } else if (exercise.expectedNatural) {
-                    const isCorrect = code.trim().toLowerCase() === exercise.expectedNatural.trim().toLowerCase();
-                    setExerciseResult(isCorrect ? 'correct' : 'incorrect');
-
-                    // Save to history
-                    saveCodeToHistory(lessonId, code, isCorrect ? 'correct' : 'incorrect');
-
-                    if (isCorrect) {
-                        toast.success('Correct! Great job!');
-                    }
+                } else if (!result.success) {
+                    setExerciseResult('incorrect');
+                    saveCodeToHistory(lessonId, code, 'error');
                 }
             }
         } catch (error) {
