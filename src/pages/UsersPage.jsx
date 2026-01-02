@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiSearch, FiUser, FiStar, FiBookmark, FiAward } from 'react-icons/fi';
 import { collection, query, orderBy, limit, getDocs, where, startAt, endAt } from 'firebase/firestore';
 import { db } from '../config/firebase';
+import { useAuthStore } from '../store/authStore';
 import { useTeacherStore } from '../store/teacherStore';
 import styles from './UsersPage.module.css';
 
@@ -14,6 +15,7 @@ const UsersPage = () => {
     const [loading, setLoading] = useState(true);
     const [showSaved, setShowSaved] = useState(false);
     const { savedUsers, saveUser, unsaveUser, isUserSaved } = useTeacherStore();
+    const { user, userProfile } = useAuthStore();
 
     // Fetch users
     useEffect(() => {
@@ -38,13 +40,51 @@ const UsersPage = () => {
                 }
 
                 const snapshot = await getDocs(q);
-                const userData = snapshot.docs.map(doc => ({
+                let userData = snapshot.docs.map(doc => ({
                     id: doc.id,
                     ...doc.data()
                 }));
+
+                // Always ensure current user is in the list
+                if (user && userProfile) {
+                    const currentUserInList = userData.some(u => u.id === user.uid || u.uid === user.uid);
+                    if (!currentUserInList) {
+                        // Add current user to the beginning
+                        userData = [{
+                            id: user.uid,
+                            uid: user.uid,
+                            displayName: userProfile.displayName || user.displayName || 'You',
+                            username: userProfile.username || user.email?.split('@')[0] || 'user',
+                            photoURL: userProfile.photoURL || user.photoURL,
+                            certificates: userProfile.certificates || [],
+                            completedLessons: userProfile.completedLessons || [],
+                            isCurrentUser: true
+                        }, ...userData];
+                    } else {
+                        // Mark current user in the list
+                        userData = userData.map(u => ({
+                            ...u,
+                            isCurrentUser: u.id === user.uid || u.uid === user.uid
+                        }));
+                    }
+                }
+
                 setUsers(userData);
             } catch (error) {
                 console.error('Error fetching users:', error);
+                // If Firestore fails, at least show the current user
+                if (user && userProfile) {
+                    setUsers([{
+                        id: user.uid,
+                        uid: user.uid,
+                        displayName: userProfile.displayName || user.displayName || 'You',
+                        username: userProfile.username || user.email?.split('@')[0] || 'user',
+                        photoURL: userProfile.photoURL || user.photoURL,
+                        certificates: userProfile.certificates || [],
+                        completedLessons: userProfile.completedLessons || [],
+                        isCurrentUser: true
+                    }]);
+                }
             } finally {
                 setLoading(false);
             }
@@ -52,7 +92,7 @@ const UsersPage = () => {
 
         const timeoutId = setTimeout(fetchUsers, 300);
         return () => clearTimeout(timeoutId);
-    }, [searchQuery]);
+    }, [searchQuery, user, userProfile]);
 
     // Toggle saved user
     const handleToggleSave = (user) => {
@@ -139,49 +179,54 @@ const UsersPage = () => {
                             <p>{showSaved ? 'Save users to keep track of them' : 'Try a different search'}</p>
                         </motion.div>
                     ) : (
-                        displayUsers.map((user, index) => (
+                        displayUsers.map((userData, index) => (
                             <motion.div
-                                key={user.uid || user.id}
-                                className={styles.userCard}
+                                key={userData.uid || userData.id}
+                                className={`${styles.userCard} ${userData.isCurrentUser ? styles.currentUser : ''}`}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ delay: index * 0.05 }}
                                 layout
                             >
-                                <Link to={`/profile/${user.uid || user.id}`} className={styles.userLink}>
-                                    {user.photoURL ? (
-                                        <img src={user.photoURL} alt={user.displayName} className={styles.avatar} />
+                                <Link to={`/profile/${userData.uid || userData.id}`} className={styles.userLink}>
+                                    {userData.photoURL ? (
+                                        <img src={userData.photoURL} alt={userData.displayName} className={styles.avatar} />
                                     ) : (
                                         <div className={styles.avatarPlaceholder}>
-                                            {user.displayName?.[0] || user.username?.[0] || '?'}
+                                            {userData.displayName?.[0] || userData.username?.[0] || '?'}
                                         </div>
                                     )}
 
                                     <div className={styles.userInfo}>
-                                        <h3>{user.displayName || 'Anonymous'}</h3>
-                                        <p>@{user.username || 'user'}</p>
+                                        <h3>
+                                            {userData.displayName || 'Anonymous'}
+                                            {userData.isCurrentUser && <span className={styles.youBadge}>You</span>}
+                                        </h3>
+                                        <p>@{userData.username || 'user'}</p>
                                     </div>
                                 </Link>
 
                                 <div className={styles.userStats}>
                                     <div className={styles.stat}>
                                         <FiAward />
-                                        <span>{user.certificates?.length || 0}</span>
+                                        <span>{userData.certificates?.length || 0}</span>
                                     </div>
                                     <div className={styles.stat}>
                                         <FiStar />
-                                        <span>{user.completedLessons?.length || 0}</span>
+                                        <span>{userData.completedLessons?.length || 0}</span>
                                     </div>
                                 </div>
 
-                                <button
-                                    className={`${styles.saveBtn} ${isUserSaved(user.uid || user.id) ? styles.saved : ''}`}
-                                    onClick={() => handleToggleSave({ ...user, uid: user.uid || user.id })}
-                                    title={isUserSaved(user.uid || user.id) ? 'Unsave' : 'Save'}
-                                >
-                                    <FiBookmark />
-                                </button>
+                                {!userData.isCurrentUser && (
+                                    <button
+                                        className={`${styles.saveBtn} ${isUserSaved(userData.uid || userData.id) ? styles.saved : ''}`}
+                                        onClick={() => handleToggleSave({ ...userData, uid: userData.uid || userData.id })}
+                                        title={isUserSaved(userData.uid || userData.id) ? 'Unsave' : 'Save'}
+                                    >
+                                        <FiBookmark />
+                                    </button>
+                                )}
                             </motion.div>
                         ))
                     )}

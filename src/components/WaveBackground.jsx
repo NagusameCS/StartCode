@@ -1,19 +1,16 @@
-// Animated Wave Background Component - Top-down organic waves using sine formula
+// Animated Wave Background Component - Smooth organic waves
 import { useMemo } from 'react';
 import styles from './WaveBackground.module.css';
 
-// Generate organic wave path using superimposed sine waves
+// Generate smooth wave path using a single gentle sine wave
 const generateWavePath = (width, height, amplitude, frequency, phase, yOffset) => {
     const points = [];
-    const segments = 100;
+    const segments = 200; // More segments = smoother curve
 
     for (let i = 0; i <= segments; i++) {
         const x = (i / segments) * width;
-        // Superimpose multiple sine waves for organic look
-        const y = yOffset +
-            amplitude * Math.sin((frequency * x / width) * Math.PI * 2 + phase) +
-            (amplitude * 0.5) * Math.sin((frequency * 2.3 * x / width) * Math.PI * 2 + phase * 1.5) +
-            (amplitude * 0.25) * Math.sin((frequency * 4.1 * x / width) * Math.PI * 2 + phase * 0.7);
+        // Use a single smooth sine wave - no spiky harmonics
+        const y = yOffset + amplitude * Math.sin((frequency * x / width) * Math.PI * 2 + phase);
         points.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`);
     }
 
@@ -26,38 +23,36 @@ const generateWavePath = (width, height, amplitude, frequency, phase, yOffset) =
 };
 
 const WaveBackground = ({ position = 'bottom', height = '40vh' }) => {
-    // Pre-generate wave paths for animation frames
+    // Pre-generate wave paths for animation
     const waveLayers = useMemo(() => {
         const width = 2000;
         const waveHeight = 400;
 
         return [
             {
-                amplitude: 35,
-                frequency: 1.5,
-                yOffset: 180,
-                opacity: 0.06,
-                duration: 12,
-            },
-            {
                 amplitude: 25,
-                frequency: 2,
+                frequency: 0.8,
                 yOffset: 200,
-                opacity: 0.09,
-                duration: 15,
+                opacity: 0.04,
+                duration: 25, // Slower animation
             },
             {
-                amplitude: 20,
-                frequency: 2.5,
+                amplitude: 18,
+                frequency: 1.2,
                 yOffset: 220,
-                opacity: 0.05,
-                duration: 18,
+                opacity: 0.06,
+                duration: 30,
+            },
+            {
+                amplitude: 12,
+                frequency: 1.5,
+                yOffset: 240,
+                opacity: 0.03,
+                duration: 35,
             },
         ].map((layer, idx) => ({
             ...layer,
-            // Generate two phases for seamless loop
-            path1: generateWavePath(width, waveHeight, layer.amplitude, layer.frequency, 0, layer.yOffset),
-            path2: generateWavePath(width, waveHeight, layer.amplitude, layer.frequency, Math.PI * 2, layer.yOffset),
+            path: generateWavePath(width, waveHeight, layer.amplitude, layer.frequency, 0, layer.yOffset),
             id: idx,
         }));
     }, []);
@@ -86,7 +81,7 @@ const WaveBackground = ({ position = 'bottom', height = '40vh' }) => {
                         preserveAspectRatio="none"
                     >
                         <path
-                            d={layer.path1}
+                            d={layer.path}
                             fill="var(--color-primary)"
                             style={{ opacity: layer.opacity }}
                         />
@@ -97,7 +92,7 @@ const WaveBackground = ({ position = 'bottom', height = '40vh' }) => {
                         preserveAspectRatio="none"
                     >
                         <path
-                            d={layer.path1}
+                            d={layer.path}
                             fill="var(--color-primary)"
                             style={{ opacity: layer.opacity }}
                         />

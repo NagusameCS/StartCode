@@ -226,6 +226,72 @@
     gap: 0.75rem;
 }
 
+/* Teacher Mode Toggle */
+.teacherToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+}
+
+.teacherInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.teacherIcon {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.teacherInfo h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.teacherInfo p {
+    margin: 0.25rem 0 0;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.toggleBtn {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    background: var(--color-border);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.toggleBtn.active {
+    background: var(--color-primary);
+}
+
+.toggleBtn .toggleKnob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggleBtn.active .toggleKnob {
+    transform: translateX(24px);
+}
+
 .linkedAccount {
     display: flex;
     align-items: center;

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiArrowRight, FiClock, FiBook, FiLock, FiCheck, FiArrowLeft } from 'react-icons/fi';
+import { FiArrowRight, FiClock, FiBook, FiLock, FiCheck, FiArrowLeft, FiArrowDown } from 'react-icons/fi';
 import { useProgressStore } from '../store/progressStore';
 import { getAllCourses, getCourse, getLessons, COURSE_CATEGORIES } from '../data/courses';
 import styles from './CoursesPage.module.css';
@@ -142,9 +142,6 @@ const CoursesPage = () => {
                                         <h3>{lesson.title}</h3>
                                         <p>{lesson.description}</p>
                                     </div>
-                                    <div className={styles.lessonStage}>
-                                        Stage {lesson.stage}
-                                    </div>
                                     {!locked && <FiArrowRight className={styles.lessonArrow} />}
                                 </Link>
                             </motion.div>
@@ -191,6 +188,7 @@ const CoursesPage = () => {
                     {filteredCourses.map((course, index) => {
                         const progress = getCourseProgress(course.id, course.lessons?.length || 0);
                         const prerequisitesMet = arePrerequisitesMet(course);
+                        const hasPrerequisites = course.prerequisites && course.prerequisites.length > 0;
 
                         return (
                             <motion.div
@@ -200,7 +198,19 @@ const CoursesPage = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ delay: index * 0.05 }}
+                                className={styles.courseWrapper}
                             >
+                                {/* Prerequisite chain indicator */}
+                                {hasPrerequisites && (
+                                    <div className={styles.prerequisiteChain}>
+                                        <div className={styles.chainLine} />
+                                        <div className={`${styles.chainBadge} ${prerequisitesMet ? styles.completed : ''}`}>
+                                            <FiArrowDown />
+                                            <span>Requires: {course.prerequisites.map(p => getCourse(p)?.name).join(', ')}</span>
+                                        </div>
+                                    </div>
+                                )}
+
                                 <Link
                                     to={`/course/${course.id}`}
                                     className={`${styles.courseCard} ${!prerequisitesMet ? styles.locked : ''}`}

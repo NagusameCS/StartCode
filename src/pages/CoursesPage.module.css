@@ -52,7 +52,50 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
+}
+
+/* Course Wrapper with prerequisite chain */
+.courseWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.prerequisiteChain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.chainLine {
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-border));
+    opacity: 0.5;
+}
+
+.chainBadge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-backgroundSecondary);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: 0.7rem;
+    color: var(--color-textMuted);
+    margin-bottom: var(--spacing-sm);
+}
+
+.chainBadge.completed {
+    border-color: var(--color-success);
+    color: var(--color-success);
+    border-style: solid;
+}
+
+.chainBadge svg {
+    font-size: 0.75rem;
 }
 
 /* Course Card */

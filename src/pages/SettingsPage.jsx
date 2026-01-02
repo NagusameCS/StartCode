@@ -34,6 +34,7 @@ const SettingsPage = () => {
     const [linkedVisibility, setLinkedVisibility] = useState(
         userProfile?.linkedAccountsVisibility || {}
     );
+    const [avatarSource, setAvatarSource] = useState(userProfile?.avatarSource || 'default');
     const [saving, setSaving] = useState(false);
 
     const themeIcons = {
@@ -49,21 +50,24 @@ const SettingsPage = () => {
 
         setSaving(true);
         try {
-            const userRef = doc(db, 'users', user.uid);
-            await updateDoc(userRef, {
+            const updates = {
                 username: username.toLowerCase().trim(),
                 displayName: displayName.trim(),
                 organization: organization.trim(),
-                linkedAccountsVisibility: linkedVisibility
-            });
+                linkedAccountsVisibility: linkedVisibility,
+                avatarSource
+            };
 
-            // Update local state
-            updateProfile({
-                username: username.toLowerCase().trim(),
-                displayName: displayName.trim(),
-                organization: organization.trim(),
-                linkedAccountsVisibility: linkedVisibility
-            });
+            // Try to update Firestore, but don't fail if it doesn't work
+            try {
+                const userRef = doc(db, 'users', user.uid);
+                await updateDoc(userRef, updates);
+            } catch (firestoreError) {
+                console.warn('Could not save to Firestore:', firestoreError.message);
+            }
+
+            // Always update local state
+            updateProfile(updates);
 
             toast.success('Profile saved!');
         } catch (error) {
@@ -91,14 +95,18 @@ const SettingsPage = () => {
         if (!confirmed) return;
 
         const doubleConfirm = confirm(
-            'This will permanently delete all your progress, certificates, and data. Type "DELETE" to confirm.'
+            'This will permanently delete all your progress, certificates, and data. Are you absolutely sure?'
         );
 
         if (!doubleConfirm) return;
 
         try {
-            // Delete user document
-            await deleteDoc(doc(db, 'users', user.uid));
+            // Try to delete user document from Firestore
+            try {
+                await deleteDoc(doc(db, 'users', user.uid));
+            } catch (firestoreError) {
+                console.warn('Could not delete from Firestore:', firestoreError.message);
+            }
 
             // Sign out
             await logout();
@@ -218,6 +226,49 @@ const SettingsPage = () => {
                             onChange={(e) => setOrganization(e.target.value)}
                             placeholder="School or company"
                         />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                        <label>Profile Picture Source</label>
+                        <div className={styles.avatarSourceOptions}>
+                            <button
+                                type="button"
+                                className={`${styles.avatarSourceBtn} ${avatarSource === 'default' ? styles.active : ''}`}
+                                onClick={() => setAvatarSource('default')}
+                            >
+                                <div className={styles.avatarPreview}>
+                                    {user?.photoURL ? (
+                                        <img src={user.photoURL} alt="Default" />
+                                    ) : (
+                                        <span>{displayName?.[0] || '?'}</span>
+                                    )}
+                                </div>
+                                <span>Default</span>
+                                {avatarSource === 'default' && <FiCheck className={styles.checkIcon} />}
+                            </button>
+                            <button
+                                type="button"
+                                className={`${styles.avatarSourceBtn} ${avatarSource === 'google' ? styles.active : ''}`}
+                                onClick={() => setAvatarSource('google')}
+                            >
+                                <div className={styles.avatarPreview}>
+                                    <FaGoogle />
+                                </div>
+                                <span>Google</span>
+                                {avatarSource === 'google' && <FiCheck className={styles.checkIcon} />}
+                            </button>
+                            <button
+                                type="button"
+                                className={`${styles.avatarSourceBtn} ${avatarSource === 'github' ? styles.active : ''}`}
+                                onClick={() => setAvatarSource('github')}
+                            >
+                                <div className={styles.avatarPreview}>
+                                    <FiGithub />
+                                </div>
+                                <span>GitHub</span>
+                                {avatarSource === 'github' && <FiCheck className={styles.checkIcon} />}
+                            </button>
+                        </div>
                     </div>
 
                     <button

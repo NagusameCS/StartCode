@@ -23,7 +23,7 @@ import styles from './Layout.module.css';
 
 const Layout = () => {
     const { user, userProfile, signOut } = useAuthStore();
-    const { isTeacherMode, toggleTeacherMode } = useTeacherStore();
+    const { isTeacherMode } = useTeacherStore();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
     const navigate = useNavigate();
@@ -71,18 +71,6 @@ const Layout = () => {
                 </nav>
 
                 <div className={styles.sidebarFooter}>
-                    <div className={styles.teacherToggle}>
-                        <label className={styles.toggleLabel}>
-                            <span>Teacher Mode</span>
-                            <button
-                                className={`${styles.toggle} ${isTeacherMode ? styles.toggleActive : ''}`}
-                                onClick={toggleTeacherMode}
-                            >
-                                <span className={styles.toggleKnob} />
-                            </button>
-                        </label>
-                    </div>
-
                     <div className={styles.profileSection}>
                         <button
                             className={styles.profileButton}

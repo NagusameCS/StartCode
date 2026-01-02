@@ -11,6 +11,9 @@ export const useProgressStore = create(
             // Local code storage for each lesson
             lessonCode: {},
 
+            // Code history for review (stores up to 10 submissions per lesson)
+            codeHistory: {},
+
             // Completion status
             completedLessons: [],
 
@@ -34,6 +37,29 @@ export const useProgressStore = create(
                         [lessonId]: code
                     }
                 }));
+            },
+
+            // Save code submission to history
+            saveCodeToHistory: (lessonId, code, result) => {
+                const timestamp = new Date().toISOString();
+                const submission = { code, result, timestamp };
+
+                set((state) => {
+                    const history = state.codeHistory[lessonId] || [];
+                    // Keep only last 10 submissions
+                    const newHistory = [submission, ...history].slice(0, 10);
+                    return {
+                        codeHistory: {
+                            ...state.codeHistory,
+                            [lessonId]: newHistory
+                        }
+                    };
+                });
+            },
+
+            // Get code history for a lesson
+            getCodeHistory: (lessonId) => {
+                return get().codeHistory[lessonId] || [];
             },
 
             // Get code for a specific lesson

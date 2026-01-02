@@ -195,8 +195,8 @@
     color: var(--color-text-secondary);
 }
 
-/* Mobile Section */
-.mobileSection {
+/* GitHub Section */
+.githubSection {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -206,20 +206,26 @@
     margin-bottom: 1.5rem;
 }
 
-.mobileIcon {
+.githubIcon {
     font-size: 3rem;
     color: var(--color-primary);
     flex-shrink: 0;
 }
 
-.mobileContent h3 {
+.githubContent h3 {
     margin: 0 0 0.5rem;
     color: var(--color-text);
 }
 
-.mobileContent p {
+.githubContent p {
     margin: 0 0 1rem;
     color: var(--color-text-secondary);
+}
+
+.githubContent a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 /* Requirements */
@@ -281,7 +287,7 @@
         justify-content: center;
     }
 
-    .mobileSection {
+    .githubSection {
         flex-direction: column;
         text-align: center;
     }

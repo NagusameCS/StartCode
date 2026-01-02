@@ -180,6 +180,69 @@
     outline: none;
 }
 
+/* Avatar Source Selection */
+.avatarSourceOptions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.avatarSourceBtn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    min-width: 100px;
+}
+
+.avatarSourceBtn:hover {
+    border-color: var(--color-text-muted);
+}
+
+.avatarSourceBtn.active {
+    border-color: var(--color-primary);
+    background: var(--color-primary-bg);
+}
+
+.avatarSourceBtn .avatarPreview {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    overflow: hidden;
+}
+
+.avatarSourceBtn .avatarPreview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatarSourceBtn span {
+    font-size: 0.85rem;
+    color: var(--color-text);
+}
+
+.avatarSourceBtn .checkIcon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: var(--color-primary);
+    font-size: 0.9rem;
+}
+
 /* Select */
 .select {
     width: 100%;

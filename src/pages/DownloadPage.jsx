@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import {
     FiDownload,
     FiMonitor,
-    FiSmartphone,
     FiCheck,
     FiGithub,
     FiCloud,
@@ -77,9 +76,9 @@ const DownloadPage = () => {
     const selectedPlatformData = platforms.find(p => p.id === selectedPlatform);
 
     const handleDownload = () => {
-        // In production, this would trigger the actual download
-        // For now, show a toast that it's coming soon
-        alert('Desktop app coming soon! For now, use the web version.');
+        // Open the GitHub releases page for the appropriate platform
+        const releaseUrl = 'https://github.com/NagusameCS/StartCode/releases/latest';
+        window.open(releaseUrl, '_blank');
     };
 
     return (
@@ -177,23 +176,27 @@ const DownloadPage = () => {
                 </div>
             </motion.div>
 
-            {/* Mobile Section */}
+            {/* GitHub Link */}
             <motion.div
-                className={styles.mobileSection}
+                className={styles.githubSection}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
             >
-                <FiSmartphone className={styles.mobileIcon} />
-                <div className={styles.mobileContent}>
-                    <h3>Mobile App Coming Soon</h3>
+                <FiGithub className={styles.githubIcon} />
+                <div className={styles.githubContent}>
+                    <h3>Open Source</h3>
                     <p>
-                        We're working on iOS and Android apps so you can learn on the go.
-                        Join the waitlist to be notified when they're ready.
+                        StartCode is open source! Contribute to the project, report bugs, or explore the code.
                     </p>
-                    <button className="btn btn-secondary">
-                        Join Waitlist
-                    </button>
+                    <a
+                        href="https://github.com/NagusameCS/StartCode"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary"
+                    >
+                        <FiGithub /> View on GitHub
+                    </a>
                 </div>
             </motion.div>
 

@@ -75,7 +75,7 @@ const createUserProfile = async (user, additionalData = {}) => {
 // Helper to get user profile with fallback to auth user data
 const getUserProfileSafe = async (user) => {
     if (!user) return null;
-    
+
     try {
         const userRef = doc(db, 'users', user.uid);
         const userSnap = await getDoc(userRef);
@@ -85,7 +85,7 @@ const getUserProfileSafe = async (user) => {
     } catch (error) {
         console.warn('Could not fetch profile from Firestore:', error.message);
     }
-    
+
     // Return fallback profile from auth user
     return {
         uid: user.uid,

@@ -60,20 +60,31 @@ const ContributionTracker = ({ activityLog: externalLog }) => {
         return 4;
     };
 
-    // Get month labels
+    // Get month labels - position them at the start of each month
     const months = useMemo(() => {
         const result = [];
         let lastMonth = -1;
+        let weekIndex = 0;
 
-        weeks.forEach((week, weekIndex) => {
-            const firstDay = week.find(d => d !== null);
-            if (firstDay) {
-                const month = new Date(firstDay.date).getMonth();
+        weeks.forEach((week) => {
+            // Find the first valid day in this week
+            const firstValidDay = week.find(d => d !== null);
+            if (firstValidDay) {
+                const dayDate = new Date(firstValidDay.date);
+                const month = dayDate.getMonth();
+                const dayOfMonth = dayDate.getDate();
+
+                // Only add month label at the start of a new month
+                // Check if this week contains the 1st of a month (or is the first week showing that month)
                 if (month !== lastMonth) {
-                    result.push({ month, weekIndex });
-                    lastMonth = month;
+                    // Only show if it's early in the month (first week of that month)
+                    if (dayOfMonth <= 7) {
+                        result.push({ month, weekIndex });
+                        lastMonth = month;
+                    }
                 }
             }
+            weekIndex++;
         });
 
         return result;
@@ -115,7 +126,7 @@ const ContributionTracker = ({ activityLog: externalLog }) => {
                             <span
                                 key={`${month}-${weekIndex}`}
                                 className={styles.monthLabel}
-                                style={{ gridColumn: weekIndex + 1 }}
+                                style={{ left: `${weekIndex * 14}px` }}
                             >
                                 {monthNames[month]}
                             </span>

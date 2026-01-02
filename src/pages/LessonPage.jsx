@@ -9,8 +9,8 @@ import {
     FiCheck,
     FiX,
     FiHelpCircle,
-    FiCode,
-    FiBook
+    FiBook,
+    FiClock
 } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import CodeMirror from '@uiw/react-codemirror';
@@ -28,7 +28,7 @@ import styles from './LessonPage.module.css';
 const LessonPage = () => {
     const { courseId, lessonId } = useParams();
     const navigate = useNavigate();
-    const { saveCode, getCode, completeLesson, isLessonCompleted } = useProgressStore();
+    const { saveCode, getCode, completeLesson, isLessonCompleted, saveCodeToHistory, getCodeHistory } = useProgressStore();
 
     const course = getCourse(courseId);
     const lesson = getLesson(courseId, lessonId);
@@ -42,7 +42,7 @@ const LessonPage = () => {
     const [showHint, setShowHint] = useState(false);
     const [exerciseResult, setExerciseResult] = useState(null);
     const [multipleChoiceAnswer, setMultipleChoiceAnswer] = useState(null);
-    const [showContent, setShowContent] = useState(true);
+    const [showHistory, setShowHistory] = useState(false);
 
     // Initialize transpiler
     const transpiler = lesson?.language
@@ -86,13 +86,38 @@ const LessonPage = () => {
 
     // Run code
     const handleRunCode = useCallback(async () => {
-        if (!transpiler || !code.trim()) return;
+        if (!code.trim()) return;
 
         setIsRunning(true);
         setOutput('');
         setExerciseResult(null);
 
         try {
+            // Check if this is a natural language exercise (no real execution needed)
+            if (!course?.language || !transpiler) {
+                // For natural language exercises, just check the answer
+                if (lesson?.exercise?.expectedOutput) {
+                    const isCorrect = code.trim().toLowerCase() === lesson.exercise.expectedOutput.trim().toLowerCase();
+                    setExerciseResult(isCorrect ? 'correct' : 'incorrect');
+                    setOutput(isCorrect ? 'Your answer matches!' : 'Not quite. Check your answer and try again.');
+                    if (isCorrect) {
+                        toast.success('Correct! Great job!');
+                    }
+                } else if (lesson?.exercise?.expectedNatural) {
+                    const isCorrect = code.trim().toLowerCase() === lesson.exercise.expectedNatural.trim().toLowerCase();
+                    setExerciseResult(isCorrect ? 'correct' : 'incorrect');
+                    setOutput(isCorrect ? 'Perfect!' : 'Not quite. Try again.');
+                    if (isCorrect) {
+                        toast.success('Correct! Great job!');
+                    }
+                } else {
+                    setOutput('Exercise completed.');
+                    setExerciseResult('correct');
+                }
+                setIsRunning(false);
+                return;
+            }
+
             // Transpile from natural language to actual code
             const actualCode = transpiler.toCode(code);
 
@@ -116,12 +141,18 @@ const LessonPage = () => {
                     const isCorrect = result.output?.trim() === exercise.expectedOutput.trim();
                     setExerciseResult(isCorrect ? 'correct' : 'incorrect');
 
+                    // Save to history
+                    saveCodeToHistory(lessonId, code, isCorrect ? 'correct' : 'incorrect');
+
                     if (isCorrect) {
                         toast.success('Correct! Great job!');
                     }
                 } else if (exercise.expectedNatural) {
                     const isCorrect = code.trim().toLowerCase() === exercise.expectedNatural.trim().toLowerCase();
                     setExerciseResult(isCorrect ? 'correct' : 'incorrect');
+
+                    // Save to history
+                    saveCodeToHistory(lessonId, code, isCorrect ? 'correct' : 'incorrect');
 
                     if (isCorrect) {
                         toast.success('Correct! Great job!');
@@ -130,10 +161,11 @@ const LessonPage = () => {
             }
         } catch (error) {
             setOutput(`Error: ${error.message}`);
+            saveCodeToHistory(lessonId, code, 'error');
         } finally {
             setIsRunning(false);
         }
-    }, [code, transpiler, course, lesson]);
+    }, [code, transpiler, course, lesson, lessonId, saveCodeToHistory]);
 
     // Handle multiple choice answer
     const handleMultipleChoice = (index) => {
@@ -205,7 +237,7 @@ const LessonPage = () => {
                 </div>
 
                 <div className={styles.stageBadge}>
-                    Stage {lesson.stage || 1}
+                    {/* Stage hidden from users */}
                 </div>
             </motion.header>
 
@@ -213,55 +245,37 @@ const LessonPage = () => {
             <div className={styles.main}>
                 {/* Lesson content panel */}
                 <motion.div
-                    className={`${styles.contentPanel} ${!showContent ? styles.collapsed : ''}`}
+                    className={styles.contentPanel}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                 >
                     <div className={styles.panelHeader}>
-                        <div className={styles.panelTabs}>
-                            <button
-                                className={`${styles.tab} ${showContent ? styles.active : ''}`}
-                                onClick={() => setShowContent(true)}
-                            >
-                                <FiBook /> Lesson
-                            </button>
-                            <button
-                                className={`${styles.tab} ${!showContent ? styles.active : ''}`}
-                                onClick={() => setShowContent(false)}
-                            >
-                                <FiCode /> Code Only
-                            </button>
-                        </div>
+                        <h2><FiBook /> Lesson</h2>
                     </div>
 
-                    <AnimatePresence mode="wait">
-                        {showContent && (
-                            <motion.div
-                                className={styles.content}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                            >
-                                <h1>{lesson.title}</h1>
-                                <div
-                                    className={styles.markdown}
-                                    dangerouslySetInnerHTML={{
-                                        __html: lesson.content
-                                            .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
-                                            .replace(/`([^`]+)`/g, '<code>$1</code>')
-                                            .replace(/## (.*)/g, '<h2>$1</h2>')
-                                            .replace(/# (.*)/g, '<h1>$1</h1>')
-                                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                                            .replace(/\n\n/g, '</p><p>')
-                                            .replace(/\|(.*)\|/g, (match) => {
-                                                const cells = match.split('|').filter(Boolean);
-                                                return `<tr>${cells.map(c => `<td>${c.trim()}</td>`).join('')}</tr>`;
-                                            })
-                                    }}
-                                />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                    <motion.div
+                        className={styles.content}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                    >
+                        <h1>{lesson.title}</h1>
+                        <div
+                            className={styles.markdown}
+                            dangerouslySetInnerHTML={{
+                                __html: lesson.content
+                                    .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
+                                    .replace(/`([^`]+)`/g, '<code>$1</code>')
+                                    .replace(/## (.*)/g, '<h2>$1</h2>')
+                                    .replace(/# (.*)/g, '<h1>$1</h1>')
+                                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                                    .replace(/\n\n/g, '</p><p>')
+                                    .replace(/\|(.*)\|/g, (match) => {
+                                        const cells = match.split('|').filter(Boolean);
+                                        return `<tr>${cells.map(c => `<td>${c.trim()}</td>`).join('')}</tr>`;
+                                    })
+                            }}
+                        />
+                    </motion.div>
                 </motion.div>
 
                 {/* Exercise panel */}
@@ -272,11 +286,21 @@ const LessonPage = () => {
                 >
                     <div className={styles.panelHeader}>
                         <h2>Exercise</h2>
-                        {lesson.exercise?.hint && (
-                            <button className={styles.hintBtn} onClick={handleHint}>
-                                <FiHelpCircle /> Hint
-                            </button>
-                        )}
+                        <div className={styles.panelActions}>
+                            {getCodeHistory(lessonId).length > 0 && (
+                                <button
+                                    className={`${styles.historyBtn} ${showHistory ? styles.active : ''}`}
+                                    onClick={() => setShowHistory(!showHistory)}
+                                >
+                                    <FiClock /> History ({getCodeHistory(lessonId).length})
+                                </button>
+                            )}
+                            {lesson.exercise?.hint && (
+                                <button className={styles.hintBtn} onClick={handleHint}>
+                                    <FiHelpCircle /> Hint
+                                </button>
+                            )}
+                        </div>
                     </div>
 
                     {/* Exercise prompt */}
@@ -295,6 +319,43 @@ const LessonPage = () => {
                                 </motion.div>
                             )}
                         </AnimatePresence>
+
+                        <AnimatePresence>
+                            {showHistory && (
+                                <motion.div
+                                    className={styles.historyPanel}
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                >
+                                    <h4>Submission History</h4>
+                                    <div className={styles.historyList}>
+                                        {getCodeHistory(lessonId).map((entry, index) => (
+                                            <div
+                                                key={index}
+                                                className={`${styles.historyEntry} ${styles[entry.result]}`}
+                                                onClick={() => {
+                                                    setCode(entry.code);
+                                                    setShowHistory(false);
+                                                    toast.success('Code restored from history');
+                                                }}
+                                            >
+                                                <div className={styles.historyMeta}>
+                                                    <span className={`${styles.historyStatus} ${styles[entry.result]}`}>
+                                                        {entry.result === 'correct' ? <FiCheck /> : <FiX />}
+                                                        {entry.result}
+                                                    </span>
+                                                    <span className={styles.historyTime}>
+                                                        {new Date(entry.timestamp).toLocaleString()}
+                                                    </span>
+                                                </div>
+                                                <pre className={styles.historyCode}>{entry.code.slice(0, 100)}{entry.code.length > 100 ? '...' : ''}</pre>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
 
                     {/* Multiple choice or code editor */}
@@ -304,10 +365,10 @@ const LessonPage = () => {
                                 <button
                                     key={index}
                                     className={`${styles.option} ${multipleChoiceAnswer === index
-                                            ? index === lesson.exercise.answer
-                                                ? styles.correct
-                                                : styles.incorrect
-                                            : ''
+                                        ? index === lesson.exercise.answer
+                                            ? styles.correct
+                                            : styles.incorrect
+                                        : ''
                                         }`}
                                     onClick={() => handleMultipleChoice(index)}
                                     disabled={exerciseResult === 'correct'}
@@ -347,11 +408,11 @@ const LessonPage = () => {
                                     {isRunning ? (
                                         <>
                                             <span className={styles.spinner} />
-                                            Running...
+                                            Checking...
                                         </>
                                     ) : (
                                         <>
-                                            <FiPlay /> Run Code
+                                            <FiPlay /> {course?.language ? 'Run Code' : 'Check Answer'}
                                         </>
                                     )}
                                 </button>
@@ -361,7 +422,7 @@ const LessonPage = () => {
                             <div className={styles.outputSection}>
                                 <h3>Output</h3>
                                 <div className={`${styles.output} ${exerciseResult === 'correct' ? styles.correct :
-                                        exerciseResult === 'incorrect' ? styles.incorrect : ''
+                                    exerciseResult === 'incorrect' ? styles.incorrect : ''
                                     }`}>
                                     {course?.language === 'html' || course?.language === 'css' ? (
                                         <iframe

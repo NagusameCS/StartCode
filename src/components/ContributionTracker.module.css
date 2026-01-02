@@ -41,8 +41,8 @@
 }
 
 .monthLabels {
-    display: grid;
-    grid-template-columns: repeat(53, 1fr);
+    display: flex;
+    position: relative;
     gap: 3px;
     margin-bottom: var(--spacing-xs);
     height: 16px;
@@ -51,6 +51,8 @@
 .monthLabel {
     font-size: 0.7rem;
     color: var(--color-textMuted);
+    position: absolute;
+    white-space: nowrap;
 }
 
 .squares {

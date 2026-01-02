@@ -213,6 +213,107 @@
     text-decoration: underline;
 }
 
+/* Panel Actions */
+.panelActions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.historyBtn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: none;
+    border: none;
+    color: var(--color-textMuted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.historyBtn:hover,
+.historyBtn.active {
+    color: var(--color-primary);
+}
+
+/* History Panel */
+.historyPanel {
+    margin-top: var(--spacing-md);
+    background-color: var(--color-backgroundSecondary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    overflow: hidden;
+}
+
+.historyPanel h4 {
+    margin: 0 0 var(--spacing-sm);
+    font-size: 0.85rem;
+    color: var(--color-textMuted);
+}
+
+.historyList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.historyEntry {
+    padding: var(--spacing-sm);
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.historyEntry:hover {
+    border-color: var(--color-primary);
+}
+
+.historyMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+}
+
+.historyStatus {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.historyStatus.correct {
+    color: var(--color-success);
+}
+
+.historyStatus.incorrect,
+.historyStatus.error {
+    color: var(--color-error);
+}
+
+.historyTime {
+    font-size: 0.7rem;
+    color: var(--color-textMuted);
+}
+
+.historyCode {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    margin: 0;
+    padding: var(--spacing-xs);
+    background-color: var(--color-backgroundTertiary);
+    border-radius: var(--radius-sm);
+    white-space: pre-wrap;
+    word-break: break-all;
+    color: var(--color-textSecondary);
+}
+
 /* Prompt */
 .prompt {
     padding: var(--spacing-lg);

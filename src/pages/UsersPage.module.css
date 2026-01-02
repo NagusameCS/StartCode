@@ -132,12 +132,30 @@
 .userInfo h3 {
     font-size: 1rem;
     margin: 0 0 var(--spacing-xs) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
 }
 
 .userInfo p {
     font-size: 0.85rem;
     color: var(--color-textMuted);
     margin: 0;
+}
+
+/* Current user highlighting */
+.currentUser {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary-bg, rgba(99, 102, 241, 0.05));
+}
+
+.youBadge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
 }
 
 .userStats {
