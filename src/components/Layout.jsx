@@ -13,7 +13,8 @@ import {
     FiMenu,
     FiX,
     FiChevronDown,
-    FiAward
+    FiAward,
+    FiCode
 } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useTeacherStore } from '../store/teacherStore';
@@ -36,6 +37,7 @@ const Layout = () => {
     const navItems = [
         { to: '/dashboard', icon: FiHome, label: 'Dashboard' },
         { to: '/courses', icon: FiBook, label: 'Courses' },
+        { to: '/canvas', icon: FiCode, label: 'Canvas' },
         { to: '/users', icon: FiUsers, label: 'Users' },
         ...(isTeacherMode ? [{ to: '/teacher', icon: FiAward, label: 'Classes' }] : []),
         { to: '/download', icon: FiDownload, label: 'Download' },

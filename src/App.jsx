@@ -17,6 +17,7 @@ import DownloadPage from './pages/DownloadPage';
 import SettingsPage from './pages/SettingsPage';
 import TestPage from './pages/TestPage';
 import CertificatePage from './pages/CertificatePage';
+import CanvasPage from './pages/CanvasPage';
 
 // Components
 import Layout from './components/Layout';
@@ -102,6 +103,7 @@ function App() {
             <Route path="/teacher" element={<TeacherPage />} />
             <Route path="/download" element={<DownloadPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/canvas" element={<CanvasPage />} />
             <Route path="/certificate/:certId" element={<CertificatePage />} />
           </Route>
         </Route>

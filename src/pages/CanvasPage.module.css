@@ -1,0 +1,447 @@
+/* Canvas Page Styles */
+
+.container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.titleIcon {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.title h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Main Content Layout */
+.mainContent {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .mainContent {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Editor Panel */
+.editorPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Examples Bar */
+.examplesBar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+}
+
+.examplesLabel {
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.examplesButtons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.exampleButton {
+    padding: 0.4rem 0.8rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.exampleButton:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Editor Wrapper */
+.editorWrapper {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.editorHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.editorActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.iconButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.iconButton:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.editor {
+    font-size: 1rem !important;
+}
+
+.editor .cm-editor {
+    background: var(--bg-primary) !important;
+}
+
+.editor .cm-content {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace !important;
+    padding: 1rem !important;
+}
+
+.editor .cm-line {
+    padding: 0.1rem 0;
+}
+
+/* Run Button */
+.runButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+.runButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.4);
+}
+
+.runButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.runButton svg {
+    font-size: 1.25rem;
+}
+
+/* Output */
+.outputWrapper {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.outputHeader {
+    padding: 0.75rem 1rem;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.output {
+    padding: 1rem;
+    margin: 0;
+    min-height: 120px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Transpiled Section */
+.transpiledSection {
+    margin-top: 0.5rem;
+}
+
+.transpiledToggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.transpiledToggle:hover {
+    background: var(--bg-tertiary);
+}
+
+.transpiledWrapper {
+    margin-top: 0.5rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.languageSelector {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.languageSelector label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.languageSelector select {
+    padding: 0.4rem 0.75rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.transpiledCode {
+    padding: 1rem;
+    margin: 0;
+    min-height: 100px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    background: var(--bg-primary);
+}
+
+/* Reference Panel */
+.referencePanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.referenceToggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.referenceToggle:hover {
+    background: var(--bg-tertiary);
+}
+
+.referenceContent {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.referenceSection {
+    margin-bottom: 1.25rem;
+}
+
+.referenceSection:last-child {
+    margin-bottom: 0;
+}
+
+.referenceSection h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.referenceItems {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.referenceItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.4rem 0.5rem;
+    background: var(--bg-primary);
+    border-radius: 6px;
+}
+
+.referenceItem code {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.8rem;
+    color: var(--primary);
+    white-space: pre-wrap;
+}
+
+.referenceItem span {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* Tips Section */
+.tips {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+}
+
+.tips h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.tips ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.tips li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+}
+
+.tips li:last-child {
+    margin-bottom: 0;
+}
+
+.tips code {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.8rem;
+    color: var(--primary);
+    background: var(--bg-tertiary);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+}
+
+/* Scrollbar styling */
+.referenceContent::-webkit-scrollbar,
+.output::-webkit-scrollbar,
+.transpiledCode::-webkit-scrollbar {
+    width: 6px;
+}
+
+.referenceContent::-webkit-scrollbar-track,
+.output::-webkit-scrollbar-track,
+.transpiledCode::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+}
+
+.referenceContent::-webkit-scrollbar-thumb,
+.output::-webkit-scrollbar-thumb,
+.transpiledCode::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.referenceContent::-webkit-scrollbar-thumb:hover,
+.output::-webkit-scrollbar-thumb:hover,
+.transpiledCode::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
