@@ -1,60 +1,109 @@
-// Animated Wave Background Component - Seamless infinite animation
+// Animated Wave Background Component - Top-down organic waves using sine formula
+import { useMemo } from 'react';
 import styles from './WaveBackground.module.css';
 
+// Generate organic wave path using superimposed sine waves
+const generateWavePath = (width, height, amplitude, frequency, phase, yOffset) => {
+    const points = [];
+    const segments = 100;
+    
+    for (let i = 0; i <= segments; i++) {
+        const x = (i / segments) * width;
+        // Superimpose multiple sine waves for organic look
+        const y = yOffset + 
+            amplitude * Math.sin((frequency * x / width) * Math.PI * 2 + phase) +
+            (amplitude * 0.5) * Math.sin((frequency * 2.3 * x / width) * Math.PI * 2 + phase * 1.5) +
+            (amplitude * 0.25) * Math.sin((frequency * 4.1 * x / width) * Math.PI * 2 + phase * 0.7);
+        points.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`);
+    }
+    
+    // Close the path at the bottom
+    points.push(`L${width},${height}`);
+    points.push(`L0,${height}`);
+    points.push('Z');
+    
+    return points.join(' ');
+};
+
 const WaveBackground = ({ position = 'bottom', height = '40vh' }) => {
+    // Pre-generate wave paths for animation frames
+    const waveLayers = useMemo(() => {
+        const width = 2000;
+        const waveHeight = 400;
+        
+        return [
+            {
+                amplitude: 35,
+                frequency: 1.5,
+                yOffset: 180,
+                opacity: 0.06,
+                duration: 12,
+            },
+            {
+                amplitude: 25,
+                frequency: 2,
+                yOffset: 200,
+                opacity: 0.09,
+                duration: 15,
+            },
+            {
+                amplitude: 20,
+                frequency: 2.5,
+                yOffset: 220,
+                opacity: 0.05,
+                duration: 18,
+            },
+        ].map((layer, idx) => ({
+            ...layer,
+            // Generate two phases for seamless loop
+            path1: generateWavePath(width, waveHeight, layer.amplitude, layer.frequency, 0, layer.yOffset),
+            path2: generateWavePath(width, waveHeight, layer.amplitude, layer.frequency, Math.PI * 2, layer.yOffset),
+            id: idx,
+        }));
+    }, []);
+
     return (
-        <div 
+        <div
             className={styles.waveContainer}
-            style={{ 
+            style={{
                 height,
-                [position]: 0,
                 top: position === 'top' ? 0 : 'auto',
                 bottom: position === 'bottom' ? 0 : 'auto',
-                transform: position === 'top' ? 'rotate(180deg)' : 'none'
+                transform: position === 'top' ? 'scaleY(-1)' : 'none',
             }}
         >
-            <div className={styles.waveWrapper}>
-                <svg className={styles.wave} viewBox="0 0 1440 320" preserveAspectRatio="none">
-                    <path 
-                        className={styles.wave1} 
-                        d="M0,160L60,170.7C120,181,240,203,360,192C480,181,600,139,720,128C840,117,960,139,1080,154.7C1200,171,1320,181,1380,186.7L1440,192L1440,320L0,320Z"
-                    />
-                </svg>
-                <svg className={styles.wave} viewBox="0 0 1440 320" preserveAspectRatio="none">
-                    <path 
-                        className={styles.wave1} 
-                        d="M0,160L60,170.7C120,181,240,203,360,192C480,181,600,139,720,128C840,117,960,139,1080,154.7C1200,171,1320,181,1380,186.7L1440,192L1440,320L0,320Z"
-                    />
-                </svg>
-            </div>
-            <div className={styles.waveWrapper2}>
-                <svg className={styles.wave} viewBox="0 0 1440 320" preserveAspectRatio="none">
-                    <path 
-                        className={styles.wave2} 
-                        d="M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,213.3C840,224,960,224,1080,208C1200,192,1320,160,1380,144L1440,128L1440,320L0,320Z"
-                    />
-                </svg>
-                <svg className={styles.wave} viewBox="0 0 1440 320" preserveAspectRatio="none">
-                    <path 
-                        className={styles.wave2} 
-                        d="M0,224L60,213.3C120,203,240,181,360,181.3C480,181,600,203,720,213.3C840,224,960,224,1080,208C1200,192,1320,160,1380,144L1440,128L1440,320L0,320Z"
-                    />
-                </svg>
-            </div>
-            <div className={styles.waveWrapper3}>
-                <svg className={styles.wave} viewBox="0 0 1440 320" preserveAspectRatio="none">
-                    <path 
-                        className={styles.wave3} 
-                        d="M0,256L60,250.7C120,245,240,235,360,218.7C480,203,600,181,720,186.7C840,192,960,224,1080,234.7C1200,245,1320,235,1380,229.3L1440,224L1440,320L0,320Z"
-                    />
-                </svg>
-                <svg className={styles.wave} viewBox="0 0 1440 320" preserveAspectRatio="none">
-                    <path 
-                        className={styles.wave3} 
-                        d="M0,256L60,250.7C120,245,240,235,360,218.7C480,203,600,181,720,186.7C840,192,960,224,1080,234.7C1200,245,1320,235,1380,229.3L1440,224L1440,320L0,320Z"
-                    />
-                </svg>
-            </div>
+            {waveLayers.map((layer) => (
+                <div
+                    key={layer.id}
+                    className={styles.waveLayer}
+                    style={{
+                        animationDuration: `${layer.duration}s`,
+                    }}
+                >
+                    <svg
+                        className={styles.waveSvg}
+                        viewBox="0 0 2000 400"
+                        preserveAspectRatio="none"
+                    >
+                        <path
+                            d={layer.path1}
+                            fill="var(--color-primary)"
+                            style={{ opacity: layer.opacity }}
+                        />
+                    </svg>
+                    <svg
+                        className={styles.waveSvg}
+                        viewBox="0 0 2000 400"
+                        preserveAspectRatio="none"
+                    >
+                        <path
+                            d={layer.path1}
+                            fill="var(--color-primary)"
+                            style={{ opacity: layer.opacity }}
+                        />
+                    </svg>
+                </div>
+            ))}
         </div>
     );
 };

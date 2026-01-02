@@ -1,4 +1,4 @@
-/* Wave Background - Seamless infinite animation */
+/* Wave Background - Top-down organic sine waves */
 .waveContainer {
     position: fixed;
     left: 0;
@@ -9,53 +9,23 @@
     overflow: hidden;
 }
 
-.waveWrapper,
-.waveWrapper2,
-.waveWrapper3 {
+.waveLayer {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 200%;
     height: 100%;
     display: flex;
+    animation: waveFlow linear infinite;
 }
 
-.waveWrapper {
-    animation: waveScroll 20s linear infinite;
-}
-
-.waveWrapper2 {
-    animation: waveScroll 15s linear infinite;
-    animation-delay: -5s;
-}
-
-.waveWrapper3 {
-    animation: waveScroll 25s linear infinite;
-    animation-delay: -10s;
-}
-
-.wave {
+.waveSvg {
     width: 50%;
     height: 100%;
     flex-shrink: 0;
 }
 
-.wave1 {
-    fill: var(--color-primary);
-    opacity: 0.08;
-}
-
-.wave2 {
-    fill: var(--color-primary);
-    opacity: 0.12;
-}
-
-.wave3 {
-    fill: var(--color-primary);
-    opacity: 0.06;
-}
-
-@keyframes waveScroll {
+@keyframes waveFlow {
     0% {
         transform: translateX(0);
     }

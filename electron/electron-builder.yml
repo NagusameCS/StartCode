@@ -1,0 +1,69 @@
+# Electron Builder Configuration
+appId: com.startcode.app
+productName: StartCode
+copyright: Copyright © 2026 StartCode
+
+# Directories
+directories:
+  output: release
+  buildResources: build
+
+# Files to include
+files:
+  - dist/**/*
+  - electron/**/*
+  - public/favicon.svg
+  - package.json
+
+# macOS configuration
+mac:
+  category: public.app-category.developer-tools
+  icon: public/favicon.svg
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+    - target: zip
+      arch:
+        - x64
+        - arm64
+
+# Windows configuration  
+win:
+  icon: public/favicon.svg
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: portable
+      arch:
+        - x64
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
+# Linux configuration
+linux:
+  icon: public/favicon.svg
+  category: Development
+  target:
+    - AppImage
+    - deb
+    - rpm
+
+# Auto-update configuration
+publish:
+  provider: github
+  owner: NagusameCS
+  repo: StartCode
+  releaseType: release
+
+# Build optimization
+asar: true
+compression: maximum

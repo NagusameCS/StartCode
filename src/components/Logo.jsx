@@ -1,25 +1,17 @@
-// StartCode Logo Component - SC in bottom right corner
-import styles from './Logo.module.css';
-
+// StartCode Logo Component - Uses the actual favicon SVG
 const Logo = ({ size = 40, className = '' }) => {
-    const fontSize = Math.round(size * 0.44);
-    const padding = Math.round(size * 0.1);
-    const borderRadius = Math.round(size * 0.2);
-
     return (
-        <div
-            className={`${styles.logo} ${className}`}
+        <img
+            src={`${import.meta.env.BASE_URL}favicon.svg`}
+            alt="StartCode"
+            width={size}
+            height={size}
+            className={className}
             style={{
-                width: size,
-                height: size,
-                padding: padding,
-                borderRadius: borderRadius,
+                display: 'block',
+                borderRadius: size * 0.125,
             }}
-        >
-            <span className={styles.text} style={{ fontSize }}>
-                SC
-            </span>
-        </div>
+        />
     );
 };
 
