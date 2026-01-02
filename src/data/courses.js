@@ -4,6 +4,12 @@
 export const COURSE_CATEGORIES = {
     FUNDAMENTALS: 'fundamentals',
     LANGUAGE: 'language',
+    SYSTEMS: 'systems',
+    WEB: 'web',
+    DATA: 'data',
+    SCRIPTING: 'scripting',
+    TOOLS: 'tools',
+    EXTENSIONS: 'extensions',
     FULLSTACK: 'fullstack'
 };
 
@@ -1531,7 +1537,7 @@ end if
         icon: '🌐',
         color: '#00d4aa',
         language: 'javascript', // Primary language for exercises
-        prerequisites: [],
+        prerequisites: ['html', 'css', 'javascript'],
         estimatedHours: 25,
         bundledCourses: ['html', 'css', 'javascript'],
         lessons: [
@@ -1569,6 +1575,1137 @@ JavaScript: When clicked → do something
                 }
             },
             // More full-stack lessons would combine HTML, CSS, and JS
+        ]
+    },
+
+    // Terminal / Command Line Course
+    'terminal': {
+        id: 'terminal',
+        name: 'Terminal Basics',
+        description: 'Master the command line interface - essential for every developer.',
+        category: COURSE_CATEGORIES.TOOLS,
+        icon: '💻',
+        color: '#1e1e1e',
+        language: 'bash',
+        prerequisites: [],
+        estimatedHours: 4,
+        lessons: [
+            {
+                id: 'term-1',
+                title: 'What is the Terminal?',
+                description: 'Understanding command line basics',
+                stage: 1,
+                content: `
+# What is the Terminal?
+
+The terminal (also called command line or shell) is a text-based way to control your computer.
+
+## Why Learn It?
+- More powerful than clicking around
+- Essential for programming
+- Works the same on most computers
+
+## Basic Concept:
+You type a command, press Enter, and the computer responds.
+                `,
+                exercise: {
+                    prompt: 'What is another name for the terminal?',
+                    type: 'multiple-choice',
+                    options: ['Command Line', 'Desktop', 'Browser', 'Editor'],
+                    answer: 0
+                }
+            },
+            {
+                id: 'term-2',
+                title: 'Navigating Directories',
+                description: 'Moving around the file system',
+                stage: 1,
+                content: `
+# Navigating Directories
+
+## Key Commands:
+- \`pwd\` - Print Working Directory (where am I?)
+- \`ls\` - List files and folders
+- \`cd\` - Change Directory
+
+## Examples:
+\`\`\`bash
+pwd           # Shows current location
+ls            # Lists files here
+cd Documents  # Go into Documents folder
+cd ..         # Go up one level
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Which command shows your current directory?',
+                    type: 'multiple-choice',
+                    options: ['ls', 'cd', 'pwd', 'dir'],
+                    answer: 2
+                }
+            },
+            {
+                id: 'term-3',
+                title: 'Creating and Removing',
+                description: 'Making and deleting files/folders',
+                stage: 2,
+                content: `
+# Creating and Removing
+
+## Creating:
+- \`mkdir folder_name\` - Make a directory
+- \`touch file.txt\` - Create an empty file
+
+## Removing:
+- \`rm file.txt\` - Remove a file
+- \`rmdir folder\` - Remove empty directory
+- \`rm -r folder\` - Remove folder with contents
+
+## Examples:
+\`\`\`bash
+mkdir my_project
+touch README.md
+rm old_file.txt
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: mkdir projects',
+                    type: 'code',
+                    expectedOutput: 'mkdir projects',
+                    hint: 'Type the command exactly as shown'
+                }
+            }
+        ]
+    },
+
+    // C++ Course
+    'cpp': {
+        id: 'cpp',
+        name: 'C++',
+        description: 'Learn C++, a powerful systems programming language.',
+        category: COURSE_CATEGORIES.SYSTEMS,
+        icon: '⚡',
+        color: '#00599C',
+        language: 'cpp',
+        prerequisites: ['intro-logic'],
+        estimatedHours: 15,
+        lessons: [
+            {
+                id: 'cpp-1',
+                title: 'Hello C++',
+                description: 'Your first C++ program',
+                stage: 1,
+                content: `
+# Hello C++
+
+C++ is a powerful language used for games, operating systems, and high-performance apps.
+
+## In Natural Language:
+\`\`\`
+display "Hello, World!" end display
+\`\`\`
+
+## Real C++:
+\`\`\`cpp
+#include <iostream>
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: display "Hello C++" end display',
+                    type: 'code',
+                    expectedOutput: 'Hello C++',
+                    hint: 'Use display and end display'
+                }
+            },
+            {
+                id: 'cpp-2',
+                title: 'Variables in C++',
+                description: 'Storing data with types',
+                stage: 2,
+                content: `
+# Variables in C++
+
+C++ requires you to declare the type of each variable.
+
+## Types:
+- \`int\` - Whole numbers
+- \`double\` - Decimal numbers
+- \`string\` - Text
+- \`bool\` - True/False
+
+## Natural Language:
+\`\`\`
+create number x = 10
+create text name = "Alice"
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: create number age = 25',
+                    type: 'code',
+                    expectedOutput: 'create number age = 25',
+                    hint: 'Declare a number variable called age'
+                }
+            }
+        ]
+    },
+
+    // Rust Course
+    'rust': {
+        id: 'rust',
+        name: 'Rust',
+        description: 'Learn Rust, a safe and fast systems language.',
+        category: COURSE_CATEGORIES.SYSTEMS,
+        icon: '🦀',
+        color: '#CE422B',
+        language: 'rust',
+        prerequisites: ['intro-logic', 'terminal'],
+        estimatedHours: 18,
+        lessons: [
+            {
+                id: 'rust-1',
+                title: 'Hello Rust',
+                description: 'Your first Rust program',
+                stage: 1,
+                content: `
+# Hello Rust
+
+Rust is known for memory safety without garbage collection.
+
+## Natural Language:
+\`\`\`
+display "Hello, Rust!" end display
+\`\`\`
+
+## Real Rust:
+\`\`\`rust
+fn main() {
+    println!("Hello, Rust!");
+}
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write a display statement for "Welcome to Rust"',
+                    type: 'code',
+                    expectedOutput: 'Welcome to Rust',
+                    hint: 'Use display "..." end display'
+                }
+            },
+            {
+                id: 'rust-2',
+                title: 'Variables and Mutability',
+                description: 'Understanding let and mut',
+                stage: 2,
+                content: `
+# Variables in Rust
+
+Rust variables are immutable by default!
+
+## Immutable:
+\`\`\`
+create x = 5
+\`\`\`
+
+## Mutable:
+\`\`\`
+create changeable y = 10
+\`\`\`
+
+## Real Rust:
+\`\`\`rust
+let x = 5;        // Immutable
+let mut y = 10;   // Mutable
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What keyword makes a variable changeable in Rust?',
+                    type: 'multiple-choice',
+                    options: ['var', 'mut', 'let', 'change'],
+                    answer: 1
+                }
+            }
+        ]
+    },
+
+    // TypeScript Course
+    'typescript': {
+        id: 'typescript',
+        name: 'TypeScript',
+        description: 'JavaScript with types - catch errors before they happen.',
+        category: COURSE_CATEGORIES.WEB,
+        icon: '🔷',
+        color: '#3178C6',
+        language: 'typescript',
+        prerequisites: ['javascript'],
+        estimatedHours: 10,
+        lessons: [
+            {
+                id: 'ts-1',
+                title: 'Why TypeScript?',
+                description: 'Adding types to JavaScript',
+                stage: 1,
+                content: `
+# Why TypeScript?
+
+TypeScript is JavaScript with type checking.
+
+## Benefits:
+- Catch bugs before running code
+- Better editor autocomplete
+- Easier to maintain large projects
+
+## Example:
+\`\`\`typescript
+let name: string = "Alice";
+let age: number = 25;
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What does TypeScript add to JavaScript?',
+                    type: 'multiple-choice',
+                    options: ['Speed', 'Types', 'Graphics', 'Sound'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'ts-2',
+                title: 'Basic Types',
+                description: 'String, number, boolean',
+                stage: 2,
+                content: `
+# Basic Types
+
+## Common Types:
+- \`string\` - Text
+- \`number\` - Any number
+- \`boolean\` - True/False
+- \`any\` - Skip type checking
+
+## Natural Language:
+\`\`\`
+create text message = "Hello"
+create number count = 42
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: create number score = 100',
+                    type: 'code',
+                    expectedOutput: 'create number score = 100',
+                    hint: 'Declare a typed number variable'
+                }
+            }
+        ]
+    },
+
+    // SQL Course
+    'sql': {
+        id: 'sql',
+        name: 'SQL',
+        description: 'Query and manage databases with SQL.',
+        category: COURSE_CATEGORIES.DATA,
+        icon: '🗄️',
+        color: '#336791',
+        language: 'sql',
+        prerequisites: ['intro-logic'],
+        estimatedHours: 8,
+        lessons: [
+            {
+                id: 'sql-1',
+                title: 'What is SQL?',
+                description: 'Introduction to databases',
+                stage: 1,
+                content: `
+# What is SQL?
+
+SQL (Structured Query Language) is how we talk to databases.
+
+## Databases Store:
+- User accounts
+- Products
+- Orders
+- Any structured data
+
+## Basic Idea:
+Ask questions, get answers from data.
+                `,
+                exercise: {
+                    prompt: 'What does SQL stand for?',
+                    type: 'multiple-choice',
+                    options: ['Simple Query Language', 'Structured Query Language', 'System Query Logic', 'Standard Question Language'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'sql-2',
+                title: 'SELECT Queries',
+                description: 'Getting data from tables',
+                stage: 2,
+                content: `
+# SELECT Queries
+
+## Natural Language:
+\`\`\`
+get all from users
+get name, email from users
+\`\`\`
+
+## Real SQL:
+\`\`\`sql
+SELECT * FROM users;
+SELECT name, email FROM users;
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: get all from products',
+                    type: 'code',
+                    expectedOutput: 'get all from products',
+                    hint: 'Use get all from tablename'
+                }
+            },
+            {
+                id: 'sql-3',
+                title: 'Filtering with WHERE',
+                description: 'Getting specific data',
+                stage: 2,
+                content: `
+# Filtering with WHERE
+
+## Natural Language:
+\`\`\`
+get all from users where age > 18
+\`\`\`
+
+## Real SQL:
+\`\`\`sql
+SELECT * FROM users WHERE age > 18;
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: get name from users where active = true',
+                    type: 'code',
+                    expectedOutput: 'get name from users where active = true',
+                    hint: 'Add a where clause'
+                }
+            }
+        ]
+    },
+
+    // Ruby Course
+    'ruby': {
+        id: 'ruby',
+        name: 'Ruby',
+        description: 'A beautiful language designed for programmer happiness.',
+        category: COURSE_CATEGORIES.SCRIPTING,
+        icon: '💎',
+        color: '#CC342D',
+        language: 'ruby',
+        prerequisites: ['intro-logic'],
+        estimatedHours: 10,
+        lessons: [
+            {
+                id: 'ruby-1',
+                title: 'Hello Ruby',
+                description: 'Your first Ruby program',
+                stage: 1,
+                content: `
+# Hello Ruby
+
+Ruby is designed to be readable and enjoyable.
+
+## Natural Language:
+\`\`\`
+display "Hello, Ruby!" end display
+\`\`\`
+
+## Real Ruby:
+\`\`\`ruby
+puts "Hello, Ruby!"
+\`\`\`
+
+Simple and clean!
+                `,
+                exercise: {
+                    prompt: 'Write: display "Ruby is fun!" end display',
+                    type: 'code',
+                    expectedOutput: 'Ruby is fun!',
+                    hint: 'Use display with quotes'
+                }
+            },
+            {
+                id: 'ruby-2',
+                title: 'Variables',
+                description: 'Storing data in Ruby',
+                stage: 2,
+                content: `
+# Variables in Ruby
+
+No type declarations needed!
+
+## Natural Language:
+\`\`\`
+create name = "Alice"
+create age = 25
+\`\`\`
+
+## Real Ruby:
+\`\`\`ruby
+name = "Alice"
+age = 25
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: create language = "Ruby"',
+                    type: 'code',
+                    expectedOutput: 'create language = "Ruby"',
+                    hint: 'Create a variable'
+                }
+            }
+        ]
+    },
+
+    // PHP Course
+    'php': {
+        id: 'php',
+        name: 'PHP',
+        description: 'Server-side scripting for the web.',
+        category: COURSE_CATEGORIES.SCRIPTING,
+        icon: '🐘',
+        color: '#777BB4',
+        language: 'php',
+        prerequisites: ['html'],
+        estimatedHours: 10,
+        lessons: [
+            {
+                id: 'php-1',
+                title: 'Hello PHP',
+                description: 'Server-side code basics',
+                stage: 1,
+                content: `
+# Hello PHP
+
+PHP runs on the server before sending HTML to the browser.
+
+## Natural Language:
+\`\`\`
+display "Hello from the server!" end display
+\`\`\`
+
+## Real PHP:
+\`\`\`php
+<?php
+echo "Hello from the server!";
+?>
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Where does PHP code run?',
+                    type: 'multiple-choice',
+                    options: ['Browser', 'Server', 'Database', 'CSS'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'php-2',
+                title: 'Variables in PHP',
+                description: 'Using $ for variables',
+                stage: 2,
+                content: `
+# Variables in PHP
+
+PHP variables start with $.
+
+## Natural Language:
+\`\`\`
+create name = "Alice"
+\`\`\`
+
+## Real PHP:
+\`\`\`php
+$name = "Alice";
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What symbol starts PHP variables?',
+                    type: 'multiple-choice',
+                    options: ['@', '#', '$', '&'],
+                    answer: 2
+                }
+            }
+        ]
+    },
+
+    // Bash Scripting Course
+    'bash': {
+        id: 'bash',
+        name: 'Bash Scripting',
+        description: 'Automate tasks with shell scripts.',
+        category: COURSE_CATEGORIES.SCRIPTING,
+        icon: '📜',
+        color: '#4EAA25',
+        language: 'bash',
+        prerequisites: ['terminal'],
+        estimatedHours: 6,
+        lessons: [
+            {
+                id: 'bash-1',
+                title: 'What is Bash?',
+                description: 'Shell scripting basics',
+                stage: 1,
+                content: `
+# What is Bash?
+
+Bash scripts automate terminal commands.
+
+## Why Use Scripts?
+- Run many commands at once
+- Automate repetitive tasks
+- Schedule jobs
+
+## First Script:
+\`\`\`bash
+#!/bin/bash
+echo "Hello from bash!"
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What does a bash script automate?',
+                    type: 'multiple-choice',
+                    options: ['Web pages', 'Terminal commands', 'Database queries', 'CSS styles'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'bash-2',
+                title: 'Variables in Bash',
+                description: 'Storing values in scripts',
+                stage: 2,
+                content: `
+# Variables in Bash
+
+## Creating:
+\`\`\`bash
+NAME="Alice"
+AGE=25
+\`\`\`
+
+## Using (with $):
+\`\`\`bash
+echo "Hello, $NAME"
+echo "Age: $AGE"
+\`\`\`
+
+Note: No spaces around the =!
+                `,
+                exercise: {
+                    prompt: 'Write: NAME="Bob"',
+                    type: 'code',
+                    expectedOutput: 'NAME="Bob"',
+                    hint: 'No spaces around the equals sign'
+                }
+            }
+        ]
+    },
+
+    // JSON Course
+    'json': {
+        id: 'json',
+        name: 'JSON',
+        description: 'The universal data format for the web.',
+        category: COURSE_CATEGORIES.DATA,
+        icon: '📋',
+        color: '#000000',
+        language: 'json',
+        prerequisites: [],
+        estimatedHours: 2,
+        lessons: [
+            {
+                id: 'json-1',
+                title: 'What is JSON?',
+                description: 'Data in a readable format',
+                stage: 1,
+                content: `
+# What is JSON?
+
+JSON (JavaScript Object Notation) stores data in a readable format.
+
+## Used For:
+- API responses
+- Config files
+- Data storage
+
+## Example:
+\`\`\`json
+{
+  "name": "Alice",
+  "age": 25
+}
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What does JSON stand for?',
+                    type: 'multiple-choice',
+                    options: ['Java Standard Object Notation', 'JavaScript Object Notation', 'Just Simple Object Names', 'JSON Script Object Notation'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'json-2',
+                title: 'JSON Syntax',
+                description: 'Keys, values, and types',
+                stage: 2,
+                content: `
+# JSON Syntax
+
+## Rules:
+- Keys must be in "double quotes"
+- Strings in "double quotes"
+- Numbers without quotes
+- Arrays in [brackets]
+- Objects in {braces}
+
+## Example:
+\`\`\`json
+{
+  "users": [
+    {"name": "Alice", "age": 25},
+    {"name": "Bob", "age": 30}
+  ]
+}
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What quotes does JSON require for keys?',
+                    type: 'multiple-choice',
+                    options: ['Single quotes', 'Double quotes', 'No quotes', 'Backticks'],
+                    answer: 1
+                }
+            }
+        ]
+    },
+
+    // Markdown Course
+    'markdown': {
+        id: 'markdown',
+        name: 'Markdown',
+        description: 'Write formatted documents with simple syntax.',
+        category: COURSE_CATEGORIES.DATA,
+        icon: '📝',
+        color: '#083FA1',
+        language: 'markdown',
+        prerequisites: [],
+        estimatedHours: 1,
+        lessons: [
+            {
+                id: 'md-1',
+                title: 'What is Markdown?',
+                description: 'Simple text formatting',
+                stage: 1,
+                content: `
+# What is Markdown?
+
+Markdown is a simple way to format text.
+
+## Used For:
+- README files
+- Documentation
+- Notes and blogs
+
+## Basic Syntax:
+- # Heading
+- **bold**
+- *italic*
+- [links](url)
+                `,
+                exercise: {
+                    prompt: 'What symbol creates a heading in Markdown?',
+                    type: 'multiple-choice',
+                    options: ['*', '#', '@', '!'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'md-2',
+                title: 'Formatting Text',
+                description: 'Bold, italic, and lists',
+                stage: 2,
+                content: `
+# Formatting Text
+
+## Bold and Italic:
+- **bold** or __bold__
+- *italic* or _italic_
+- ***both***
+
+## Lists:
+\`\`\`
+- Item 1
+- Item 2
+  - Nested
+
+1. First
+2. Second
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'How do you make text bold in Markdown?',
+                    type: 'multiple-choice',
+                    options: ['<b>text</b>', '**text**', '!!text!!', '##text##'],
+                    answer: 1
+                }
+            }
+        ]
+    },
+
+    // APIs Course
+    'apis': {
+        id: 'apis',
+        name: 'Working with APIs',
+        description: 'Connect your apps to external services.',
+        category: COURSE_CATEGORIES.EXTENSIONS,
+        icon: '🔌',
+        color: '#FF6B6B',
+        language: 'javascript',
+        prerequisites: ['javascript', 'json'],
+        estimatedHours: 6,
+        lessons: [
+            {
+                id: 'api-1',
+                title: 'What is an API?',
+                description: 'Application Programming Interface',
+                stage: 1,
+                content: `
+# What is an API?
+
+API = Application Programming Interface
+
+It's how programs talk to each other.
+
+## Examples:
+- Weather data from weather.com
+- User login with Google
+- Payment processing
+
+## How It Works:
+1. You send a request
+2. Server processes it
+3. Server sends response
+                `,
+                exercise: {
+                    prompt: 'What does API stand for?',
+                    type: 'multiple-choice',
+                    options: ['Automated Program Interface', 'Application Programming Interface', 'Applied Programming Integration', 'Automatic Process Integration'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'api-2',
+                title: 'Making Requests',
+                description: 'Fetching data from APIs',
+                stage: 2,
+                content: `
+# Making Requests
+
+## Natural Language:
+\`\`\`
+fetch data from "https://api.example.com/users"
+\`\`\`
+
+## Real JavaScript:
+\`\`\`javascript
+fetch("https://api.example.com/users")
+  .then(response => response.json())
+  .then(data => console.log(data));
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: fetch data from "https://api.weather.com"',
+                    type: 'code',
+                    expectedOutput: 'fetch data from "https://api.weather.com"',
+                    hint: 'Use fetch data from with the URL'
+                }
+            }
+        ]
+    },
+
+    // Swift Course
+    'swift': {
+        id: 'swift',
+        name: 'Swift',
+        description: 'Build iOS and macOS apps with Apple\'s modern language.',
+        category: COURSE_CATEGORIES.LANGUAGE,
+        icon: '🍎',
+        color: '#F05138',
+        language: 'swift',
+        prerequisites: ['intro-logic'],
+        estimatedHours: 12,
+        lessons: [
+            {
+                id: 'swift-1',
+                title: 'Hello Swift',
+                description: 'Your first Swift program',
+                stage: 1,
+                content: `
+# Hello Swift
+
+Swift is Apple's language for iOS and macOS apps.
+
+## Natural Language:
+\`\`\`
+display "Hello, Swift!" end display
+\`\`\`
+
+## Real Swift:
+\`\`\`swift
+print("Hello, Swift!")
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What platforms use Swift?',
+                    type: 'multiple-choice',
+                    options: ['Windows', 'iOS and macOS', 'Android', 'Linux only'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'swift-2',
+                title: 'Variables in Swift',
+                description: 'let and var',
+                stage: 2,
+                content: `
+# Variables in Swift
+
+## Constants (can't change):
+\`\`\`swift
+let name = "Alice"
+\`\`\`
+
+## Variables (can change):
+\`\`\`swift
+var score = 0
+score = 10
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Which keyword creates a constant in Swift?',
+                    type: 'multiple-choice',
+                    options: ['var', 'let', 'const', 'final'],
+                    answer: 1
+                }
+            }
+        ]
+    },
+
+    // C# Course
+    'csharp': {
+        id: 'csharp',
+        name: 'C#',
+        description: 'Microsoft\'s powerful language for games and apps.',
+        category: COURSE_CATEGORIES.LANGUAGE,
+        icon: '🎮',
+        color: '#239120',
+        language: 'csharp',
+        prerequisites: ['intro-logic'],
+        estimatedHours: 14,
+        lessons: [
+            {
+                id: 'cs-1',
+                title: 'Hello C#',
+                description: 'Your first C# program',
+                stage: 1,
+                content: `
+# Hello C#
+
+C# is used for games (Unity), Windows apps, and web services.
+
+## Natural Language:
+\`\`\`
+display "Hello, C#!" end display
+\`\`\`
+
+## Real C#:
+\`\`\`csharp
+Console.WriteLine("Hello, C#!");
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'What game engine uses C#?',
+                    type: 'multiple-choice',
+                    options: ['Unreal', 'Unity', 'Godot', 'GameMaker'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'cs-2',
+                title: 'Variables in C#',
+                description: 'Typed variables',
+                stage: 2,
+                content: `
+# Variables in C#
+
+C# requires type declarations.
+
+## Types:
+- \`string\` - Text
+- \`int\` - Whole numbers
+- \`double\` - Decimals
+- \`bool\` - True/False
+
+## Example:
+\`\`\`csharp
+string name = "Alice";
+int age = 25;
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: create text greeting = "Hi"',
+                    type: 'code',
+                    expectedOutput: 'create text greeting = "Hi"',
+                    hint: 'Declare a text variable'
+                }
+            }
+        ]
+    },
+
+    // Git Course
+    'git': {
+        id: 'git',
+        name: 'Git Version Control',
+        description: 'Track changes and collaborate with Git.',
+        category: COURSE_CATEGORIES.TOOLS,
+        icon: '🔀',
+        color: '#F05032',
+        language: 'bash',
+        prerequisites: ['terminal'],
+        estimatedHours: 5,
+        lessons: [
+            {
+                id: 'git-1',
+                title: 'What is Git?',
+                description: 'Version control basics',
+                stage: 1,
+                content: `
+# What is Git?
+
+Git tracks changes to your code over time.
+
+## Why Use It?
+- Save versions of your work
+- Undo mistakes
+- Collaborate with others
+- See who changed what
+
+## Key Concepts:
+- Repository (repo)
+- Commit (save point)
+- Branch (parallel version)
+                `,
+                exercise: {
+                    prompt: 'What does Git track?',
+                    type: 'multiple-choice',
+                    options: ['Time spent coding', 'Changes to code', 'Computer memory', 'Internet speed'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'git-2',
+                title: 'Basic Commands',
+                description: 'init, add, commit',
+                stage: 2,
+                content: `
+# Basic Git Commands
+
+## Starting:
+\`\`\`bash
+git init          # Create new repo
+git clone <url>   # Copy existing repo
+\`\`\`
+
+## Saving Changes:
+\`\`\`bash
+git add .                    # Stage all changes
+git commit -m "message"      # Save with message
+\`\`\`
+                `,
+                exercise: {
+                    prompt: 'Write: git add .',
+                    type: 'code',
+                    expectedOutput: 'git add .',
+                    hint: 'Stage all changes'
+                }
+            }
+        ]
+    },
+
+    // Authentication Course
+    'authentication': {
+        id: 'authentication',
+        name: 'Authentication',
+        description: 'Secure your apps with user login systems.',
+        category: COURSE_CATEGORIES.EXTENSIONS,
+        icon: '🔐',
+        color: '#6366F1',
+        language: 'javascript',
+        prerequisites: ['javascript', 'apis'],
+        estimatedHours: 8,
+        lessons: [
+            {
+                id: 'auth-1',
+                title: 'What is Authentication?',
+                description: 'Verifying user identity',
+                stage: 1,
+                content: `
+# What is Authentication?
+
+Authentication = Proving who you are
+
+## Methods:
+- Username/Password
+- OAuth (Login with Google/GitHub)
+- Magic links (email)
+- Biometrics (fingerprint/face)
+
+## Authentication vs Authorization:
+- Authentication: Who are you?
+- Authorization: What can you do?
+                `,
+                exercise: {
+                    prompt: 'What is the difference between authentication and authorization?',
+                    type: 'multiple-choice',
+                    options: ['They are the same', 'Auth = who, Author = what', 'Auth = what, Author = who', 'Neither relates to security'],
+                    answer: 1
+                }
+            },
+            {
+                id: 'auth-2',
+                title: 'OAuth Basics',
+                description: 'Login with third parties',
+                stage: 2,
+                content: `
+# OAuth Basics
+
+OAuth lets users login with existing accounts.
+
+## Flow:
+1. User clicks "Login with Google"
+2. Redirected to Google
+3. User approves
+4. Google sends token back
+5. Your app verifies token
+
+## Benefits:
+- No password to store
+- Users trust Google/GitHub
+- Less friction for users
+                `,
+                exercise: {
+                    prompt: 'What does OAuth let users do?',
+                    type: 'multiple-choice',
+                    options: ['Create new passwords', 'Login with existing accounts', 'Delete accounts', 'Encrypt files'],
+                    answer: 1
+                }
+            }
         ]
     }
 };

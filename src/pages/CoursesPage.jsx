@@ -22,7 +22,13 @@ const CoursesPage = () => {
         { id: 'all', name: 'All Courses' },
         { id: COURSE_CATEGORIES.FUNDAMENTALS, name: '🧠 Fundamentals' },
         { id: COURSE_CATEGORIES.LANGUAGE, name: '💻 Languages' },
-        { id: COURSE_CATEGORIES.FULLSTACK, name: '🌐 Full-Stack' },
+        { id: COURSE_CATEGORIES.SYSTEMS, name: '⚙️ Systems' },
+        { id: COURSE_CATEGORIES.WEB, name: '🌐 Web' },
+        { id: COURSE_CATEGORIES.DATA, name: '📊 Data' },
+        { id: COURSE_CATEGORIES.SCRIPTING, name: '📜 Scripting' },
+        { id: COURSE_CATEGORIES.TOOLS, name: '🛠️ Tools' },
+        { id: COURSE_CATEGORIES.EXTENSIONS, name: '🔌 Extensions' },
+        { id: COURSE_CATEGORIES.FULLSTACK, name: '🚀 Full-Stack' },
     ];
 
     const filteredCourses = selectedCategory === 'all'
