@@ -1,5 +1,5 @@
 // Login Page - Authentication with Google, GitHub, and Email/Password
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
@@ -34,6 +34,7 @@ const LoginPage = () => {
     const [displayName, setDisplayName] = useState('');
 
     const {
+        user,
         signInWithProvider,
         signInWithEmail,
         signUpWithEmail,
@@ -44,6 +45,13 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/dashboard';
+
+    // Redirect if already logged in (handles OAuth redirect callback)
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user, navigate, from]);
 
     const handleProviderSignIn = async (providerName) => {
         setLoading(true);

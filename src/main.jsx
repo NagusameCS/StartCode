@@ -22,11 +22,18 @@ console.log('🚀 StartCode initialized');
 })();
 
 // Handle query-based redirect from 404.html
+// Converts /?/path to /path for client-side routing
 (function () {
   const l = window.location;
-  if (l.search[1] === '/') {
-    const decoded = l.search.slice(1).split('&').map(s => s.replace(/~and~/g, '&')).join('?');
-    window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+  // Check if we have a /?/ pattern (from 404.html redirect)
+  if (l.search.startsWith('?/')) {
+    // Extract the path from query string: /?/login -> /login
+    const pathFromQuery = l.search.slice(2).split('&')[0].replace(/~and~/g, '&');
+    // Get hash if any
+    const hash = l.hash || '';
+    // Build the new URL with proper path
+    const newPath = l.pathname.replace(/\/$/, '') + '/' + pathFromQuery + hash;
+    window.history.replaceState(null, null, newPath);
   }
 })();
 
