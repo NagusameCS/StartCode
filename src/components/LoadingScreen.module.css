@@ -4,39 +4,21 @@
     align-items: center;
     justify-content: center;
     background-color: var(--color-background);
+    position: relative;
 }
 
 .content {
     text-align: center;
-}
-
-.logo {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto var(--spacing-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--color-primary), #a855f7);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
-}
-
-.logoIcon {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    font-family: var(--font-mono);
+    position: relative;
+    z-index: 1;
 }
 
 .title {
     font-size: 2rem;
     font-weight: 700;
+    margin-top: var(--spacing-lg);
     margin-bottom: var(--spacing-xs);
-    background: linear-gradient(135deg, var(--color-primary), #a855f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-text);
 }
 
 .subtitle {
@@ -50,10 +32,11 @@
     background-color: var(--color-backgroundTertiary);
     border-radius: var(--radius-full);
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .progressFill {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-primary), #a855f7);
+    background-color: var(--color-primary);
     border-radius: var(--radius-full);
 }

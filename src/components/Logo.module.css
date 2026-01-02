@@ -1,0 +1,15 @@
+/* Logo Component - SC branding */
+.logo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    background-color: #0e183b;
+    flex-shrink: 0;
+}
+
+.text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+}

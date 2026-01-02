@@ -1,10 +1,13 @@
 // Loading Screen Component
 import { motion } from 'framer-motion';
+import Logo from './Logo';
+import WaveBackground from './WaveBackground';
 import styles from './LoadingScreen.module.css';
 
 const LoadingScreen = () => {
     return (
         <div className={styles.container}>
+            <WaveBackground height="40vh" />
             <motion.div
                 className={styles.content}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -12,11 +15,10 @@ const LoadingScreen = () => {
                 transition={{ duration: 0.3 }}
             >
                 <motion.div
-                    className={styles.logo}
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 >
-                    <span className={styles.logoIcon}>{'</>'}</span>
+                    <Logo size={80} />
                 </motion.div>
                 <h1 className={styles.title}>StartCode</h1>
                 <p className={styles.subtitle}>Loading...</p>

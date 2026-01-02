@@ -13,6 +13,7 @@ import {
     FiRefreshCw
 } from 'react-icons/fi';
 import { FaWindows, FaApple, FaLinux } from 'react-icons/fa';
+import Logo from '../components/Logo';
 import styles from './DownloadPage.module.css';
 
 const DownloadPage = () => {
@@ -89,7 +90,7 @@ const DownloadPage = () => {
                 animate={{ opacity: 1, y: 0 }}
             >
                 <div className={styles.heroIcon}>
-                    <FiMonitor />
+                    <Logo size={80} />
                 </div>
                 <h1>StartCode Desktop</h1>
                 <p>

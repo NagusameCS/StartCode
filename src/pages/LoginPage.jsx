@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { useAuthStore } from '../store/authStore';
 import Icon from '../components/Icon';
+import Logo from '../components/Logo';
+import WaveBackground from '../components/WaveBackground';
 import styles from './LoginPage.module.css';
 
 // Black & White SVG Icons
@@ -99,13 +101,7 @@ const LoginPage = () => {
     return (
         <div className={styles.container}>
             {/* Animated Wave Background */}
-            <div className={styles.waveContainer}>
-                <svg className={styles.waves} viewBox="0 0 1440 320" preserveAspectRatio="none">
-                    <path className={styles.wave1} d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                    <path className={styles.wave2} d="M0,256L48,240C96,224,192,192,288,181.3C384,171,480,181,576,186.7C672,192,768,192,864,208C960,224,1056,256,1152,261.3C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                    <path className={styles.wave3} d="M0,288L48,272C96,256,192,224,288,213.3C384,203,480,213,576,224C672,235,768,245,864,234.7C960,224,1056,192,1152,181.3C1248,171,1344,181,1392,186.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-                </svg>
-            </div>
+            <WaveBackground height="45vh" />
 
             <motion.div
                 className={styles.card}
@@ -114,9 +110,7 @@ const LoginPage = () => {
                 transition={{ duration: 0.4 }}
             >
                 {/* Logo */}
-                <div className={styles.logo}>
-                    <span className={styles.logoText}>SC</span>
-                </div>
+                <Logo size={64} className={styles.logo} />
 
                 {/* Title */}
                 <h1 className={styles.title}>StartCode</h1>

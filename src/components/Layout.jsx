@@ -17,6 +17,8 @@ import {
 } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useTeacherStore } from '../store/teacherStore';
+import Logo from './Logo';
+import WaveBackground from './WaveBackground';
 import styles from './Layout.module.css';
 
 const Layout = () => {
@@ -41,11 +43,14 @@ const Layout = () => {
 
     return (
         <div className={styles.layout}>
+            {/* Wave Background */}
+            <WaveBackground height="30vh" />
+
             {/* Sidebar - Desktop */}
             <aside className={styles.sidebar}>
                 <div className={styles.sidebarHeader}>
-                    <NavLink to="/dashboard" className={styles.logo}>
-                        <span className={styles.logoIcon}>{'</>'}</span>
+                    <NavLink to="/dashboard" className={styles.logoLink}>
+                        <Logo size={36} />
                         <span className={styles.logoText}>StartCode</span>
                     </NavLink>
                 </div>
@@ -146,7 +151,7 @@ const Layout = () => {
             {/* Mobile Header */}
             <header className={styles.mobileHeader}>
                 <NavLink to="/dashboard" className={styles.mobileLogo}>
-                    <span className={styles.logoIcon}>{'</>'}</span>
+                    <Logo size={32} />
                     <span>StartCode</span>
                 </NavLink>
                 <button
