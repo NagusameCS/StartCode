@@ -167,6 +167,32 @@
     overflow: hidden;
 }
 
+/* Tags */
+.tags {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-sm);
+}
+
+.categoryTag,
+.langTag {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    text-transform: capitalize;
+}
+
+.categoryTag {
+    background-color: var(--color-backgroundTertiary);
+    color: var(--color-textSecondary);
+}
+
+.langTag {
+    background-color: rgba(99, 102, 241, 0.15);
+    color: var(--color-primary);
+}
+
 .cardMeta {
     display: flex;
     gap: var(--spacing-md);
@@ -215,7 +241,8 @@
 
 .completedBadge,
 .continueBadge,
-.startBadge {
+.startBadge,
+.lockedBadge {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
@@ -233,6 +260,11 @@
 
 .startBadge {
     color: var(--color-textSecondary);
+}
+
+.lockedBadge {
+    color: var(--color-textMuted);
+    font-size: 0.8rem;
 }
 
 /* Course Detail */

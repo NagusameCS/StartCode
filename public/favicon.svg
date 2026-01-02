@@ -2,10 +2,14 @@
   <!-- Background -->
   <rect width="128" height="128" rx="16" fill="#0e183b"/>
   
-  <!-- Code bracket icons representing coding -->
-  <path d="M44 44 L28 64 L44 84" stroke="#6366f1" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M84 44 L100 64 L84 84" stroke="#6366f1" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- SC Text -->
+  <text x="64" y="78" 
+        font-family="system-ui, -apple-system, sans-serif" 
+        font-size="52" 
+        font-weight="700" 
+        fill="#6366f1" 
+        text-anchor="middle">SC</text>
   
-  <!-- Forward slash in the middle -->
-  <line x1="72" y1="40" x2="56" y2="88" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  <!-- Subtle corner accent -->
+  <path d="M108 20 L118 20 L118 30" stroke="#6366f1" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6"/>
 </svg>

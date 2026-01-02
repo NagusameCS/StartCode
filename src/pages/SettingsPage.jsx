@@ -18,7 +18,7 @@ import {
 import { FaGoogle, FaMicrosoft, FaApple } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
-import { useThemeStore } from '../store/themeStore';
+import { useThemeStore, themes } from '../store/themeStore';
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import toast from 'react-hot-toast';
@@ -26,7 +26,7 @@ import styles from './SettingsPage.module.css';
 
 const SettingsPage = () => {
     const { user, userProfile, logout, updateProfile } = useAuthStore();
-    const { theme, setTheme, themes } = useThemeStore();
+    const { currentTheme, setTheme } = useThemeStore();
 
     const [username, setUsername] = useState(userProfile?.username || '');
     const [displayName, setDisplayName] = useState(userProfile?.displayName || '');
@@ -40,8 +40,8 @@ const SettingsPage = () => {
     const themeIcons = {
         light: FiSun,
         dark: FiMoon,
-        'high-contrast': FiMonitor,
-        'retro-terminal': FiTerminal
+        highContrast: FiMonitor,
+        retroTerminal: FiTerminal
     };
 
     // Save profile changes
@@ -155,16 +155,16 @@ const SettingsPage = () => {
                             return (
                                 <button
                                     key={key}
-                                    className={`${styles.themeOption} ${theme === key ? styles.active : ''}`}
+                                    className={`${styles.themeOption} ${currentTheme === key ? styles.active : ''}`}
                                     onClick={() => setTheme(key)}
                                 >
                                     <div
                                         className={styles.themePreview}
                                         style={{
-                                            '--preview-bg': themeData.colors['--color-bg'],
-                                            '--preview-card': themeData.colors['--color-card'],
-                                            '--preview-text': themeData.colors['--color-text'],
-                                            '--preview-primary': themeData.colors['--color-primary']
+                                            '--preview-bg': themeData.colors.background,
+                                            '--preview-card': themeData.colors.card,
+                                            '--preview-text': themeData.colors.text,
+                                            '--preview-primary': themeData.colors.primary
                                         }}
                                     >
                                         <div className={styles.previewHeader} />
@@ -176,7 +176,7 @@ const SettingsPage = () => {
                                     <span className={styles.themeName}>
                                         <Icon /> {themeData.name}
                                     </span>
-                                    {theme === key && <FiCheck className={styles.checkIcon} />}
+                                    {currentTheme === key && <FiCheck className={styles.checkIcon} />}
                                 </button>
                             );
                         })}

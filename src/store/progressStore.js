@@ -171,10 +171,17 @@ export const useProgressStore = create(
             },
 
             // Get course completion percentage
-            getCourseProgress: (courseId, totalLessons) => {
+            // Now accepts lessonIds array directly for accurate counting
+            getCourseProgress: (courseId, lessonIds) => {
                 const { completedLessons } = get();
+                // If lessonIds is an array of actual IDs, count those
+                if (Array.isArray(lessonIds)) {
+                    const completedCount = lessonIds.filter(id => completedLessons.includes(id)).length;
+                    return lessonIds.length > 0 ? Math.round((completedCount / lessonIds.length) * 100) : 0;
+                }
+                // Fallback: treat as total count (legacy behavior)
                 const courseLessons = completedLessons.filter(id => id.startsWith(courseId));
-                return Math.round((courseLessons.length / totalLessons) * 100);
+                return lessonIds > 0 ? Math.round((courseLessons.length / lessonIds) * 100) : 0;
             },
 
             // Sync from Firebase (for new login)

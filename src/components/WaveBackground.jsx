@@ -1,62 +1,7 @@
-// Animated Wave Background Component - Smooth organic waves
-import { useMemo } from 'react';
+// Animated Wave Background Component - Clean CSS-based waves
 import styles from './WaveBackground.module.css';
 
-// Generate smooth wave path using a single gentle sine wave
-const generateWavePath = (width, height, amplitude, frequency, phase, yOffset) => {
-    const points = [];
-    const segments = 200; // More segments = smoother curve
-
-    for (let i = 0; i <= segments; i++) {
-        const x = (i / segments) * width;
-        // Use a single smooth sine wave - no spiky harmonics
-        const y = yOffset + amplitude * Math.sin((frequency * x / width) * Math.PI * 2 + phase);
-        points.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`);
-    }
-
-    // Close the path at the bottom
-    points.push(`L${width},${height}`);
-    points.push(`L0,${height}`);
-    points.push('Z');
-
-    return points.join(' ');
-};
-
-const WaveBackground = ({ position = 'bottom', height = '40vh' }) => {
-    // Pre-generate wave paths for animation
-    const waveLayers = useMemo(() => {
-        const width = 2000;
-        const waveHeight = 400;
-
-        return [
-            {
-                amplitude: 25,
-                frequency: 0.8,
-                yOffset: 200,
-                opacity: 0.04,
-                duration: 25, // Slower animation
-            },
-            {
-                amplitude: 18,
-                frequency: 1.2,
-                yOffset: 220,
-                opacity: 0.06,
-                duration: 30,
-            },
-            {
-                amplitude: 12,
-                frequency: 1.5,
-                yOffset: 240,
-                opacity: 0.03,
-                duration: 35,
-            },
-        ].map((layer, idx) => ({
-            ...layer,
-            path: generateWavePath(width, waveHeight, layer.amplitude, layer.frequency, 0, layer.yOffset),
-            id: idx,
-        }));
-    }, []);
-
+const WaveBackground = ({ position = 'bottom', height = '35vh' }) => {
     return (
         <div
             className={styles.waveContainer}
@@ -64,41 +9,43 @@ const WaveBackground = ({ position = 'bottom', height = '40vh' }) => {
                 height,
                 top: position === 'top' ? 0 : 'auto',
                 bottom: position === 'bottom' ? 0 : 'auto',
-                transform: position === 'top' ? 'scaleY(-1)' : 'none',
+                transform: position === 'top' ? 'rotate(180deg)' : 'none',
             }}
         >
-            {waveLayers.map((layer) => (
-                <div
-                    key={layer.id}
-                    className={styles.waveLayer}
-                    style={{
-                        animationDuration: `${layer.duration}s`,
-                    }}
-                >
-                    <svg
-                        className={styles.waveSvg}
-                        viewBox="0 0 2000 400"
-                        preserveAspectRatio="none"
-                    >
-                        <path
-                            d={layer.path}
-                            fill="var(--color-primary)"
-                            style={{ opacity: layer.opacity }}
-                        />
-                    </svg>
-                    <svg
-                        className={styles.waveSvg}
-                        viewBox="0 0 2000 400"
-                        preserveAspectRatio="none"
-                    >
-                        <path
-                            d={layer.path}
-                            fill="var(--color-primary)"
-                            style={{ opacity: layer.opacity }}
-                        />
-                    </svg>
-                </div>
-            ))}
+            {/* Wave layers using SVG with smooth bezier curves */}
+            <svg 
+                className={styles.wave} 
+                viewBox="0 0 1440 320" 
+                preserveAspectRatio="none"
+                style={{ opacity: 0.08, animationDuration: '20s' }}
+            >
+                <path 
+                    d="M0,160 C360,240 720,80 1080,160 C1260,200 1380,180 1440,160 L1440,320 L0,320 Z"
+                    fill="var(--color-primary)"
+                />
+            </svg>
+            <svg 
+                className={styles.wave} 
+                viewBox="0 0 1440 320" 
+                preserveAspectRatio="none"
+                style={{ opacity: 0.05, animationDuration: '25s', animationDelay: '-5s' }}
+            >
+                <path 
+                    d="M0,192 C240,128 480,256 720,192 C960,128 1200,224 1440,192 L1440,320 L0,320 Z"
+                    fill="var(--color-primary)"
+                />
+            </svg>
+            <svg 
+                className={styles.wave} 
+                viewBox="0 0 1440 320" 
+                preserveAspectRatio="none"
+                style={{ opacity: 0.03, animationDuration: '30s', animationDelay: '-10s' }}
+            >
+                <path 
+                    d="M0,224 C180,160 360,288 540,224 C720,160 900,288 1080,224 C1260,160 1380,200 1440,224 L1440,320 L0,320 Z"
+                    fill="var(--color-primary)"
+                />
+            </svg>
         </div>
     );
 };

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiArrowRight, FiClock, FiBook, FiLock, FiCheck, FiArrowLeft, FiArrowDown } from 'react-icons/fi';
+import { FiArrowRight, FiClock, FiBook, FiLock, FiCheck, FiArrowLeft } from 'react-icons/fi';
 import { useProgressStore } from '../store/progressStore';
 import { getAllCourses, getCourse, getLessons, COURSE_CATEGORIES } from '../data/courses';
 import styles from './CoursesPage.module.css';
@@ -48,7 +48,7 @@ const CoursesPage = () => {
 
     // Course detail view
     if (selectedCourse) {
-        const progress = getCourseProgress(courseId, lessons.length);
+        const progress = getCourseProgress(courseId, lessons.map(l => l.id));
         const prerequisitesMet = arePrerequisitesMet(selectedCourse);
 
         return (
@@ -192,9 +192,9 @@ const CoursesPage = () => {
             <motion.div className={styles.grid} layout>
                 <AnimatePresence mode="popLayout">
                     {filteredCourses.map((course, index) => {
-                        const progress = getCourseProgress(course.id, course.lessons?.length || 0);
+                        const lessonIds = course.lessons?.map(l => l.id) || [];
+                        const progress = getCourseProgress(course.id, lessonIds);
                         const prerequisitesMet = arePrerequisitesMet(course);
-                        const hasPrerequisites = course.prerequisites && course.prerequisites.length > 0;
 
                         return (
                             <motion.div
@@ -206,17 +206,6 @@ const CoursesPage = () => {
                                 transition={{ delay: index * 0.05 }}
                                 className={styles.courseWrapper}
                             >
-                                {/* Prerequisite chain indicator */}
-                                {hasPrerequisites && (
-                                    <div className={styles.prerequisiteChain}>
-                                        <div className={styles.chainLine} />
-                                        <div className={`${styles.chainBadge} ${prerequisitesMet ? styles.completed : ''}`}>
-                                            <FiArrowDown />
-                                            <span>Requires: {course.prerequisites.map(p => getCourse(p)?.name).join(', ')}</span>
-                                        </div>
-                                    </div>
-                                )}
-
                                 <Link
                                     to={`/course/${course.id}`}
                                     className={`${styles.courseCard} ${!prerequisitesMet ? styles.locked : ''}`}
@@ -235,6 +224,12 @@ const CoursesPage = () => {
 
                                     <h3>{course.name}</h3>
                                     <p>{course.description}</p>
+
+                                    {/* Tags */}
+                                    <div className={styles.tags}>
+                                        <span className={styles.categoryTag}>{course.category}</span>
+                                        {course.language && <span className={styles.langTag}>{course.language}</span>}
+                                    </div>
 
                                     <div className={styles.cardMeta}>
                                         <span><FiBook /> {course.lessons?.length || 0} lessons</span>
@@ -258,6 +253,8 @@ const CoursesPage = () => {
                                             <span className={styles.completedBadge}><FiCheck /> Completed</span>
                                         ) : progress > 0 ? (
                                             <span className={styles.continueBadge}>Continue <FiArrowRight /></span>
+                                        ) : !prerequisitesMet ? (
+                                            <span className={styles.lockedBadge}><FiLock /> {course.prerequisites?.map(p => getCourse(p)?.name).join(', ')} required</span>
                                         ) : (
                                             <span className={styles.startBadge}>Start Learning <FiArrowRight /></span>
                                         )}
