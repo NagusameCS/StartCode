@@ -102,9 +102,9 @@ const CoursesPage = () => {
                                 {selectedCourse.prerequisites.map(p => {
                                     const prereqCourse = getCourse(p);
                                     return (
-                                        <Link 
-                                            key={p} 
-                                            to={`/course/${p}`} 
+                                        <Link
+                                            key={p}
+                                            to={`/course/${p}`}
                                             className={styles.prereqIcon}
                                             style={{ backgroundColor: prereqCourse?.color }}
                                         >
@@ -241,9 +241,9 @@ const CoursesPage = () => {
                                                 {course.prerequisites.map(p => {
                                                     const prereqCourse = getCourse(p);
                                                     return (
-                                                        <Link 
-                                                            key={p} 
-                                                            to={`/course/${p}`} 
+                                                        <Link
+                                                            key={p}
+                                                            to={`/course/${p}`}
                                                             className={styles.prereqIcon}
                                                             style={{ backgroundColor: prereqCourse?.color }}
                                                             onClick={(e) => e.stopPropagation()}

@@ -97,16 +97,16 @@ const LessonPage = () => {
             if (!course?.language) {
                 // Execute the natural language code
                 const result = await executeCode(code, null);
-                
+
                 if (result.success) {
                     setOutput(result.output || '(No output)');
-                    
+
                     // Check expected output if specified
                     if (lesson?.exercise?.expectedOutput) {
                         const normalize = (s) => s?.trim().toLowerCase().replace(/\s+/g, ' ') || '';
                         const isCorrect = normalize(result.output) === normalize(lesson.exercise.expectedOutput);
                         setExerciseResult(isCorrect ? 'correct' : 'incorrect');
-                        
+
                         if (isCorrect) {
                             toast.success('Correct! Great job!');
                             saveCodeToHistory(lessonId, code, 'correct');
@@ -123,7 +123,7 @@ const LessonPage = () => {
                     setExerciseResult('incorrect');
                     saveCodeToHistory(lessonId, code, 'error');
                 }
-                
+
                 setIsRunning(false);
                 return;
             }

@@ -242,7 +242,7 @@ export const executeCode = async (code, language) => {
         // Natural language / pseudocode
         return executeNatural(code);
     }
-    
+
     switch (language.toLowerCase()) {
         case 'python':
             return await executePython(code);

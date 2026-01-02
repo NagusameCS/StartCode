@@ -17,7 +17,7 @@ export class NaturalInterpreter {
     execute(code) {
         this.reset();
         const lines = code.split('\n').map(l => l.trim()).filter(l => l);
-        
+
         try {
             this.executeLines(lines, 0, lines.length);
             return {
@@ -146,12 +146,12 @@ export class NaturalInterpreter {
         if (!conditionMatch) return {};
 
         const condition = this.evaluateCondition(conditionMatch[1]);
-        
+
         // Find end if, otherwise
         let ifEnd = -1;
         let otherwiseIndex = -1;
         let depth = 1;
-        
+
         for (let i = currentIndex + 1; i < endIndex; i++) {
             const l = allLines[i].toLowerCase().trim();
             if (l.startsWith('if ') && l.includes(' then')) depth++;
@@ -185,11 +185,11 @@ export class NaturalInterpreter {
         if (!match) return {};
 
         const times = parseInt(match[1]);
-        
+
         // Find end loop
         let loopEnd = -1;
         let depth = 1;
-        
+
         for (let i = currentIndex + 1; i < endIndex; i++) {
             const l = allLines[i].toLowerCase().trim();
             if (l.startsWith('repeat ')) depth++;
@@ -217,7 +217,7 @@ export class NaturalInterpreter {
         // Find end repeat
         let loopEnd = -1;
         let depth = 1;
-        
+
         for (let i = currentIndex + 1; i < endIndex; i++) {
             const l = allLines[i].toLowerCase().trim();
             if (l.startsWith('repeat ')) depth++;
@@ -232,7 +232,7 @@ export class NaturalInterpreter {
 
         let iterations = 0;
         const maxIterations = 1000; // Safety limit
-        
+
         while (this.evaluateCondition(match[1]) && iterations < maxIterations) {
             this.executeLines(allLines, currentIndex + 1, loopEnd);
             iterations++;
@@ -255,7 +255,7 @@ export class NaturalInterpreter {
         // Find end loop
         let loopEnd = -1;
         let depth = 1;
-        
+
         for (let i = currentIndex + 1; i < endIndex; i++) {
             const l = allLines[i].toLowerCase().trim();
             if (l.startsWith('for each ') || l.startsWith('repeat ')) depth++;
@@ -287,7 +287,7 @@ export class NaturalInterpreter {
         // Find end function
         let funcEnd = -1;
         let depth = 1;
-        
+
         for (let i = currentIndex + 1; i < endIndex; i++) {
             const l = allLines[i].toLowerCase().trim();
             if (l.startsWith('define function ')) depth++;
@@ -385,7 +385,7 @@ export class NaturalInterpreter {
 
         for (let i = 0; i < content.length; i++) {
             const char = content[i];
-            
+
             if ((char === '"' || char === "'") && !inString) {
                 inString = true;
                 stringChar = char;
@@ -402,7 +402,7 @@ export class NaturalInterpreter {
                 current += char;
             }
         }
-        
+
         if (current.trim()) {
             items.push(this.evaluateExpression(current.trim()));
         }
