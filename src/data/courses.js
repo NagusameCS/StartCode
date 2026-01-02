@@ -116,10 +116,10 @@ To make decisions, we need to compare things. Here are the comparison operations
 - 7 is greater than or equal to 7 → **true value**
         `,
                 exercise: {
-                    prompt: 'Write: 5 is less than 10',
+                    prompt: 'Write code that displays if 5 is less than 10. Hint: display "true" or display "false"',
                     type: 'code',
-                    expectedOutput: '5 is less than 10',
-                    hint: 'Use the exact phrase: is less than'
+                    expectedOutput: 'true',
+                    hint: 'Write: if 5 is less than 10 then\\n    display "true"\\nend if'
                 }
             },
             {
@@ -242,10 +242,10 @@ Now score is 10!
 - Start with a letter
         `,
                 exercise: {
-                    prompt: 'Create a variable called "age" and set it to 25',
+                    prompt: 'Create a variable called "age" set to 25, then display it.',
                     type: 'code',
-                    expectedOutput: 'create variable age to 25',
-                    hint: 'Use: create variable <name> to <value>'
+                    expectedOutput: '25',
+                    hint: 'First: create variable age to 25\\nThen: display age'
                 }
             },
             {
@@ -288,8 +288,8 @@ end loop
                 exercise: {
                     prompt: 'Write a loop that repeats 3 times and displays "Hi"',
                     type: 'code',
-                    expectedOutput: 'repeat 3 times\n    display "Hi"\nend loop',
-                    hint: 'Use: repeat <number> times ... end loop'
+                    expectedOutput: 'Hi\nHi\nHi',
+                    hint: 'Use: repeat 3 times\\n    display "Hi"\\nend loop'
                 }
             },
             {
@@ -335,10 +335,10 @@ create variable sum to add 5, 3
 sum is now 8
         `,
                 exercise: {
-                    prompt: 'Define a function called "shout" with no parameters that displays "WOW!"',
+                    prompt: 'Define a function called "shout" that displays "WOW!", then call it.',
                     type: 'code',
-                    expectedOutput: 'define function shout with no parameters\n    display "WOW!"\nend function',
-                    hint: 'Use: define function <name> with no parameters'
+                    expectedOutput: 'WOW!',
+                    hint: 'Define the function, then call it: shout'
                 }
             },
             {
@@ -377,10 +377,10 @@ end loop
 \`\`\`
         `,
                 exercise: {
-                    prompt: 'Create a list called "colors" with "red", "blue", "green"',
+                    prompt: 'Create a list of colors and display each one.',
                     type: 'code',
-                    expectedOutput: 'create variable colors to create list with "red", "blue", "green" end list',
-                    hint: 'Use: create list with ... end list'
+                    expectedOutput: 'red\nblue\ngreen',
+                    hint: 'Create list, then use: for each color in list colors do\\n    display color\\nend loop'
                 }
             },
             {

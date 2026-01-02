@@ -1,6 +1,8 @@
 // Code Execution Engine
 // Handles running code in the browser for different languages
 
+import { executeNatural } from './naturalInterpreter';
+
 // Pyodide for Python execution
 let pyodideInstance = null;
 let pyodideLoading = false;
@@ -236,6 +238,11 @@ export const executeJava = async (code) => {
 
 // Main execution function
 export const executeCode = async (code, language) => {
+    if (!language) {
+        // Natural language / pseudocode
+        return executeNatural(code);
+    }
+    
     switch (language.toLowerCase()) {
         case 'python':
             return await executePython(code);
@@ -248,6 +255,9 @@ export const executeCode = async (code, language) => {
             return executeHTML('<div class="preview">Preview</div>', code);
         case 'java':
             return await executeJava(code);
+        case 'natural':
+        case 'pseudocode':
+            return executeNatural(code);
         default:
             return {
                 success: false,

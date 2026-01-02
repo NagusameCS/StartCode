@@ -93,24 +93,37 @@ const LessonPage = () => {
         setExerciseResult(null);
 
         try {
-            // For pure logic exercises with no language, check conceptually
+            // For pure logic exercises with no language, run natural language interpreter
             if (!course?.language) {
-                if (lesson?.exercise?.expectedOutput) {
-                    // Normalize both strings for comparison
-                    const normalize = (s) => s.trim().toLowerCase().replace(/\s+/g, ' ');
-                    const isCorrect = normalize(code) === normalize(lesson.exercise.expectedOutput);
-                    setExerciseResult(isCorrect ? 'correct' : 'incorrect');
-                    setOutput(isCorrect ? '✓ Correct!' : 'Not quite. Check your answer and try again.');
-                    if (isCorrect) {
-                        toast.success('Correct! Great job!');
-                        saveCodeToHistory(lessonId, code, 'correct');
+                // Execute the natural language code
+                const result = await executeCode(code, null);
+                
+                if (result.success) {
+                    setOutput(result.output || '(No output)');
+                    
+                    // Check expected output if specified
+                    if (lesson?.exercise?.expectedOutput) {
+                        const normalize = (s) => s?.trim().toLowerCase().replace(/\s+/g, ' ') || '';
+                        const isCorrect = normalize(result.output) === normalize(lesson.exercise.expectedOutput);
+                        setExerciseResult(isCorrect ? 'correct' : 'incorrect');
+                        
+                        if (isCorrect) {
+                            toast.success('Correct! Great job!');
+                            saveCodeToHistory(lessonId, code, 'correct');
+                        } else {
+                            saveCodeToHistory(lessonId, code, 'incorrect');
+                        }
                     } else {
-                        saveCodeToHistory(lessonId, code, 'incorrect');
+                        // No expected output, just show result
+                        setExerciseResult('correct');
+                        saveCodeToHistory(lessonId, code, 'correct');
                     }
                 } else {
-                    setOutput('Exercise completed.');
-                    setExerciseResult('correct');
+                    setOutput(`Error: ${result.error}`);
+                    setExerciseResult('incorrect');
+                    saveCodeToHistory(lessonId, code, 'error');
                 }
+                
                 setIsRunning(false);
                 return;
             }
