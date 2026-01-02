@@ -83,27 +83,23 @@ const CoursesPage = () => {
                             <span className={styles.progressBadge}>{progress}% complete</span>
                         </div>
                     </div>
-                </motion.div>
 
-                {/* Prerequisites warning */}
-                {!prerequisitesMet && (
-                    <motion.div
-                        className={styles.prerequisiteWarning}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                    >
-                        <FiLock />
-                        <div>
-                            <strong>Prerequisites Required</strong>
-                            <p>Complete these courses first: {selectedCourse.prerequisites.map((p, i) => (
-                                <span key={p}>
-                                    {i > 0 && ', '}
-                                    <Link to={`/course/${p}`} className={styles.prereqLink}>{getCourse(p)?.name}</Link>
-                                </span>
-                            ))}</p>
+                    {/* Prerequisites warning - top right corner */}
+                    {!prerequisitesMet && !expertMode && selectedCourse.prerequisites?.length > 0 && (
+                        <div className={styles.prerequisiteWarning}>
+                            <FiLock />
+                            <div>
+                                <strong>Prerequisites Required</strong>
+                                <p>Complete first: {selectedCourse.prerequisites.map((p, i) => (
+                                    <span key={p}>
+                                        {i > 0 && ', '}
+                                        <Link to={`/course/${p}`} className={styles.prereqLink}>{getCourse(p)?.name}</Link>
+                                    </span>
+                                ))}</p>
+                            </div>
                         </div>
-                    </motion.div>
-                )}
+                    )}
+                </motion.div>
 
                 {/* Progress bar */}
                 <motion.div

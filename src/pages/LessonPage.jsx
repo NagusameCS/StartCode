@@ -183,10 +183,10 @@ const LessonPage = () => {
             navigate(`/lesson/${courseId}/${nextLesson.id}`);
         } else {
             // Last lesson - check if all lessons are completed and award certificate
-            const allCompleted = lessons.every(l => 
+            const allCompleted = lessons.every(l =>
                 l.id === lessonId || isLessonCompleted(l.id)
             );
-            
+
             if (allCompleted) {
                 // Check if certificate already awarded for this course
                 const hasCertificate = certificates.some(c => c.courseId === courseId);
@@ -195,7 +195,7 @@ const LessonPage = () => {
                     toast.success('🏆 Certificate earned! Check your profile!');
                 }
             }
-            
+
             toast.success('🎉 Congratulations! You completed the course!');
             navigate(`/course/${courseId}`);
         }

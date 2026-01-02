@@ -276,7 +276,7 @@
     .dashboard {
         padding: 0 var(--spacing-sm);
     }
-    
+
     .statsGrid {
         grid-template-columns: 1fr;
     }

@@ -186,32 +186,6 @@ const SettingsPage = () => {
                     </div>
                 </motion.section>
 
-                {/* Expert Mode Section */}
-                <motion.section
-                    className={styles.section}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 }}
-                >
-                    <h2>
-                        <FiZap /> Expert Mode
-                    </h2>
-                    <p>Skip prerequisite course requirements</p>
-
-                    <div className={styles.toggleContainer}>
-                        <div className={styles.toggleInfo}>
-                            <strong>Enable Expert Mode</strong>
-                            <span>Access any course without completing prerequisites first. Recommended for experienced programmers.</span>
-                        </div>
-                        <button
-                            className={`${styles.toggle} ${expertMode ? styles.active : ''}`}
-                            onClick={toggleExpertMode}
-                        >
-                            <span className={styles.toggleSlider} />
-                        </button>
-                    </div>
-                </motion.section>
-
                 {/* Profile Section */}
                 <motion.section
                     className={styles.section}
@@ -375,6 +349,19 @@ const SettingsPage = () => {
                     </h2>
 
                     <div className={styles.dangerActions}>
+                        <div className={styles.dangerItem}>
+                            <div>
+                                <h3><FiZap /> Expert Mode</h3>
+                                <p>Skip prerequisite course requirements. For experienced programmers only.</p>
+                            </div>
+                            <button
+                                className={`${styles.toggle} ${expertMode ? styles.active : ''}`}
+                                onClick={toggleExpertMode}
+                            >
+                                <span className={styles.toggleSlider} />
+                            </button>
+                        </div>
+
                         <div className={styles.dangerItem}>
                             <div>
                                 <h3>Sign Out</h3>
