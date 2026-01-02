@@ -6,22 +6,22 @@ import styles from './WaveBackground.module.css';
 const generateWavePath = (width, height, amplitude, frequency, phase, yOffset) => {
     const points = [];
     const segments = 100;
-    
+
     for (let i = 0; i <= segments; i++) {
         const x = (i / segments) * width;
         // Superimpose multiple sine waves for organic look
-        const y = yOffset + 
+        const y = yOffset +
             amplitude * Math.sin((frequency * x / width) * Math.PI * 2 + phase) +
             (amplitude * 0.5) * Math.sin((frequency * 2.3 * x / width) * Math.PI * 2 + phase * 1.5) +
             (amplitude * 0.25) * Math.sin((frequency * 4.1 * x / width) * Math.PI * 2 + phase * 0.7);
         points.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(2)},${y.toFixed(2)}`);
     }
-    
+
     // Close the path at the bottom
     points.push(`L${width},${height}`);
     points.push(`L0,${height}`);
     points.push('Z');
-    
+
     return points.join(' ');
 };
 
@@ -30,7 +30,7 @@ const WaveBackground = ({ position = 'bottom', height = '40vh' }) => {
     const waveLayers = useMemo(() => {
         const width = 2000;
         const waveHeight = 400;
-        
+
         return [
             {
                 amplitude: 35,

@@ -2,7 +2,8 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import {
-    signInWithPopup,
+    signInWithRedirect,
+    getRedirectResult,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
     sendPasswordResetEmail,
@@ -25,31 +26,30 @@ const getIPAddress = async () => {
         const data = await response.json();
         return data.ip;
     } catch (error) {
-        console.error('Failed to get IP:', error);
+        console.warn('Failed to get IP:', error);
         return null;
     }
 };
 
-// Create or update user profile in Firestore
+// Create or update user profile in Firestore (with graceful error handling)
 const createUserProfile = async (user, additionalData = {}) => {
-    if (!user) return;
+    if (!user) return null;
 
-    const userRef = doc(db, 'users', user.uid);
-    const userSnap = await getDoc(userRef);
+    try {
+        const userRef = doc(db, 'users', user.uid);
+        const userSnap = await getDoc(userRef);
 
-    if (!userSnap.exists()) {
-        const { email, displayName, photoURL } = user;
-        const createdAt = serverTimestamp();
-        const ip = await getIPAddress();
+        if (!userSnap.exists()) {
+            const { email, displayName, photoURL } = user;
+            const ip = await getIPAddress();
 
-        try {
             await setDoc(userRef, {
                 uid: user.uid,
                 email,
                 displayName: displayName || email?.split('@')[0] || 'User',
                 username: (email?.split('@')[0] || 'user') + '_' + Math.random().toString(36).substr(2, 5),
                 photoURL,
-                createdAt,
+                createdAt: serverTimestamp(),
                 joinDate: new Date().toISOString(),
                 completedLessons: [],
                 certificates: [],
@@ -64,12 +64,45 @@ const createUserProfile = async (user, additionalData = {}) => {
                 rememberMe: false,
                 ...additionalData
             });
-        } catch (error) {
-            console.error('Error creating user profile:', error);
         }
+        return userRef;
+    } catch (error) {
+        console.warn('Firestore permission error (this is OK if rules are not set):', error.message);
+        return null;
     }
+};
 
-    return userRef;
+// Helper to get user profile with fallback to auth user data
+const getUserProfileSafe = async (user) => {
+    if (!user) return null;
+    
+    try {
+        const userRef = doc(db, 'users', user.uid);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+            return userSnap.data();
+        }
+    } catch (error) {
+        console.warn('Could not fetch profile from Firestore:', error.message);
+    }
+    
+    // Return fallback profile from auth user
+    return {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName || user.email?.split('@')[0] || 'User',
+        photoURL: user.photoURL,
+        joinDate: new Date().toISOString(),
+    };
+};
+
+// Safe Firestore update
+const updateFirestoreSafe = async (userRef, data) => {
+    try {
+        await setDoc(userRef, data, { merge: true });
+    } catch (error) {
+        console.warn('Could not update Firestore:', error.message);
+    }
 };
 
 export const useAuthStore = create(
@@ -84,7 +117,7 @@ export const useAuthStore = create(
 
             setRememberMe: (value) => set({ rememberMe: value }),
 
-            // Sign in with OAuth provider (Google or GitHub)
+            // Sign in with OAuth provider (Google or GitHub) - uses redirect for COOP compatibility
             signInWithProvider: async (providerName) => {
                 set({ loading: true, error: null });
 
@@ -102,30 +135,10 @@ export const useAuthStore = create(
                 }
 
                 try {
-                    const result = await signInWithPopup(auth, provider);
-                    const user = result.user;
-                    const ip = await getIPAddress();
-
-                    await createUserProfile(user);
-
-                    // Update last IP
-                    const userRef = doc(db, 'users', user.uid);
-                    await setDoc(userRef, { lastIP: ip, rememberMe: get().rememberMe }, { merge: true });
-
-                    // Fetch user profile
-                    const userSnap = await getDoc(userRef);
-
-                    set({
-                        user,
-                        userProfile: userSnap.data(),
-                        lastIP: ip,
-                        loading: false
-                    });
-
-                    // Store IP in localStorage for comparison
-                    localStorage.setItem('startcode_last_ip', ip);
-
+                    // Use redirect instead of popup to avoid COOP issues on GitHub Pages
+                    await signInWithRedirect(auth, provider);
                 } catch (error) {
+                    console.error('Sign in redirect error:', error);
                     set({ error: error.message, loading: false });
                     throw error;
                 }
@@ -140,22 +153,20 @@ export const useAuthStore = create(
                     const user = result.user;
                     const ip = await getIPAddress();
 
-                    // Update last IP
+                    // Update last IP (may fail if no Firestore permissions)
                     const userRef = doc(db, 'users', user.uid);
-                    await setDoc(userRef, { lastIP: ip, rememberMe: get().rememberMe }, { merge: true });
+                    await updateFirestoreSafe(userRef, { lastIP: ip, rememberMe: get().rememberMe });
 
-                    // Fetch user profile
-                    const userSnap = await getDoc(userRef);
+                    const userProfile = await getUserProfileSafe(user);
 
                     set({
                         user,
-                        userProfile: userSnap.data(),
+                        userProfile,
                         lastIP: ip,
                         loading: false
                     });
 
                     localStorage.setItem('startcode_last_ip', ip);
-
                 } catch (error) {
                     set({ error: error.message, loading: false });
                     throw error;
@@ -178,20 +189,16 @@ export const useAuthStore = create(
                     const ip = await getIPAddress();
 
                     await createUserProfile(user, { displayName });
-
-                    // Fetch user profile
-                    const userRef = doc(db, 'users', user.uid);
-                    const userSnap = await getDoc(userRef);
+                    const userProfile = await getUserProfileSafe(user);
 
                     set({
                         user,
-                        userProfile: userSnap.data(),
+                        userProfile,
                         lastIP: ip,
                         loading: false
                     });
 
                     localStorage.setItem('startcode_last_ip', ip);
-
                 } catch (error) {
                     set({ error: error.message, loading: false });
                     throw error;
@@ -200,11 +207,7 @@ export const useAuthStore = create(
 
             // Reset password
             resetPassword: async (email) => {
-                try {
-                    await sendPasswordResetEmail(auth, email);
-                } catch (error) {
-                    throw error;
-                }
+                await sendPasswordResetEmail(auth, email);
             },
 
             // Sign out
@@ -246,26 +249,44 @@ export const useAuthStore = create(
             initializeAuth: () => {
                 set({ loading: true });
 
+                // Check for redirect result first
+                getRedirectResult(auth).then(async (result) => {
+                    if (result) {
+                        const user = result.user;
+                        const ip = await getIPAddress();
+
+                        await createUserProfile(user);
+
+                        const userRef = doc(db, 'users', user.uid);
+                        await updateFirestoreSafe(userRef, { lastIP: ip, rememberMe: get().rememberMe });
+
+                        const userProfile = await getUserProfileSafe(user);
+
+                        set({
+                            user,
+                            userProfile,
+                            lastIP: ip,
+                            loading: false
+                        });
+
+                        localStorage.setItem('startcode_last_ip', ip);
+                    }
+                }).catch((error) => {
+                    console.warn('Redirect result error:', error.message);
+                });
+
                 return onAuthStateChanged(auth, async (user) => {
                     if (user) {
-                        const userRef = doc(db, 'users', user.uid);
-                        const userSnap = await getDoc(userRef);
+                        const userProfile = await getUserProfileSafe(user);
 
-                        if (userSnap.exists()) {
-                            set({
-                                user,
-                                userProfile: userSnap.data(),
-                                loading: false
-                            });
+                        set({
+                            user,
+                            userProfile,
+                            loading: false
+                        });
 
-                            // Check IP security
-                            get().checkIPSecurity();
-                        } else {
-                            // Create profile if it doesn't exist
-                            await createUserProfile(user);
-                            const newSnap = await getDoc(userRef);
-                            set({ user, userProfile: newSnap.data(), loading: false });
-                        }
+                        // Check IP security
+                        get().checkIPSecurity();
                     } else {
                         set({ user: null, userProfile: null, loading: false });
                     }
@@ -273,7 +294,7 @@ export const useAuthStore = create(
             },
 
             // Update user profile
-            updateProfile: async (updates) => {
+            updateUserProfile: async (updates) => {
                 const { user } = get();
                 if (!user) return;
 
@@ -281,9 +302,10 @@ export const useAuthStore = create(
                     const userRef = doc(db, 'users', user.uid);
                     await setDoc(userRef, updates, { merge: true });
 
-                    const userSnap = await getDoc(userRef);
-                    set({ userProfile: userSnap.data() });
+                    const userProfile = await getUserProfileSafe(user);
+                    set({ userProfile });
                 } catch (error) {
+                    console.warn('Could not update profile:', error.message);
                     set({ error: error.message });
                 }
             }

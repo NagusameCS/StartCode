@@ -62,7 +62,7 @@ function setupAutoUpdater() {
     autoUpdater.on('update-available', (info) => {
         log.info('Update available:', info.version);
         sendStatusToWindow('update-available', info);
-        
+
         // Show dialog to inform user
         dialog.showMessageBox(mainWindow, {
             type: 'info',
@@ -90,7 +90,7 @@ function setupAutoUpdater() {
     autoUpdater.on('update-downloaded', (info) => {
         log.info('Update downloaded:', info.version);
         sendStatusToWindow('update-downloaded', info);
-        
+
         // Force update - show dialog and quit to install
         dialog.showMessageBox(mainWindow, {
             type: 'info',
@@ -116,7 +116,7 @@ function checkForUpdates() {
         log.info('Skipping update check in development mode');
         return;
     }
-    
+
     autoUpdater.checkForUpdates().catch((err) => {
         log.error('Failed to check for updates:', err);
     });
