@@ -10,7 +10,7 @@ export const additionalCourses = {
         color: '#FFCA28',
         language: 'javascript',
         prerequisites: ['javascript'],
-        estimatedHours: 15,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'firebase-1',
@@ -340,7 +340,7 @@ allow write: if request.auth.token.admin == true;
         color: '#333333',
         language: null,
         prerequisites: ['git'],
-        estimatedHours: 12,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'github-1',
@@ -731,7 +731,7 @@ updates:
         color: '#007ACC',
         language: null,
         prerequisites: [],
-        estimatedHours: 10,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'vscode-1',
@@ -1049,7 +1049,7 @@ Create: .vscode/tasks.json
         color: '#10b981',
         language: 'python',
         prerequisites: ['python'],
-        estimatedHours: 20,
+        estimatedHours: 2,
         lessons: [
             {
                 id: 'algo-1',
@@ -2595,7 +2595,7 @@ Congratulations! You've completed Algorithms & Data Structures! 🎉
         color: '#61dafb',
         language: 'javascript',
         prerequisites: ['javascript', 'html'],
-        estimatedHours: 18,
+        estimatedHours: 2,
         lessons: [
             {
                 id: 'react-1',
@@ -4533,7 +4533,7 @@ Congratulations! You've completed React & JSX Deep Dive! 🎉
         color: '#06b6d4',
         language: 'html',
         prerequisites: ['html', 'css'],
-        estimatedHours: 12,
+        estimatedHours: 1.5,
         lessons: [
             {
                 id: 'tw-1',
@@ -6113,7 +6113,7 @@ Congratulations! You've completed Tailwind CSS! 🎨
         color: '#47848f',
         language: 'javascript',
         prerequisites: ['javascript', 'html'],
-        estimatedHours: 14,
+        estimatedHours: 1.5,
         lessons: [
             {
                 id: 'elec-1',
@@ -7477,7 +7477,7 @@ Congratulations! You've completed Electron Development! 🖥️
         color: '#cb3837',
         language: 'bash',
         prerequisites: [],
-        estimatedHours: 10,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'pkg-1',
@@ -8652,7 +8652,7 @@ Congratulations! You've completed Package Management! 📦
         color: '#f39c12',
         language: 'javascript',
         prerequisites: ['intro-logic'],
-        estimatedHours: 12,
+        estimatedHours: 1.5,
         lessons: [
             {
                 id: 'opt-1',

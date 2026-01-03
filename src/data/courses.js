@@ -26,7 +26,7 @@ export const courses = {
         color: '#8b5cf6',
         language: null, // Language agnostic
         prerequisites: [],
-        estimatedHours: 3,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'logic-1',
@@ -588,7 +588,7 @@ Output: The largest number is: 9
         color: '#3776ab',
         language: 'python',
         prerequisites: ['intro-logic'],
-        estimatedHours: 12,
+        estimatedHours: 4,
         lessons: [
             // ============ STAGE 1: Pure Natural Language ============
             {
@@ -3973,7 +3973,7 @@ Congratulations! You've mastered Python! 🎉🐍
         color: '#f7df1e',
         language: 'javascript',
         prerequisites: ['intro-logic'],
-        estimatedHours: 14,
+        estimatedHours: 4,
         lessons: [
             // ============ STAGE 1: Pure Natural Language ============
             {
@@ -7678,7 +7678,7 @@ Congratulations! You've mastered JavaScript! 🎉
         color: '#e34c26',
         language: 'html',
         prerequisites: [],
-        estimatedHours: 8,
+        estimatedHours: 3,
         lessons: [
             // ============ STAGE 1: Pure Natural Language ============
             {
@@ -10017,7 +10017,7 @@ Congratulations! You've mastered HTML! 🎉
         color: '#264de4',
         language: 'css',
         prerequisites: ['html'],
-        estimatedHours: 8,
+        estimatedHours: 3,
         lessons: [
             // ============ STAGE 1: Pure Natural Language ============
             {
@@ -12565,7 +12565,7 @@ Congratulations! You've mastered CSS! 🎉
         color: '#007396',
         language: 'java',
         prerequisites: ['intro-logic'],
-        estimatedHours: 16,
+        estimatedHours: 5,
         lessons: [
             // ============ STAGE 1: Pure Natural Language ============
             {
@@ -16612,7 +16612,7 @@ Congratulations! You're now a Java developer! 🎉
         color: '#00d4aa',
         language: 'javascript', // Primary language for exercises
         prerequisites: ['html', 'css', 'javascript'],
-        estimatedHours: 25,
+        estimatedHours: 2,
         bundledCourses: ['html', 'css', 'javascript'],
         lessons: [
             {
@@ -17850,7 +17850,7 @@ Congratulations! You can now build full-stack web apps! 🎉
         color: '#1e1e1e',
         language: 'bash',
         prerequisites: [],
-        estimatedHours: 4,
+        estimatedHours: 1.5,
         lessons: [
             {
                 id: 'term-1',
@@ -18834,7 +18834,7 @@ Congratulations! You've mastered the terminal! 🎉
         color: '#00599C',
         language: 'cpp',
         prerequisites: ['intro-logic'],
-        estimatedHours: 15,
+        estimatedHours: 2,
         lessons: [
             {
                 id: 'cpp-1',
@@ -19895,7 +19895,7 @@ Congratulations! You've learned C++! 🎉
         color: '#CE422B',
         language: 'rust',
         prerequisites: ['intro-logic', 'terminal'],
-        estimatedHours: 18,
+        estimatedHours: 2,
         lessons: [
             {
                 id: 'rust-1',
@@ -20932,7 +20932,7 @@ Congratulations! You've learned Rust! 🎉
         color: '#3178C6',
         language: 'typescript',
         prerequisites: ['javascript'],
-        estimatedHours: 10,
+        estimatedHours: 1.5,
         lessons: [
             {
                 id: 'ts-1',
@@ -21704,7 +21704,7 @@ Congratulations! You've learned TypeScript! 🎉
         color: '#336791',
         language: 'sql',
         prerequisites: ['intro-logic'],
-        estimatedHours: 8,
+        estimatedHours: 1.5,
         lessons: [
             {
                 id: 'sql-1',
@@ -22362,7 +22362,7 @@ Congratulations! You've learned SQL! 🎉
         color: '#CC342D',
         language: 'ruby',
         prerequisites: ['intro-logic'],
-        estimatedHours: 10,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'ruby-1',
@@ -22976,7 +22976,7 @@ Congratulations! You've learned Ruby! 🎉
         color: '#777BB4',
         language: 'php',
         prerequisites: ['html'],
-        estimatedHours: 10,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'php-1',
@@ -23481,7 +23481,7 @@ Congratulations! You've learned PHP! 🎉
         color: '#4EAA25',
         language: 'bash',
         prerequisites: ['terminal'],
-        estimatedHours: 6,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'bash-1',
@@ -24086,7 +24086,7 @@ Congratulations! You've learned Bash! 🎉
         color: '#000000',
         language: 'json',
         prerequisites: [],
-        estimatedHours: 2,
+        estimatedHours: 0.5,
         lessons: [
             {
                 id: 'json-1',
@@ -24361,7 +24361,7 @@ Congratulations! You've learned JSON! 🎉
         color: '#083FA1',
         language: 'markdown',
         prerequisites: [],
-        estimatedHours: 1,
+        estimatedHours: 0.5,
         lessons: [
             {
                 id: 'md-1',
@@ -24655,7 +24655,7 @@ Congratulations! You've learned Markdown! 🎉
         color: '#FF6B6B',
         language: 'javascript',
         prerequisites: ['javascript', 'json'],
-        estimatedHours: 6,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'api-1',
@@ -25072,7 +25072,7 @@ Congratulations! You've learned APIs! 🎉
         color: '#F05138',
         language: 'swift',
         prerequisites: ['intro-logic'],
-        estimatedHours: 12,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'swift-1',
@@ -25669,7 +25669,7 @@ Congratulations! You've learned Swift! 🎉
         color: '#239120',
         language: 'csharp',
         prerequisites: ['intro-logic'],
-        estimatedHours: 14,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'cs-1',
@@ -26261,7 +26261,7 @@ Congratulations! You've learned C#! 🎉
         color: '#F05032',
         language: 'bash',
         prerequisites: ['terminal'],
-        estimatedHours: 5,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'git-1',
@@ -26644,7 +26644,7 @@ Congratulations! You've learned Git! 🎉
         color: '#6366F1',
         language: 'javascript',
         prerequisites: ['javascript', 'apis'],
-        estimatedHours: 8,
+        estimatedHours: 1,
         lessons: [
             {
                 id: 'auth-1',
