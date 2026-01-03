@@ -103,6 +103,7 @@ delete document "user123" from collection "users"
                 exercise: {
                     prompt: 'Write command to add a document to "products" with name: "Laptop".',
                     type: 'code',
+                    language: 'natural',
                     expectedOutput: 'add document to collection "products" with data name: "Laptop" end add',
                     hint: 'Use: add document to collection "name" with data field: value end add'
                 }
@@ -177,7 +178,8 @@ match /posts/{postId} {
                 exercise: {
                     prompt: 'Write a condition that checks if a user is logged in.',
                     type: 'code',
-                    expectedOutput: 'request.auth != null',
+                    language: 'natural',
+                        expectedOutput: 'request.auth != null',
                     hint: 'Check if request.auth is not null'
                 }
             },
@@ -206,7 +208,8 @@ match /users/{userId} {
                 exercise: {
                     prompt: 'Write a rule condition allowing access only when user ID matches document userId.',
                     type: 'code',
-                    expectedOutput: 'request.auth.uid == userId',
+                    language: 'natural',
+                        expectedOutput: 'request.auth.uid == userId',
                     hint: 'Compare request.auth.uid with userId'
                 }
             },
@@ -238,7 +241,8 @@ allow update, delete: if request.auth.uid == resource.data.authorId;
                 exercise: {
                     prompt: 'Write rules: anyone can read, only authenticated users can write.',
                     type: 'code',
-                    expectedOutput: 'allow read: if true; allow write: if request.auth != null;',
+                    language: 'natural',
+                        expectedOutput: 'allow read: if true; allow write: if request.auth != null;',
                     hint: 'Separate read and write rules'
                 }
             },
@@ -272,7 +276,8 @@ allow write: if request.resource.data.status in ['draft', 'published'];
                 exercise: {
                     prompt: 'Write validation ensuring title is max 200 characters.',
                     type: 'code',
-                    expectedOutput: 'request.resource.data.title.size() <= 200',
+                    language: 'natural',
+                        expectedOutput: 'request.resource.data.title.size() <= 200',
                     hint: 'Use .size() for string length'
                 }
             },
@@ -300,7 +305,8 @@ allow write: if request.auth.token.admin == true;
                 exercise: {
                     prompt: 'Write a condition checking if user has admin claim.',
                     type: 'code',
-                    expectedOutput: 'request.auth.token.admin == true',
+                    language: 'natural',
+                        expectedOutput: 'request.auth.token.admin == true',
                     hint: 'Access admin from request.auth.token'
                 }
             }
@@ -414,6 +420,7 @@ This project is licensed under the MIT License.
                 exercise: {
                     prompt: 'What should you name the license file?',
                     type: 'code',
+                    language: 'natural',
                     expectedOutput: 'LICENSE',
                     hint: 'All uppercase'
                 }
@@ -457,7 +464,8 @@ What actually happens
                 exercise: {
                     prompt: 'Write a clear bug title for: dark mode toggle sometimes works, page flickers.',
                     type: 'code',
-                    expectedOutput: 'Dark mode toggle',
+                    language: 'natural',
+                        expectedOutput: 'Dark mode toggle',
                     hint: 'Be specific about component and behavior'
                 }
             },
@@ -526,7 +534,8 @@ Report via:
                 exercise: {
                     prompt: 'What folder should SECURITY.md be placed in?',
                     type: 'code',
-                    expectedOutput: '.github',
+                    language: 'natural',
+                        expectedOutput: '.github',
                     hint: 'Starts with a dot'
                 }
             },
@@ -559,7 +568,8 @@ git push origin feature/new-button
                 exercise: {
                     prompt: 'Write command to create branch "bugfix/login-error".',
                     type: 'code',
-                    expectedOutput: 'git checkout -b bugfix/login-error',
+                    language: 'natural',
+                        expectedOutput: 'git checkout -b bugfix/login-error',
                     hint: 'Use: git checkout -b <branch-name>'
                 }
             },
@@ -595,7 +605,8 @@ What should happen.
                 exercise: {
                     prompt: 'What folder should issue templates be in?',
                     type: 'code',
-                    expectedOutput: '.github/ISSUE_TEMPLATE',
+                    language: 'natural',
+                        expectedOutput: '.github/ISSUE_TEMPLATE',
                     hint: 'Inside .github folder'
                 }
             },
@@ -632,7 +643,8 @@ jobs:
                 exercise: {
                     prompt: 'What keyword specifies when the workflow runs?',
                     type: 'code',
-                    expectedOutput: 'on',
+                    language: 'natural',
+                        expectedOutput: 'on',
                     hint: 'Two-letter keyword'
                 }
             },
@@ -664,7 +676,8 @@ updates:
                 exercise: {
                     prompt: 'What is the filename for Dependabot config?',
                     type: 'code',
-                    expectedOutput: 'dependabot.yml',
+                    language: 'natural',
+                        expectedOutput: 'dependabot.yml',
                     hint: 'YAML file in .github'
                 }
             }
@@ -799,6 +812,7 @@ Open: Ctrl + Shift + P → "Open User Settings (JSON)"
                 exercise: {
                     prompt: 'Write the setting to format code on save.',
                     type: 'code',
+                    language: 'natural',
                     expectedOutput: 'editor.formatOnSave',
                     hint: 'Starts with editor.'
                 }
@@ -826,7 +840,8 @@ Open: Ctrl + Shift + P → "Open User Settings (JSON)"
                 exercise: {
                     prompt: 'What shortcut toggles the terminal?',
                     type: 'code',
-                    expectedOutput: 'Ctrl + `',
+                    language: 'natural',
+                        expectedOutput: 'Ctrl + `',
                     hint: 'Uses backtick key'
                 }
             },
@@ -894,7 +909,8 @@ project/
                 exercise: {
                     prompt: 'What file specifies recommended extensions for the team?',
                     type: 'code',
-                    expectedOutput: 'extensions.json',
+                    language: 'natural',
+                        expectedOutput: 'extensions.json',
                     hint: 'Has "extensions" in name'
                 }
             },
@@ -927,7 +943,8 @@ Create: .vscode/tasks.json
                 exercise: {
                     prompt: 'What shortcut runs the default build task?',
                     type: 'code',
-                    expectedOutput: 'Ctrl + Shift + B',
+                    language: 'natural',
+                        expectedOutput: 'Ctrl + Shift + B',
                     hint: 'Ctrl + Shift + B for Build'
                 }
             },
