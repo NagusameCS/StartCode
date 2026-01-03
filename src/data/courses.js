@@ -1857,13 +1857,27 @@ finally:
     print("This always runs")
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Write try/except: try to divide 10 by 0, except print "Cannot divide by zero"',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: 'Cannot divide by zero',
-                    hint: 'try:\\n    result = 10 / 0\\nexcept:\\n    print("Cannot divide by zero")'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write try/except: try to divide 10 by 0, except print "Cannot divide by zero"',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: 'Cannot divide by zero',
+                        hint: 'try:\\n    result = 10 / 0\\nexcept:\\n    print("Cannot divide by zero")'
+                    },
+                    {
+                        prompt: 'What keyword starts error handling in Python?',
+                        type: 'multiple-choice',
+                        options: ['catch', 'try', 'handle', 'error'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What block always executes regardless of errors?',
+                        type: 'multiple-choice',
+                        options: ['except', 'else', 'finally', 'always'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'py-23',
@@ -1907,13 +1921,28 @@ Charlie: B
 
 Keep practicing and building projects! 🎉
         `,
-                exercise: {
-                    prompt: 'Write a function that takes a number and returns "even" or "odd". Test it with 7.',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: 'odd',
-                    hint: 'def check(n):\\n    if n % 2 == 0:\\n        return "even"\\n    else:\\n        return "odd"\\nprint(check(7))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write a function that takes a number and returns "even" or "odd". Test it with 7.',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: 'odd',
+                        hint: 'def check(n):\\n    if n % 2 == 0:\\n        return "even"\\n    else:\\n        return "odd"\\nprint(check(7))'
+                    },
+                    {
+                        prompt: 'What operator gives the remainder of division?',
+                        type: 'multiple-choice',
+                        options: ['/', '//', '%', '**'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Write a function "is_positive" that returns True if n > 0, else False. Test with -5.',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: 'False',
+                        hint: 'def is_positive(n):\\n    return n > 0\\nprint(is_positive(-5))'
+                    }
+                ]
             },
             // ============ ADVANCED PYTHON - File I/O ============
             {
@@ -1955,12 +1984,26 @@ with open("names.txt", "r") as file:
     names = [name.strip() for name in names]
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What mode letter opens a file for reading?',
-                    type: 'multiple-choice',
-                    options: ['r', 'w', 'a', 'x'],
-                    answer: 0
-                }
+                exercises: [
+                    {
+                        prompt: 'What mode letter opens a file for reading?',
+                        type: 'multiple-choice',
+                        options: ['r', 'w', 'a', 'x'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What keyword ensures a file is automatically closed?',
+                        type: 'multiple-choice',
+                        options: ['try', 'with', 'open', 'close'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method reads the entire file contents as a string?',
+                        type: 'multiple-choice',
+                        options: ['.readline()', '.readlines()', '.read()', '.content()'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'py-25',
@@ -2002,12 +2045,26 @@ with open("data.txt", "w") as file:
 - \`"a"\` - Append (adds to end)
 - \`"x"\` - Create (fails if exists)
         `,
-                exercise: {
-                    prompt: 'Which mode adds content to the end of a file without erasing?',
-                    type: 'multiple-choice',
-                    options: ['w', 'a', 'r', 'x'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'Which mode adds content to the end of a file without erasing?',
+                        type: 'multiple-choice',
+                        options: ['w', 'a', 'r', 'x'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Which mode overwrites existing file content?',
+                        type: 'multiple-choice',
+                        options: ['r', 'a', 'w', 'x'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What method writes a string to a file?',
+                        type: 'multiple-choice',
+                        options: ['.put()', '.write()', '.save()', '.print()'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-26',
@@ -2066,12 +2123,26 @@ with open("users.csv", "w", newline="") as file:
     writer.writerows(users)
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What module do you import to work with CSV files?',
-                    type: 'multiple-choice',
-                    options: ['csv', 'pandas', 'file', 'spreadsheet'],
-                    answer: 0
-                }
+                exercises: [
+                    {
+                        prompt: 'What module do you import to work with CSV files?',
+                        type: 'multiple-choice',
+                        options: ['csv', 'pandas', 'file', 'spreadsheet'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What class reads CSV rows as dictionaries?',
+                        type: 'multiple-choice',
+                        options: ['csv.reader', 'csv.DictReader', 'csv.dict', 'csv.Parser'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What argument is needed when writing CSV on Windows?',
+                        type: 'multiple-choice',
+                        options: ['mode="w"', 'newline=""', 'encoding="utf-8"', 'binary=True'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-27',
@@ -2117,12 +2188,26 @@ with open("user.json", "w") as file:
 - \`json.load()\` - Read from file
 - \`json.dump()\` - Write to file
         `,
-                exercise: {
-                    prompt: 'What function reads JSON from a file?',
-                    type: 'multiple-choice',
-                    options: ['json.loads()', 'json.load()', 'json.read()', 'json.parse()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What function reads JSON from a file?',
+                        type: 'multiple-choice',
+                        options: ['json.loads()', 'json.load()', 'json.read()', 'json.parse()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What function converts Python dict to JSON string?',
+                        type: 'multiple-choice',
+                        options: ['json.dump()', 'json.dumps()', 'json.stringify()', 'json.encode()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What argument makes JSON output readable with indentation?',
+                        type: 'multiple-choice',
+                        options: ['pretty=True', 'format=True', 'indent=2', 'readable=True'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED PYTHON - Error Handling ============
             {
@@ -2173,12 +2258,26 @@ finally:
     file.close()  # Always runs!
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What keyword is used to handle exceptions?',
-                    type: 'multiple-choice',
-                    options: ['catch', 'except', 'handle', 'error'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What keyword is used to handle exceptions?',
+                        type: 'multiple-choice',
+                        options: ['catch', 'except', 'handle', 'error'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What exception is raised when dividing by zero?',
+                        type: 'multiple-choice',
+                        options: ['DivisionError', 'ZeroDivisionError', 'MathError', 'ValueError'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What block always executes whether or not an exception occurs?',
+                        type: 'multiple-choice',
+                        options: ['else', 'except', 'finally', 'always'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'py-29',
@@ -2227,12 +2326,26 @@ except InvalidAgeError as e:
     print(e)
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What keyword creates and throws an exception?',
-                    type: 'multiple-choice',
-                    options: ['throw', 'raise', 'error', 'exception'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What keyword creates and throws an exception?',
+                        type: 'multiple-choice',
+                        options: ['throw', 'raise', 'error', 'exception'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What class do custom exceptions inherit from?',
+                        type: 'multiple-choice',
+                        options: ['Error', 'Exception', 'BaseException', 'CustomError'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What exception is raised for invalid dictionary keys?',
+                        type: 'multiple-choice',
+                        options: ['IndexError', 'KeyError', 'ValueError', 'LookupError'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED PYTHON - OOP Deep Dive ============
             {
@@ -2287,12 +2400,26 @@ print(isinstance(dog, Animal))  # True
 print(issubclass(Dog, Animal))  # True
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What function calls the parent class method?',
-                    type: 'multiple-choice',
-                    options: ['parent()', 'super()', 'base()', 'self()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What function calls the parent class method?',
+                        type: 'multiple-choice',
+                        options: ['parent()', 'super()', 'base()', 'self()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What function checks if an object is an instance of a class?',
+                        type: 'multiple-choice',
+                        options: ['typeof()', 'isinstance()', 'type()', 'isclass()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'How do you indicate inheritance in Python?',
+                        type: 'multiple-choice',
+                        options: ['class Dog extends Animal', 'class Dog(Animal)', 'class Dog : Animal', 'class Dog inherits Animal'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-31',
@@ -2349,12 +2476,26 @@ print(Math.is_even(4))     # True
 - **Class**: Needs access to class, not instance
 - **Static**: Doesn't need class or instance
         `,
-                exercise: {
-                    prompt: 'What decorator creates a method that belongs to the class?',
-                    type: 'multiple-choice',
-                    options: ['@staticmethod', '@classmethod', '@method', '@class'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What decorator creates a method that belongs to the class?',
+                        type: 'multiple-choice',
+                        options: ['@staticmethod', '@classmethod', '@method', '@class'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is the first parameter of a class method?',
+                        type: 'multiple-choice',
+                        options: ['self', 'cls', 'this', 'class'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Static methods have access to:',
+                        type: 'multiple-choice',
+                        options: ['self', 'cls', 'Both self and cls', 'Neither self nor cls'],
+                        answer: 3
+                    }
+                ]
             },
             {
                 id: 'py-32',
@@ -2411,12 +2552,26 @@ circle = Circle(5)
 print(circle.area)  # 78.54
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What decorator creates a getter property?',
-                    type: 'multiple-choice',
-                    options: ['@getter', '@property', '@get', '@attribute'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What decorator creates a getter property?',
+                        type: 'multiple-choice',
+                        options: ['@getter', '@property', '@get', '@attribute'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What naming convention indicates a "private" attribute in Python?',
+                        type: 'multiple-choice',
+                        options: ['private_name', '_name', '__name', 'p_name'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'How do you create a read-only property?',
+                        type: 'multiple-choice',
+                        options: ['Use @readonly decorator', 'Don\'t define a setter', 'Use private keyword', 'Set readonly=True'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-33',
@@ -2465,12 +2620,26 @@ print(len(v1))      # 5
 - \`__iter__\` - Make iterable
 - \`__call__\` - Make callable ()
         `,
-                exercise: {
-                    prompt: 'What magic method customizes the + operator?',
-                    type: 'multiple-choice',
-                    options: ['__plus__', '__add__', '__sum__', '__concat__'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What magic method customizes the + operator?',
+                        type: 'multiple-choice',
+                        options: ['__plus__', '__add__', '__sum__', '__concat__'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What magic method is called by print()?',
+                        type: 'multiple-choice',
+                        options: ['__print__', '__str__', '__repr__', '__display__'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What magic method enables len() on your class?',
+                        type: 'multiple-choice',
+                        options: ['__length__', '__size__', '__len__', '__count__'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED PYTHON - Comprehensions ============
             {
@@ -2561,13 +2730,27 @@ first_letters = {word[0] for word in words}
 print(first_letters)  # {'a', 'b'}
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create a dictionary mapping numbers 1-5 to their cubes.',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: '{1: 1, 2: 8, 3: 27, 4: 64, 5: 125}',
-                    hint: 'print({x: x**3 for x in range(1, 6)})'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a dictionary mapping numbers 1-5 to their cubes.',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '{1: 1, 2: 8, 3: 27, 4: 64, 5: 125}',
+                        hint: 'print({x: x**3 for x in range(1, 6)})'
+                    },
+                    {
+                        prompt: 'What brackets are used for set comprehensions?',
+                        type: 'multiple-choice',
+                        options: ['[]', '{}', '()', '<>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What function pairs elements from two lists?',
+                        type: 'multiple-choice',
+                        options: ['pair()', 'zip()', 'combine()', 'merge()'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED PYTHON - Itertools ============
             {
@@ -2630,12 +2813,26 @@ print(list(permutations(items, 2)))
 # [('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'C'), ('C', 'A'), ('C', 'B')]
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What function chains multiple iterables into one?',
-                    type: 'multiple-choice',
-                    options: ['concat()', 'chain()', 'join()', 'merge()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What function chains multiple iterables into one?',
+                        type: 'multiple-choice',
+                        options: ['concat()', 'chain()', 'join()', 'merge()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What itertools function generates all possible orderings?',
+                        type: 'multiple-choice',
+                        options: ['combinations()', 'permutations()', 'orderings()', 'arrangements()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What function creates an infinite counter?',
+                        type: 'multiple-choice',
+                        options: ['infinite()', 'counter()', 'count()', 'forever()'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'py-37',
@@ -2689,12 +2886,26 @@ for line in read_large_file("huge_file.txt"):
     process(line)
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What keyword makes a function a generator?',
-                    type: 'multiple-choice',
-                    options: ['return', 'yield', 'generate', 'next'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What keyword makes a function a generator?',
+                        type: 'multiple-choice',
+                        options: ['return', 'yield', 'generate', 'next'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is the main advantage of generators over lists?',
+                        type: 'multiple-choice',
+                        options: ['Faster execution', 'Memory efficiency', 'Easier syntax', 'More features'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What brackets are used for generator expressions?',
+                        type: 'multiple-choice',
+                        options: ['[]', '{}', '()', '<>'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED PYTHON - Decorators ============
             {
@@ -2764,12 +2975,26 @@ def slow_function():
     return "Done"
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What symbol is used to apply a decorator?',
-                    type: 'multiple-choice',
-                    options: ['#', '@', '$', '&'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What symbol is used to apply a decorator?',
+                        type: 'multiple-choice',
+                        options: ['#', '@', '$', '&'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What do decorators do?',
+                        type: 'multiple-choice',
+                        options: ['Add functionality to functions', 'Create classes', 'Handle errors', 'Import modules'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What is the inner function in a decorator typically called?',
+                        type: 'multiple-choice',
+                        options: ['inner', 'wrapper', 'decorator', 'handler'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-39',
@@ -2831,12 +3056,26 @@ class Circle:
         return self._radius * 2
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What decorator caches function results?',
-                    type: 'multiple-choice',
-                    options: ['@cache', '@lru_cache', '@memoize', '@remember'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What decorator caches function results?',
+                        type: 'multiple-choice',
+                        options: ['@cache', '@lru_cache', '@memoize', '@remember'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What decorator automatically creates __init__ and __repr__?',
+                        type: 'multiple-choice',
+                        options: ['@class', '@dataclass', '@auto', '@struct'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does @functools.wraps preserve?',
+                        type: 'multiple-choice',
+                        options: ['Function speed', 'Function metadata (name, docstring)', 'Return values', 'Parameter types'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED PYTHON - Lambda and Functional ============
             {
@@ -2888,13 +3127,27 @@ square = lambda x: x ** 2
 is_positive = lambda x: x > 0
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create a lambda that squares a number and test it with 5.',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: '25',
-                    hint: 'square = lambda x: x ** 2\\nprint(square(5))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a lambda that squares a number and test it with 5.',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '25',
+                        hint: 'square = lambda x: x ** 2\\nprint(square(5))'
+                    },
+                    {
+                        prompt: 'What keyword creates anonymous functions?',
+                        type: 'multiple-choice',
+                        options: ['def', 'lambda', 'func', 'anon'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is lambda x, y: x + y equivalent to?',
+                        type: 'multiple-choice',
+                        options: ['def f(x, y): return x + y', 'def f: return x + y', 'x + y', 'add(x, y)'],
+                        answer: 0
+                    }
+                ]
             },
             {
                 id: 'py-41',
@@ -2953,13 +3206,27 @@ maximum = reduce(lambda a, b: a if a > b else b, numbers)
 print(maximum)  # 5
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Use filter to get numbers greater than 5 from [2, 7, 3, 9, 4, 8].',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: '[7, 9, 8]',
-                    hint: 'print(list(filter(lambda x: x > 5, [2, 7, 3, 9, 4, 8])))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Use filter to get numbers greater than 5 from [2, 7, 3, 9, 4, 8].',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '[7, 9, 8]',
+                        hint: 'print(list(filter(lambda x: x > 5, [2, 7, 3, 9, 4, 8])))'
+                    },
+                    {
+                        prompt: 'What function transforms all items in a list?',
+                        type: 'multiple-choice',
+                        options: ['filter()', 'map()', 'reduce()', 'transform()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What module contains reduce()?',
+                        type: 'multiple-choice',
+                        options: ['builtins', 'itertools', 'functools', 'collections'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED PYTHON - Regular Expressions ============
             {
@@ -3016,12 +3283,26 @@ words = re.split(r"\\s+", text)
 print(words)  # ['The', 'cat', 'sat', 'on', 'the', 'mat']
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What function finds all matches in a string?',
-                    type: 'multiple-choice',
-                    options: ['re.find()', 're.findall()', 're.search()', 're.match()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What function finds all matches in a string?',
+                        type: 'multiple-choice',
+                        options: ['re.find()', 're.findall()', 're.search()', 're.match()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What regex pattern matches any digit?',
+                        type: 'multiple-choice',
+                        options: ['\\\\d', '\\\\w', '\\\\s', '[a-z]'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What function replaces pattern matches?',
+                        type: 'multiple-choice',
+                        options: ['re.replace()', 're.sub()', 're.change()', 're.swap()'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-43',
