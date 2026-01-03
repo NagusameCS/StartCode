@@ -118,14 +118,27 @@ const DownloadPage = () => {
     const downloadUrl = getDownloadUrl(selectedPlatform);
     const fileSize = getFileSize(selectedPlatform);
 
-    const handleDownload = () => {
-        if (downloadUrl) {
-            window.location.href = downloadUrl;
+    const handleDownload = (platformId) => {
+        const url = getDownloadUrl(platformId || selectedPlatform);
+        if (url) {
+            window.location.href = url;
         } else {
-            // Fallback to releases page
-            window.open('https://github.com/NagusameCS/StartCode/releases/latest', '_blank');
+            toast?.error?.('Download not available yet') || alert('Download not available yet');
         }
     };
+
+    // Get all available downloads
+    const getAvailableDownloads = () => {
+        if (!releaseInfo?.assets) return [];
+        return platforms.map(p => ({
+            ...p,
+            url: getDownloadUrl(p.id),
+            size: getFileSize(p.id),
+            available: !!getDownloadUrl(p.id)
+        }));
+    };
+
+    const availableDownloads = getAvailableDownloads();
 
     return (
         <div className={styles.download}>
@@ -144,53 +157,54 @@ const DownloadPage = () => {
                 </p>
             </motion.div>
 
-            {/* Platform Selection */}
+            {/* Direct Download Buttons */}
             <motion.div
                 className={styles.platformSection}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
             >
-                <h2>Choose your platform</h2>
+                <h2>Download for your platform</h2>
 
-                <div className={styles.platforms}>
+                <div className={styles.downloadButtons}>
                     {platforms.map(platform => {
                         const Icon = platform.icon;
+                        const url = getDownloadUrl(platform.id);
+                        const size = getFileSize(platform.id);
+                        const isAvailable = !!url;
+
                         return (
                             <button
                                 key={platform.id}
-                                className={`${styles.platform} ${selectedPlatform === platform.id ? styles.selected : ''}`}
-                                onClick={() => setSelectedPlatform(platform.id)}
+                                className={`${styles.downloadButton} ${!isAvailable ? styles.unavailable : ''}`}
+                                onClick={() => handleDownload(platform.id)}
+                                disabled={loading || !isAvailable}
                             >
-                                <Icon className={styles.platformIcon} />
-                                <span className={styles.platformName}>{platform.name}</span>
-                                <span className={styles.platformVersion}>{platform.version}</span>
-                                {selectedPlatform === platform.id && (
-                                    <FiCheck className={styles.checkIcon} />
-                                )}
+                                <Icon className={styles.platformBtnIcon} />
+                                <div className={styles.downloadBtnInfo}>
+                                    <span className={styles.downloadBtnName}>
+                                        {isAvailable ? `Download for ${platform.name}` : `${platform.name} (Coming Soon)`}
+                                    </span>
+                                    <span className={styles.downloadBtnSize}>
+                                        {loading ? 'Loading...' : size}
+                                    </span>
+                                </div>
+                                {isAvailable && <FiDownload className={styles.downloadIcon} />}
                             </button>
                         );
                     })}
                 </div>
 
-                <div className={styles.downloadBox}>
-                    <div className={styles.downloadInfo}>
-                        <span className={styles.filename}>
-                            {loading ? 'Loading...' : downloadUrl ? `StartCode for ${selectedPlatformData?.name}` : 'Coming Soon'}
-                        </span>
-                        <span className={styles.filesize}>{fileSize}</span>
-                    </div>
-                    <button
-                        className={styles.downloadBtn}
-                        onClick={handleDownload}
-                        disabled={loading}
-                    >
-                        <FiDownload /> {downloadUrl ? `Download for ${selectedPlatformData?.name}` : 'View Releases'}
-                    </button>
-                </div>
-
                 <p className={styles.note}>
-                    {releaseInfo ? `Version ${releaseInfo.tag_name}` : 'Latest version'} • Requires {selectedPlatformData?.version}
+                    {releaseInfo ? `Version ${releaseInfo.tag_name}` : 'Latest version'} • 
+                    <a 
+                        href="https://github.com/NagusameCS/StartCode/releases" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className={styles.releasesLink}
+                    >
+                        View all releases
+                    </a>
                 </p>
             </motion.div>
 

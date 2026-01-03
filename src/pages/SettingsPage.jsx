@@ -17,7 +17,9 @@ import {
     FiZap,
     FiUsers,
     FiLink,
-    FiAlertTriangle
+    FiAlertTriangle,
+    FiImage,
+    FiUpload
 } from 'react-icons/fi';
 import { FaGoogle, FaMicrosoft, FaApple } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
@@ -30,8 +32,24 @@ import { db } from '../config/firebase';
 import toast from 'react-hot-toast';
 import styles from './SettingsPage.module.css';
 
+// Preset avatar options
+const AVATAR_PRESETS = [
+    { id: 'robot1', url: 'https://api.dicebear.com/7.x/bottts/svg?seed=startcode1', name: 'Robot 1' },
+    { id: 'robot2', url: 'https://api.dicebear.com/7.x/bottts/svg?seed=startcode2', name: 'Robot 2' },
+    { id: 'robot3', url: 'https://api.dicebear.com/7.x/bottts/svg?seed=startcode3', name: 'Robot 3' },
+    { id: 'pixel1', url: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=coder1', name: 'Pixel 1' },
+    { id: 'pixel2', url: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=coder2', name: 'Pixel 2' },
+    { id: 'pixel3', url: 'https://api.dicebear.com/7.x/pixel-art/svg?seed=coder3', name: 'Pixel 3' },
+    { id: 'shapes1', url: 'https://api.dicebear.com/7.x/shapes/svg?seed=dev1', name: 'Shapes 1' },
+    { id: 'shapes2', url: 'https://api.dicebear.com/7.x/shapes/svg?seed=dev2', name: 'Shapes 2' },
+    { id: 'identicon1', url: 'https://api.dicebear.com/7.x/identicon/svg?seed=code1', name: 'Pattern 1' },
+    { id: 'identicon2', url: 'https://api.dicebear.com/7.x/identicon/svg?seed=code2', name: 'Pattern 2' },
+    { id: 'thumbs1', url: 'https://api.dicebear.com/7.x/thumbs/svg?seed=happy1', name: 'Thumbs 1' },
+    { id: 'thumbs2', url: 'https://api.dicebear.com/7.x/thumbs/svg?seed=happy2', name: 'Thumbs 2' },
+];
+
 const SettingsPage = () => {
-    const { user, userProfile, logout, updateProfile, linkProvider, getLinkedProviders, canMergeAccounts } = useAuthStore();
+    const { user, userProfile, logout, updateProfile, updateProfilePicture, linkProvider, getLinkedProviders, canMergeAccounts } = useAuthStore();
     const { currentTheme, setTheme } = useThemeStore();
     const { expertMode, toggleExpertMode } = useProgressStore();
     const { isTeacherMode, toggleTeacherMode } = useTeacherStore();
@@ -43,6 +61,9 @@ const SettingsPage = () => {
         userProfile?.linkedAccountsVisibility || {}
     );
     const [avatarSource, setAvatarSource] = useState(userProfile?.avatarSource || 'default');
+    const [selectedAvatar, setSelectedAvatar] = useState(userProfile?.photoURL || '');
+    const [customAvatarUrl, setCustomAvatarUrl] = useState('');
+    const [showAvatarPicker, setShowAvatarPicker] = useState(false);
     const [saving, setSaving] = useState(false);
     const [linking, setLinking] = useState(false);
     const [showMergeConfirm, setShowMergeConfirm] = useState(null);
@@ -68,8 +89,16 @@ const SettingsPage = () => {
                 displayName: displayName.trim(),
                 organization: organization.trim(),
                 linkedAccountsVisibility: linkedVisibility,
-                avatarSource
+                avatarSource,
+                photoURL: selectedAvatar || userProfile?.photoURL
             };
+
+            // Update profile picture if changed
+            if (selectedAvatar && selectedAvatar !== userProfile?.photoURL) {
+                if (updateProfilePicture) {
+                    await updateProfilePicture(selectedAvatar);
+                }
+            }
 
             // Try to update Firestore, but don't fail if it doesn't work
             try {
@@ -83,6 +112,7 @@ const SettingsPage = () => {
             updateProfile(updates);
 
             toast.success('Profile saved!');
+            setShowAvatarPicker(false);
         } catch (error) {
             console.error('Error saving profile:', error);
             toast.error('Failed to save profile');
@@ -273,46 +303,96 @@ const SettingsPage = () => {
                     </div>
 
                     <div className={styles.formGroup}>
-                        <label>Profile Picture Source</label>
-                        <div className={styles.avatarSourceOptions}>
-                            <button
-                                type="button"
-                                className={`${styles.avatarSourceBtn} ${avatarSource === 'default' ? styles.active : ''}`}
-                                onClick={() => setAvatarSource('default')}
+                        <label><FiImage /> Profile Picture</label>
+                        <div className={styles.avatarSection}>
+                            <div className={styles.currentAvatar}>
+                                {selectedAvatar || userProfile?.photoURL ? (
+                                    <img src={selectedAvatar || userProfile?.photoURL} alt="Avatar" />
+                                ) : (
+                                    <span>{displayName?.[0] || '?'}</span>
+                                )}
+                            </div>
+                            <button 
+                                type="button" 
+                                className={styles.changeAvatarBtn}
+                                onClick={() => setShowAvatarPicker(!showAvatarPicker)}
                             >
-                                <div className={styles.avatarPreview}>
-                                    {user?.photoURL ? (
-                                        <img src={user.photoURL} alt="Default" />
-                                    ) : (
-                                        <span>{displayName?.[0] || '?'}</span>
-                                    )}
-                                </div>
-                                <span>Default</span>
-                                {avatarSource === 'default' && <FiCheck className={styles.checkIcon} />}
-                            </button>
-                            <button
-                                type="button"
-                                className={`${styles.avatarSourceBtn} ${avatarSource === 'google' ? styles.active : ''}`}
-                                onClick={() => setAvatarSource('google')}
-                            >
-                                <div className={styles.avatarPreview}>
-                                    <FaGoogle />
-                                </div>
-                                <span>Google</span>
-                                {avatarSource === 'google' && <FiCheck className={styles.checkIcon} />}
-                            </button>
-                            <button
-                                type="button"
-                                className={`${styles.avatarSourceBtn} ${avatarSource === 'github' ? styles.active : ''}`}
-                                onClick={() => setAvatarSource('github')}
-                            >
-                                <div className={styles.avatarPreview}>
-                                    <FiGithub />
-                                </div>
-                                <span>GitHub</span>
-                                {avatarSource === 'github' && <FiCheck className={styles.checkIcon} />}
+                                <FiImage /> Change Picture
                             </button>
                         </div>
+
+                        {showAvatarPicker && (
+                            <div className={styles.avatarPicker}>
+                                <h4>Choose an Avatar</h4>
+                                <div className={styles.avatarGrid}>
+                                    {AVATAR_PRESETS.map(avatar => (
+                                        <button
+                                            key={avatar.id}
+                                            type="button"
+                                            className={`${styles.avatarOption} ${selectedAvatar === avatar.url ? styles.selected : ''}`}
+                                            onClick={() => setSelectedAvatar(avatar.url)}
+                                        >
+                                            <img src={avatar.url} alt={avatar.name} />
+                                            {selectedAvatar === avatar.url && <FiCheck className={styles.avatarCheck} />}
+                                        </button>
+                                    ))}
+                                </div>
+                                
+                                <div className={styles.customAvatarSection}>
+                                    <h4>Or use a custom URL</h4>
+                                    <div className={styles.customAvatarInput}>
+                                        <input
+                                            type="url"
+                                            value={customAvatarUrl}
+                                            onChange={(e) => setCustomAvatarUrl(e.target.value)}
+                                            placeholder="https://example.com/avatar.png"
+                                        />
+                                        <button
+                                            type="button"
+                                            className="btn btn-secondary"
+                                            onClick={() => {
+                                                if (customAvatarUrl) {
+                                                    setSelectedAvatar(customAvatarUrl);
+                                                    setCustomAvatarUrl('');
+                                                }
+                                            }}
+                                        >
+                                            Use URL
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className={styles.avatarSourceOptions}>
+                                    <span>Or use picture from:</span>
+                                    <button
+                                        type="button"
+                                        className={`${styles.avatarSourceBtn} ${avatarSource === 'google' ? styles.active : ''}`}
+                                        onClick={() => {
+                                            const googleProvider = user?.providerData?.find(p => p.providerId === 'google.com');
+                                            if (googleProvider?.photoURL) {
+                                                setSelectedAvatar(googleProvider.photoURL);
+                                                setAvatarSource('google');
+                                            }
+                                        }}
+                                    >
+                                        <FaGoogle /> Google
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={`${styles.avatarSourceBtn} ${avatarSource === 'github' ? styles.active : ''}`}
+                                        onClick={() => {
+                                            const githubProvider = user?.providerData?.find(p => p.providerId === 'github.com');
+                                            if (githubProvider?.photoURL) {
+                                                setSelectedAvatar(githubProvider.photoURL);
+                                                setAvatarSource('github');
+                                            }
+                                        }}
+                                    >
+                                        <FiGithub /> GitHub
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     <button

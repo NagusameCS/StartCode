@@ -546,3 +546,157 @@
         align-items: flex-start;
     }
 }
+
+/* Avatar Section */
+.avatarSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.currentAvatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-primary-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    border: 3px solid var(--color-border);
+}
+
+.currentAvatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.changeAvatarBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.changeAvatarBtn:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-bg);
+}
+
+/* Avatar Picker */
+.avatarPicker {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+}
+
+.avatarPicker h4 {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.avatarGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.avatarOption {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 4px;
+    background: var(--color-card);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    overflow: hidden;
+}
+
+.avatarOption img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.avatarOption:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.avatarOption.selected {
+    border-color: var(--color-primary);
+    background: var(--color-primary-bg);
+}
+
+.avatarCheck {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 18px;
+    height: 18px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.customAvatarSection {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.customAvatarInput {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.customAvatarInput input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+}
+
+.avatarPicker .avatarSourceOptions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.avatarPicker .avatarSourceOptions span {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 640px) {
+    .avatarGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .customAvatarInput {
+        flex-direction: column;
+    }
+}

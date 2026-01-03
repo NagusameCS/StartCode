@@ -2689,12 +2689,12 @@ print(nums)  # [0, 6, 12, 18, 24]
         `,
                 exercises: [
                     {
-                    prompt: 'Create a list of squares of even numbers from 1-10.',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: '[4, 16, 36, 64, 100]',
-                    hint: 'print([x**2 for x in range(1, 11) if x % 2 == 0])'
-                }
+                        prompt: 'Create a list of squares of even numbers from 1-10.',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '[4, 16, 36, 64, 100]',
+                        hint: 'print([x**2 for x in range(1, 11) if x % 2 == 0])'
+                    }
                 ]
             },
             {
@@ -3373,11 +3373,11 @@ re.findall(r"^start", "start\\nstart", re.MULTILINE)
         `,
                 exercises: [
                     {
-                    prompt: 'What syntax creates a named capture group?',
-                    type: 'multiple-choice',
-                    options: ['(name:...)', '(?P<name>...)', '[name:...]', '{name:...}'],
-                    answer: 1
-                }
+                        prompt: 'What syntax creates a named capture group?',
+                        type: 'multiple-choice',
+                        options: ['(name:...)', '(?P<name>...)', '[name:...]', '{name:...}'],
+                        answer: 1
+                    }
                 ]
             },
             // ============ ADVANCED PYTHON - Modules and Packages ============
@@ -3436,11 +3436,11 @@ print(sys.path)  # Where Python looks for modules
         `,
                 exercises: [
                     {
-                    prompt: 'What variable checks if a file is run directly?',
-                    type: 'multiple-choice',
-                    options: ['__main__', '__name__', '__file__', '__module__'],
-                    answer: 1
-                }
+                        prompt: 'What variable checks if a file is run directly?',
+                        type: 'multiple-choice',
+                        options: ['__main__', '__name__', '__file__', '__module__'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -3497,11 +3497,11 @@ from ..otherpackage import module  # Parent level
         `,
                 exercises: [
                     {
-                    prompt: 'What file makes a directory a Python package?',
-                    type: 'multiple-choice',
-                    options: ['__main__.py', '__init__.py', 'package.py', 'setup.py'],
-                    answer: 1
-                }
+                        prompt: 'What file makes a directory a Python package?',
+                        type: 'multiple-choice',
+                        options: ['__main__.py', '__init__.py', 'package.py', 'setup.py'],
+                        answer: 1
+                    }
                 ]
             },
             // ============ ADVANCED PYTHON - Testing ============
@@ -3565,11 +3565,11 @@ class TestDatabase(unittest.TestCase):
         `,
                 exercises: [
                     {
-                    prompt: 'What assertion checks if two values are equal?',
-                    type: 'multiple-choice',
-                    options: ['assertSame', 'assertEqual', 'assertMatch', 'assertEquals'],
-                    answer: 1
-                }
+                        prompt: 'What assertion checks if two values are equal?',
+                        type: 'multiple-choice',
+                        options: ['assertSame', 'assertEqual', 'assertMatch', 'assertEquals'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -3648,11 +3648,11 @@ def test_divide_by_zero():
         `,
                 exercises: [
                     {
-                    prompt: 'What decorator marks a function as a pytest fixture?',
-                    type: 'multiple-choice',
-                    options: ['@pytest.test', '@pytest.fixture', '@fixture', '@setup'],
-                    answer: 1
-                }
+                        prompt: 'What decorator marks a function as a pytest fixture?',
+                        type: 'multiple-choice',
+                        options: ['@pytest.test', '@pytest.fixture', '@fixture', '@setup'],
+                        answer: 1
+                    }
                 ]
             },
             // ============ ADVANCED PYTHON - Context Managers ============
@@ -3721,11 +3721,11 @@ with open("input.txt") as infile, open("output.txt", "w") as outfile:
         `,
                 exercises: [
                     {
-                    prompt: 'What method runs when entering a "with" block?',
-                    type: 'multiple-choice',
-                    options: ['__enter__', '__exit__', '__start__', '__begin__'],
-                    answer: 0
-                }
+                        prompt: 'What method runs when entering a "with" block?',
+                        type: 'multiple-choice',
+                        options: ['__enter__', '__exit__', '__start__', '__begin__'],
+                        answer: 0
+                    }
                 ]
             },
             // ============ ADVANCED PYTHON - Async/Await ============
@@ -3794,11 +3794,11 @@ asyncio.run(say_hello())
         `,
                 exercises: [
                     {
-                    prompt: 'What keyword defines an asynchronous function?',
-                    type: 'multiple-choice',
-                    options: ['async def', 'await def', 'concurrent def', 'parallel def'],
-                    answer: 0
-                }
+                        prompt: 'What keyword defines an asynchronous function?',
+                        type: 'multiple-choice',
+                        options: ['async def', 'await def', 'concurrent def', 'parallel def'],
+                        answer: 0
+                    }
                 ]
             },
             {
@@ -3865,11 +3865,11 @@ asyncio.run(main())
         `,
                 exercises: [
                     {
-                    prompt: 'What function runs multiple async tasks concurrently?',
-                    type: 'multiple-choice',
-                    options: ['asyncio.run()', 'asyncio.gather()', 'asyncio.wait()', 'asyncio.all()'],
-                    answer: 1
-                }
+                        prompt: 'What function runs multiple async tasks concurrently?',
+                        type: 'multiple-choice',
+                        options: ['asyncio.run()', 'asyncio.gather()', 'asyncio.wait()', 'asyncio.all()'],
+                        answer: 1
+                    }
                 ]
             },
             // ============ FINAL PROJECT ============
@@ -3953,11 +3953,11 @@ Congratulations! You've mastered Python! 🎉🐍
         `,
                 exercises: [
                     {
-                    prompt: 'What decorator is used to create a data class?',
-                    type: 'multiple-choice',
-                    options: ['@data', '@dataclass', '@class', '@model'],
-                    answer: 1
-                }
+                        prompt: 'What decorator is used to create a data class?',
+                        type: 'multiple-choice',
+                        options: ['@data', '@dataclass', '@class', '@model'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -12664,12 +12664,12 @@ Output: 42
         `,
                 exercises: [
                     {
-                    prompt: 'Create a text variable "city" set to "Tokyo" and display it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Tokyo',
-                    hint: 'create text variable city to "Tokyo"\\ndisplay city'
-                }
+                        prompt: 'Create a text variable "city" set to "Tokyo" and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Tokyo',
+                        hint: 'create text variable city to "Tokyo"\\ndisplay city'
+                    }
                 ]
             },
             {
@@ -12784,12 +12784,12 @@ Output: B
         `,
                 exercises: [
                     {
-                    prompt: 'Create number variable points to 75. If points >= 60, display "Winner!"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Winner!',
-                    hint: 'if points is greater than or equal to 60 then\\n    display "Winner!"\\nend if'
-                }
+                        prompt: 'Create number variable points to 75. If points >= 60, display "Winner!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Winner!',
+                        hint: 'if points is greater than or equal to 60 then\\n    display "Winner!"\\nend if'
+                    }
                 ],
                 exercises: [
                     {
@@ -12864,12 +12864,12 @@ Output:
         `,
                 exercises: [
                     {
-                    prompt: 'Write a loop that displays "Code!" 3 times',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Code!\nCode!\nCode!',
-                    hint: 'repeat 3 times\\n    display "Code!"\\nend loop'
-                }
+                        prompt: 'Write a loop that displays "Code!" 3 times',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Code!\nCode!\nCode!',
+                        hint: 'repeat 3 times\\n    display "Code!"\\nend loop'
+                    }
                 ],
                 exercises: [
                     {
@@ -12941,12 +12941,12 @@ Output: 8
         `,
                 exercises: [
                     {
-                    prompt: 'Define function "cheer" that displays "Hooray!" and call it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Hooray!',
-                    hint: 'define function cheer with no parameters\\n    display "Hooray!"\\nend function\\ncheer'
-                }
+                        prompt: 'Define function "cheer" that displays "Hooray!" and call it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Hooray!',
+                        hint: 'define function cheer with no parameters\\n    display "Hooray!"\\nend function\\ncheer'
+                    }
                 ],
                 exercises: [
                     {
@@ -13008,12 +13008,12 @@ Output:
         `,
                 exercises: [
                     {
-                    prompt: 'Calculate 12 * 5 + 3 and display it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '63',
-                    hint: 'Use: display 12 * 5 + 3'
-                }
+                        prompt: 'Calculate 12 * 5 + 3 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '63',
+                        hint: 'Use: display 12 * 5 + 3'
+                    }
                 ]
             },
             {
@@ -13055,12 +13055,12 @@ Output: Pass!
         `,
                 exercises: [
                     {
-                    prompt: 'Create number variable x = 100. If x > 50, display "Big!"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Big!',
-                    hint: 'Use: if x > 50 then'
-                }
+                        prompt: 'Create number variable x = 100. If x > 50, display "Big!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Big!',
+                        hint: 'Use: if x > 50 then'
+                    }
                 ]
             },
             {
@@ -13106,12 +13106,12 @@ Output: Keep playing!
         `,
                 exercises: [
                     {
-                    prompt: 'Create number variable temp = 25. If temp >= 20 and temp <= 30, display "Nice weather"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Nice weather',
-                    hint: 'Use: if temp >= 20 and temp <= 30 then'
-                }
+                        prompt: 'Create number variable temp = 25. If temp >= 20 and temp <= 30, display "Nice weather"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Nice weather',
+                        hint: 'Use: if temp >= 20 and temp <= 30 then'
+                    }
                 ]
             },
             // ============ STAGE 3: Code-Like Structure ============
@@ -13146,11 +13146,11 @@ boolean isActive = true;
                 `,
                 exercises: [
                     {
-                    prompt: 'What Java type stores whole numbers?',
-                    type: 'multiple-choice',
-                    options: ['number', 'int', 'integer', 'whole'],
-                    answer: 1
-                }
+                        prompt: 'What Java type stores whole numbers?',
+                        type: 'multiple-choice',
+                        options: ['number', 'int', 'integer', 'whole'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -13194,12 +13194,12 @@ Output: Hello, Alice!
         `,
                 exercises: [
                     {
-                    prompt: 'Write Java to print "Java rocks!"',
-                    type: 'code',
-                    language: 'java',
-                    expectedOutput: 'System.out.println("Java rocks!");',
-                    hint: 'Use: System.out.println("Java rocks!");'
-                }
+                        prompt: 'Write Java to print "Java rocks!"',
+                        type: 'code',
+                        language: 'java',
+                        expectedOutput: 'System.out.println("Java rocks!");',
+                        hint: 'Use: System.out.println("Java rocks!");'
+                    }
                 ]
             },
             {
@@ -13237,11 +13237,11 @@ Output: Adult
         `,
                 exercises: [
                     {
-                    prompt: 'What wraps the condition in Java if statements?',
-                    type: 'multiple-choice',
-                    options: ['{ }', '[ ]', '( )', '< >'],
-                    answer: 2
-                }
+                        prompt: 'What wraps the condition in Java if statements?',
+                        type: 'multiple-choice',
+                        options: ['{ }', '[ ]', '( )', '< >'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -13289,11 +13289,11 @@ Same output!
         `,
                 exercises: [
                     {
-                    prompt: 'What does i++ do?',
-                    type: 'multiple-choice',
-                    options: ['Multiply by 2', 'Add 1', 'Subtract 1', 'Reset to 0'],
-                    answer: 1
-                }
+                        prompt: 'What does i++ do?',
+                        type: 'multiple-choice',
+                        options: ['Multiply by 2', 'Add 1', 'Subtract 1', 'Reset to 0'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -13335,11 +13335,11 @@ System.out.println(result); // 8
         `,
                 exercises: [
                     {
-                    prompt: 'What return type means "returns nothing"?',
-                    type: 'multiple-choice',
-                    options: ['null', 'none', 'void', 'empty'],
-                    answer: 2
-                }
+                        prompt: 'What return type means "returns nothing"?',
+                        type: 'multiple-choice',
+                        options: ['null', 'none', 'void', 'empty'],
+                        answer: 2
+                    }
                 ]
             },
             // ============ STAGE 4: Full Java ============
@@ -13388,11 +13388,11 @@ public class Main {
         `,
                 exercises: [
                     {
-                    prompt: 'What is the entry point of a Java program called?',
-                    type: 'multiple-choice',
-                    options: ['start()', 'run()', 'main()', 'begin()'],
-                    answer: 2
-                }
+                        prompt: 'What is the entry point of a Java program called?',
+                        type: 'multiple-choice',
+                        options: ['start()', 'run()', 'main()', 'begin()'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -13436,11 +13436,11 @@ for (int num : numbers) {
         `,
                 exercises: [
                     {
-                    prompt: 'How do you get the length of array arr?',
-                    type: 'multiple-choice',
-                    options: ['arr.length()', 'arr.size', 'arr.length', 'len(arr)'],
-                    answer: 2
-                }
+                        prompt: 'How do you get the length of array arr?',
+                        type: 'multiple-choice',
+                        options: ['arr.length()', 'arr.size', 'arr.length', 'len(arr)'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -13484,11 +13484,11 @@ Use \`Integer\` not \`int\` with ArrayList!
         `,
                 exercises: [
                     {
-                    prompt: 'What method adds an item to ArrayList?',
-                    type: 'multiple-choice',
-                    options: ['push()', 'append()', 'add()', 'insert()'],
-                    answer: 2
-                }
+                        prompt: 'What method adds an item to ArrayList?',
+                        type: 'multiple-choice',
+                        options: ['push()', 'append()', 'add()', 'insert()'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -13536,11 +13536,11 @@ System.out.println(alice.age); // 25
         `,
                 exercises: [
                     {
-                    prompt: 'What keyword creates a new object?',
-                    type: 'multiple-choice',
-                    options: ['create', 'make', 'new', 'init'],
-                    answer: 2
-                }
+                        prompt: 'What keyword creates a new object?',
+                        type: 'multiple-choice',
+                        options: ['create', 'make', 'new', 'init'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -13594,11 +13594,11 @@ Keep building with Java! 🎉
         `,
                 exercises: [
                     {
-                    prompt: 'What are the four main pillars of OOP?',
-                    type: 'multiple-choice',
-                    options: ['Fast, Secure, Portable, Free', 'Encapsulation, Inheritance, Polymorphism, Abstraction', 'Classes, Objects, Methods, Variables', 'Input, Process, Output, Storage'],
-                    answer: 1
-                }
+                        prompt: 'What are the four main pillars of OOP?',
+                        type: 'multiple-choice',
+                        options: ['Fast, Secure, Portable, Free', 'Encapsulation, Inheritance, Polymorphism, Abstraction', 'Classes, Objects, Methods, Variables', 'Input, Process, Output, Storage'],
+                        answer: 1
+                    }
                 ]
             },
             // ============ ADVANCED JAVA - Inheritance ============
@@ -13655,11 +13655,11 @@ class Dog extends Animal {
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword creates a subclass?',
-                    type: 'multiple-choice',
-                    options: ['inherits', 'extends', 'implements', 'super'],
-                    answer: 1
-                }
+                        prompt: 'What keyword creates a subclass?',
+                        type: 'multiple-choice',
+                        options: ['inherits', 'extends', 'implements', 'super'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -13717,11 +13717,11 @@ for (Animal a : animals) {
     `,
                 exercises: [
                     {
-                    prompt: 'What annotation marks an overridden method?',
-                    type: 'multiple-choice',
-                    options: ['@Overload', '@Override', '@Replace', '@Extend'],
-                    answer: 1
-                }
+                        prompt: 'What annotation marks an overridden method?',
+                        type: 'multiple-choice',
+                        options: ['@Overload', '@Override', '@Replace', '@Extend'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -13783,11 +13783,11 @@ System.out.println(circle.getArea());
     `,
                 exercises: [
                     {
-                    prompt: 'Can you create an instance of an abstract class?',
-                    type: 'multiple-choice',
-                    options: ['Yes, always', 'No, never', 'Only with super', 'Only in subclass'],
-                    answer: 1
-                }
+                        prompt: 'Can you create an instance of an abstract class?',
+                        type: 'multiple-choice',
+                        options: ['Yes, always', 'No, never', 'Only with super', 'Only in subclass'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -13846,11 +13846,11 @@ interface Drawable {
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword implements an interface?',
-                    type: 'multiple-choice',
-                    options: ['extends', 'implements', 'interface', 'uses'],
-                    answer: 1
-                }
+                        prompt: 'What keyword implements an interface?',
+                        type: 'multiple-choice',
+                        options: ['extends', 'implements', 'interface', 'uses'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -13905,11 +13905,11 @@ public class BankAccount {
     `,
                 exercises: [
                     {
-                    prompt: 'Which modifier allows access only within the same class?',
-                    type: 'multiple-choice',
-                    options: ['public', 'protected', 'default', 'private'],
-                    answer: 3
-                }
+                        prompt: 'Which modifier allows access only within the same class?',
+                        type: 'multiple-choice',
+                        options: ['public', 'protected', 'default', 'private'],
+                        answer: 3
+                    }
                 ]
             },
             {
@@ -13969,11 +13969,11 @@ class Config {
     `,
                 exercises: [
                     {
-                    prompt: 'How do you call a static method?',
-                    type: 'multiple-choice',
-                    options: ['object.method()', 'ClassName.method()', 'static.method()', 'new ClassName().method()'],
-                    answer: 1
-                }
+                        prompt: 'How do you call a static method?',
+                        type: 'multiple-choice',
+                        options: ['object.method()', 'ClassName.method()', 'static.method()', 'new ClassName().method()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14031,11 +14031,11 @@ void setAge(int age) {
     `,
                 exercises: [
                     {
-                    prompt: 'Which block always executes?',
-                    type: 'multiple-choice',
-                    options: ['try', 'catch', 'finally', 'throw'],
-                    answer: 2
-                }
+                        prompt: 'Which block always executes?',
+                        type: 'multiple-choice',
+                        options: ['try', 'catch', 'finally', 'throw'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -14094,11 +14094,11 @@ try {
     `,
                 exercises: [
                     {
-                    prompt: 'What does a checked exception extend?',
-                    type: 'multiple-choice',
-                    options: ['Error', 'RuntimeException', 'Exception', 'Throwable'],
-                    answer: 2
-                }
+                        prompt: 'What does a checked exception extend?',
+                        type: 'multiple-choice',
+                        options: ['Error', 'RuntimeException', 'Exception', 'Throwable'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -14162,11 +14162,11 @@ people.add(new Person("Alice", 25));
     `,
                 exercises: [
                     {
-                    prompt: 'What method adds an element to ArrayList?',
-                    type: 'multiple-choice',
-                    options: ['put()', 'add()', 'insert()', 'append()'],
-                    answer: 1
-                }
+                        prompt: 'What method adds an element to ArrayList?',
+                        type: 'multiple-choice',
+                        options: ['put()', 'add()', 'insert()', 'append()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14235,11 +14235,11 @@ for (String word : words) {
     `,
                 exercises: [
                     {
-                    prompt: 'What method retrieves a value by key?',
-                    type: 'multiple-choice',
-                    options: ['find()', 'get()', 'fetch()', 'retrieve()'],
-                    answer: 1
-                }
+                        prompt: 'What method retrieves a value by key?',
+                        type: 'multiple-choice',
+                        options: ['find()', 'get()', 'fetch()', 'retrieve()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14302,11 +14302,11 @@ inter.retainAll(b);  // {2, 3}
     `,
                 exercises: [
                     {
-                    prompt: 'What happens when you add a duplicate to HashSet?',
-                    type: 'multiple-choice',
-                    options: ['Error thrown', 'Duplicate added', 'Ignored silently', 'Replaces existing'],
-                    answer: 2
-                }
+                        prompt: 'What happens when you add a duplicate to HashSet?',
+                        type: 'multiple-choice',
+                        options: ['Error thrown', 'Duplicate added', 'Ignored silently', 'Replaces existing'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -14369,11 +14369,11 @@ class NumBox<T extends Number> {
     `,
                 exercises: [
                     {
-                    prompt: 'What symbol represents a type parameter?',
-                    type: 'multiple-choice',
-                    options: ['[]', '<>', '()', '{}'],
-                    answer: 1
-                }
+                        prompt: 'What symbol represents a type parameter?',
+                        type: 'multiple-choice',
+                        options: ['[]', '<>', '()', '{}'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14433,11 +14433,11 @@ names.sort(String::compareTo);
     `,
                 exercises: [
                     {
-                    prompt: 'What is the arrow operator in lambdas?',
-                    type: 'multiple-choice',
-                    options: ['=>', '->', '-->', '::'],
-                    answer: 1
-                }
+                        prompt: 'What is the arrow operator in lambdas?',
+                        type: 'multiple-choice',
+                        options: ['=>', '->', '-->', '::'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14500,11 +14500,11 @@ boolean allPositive = nums.stream().allMatch(n -> n > 0);
     `,
                 exercises: [
                     {
-                    prompt: 'What method transforms each element?',
-                    type: 'multiple-choice',
-                    options: ['filter()', 'map()', 'reduce()', 'transform()'],
-                    answer: 1
-                }
+                        prompt: 'What method transforms each element?',
+                        type: 'multiple-choice',
+                        options: ['filter()', 'map()', 'reduce()', 'transform()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14558,11 +14558,11 @@ Optional<User> adult = findUser(id)
     `,
                 exercises: [
                     {
-                    prompt: 'What method provides a default if empty?',
-                    type: 'multiple-choice',
-                    options: ['getDefault()', 'defaultValue()', 'orElse()', 'otherwise()'],
-                    answer: 2
-                }
+                        prompt: 'What method provides a default if empty?',
+                        type: 'multiple-choice',
+                        options: ['getDefault()', 'defaultValue()', 'orElse()', 'otherwise()'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -14618,11 +14618,11 @@ if (Files.exists(path)) {
     `,
                 exercises: [
                     {
-                    prompt: 'What class is used for modern file paths?',
-                    type: 'multiple-choice',
-                    options: ['File', 'Path', 'FileSystem', 'Directory'],
-                    answer: 1
-                }
+                        prompt: 'What class is used for modern file paths?',
+                        type: 'multiple-choice',
+                        options: ['File', 'Path', 'FileSystem', 'Directory'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14678,11 +14678,11 @@ try (FileReader fr = new FileReader("file.txt");
     `,
                 exercises: [
                     {
-                    prompt: 'What does try-with-resources do?',
-                    type: 'multiple-choice',
-                    options: ['Retry on error', 'Auto-close resources', 'Allocate memory', 'Cache data'],
-                    answer: 1
-                }
+                        prompt: 'What does try-with-resources do?',
+                        type: 'multiple-choice',
+                        options: ['Retry on error', 'Auto-close resources', 'Allocate memory', 'Cache data'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14756,11 +14756,11 @@ switch (today) {
     `,
                 exercises: [
                     {
-                    prompt: 'What method returns all enum values?',
-                    type: 'multiple-choice',
-                    options: ['getAll()', 'values()', 'list()', 'enumerate()'],
-                    answer: 1
-                }
+                        prompt: 'What method returns all enum values?',
+                        type: 'multiple-choice',
+                        options: ['getAll()', 'values()', 'list()', 'enumerate()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14824,11 +14824,11 @@ record Person(String name, int age) {
     `,
                 exercises: [
                     {
-                    prompt: 'What do records automatically generate?',
-                    type: 'multiple-choice',
-                    options: ['Setters', 'Getters, equals, hashCode, toString', 'Database connection', 'Serialization'],
-                    answer: 1
-                }
+                        prompt: 'What do records automatically generate?',
+                        type: 'multiple-choice',
+                        options: ['Setters', 'Getters, equals, hashCode, toString', 'Database connection', 'Serialization'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14894,11 +14894,11 @@ LocalDate parsed = LocalDate.parse("12/25/2024", fmt);
     `,
                 exercises: [
                     {
-                    prompt: 'What class represents date without time?',
-                    type: 'multiple-choice',
-                    options: ['Date', 'LocalDate', 'DateTime', 'Calendar'],
-                    answer: 1
-                }
+                        prompt: 'What class represents date without time?',
+                        type: 'multiple-choice',
+                        options: ['Date', 'LocalDate', 'DateTime', 'Calendar'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -14969,11 +14969,11 @@ String formatted = String.format("Name: %s, Age: %d", "Alice", 25);
     `,
                 exercises: [
                     {
-                    prompt: 'What class is efficient for building strings?',
-                    type: 'multiple-choice',
-                    options: ['String', 'StringBuffer', 'StringBuilder', 'StringMaker'],
-                    answer: 2
-                }
+                        prompt: 'What class is efficient for building strings?',
+                        type: 'multiple-choice',
+                        options: ['String', 'StringBuffer', 'StringBuilder', 'StringMaker'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -15029,11 +15029,11 @@ people.sort(byAgeNameDesc);
     `,
                 exercises: [
                     {
-                    prompt: 'What interface defines natural ordering?',
-                    type: 'multiple-choice',
-                    options: ['Comparator', 'Comparable', 'Sortable', 'Ordered'],
-                    answer: 1
-                }
+                        prompt: 'What interface defines natural ordering?',
+                        type: 'multiple-choice',
+                        options: ['Comparator', 'Comparable', 'Sortable', 'Ordered'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15092,11 +15092,11 @@ String front = queue.poll();  // "First"
     `,
                 exercises: [
                     {
-                    prompt: 'What operation removes from front of LinkedList?',
-                    type: 'multiple-choice',
-                    options: ['pop()', 'removeFirst()', 'shift()', 'dequeue()'],
-                    answer: 1
-                }
+                        prompt: 'What operation removes from front of LinkedList?',
+                        type: 'multiple-choice',
+                        options: ['pop()', 'removeFirst()', 'shift()', 'dequeue()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15152,11 +15152,11 @@ descending.add("B");
     `,
                 exercises: [
                     {
-                    prompt: 'What data structure keeps elements sorted?',
-                    type: 'multiple-choice',
-                    options: ['HashSet', 'ArrayList', 'TreeSet', 'LinkedList'],
-                    answer: 2
-                }
+                        prompt: 'What data structure keeps elements sorted?',
+                        type: 'multiple-choice',
+                        options: ['HashSet', 'ArrayList', 'TreeSet', 'LinkedList'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -15221,11 +15221,11 @@ synchronized void increment() {
     `,
                 exercises: [
                     {
-                    prompt: 'What method starts a thread?',
-                    type: 'multiple-choice',
-                    options: ['run()', 'start()', 'execute()', 'begin()'],
-                    answer: 1
-                }
+                        prompt: 'What method starts a thread?',
+                        type: 'multiple-choice',
+                        options: ['run()', 'start()', 'execute()', 'begin()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15291,11 +15291,11 @@ for (Future<Integer> f : futures) {
     `,
                 exercises: [
                     {
-                    prompt: 'What returns a result from async task?',
-                    type: 'multiple-choice',
-                    options: ['Promise', 'Callback', 'Future', 'Result'],
-                    answer: 2
-                }
+                        prompt: 'What returns a result from async task?',
+                        type: 'multiple-choice',
+                        options: ['Promise', 'Callback', 'Future', 'Result'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -15371,11 +15371,11 @@ int val = count.get();
     `,
                 exercises: [
                     {
-                    prompt: 'What class provides lock-free thread-safe integers?',
-                    type: 'multiple-choice',
-                    options: ['SyncInteger', 'AtomicInteger', 'ThreadSafeInt', 'LockedInt'],
-                    answer: 1
-                }
+                        prompt: 'What class provides lock-free thread-safe integers?',
+                        type: 'multiple-choice',
+                        options: ['SyncInteger', 'AtomicInteger', 'ThreadSafeInt', 'LockedInt'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15434,11 +15434,11 @@ CompletableFuture.allOf(f1, f2, f3).join();
     `,
                 exercises: [
                     {
-                    prompt: 'What method chains a transformation?',
-                    type: 'multiple-choice',
-                    options: ['map()', 'thenApply()', 'transform()', 'next()'],
-                    answer: 1
-                }
+                        prompt: 'What method chains a transformation?',
+                        type: 'multiple-choice',
+                        options: ['map()', 'thenApply()', 'transform()', 'next()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15506,11 +15506,11 @@ if (m.find()) {
     `,
                 exercises: [
                     {
-                    prompt: 'What class compiles a regex pattern?',
-                    type: 'multiple-choice',
-                    options: ['Regex', 'Pattern', 'Matcher', 'RegExp'],
-                    answer: 1
-                }
+                        prompt: 'What class compiles a regex pattern?',
+                        type: 'multiple-choice',
+                        options: ['Regex', 'Pattern', 'Matcher', 'RegExp'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15574,11 +15574,11 @@ for (Method m : MyTests.class.getMethods()) {
     `,
                 exercises: [
                     {
-                    prompt: 'What annotation marks overridden methods?',
-                    type: 'multiple-choice',
-                    options: ['@Overload', '@Override', '@Replace', '@Extend'],
-                    answer: 1
-                }
+                        prompt: 'What annotation marks overridden methods?',
+                        type: 'multiple-choice',
+                        options: ['@Overload', '@Override', '@Replace', '@Extend'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15642,11 +15642,11 @@ nameField.set(person, "Alice");
     `,
                 exercises: [
                     {
-                    prompt: 'What allows inspecting code at runtime?',
-                    type: 'multiple-choice',
-                    options: ['Introspection', 'Reflection', 'Inspection', 'Analysis'],
-                    answer: 1
-                }
+                        prompt: 'What allows inspecting code at runtime?',
+                        type: 'multiple-choice',
+                        options: ['Introspection', 'Reflection', 'Inspection', 'Analysis'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15701,11 +15701,11 @@ Person restored = gson.fromJson(json, Person.class);
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword prevents a field from being serialized?',
-                    type: 'multiple-choice',
-                    options: ['volatile', 'transient', 'static', 'final'],
-                    answer: 1
-                }
+                        prompt: 'What keyword prevents a field from being serialized?',
+                        type: 'multiple-choice',
+                        options: ['volatile', 'transient', 'static', 'final'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15775,11 +15775,11 @@ Runnable r2 = () -> System.out.println("Lambda!");
     `,
                 exercises: [
                     {
-                    prompt: 'What inner class doesn\'t need an outer instance?',
-                    type: 'multiple-choice',
-                    options: ['Member', 'Local', 'Static nested', 'Anonymous'],
-                    answer: 2
-                }
+                        prompt: 'What inner class doesn\'t need an outer instance?',
+                        type: 'multiple-choice',
+                        options: ['Member', 'Local', 'Static nested', 'Anonymous'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -15834,11 +15834,11 @@ java --module-path out -m com.myapp/com.myapp.Main
     `,
                 exercises: [
                     {
-                    prompt: 'What file defines a Java module?',
-                    type: 'multiple-choice',
-                    options: ['module.java', 'module-info.java', 'package-info.java', 'meta.java'],
-                    answer: 1
-                }
+                        prompt: 'What file defines a Java module?',
+                        type: 'multiple-choice',
+                        options: ['module.java', 'module-info.java', 'package-info.java', 'meta.java'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15895,11 +15895,11 @@ String describe(Shape shape) {
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword allows unrestricted extension?',
-                    type: 'multiple-choice',
-                    options: ['open', 'non-sealed', 'unsealed', 'public'],
-                    answer: 1
-                }
+                        prompt: 'What keyword allows unrestricted extension?',
+                        type: 'multiple-choice',
+                        options: ['open', 'non-sealed', 'unsealed', 'public'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -15965,11 +15965,11 @@ if (obj instanceof Point(int x, int y)) {
     `,
                 exercises: [
                     {
-                    prompt: 'What feature combines instanceof with variable declaration?',
-                    type: 'multiple-choice',
-                    options: ['Type casting', 'Pattern matching', 'Type inference', 'Auto-boxing'],
-                    answer: 1
-                }
+                        prompt: 'What feature combines instanceof with variable declaration?',
+                        type: 'multiple-choice',
+                        options: ['Type casting', 'Pattern matching', 'Type inference', 'Auto-boxing'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16026,11 +16026,11 @@ System.out.println(virtual.isVirtual());  // true
     `,
                 exercises: [
                     {
-                    prompt: 'What are virtual threads designed for?',
-                    type: 'multiple-choice',
-                    options: ['CPU-bound tasks', 'I/O-bound tasks', 'Memory management', 'Garbage collection'],
-                    answer: 1
-                }
+                        prompt: 'What are virtual threads designed for?',
+                        type: 'multiple-choice',
+                        options: ['CPU-bound tasks', 'I/O-bound tasks', 'Memory management', 'Garbage collection'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16093,11 +16093,11 @@ client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
     `,
                 exercises: [
                     {
-                    prompt: 'What class makes HTTP requests in Java 11+?',
-                    type: 'multiple-choice',
-                    options: ['URLConnection', 'HttpClient', 'RestTemplate', 'WebClient'],
-                    answer: 1
-                }
+                        prompt: 'What class makes HTTP requests in Java 11+?',
+                        type: 'multiple-choice',
+                        options: ['URLConnection', 'HttpClient', 'RestTemplate', 'WebClient'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16170,11 +16170,11 @@ void testIsPositive(int num) {
     `,
                 exercises: [
                     {
-                    prompt: 'What annotation marks a test method?',
-                    type: 'multiple-choice',
-                    options: ['@Test', '@UnitTest', '@Testing', '@TestMethod'],
-                    answer: 0
-                }
+                        prompt: 'What annotation marks a test method?',
+                        type: 'multiple-choice',
+                        options: ['@Test', '@UnitTest', '@Testing', '@TestMethod'],
+                        answer: 0
+                    }
                 ]
             },
             {
@@ -16244,11 +16244,11 @@ class UserServiceTest {
     `,
                 exercises: [
                     {
-                    prompt: 'What method defines mock behavior?',
-                    type: 'multiple-choice',
-                    options: ['expect()', 'when()', 'stub()', 'mock()'],
-                    answer: 1
-                }
+                        prompt: 'What method defines mock behavior?',
+                        type: 'multiple-choice',
+                        options: ['expect()', 'when()', 'stub()', 'mock()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16308,11 +16308,11 @@ mvn dependency:tree # Show dependencies
     `,
                 exercises: [
                     {
-                    prompt: 'What file configures a Maven project?',
-                    type: 'multiple-choice',
-                    options: ['build.gradle', 'pom.xml', 'project.xml', 'maven.xml'],
-                    answer: 1
-                }
+                        prompt: 'What file configures a Maven project?',
+                        type: 'multiple-choice',
+                        options: ['build.gradle', 'pom.xml', 'project.xml', 'maven.xml'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16380,11 +16380,11 @@ dependencies {
     `,
                 exercises: [
                     {
-                    prompt: 'What is Gradle\'s build file called?',
-                    type: 'multiple-choice',
-                    options: ['pom.xml', 'build.gradle', 'gradle.build', 'project.gradle'],
-                    answer: 1
-                }
+                        prompt: 'What is Gradle\'s build file called?',
+                        type: 'multiple-choice',
+                        options: ['pom.xml', 'build.gradle', 'gradle.build', 'project.gradle'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16452,11 +16452,11 @@ Pizza p = new Pizza.Builder().size("large").cheese().build();
     `,
                 exercises: [
                     {
-                    prompt: 'What pattern ensures only one instance exists?',
-                    type: 'multiple-choice',
-                    options: ['Factory', 'Builder', 'Singleton', 'Prototype'],
-                    answer: 2
-                }
+                        prompt: 'What pattern ensures only one instance exists?',
+                        type: 'multiple-choice',
+                        options: ['Factory', 'Builder', 'Singleton', 'Prototype'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -16527,11 +16527,11 @@ class ComputerFacade {
     `,
                 exercises: [
                     {
-                    prompt: 'What pattern adds behavior to objects dynamically?',
-                    type: 'multiple-choice',
-                    options: ['Adapter', 'Decorator', 'Facade', 'Proxy'],
-                    answer: 1
-                }
+                        prompt: 'What pattern adds behavior to objects dynamically?',
+                        type: 'multiple-choice',
+                        options: ['Adapter', 'Decorator', 'Facade', 'Proxy'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16592,11 +16592,11 @@ Congratulations! You're now a Java developer! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What is the most important principle in OOP?',
-                    type: 'multiple-choice',
-                    options: ['Speed', 'Encapsulation', 'Complexity', 'Verbosity'],
-                    answer: 1
-                }
+                        prompt: 'What is the most important principle in OOP?',
+                        type: 'multiple-choice',
+                        options: ['Speed', 'Encapsulation', 'Complexity', 'Verbosity'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -16643,11 +16643,11 @@ JavaScript: When clicked → do something
         `,
                 exercises: [
                     {
-                    prompt: 'What part of a website handles how things look?',
-                    type: 'multiple-choice',
-                    options: ['HTML', 'CSS', 'JavaScript', 'All of them'],
-                    answer: 1
-                }
+                        prompt: 'What part of a website handles how things look?',
+                        type: 'multiple-choice',
+                        options: ['HTML', 'CSS', 'JavaScript', 'All of them'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16679,11 +16679,11 @@ What runs on a remote computer:
     `,
                 exercises: [
                     {
-                    prompt: 'Where does frontend code run?',
-                    type: 'multiple-choice',
-                    options: ['Server', 'Browser', 'Database', 'Cloud'],
-                    answer: 1
-                }
+                        prompt: 'Where does frontend code run?',
+                        type: 'multiple-choice',
+                        options: ['Server', 'Browser', 'Database', 'Cloud'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16716,11 +16716,11 @@ my-website/
     `,
                 exercises: [
                     {
-                    prompt: 'Where should CSS files typically go?',
-                    type: 'multiple-choice',
-                    options: ['Root folder', 'css/ folder', 'js/ folder', 'images/ folder'],
-                    answer: 1
-                }
+                        prompt: 'Where should CSS files typically go?',
+                        type: 'multiple-choice',
+                        options: ['Root folder', 'css/ folder', 'js/ folder', 'images/ folder'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16771,11 +16771,11 @@ my-website/
     `,
                 exercises: [
                     {
-                    prompt: 'What property makes an image circular?',
-                    type: 'multiple-choice',
-                    options: ['round: true', 'border-radius: 50%', 'circle: yes', 'shape: round'],
-                    answer: 1
-                }
+                        prompt: 'What property makes an image circular?',
+                        type: 'multiple-choice',
+                        options: ['round: true', 'border-radius: 50%', 'circle: yes', 'shape: round'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16820,11 +16820,11 @@ element.classList.toggle('hidden');
     `,
                 exercises: [
                     {
-                    prompt: 'What method attaches event handlers?',
-                    type: 'multiple-choice',
-                    options: ['onClick()', 'addEventListener()', 'attachEvent()', 'bindClick()'],
-                    answer: 1
-                }
+                        prompt: 'What method attaches event handlers?',
+                        type: 'multiple-choice',
+                        options: ['onClick()', 'addEventListener()', 'attachEvent()', 'bindClick()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -16868,11 +16868,11 @@ form.addEventListener('submit', (e) => {
     `,
                 exercises: [
                     {
-                    prompt: 'What prevents a form from reloading the page?',
-                    type: 'multiple-choice',
-                    options: ['stopReload()', 'return false', 'e.preventDefault()', 'noReload: true'],
-                    answer: 2
-                }
+                        prompt: 'What prevents a form from reloading the page?',
+                        type: 'multiple-choice',
+                        options: ['stopReload()', 'return false', 'e.preventDefault()', 'noReload: true'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -16924,11 +16924,11 @@ async function displayUsers() {
     `,
                 exercises: [
                     {
-                    prompt: 'What method converts response to JSON?',
-                    type: 'multiple-choice',
-                    options: ['toJSON()', 'parseJSON()', 'json()', 'getJSON()'],
-                    answer: 2
-                }
+                        prompt: 'What method converts response to JSON?',
+                        type: 'multiple-choice',
+                        options: ['toJSON()', 'parseJSON()', 'json()', 'getJSON()'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -16979,11 +16979,11 @@ form.addEventListener('submit', async (e) => {
     `,
                 exercises: [
                     {
-                    prompt: 'What HTTP method creates new resources?',
-                    type: 'multiple-choice',
-                    options: ['GET', 'POST', 'PUT', 'DELETE'],
-                    answer: 1
-                }
+                        prompt: 'What HTTP method creates new resources?',
+                        type: 'multiple-choice',
+                        options: ['GET', 'POST', 'PUT', 'DELETE'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17030,11 +17030,11 @@ sessionStorage.setItem('temp', 'data');
     `,
                 exercises: [
                     {
-                    prompt: 'What clears when the browser tab closes?',
-                    type: 'multiple-choice',
-                    options: ['localStorage', 'sessionStorage', 'Both', 'Neither'],
-                    answer: 1
-                }
+                        prompt: 'What clears when the browser tab closes?',
+                        type: 'multiple-choice',
+                        options: ['localStorage', 'sessionStorage', 'Both', 'Neither'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17079,11 +17079,11 @@ console.log(formatDate(new Date()));
     `,
                 exercises: [
                     {
-                    prompt: 'What script type enables ES modules?',
-                    type: 'multiple-choice',
-                    options: ['type="javascript"', 'type="module"', 'type="es6"', 'type="import"'],
-                    answer: 1
-                }
+                        prompt: 'What script type enables ES modules?',
+                        type: 'multiple-choice',
+                        options: ['type="javascript"', 'type="module"', 'type="es6"', 'type="import"'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17134,11 +17134,11 @@ npm update        # Update packages
     `,
                 exercises: [
                     {
-                    prompt: 'What file tracks project dependencies?',
-                    type: 'multiple-choice',
-                    options: ['deps.json', 'package.json', 'modules.json', 'npm.json'],
-                    answer: 1
-                }
+                        prompt: 'What file tracks project dependencies?',
+                        type: 'multiple-choice',
+                        options: ['deps.json', 'package.json', 'modules.json', 'npm.json'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17185,11 +17185,11 @@ npm run preview  # Preview production
     `,
                 exercises: [
                     {
-                    prompt: 'What does HMR stand for?',
-                    type: 'multiple-choice',
-                    options: ['Hot Module Replacement', 'High Memory Runtime', 'HTML Markup Renderer', 'Hybrid Module Runner'],
-                    answer: 0
-                }
+                        prompt: 'What does HMR stand for?',
+                        type: 'multiple-choice',
+                        options: ['Hot Module Replacement', 'High Memory Runtime', 'HTML Markup Renderer', 'Hybrid Module Runner'],
+                        answer: 0
+                    }
                 ]
             },
             {
@@ -17241,11 +17241,11 @@ function Card({ title, children }) {
     `,
                 exercises: [
                     {
-                    prompt: 'What does JSX stand for?',
-                    type: 'multiple-choice',
-                    options: ['JavaScript XML', 'Java Syntax Extension', 'JSON Extended', 'JS Extra'],
-                    answer: 0
-                }
+                        prompt: 'What does JSX stand for?',
+                        type: 'multiple-choice',
+                        options: ['JavaScript XML', 'Java Syntax Extension', 'JSON Extended', 'JS Extra'],
+                        answer: 0
+                    }
                 ]
             },
             {
@@ -17294,11 +17294,11 @@ function UserProfile({ userId }) {
     `,
                 exercises: [
                     {
-                    prompt: 'What hook manages component state?',
-                    type: 'multiple-choice',
-                    options: ['useEffect', 'useState', 'useContext', 'useRef'],
-                    answer: 1
-                }
+                        prompt: 'What hook manages component state?',
+                        type: 'multiple-choice',
+                        options: ['useEffect', 'useState', 'useContext', 'useRef'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17348,11 +17348,11 @@ function UserProfile() {
     `,
                 exercises: [
                     {
-                    prompt: 'What component wraps the entire routed app?',
-                    type: 'multiple-choice',
-                    options: ['Router', 'BrowserRouter', 'Routes', 'Switch'],
-                    answer: 1
-                }
+                        prompt: 'What component wraps the entire routed app?',
+                        type: 'multiple-choice',
+                        options: ['Router', 'BrowserRouter', 'Routes', 'Switch'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17405,11 +17405,11 @@ npx tailwindcss init -p
     `,
                 exercises: [
                     {
-                    prompt: 'What type of CSS framework is Tailwind?',
-                    type: 'multiple-choice',
-                    options: ['Component-based', 'Utility-first', 'Theme-based', 'Grid-only'],
-                    answer: 1
-                }
+                        prompt: 'What type of CSS framework is Tailwind?',
+                        type: 'multiple-choice',
+                        options: ['Component-based', 'Utility-first', 'Theme-based', 'Grid-only'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17454,11 +17454,11 @@ const apiKey = process.env.API_KEY;
     `,
                 exercises: [
                     {
-                    prompt: 'What does Node.js allow you to do?',
-                    type: 'multiple-choice',
-                    options: ['Run JS in browser', 'Run JS on server', 'Compile JS to Java', 'Design websites'],
-                    answer: 1
-                }
+                        prompt: 'What does Node.js allow you to do?',
+                        type: 'multiple-choice',
+                        options: ['Run JS in browser', 'Run JS on server', 'Compile JS to Java', 'Design websites'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17515,11 +17515,11 @@ app.get('/api/users/:id', (req, res) => {
     `,
                 exercises: [
                     {
-                    prompt: 'What method handles GET requests in Express?',
-                    type: 'multiple-choice',
-                    options: ['app.fetch()', 'app.get()', 'app.request()', 'app.handle()'],
-                    answer: 1
-                }
+                        prompt: 'What method handles GET requests in Express?',
+                        type: 'multiple-choice',
+                        options: ['app.fetch()', 'app.get()', 'app.request()', 'app.handle()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17571,11 +17571,11 @@ app.delete('/api/posts/:id', async (req, res) => {
     `,
                 exercises: [
                     {
-                    prompt: 'What status code means resource created?',
-                    type: 'multiple-choice',
-                    options: ['200', '201', '204', '301'],
-                    answer: 1
-                }
+                        prompt: 'What status code means resource created?',
+                        type: 'multiple-choice',
+                        options: ['200', '201', '204', '301'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17628,11 +17628,11 @@ await User.findByIdAndDelete(id);
     `,
                 exercises: [
                     {
-                    prompt: 'What type of database is MongoDB?',
-                    type: 'multiple-choice',
-                    options: ['Relational', 'NoSQL', 'Graph', 'Time-series'],
-                    answer: 1
-                }
+                        prompt: 'What type of database is MongoDB?',
+                        type: 'multiple-choice',
+                        options: ['Relational', 'NoSQL', 'Graph', 'Time-series'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17699,11 +17699,11 @@ function authMiddleware(req, res, next) {
     `,
                 exercises: [
                     {
-                    prompt: 'What does JWT stand for?',
-                    type: 'multiple-choice',
-                    options: ['Java Web Token', 'JSON Web Token', 'JavaScript Web Token', 'Just Web Token'],
-                    answer: 1
-                }
+                        prompt: 'What does JWT stand for?',
+                        type: 'multiple-choice',
+                        options: ['Java Web Token', 'JSON Web Token', 'JavaScript Web Token', 'Just Web Token'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17758,11 +17758,11 @@ CMD ["node", "server.js"]
     `,
                 exercises: [
                     {
-                    prompt: 'What file stores secret config values?',
-                    type: 'multiple-choice',
-                    options: ['config.js', '.env', 'secrets.txt', 'keys.json'],
-                    answer: 1
-                }
+                        prompt: 'What file stores secret config values?',
+                        type: 'multiple-choice',
+                        options: ['config.js', '.env', 'secrets.txt', 'keys.json'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -17830,11 +17830,11 @@ Congratulations! You can now build full-stack web apps! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What connects frontend to backend?',
-                    type: 'multiple-choice',
-                    options: ['CSS', 'HTML', 'API calls', 'Database'],
-                    answer: 2
-                }
+                        prompt: 'What connects frontend to backend?',
+                        type: 'multiple-choice',
+                        options: ['CSS', 'HTML', 'API calls', 'Database'],
+                        answer: 2
+                    }
                 ]
             }
         ]
@@ -18862,12 +18862,12 @@ int main() {
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: display "Hello C++" end display',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Hello C++',
-                    hint: 'Use display and end display'
-                }
+                        prompt: 'Write: display "Hello C++" end display',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Hello C++',
+                        hint: 'Use display and end display'
+                    }
                 ]
             },
             {
@@ -18894,12 +18894,12 @@ create text name = "Alice"
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: create number age = 25',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write: create number age = 25',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'create number age = 25',
-                    hint: 'Declare a number variable called age'
-                }
+                        hint: 'Declare a number variable called age'
+                    }
                 ]
             },
             {
@@ -18937,11 +18937,11 @@ cin >> name >> age;
     `,
                 exercises: [
                     {
-                    prompt: 'What object reads user input in C++?',
-                    type: 'multiple-choice',
-                    options: ['cout', 'cin', 'scanf', 'read'],
-                    answer: 1
-                }
+                        prompt: 'What object reads user input in C++?',
+                        type: 'multiple-choice',
+                        options: ['cout', 'cin', 'scanf', 'read'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -18995,11 +18995,11 @@ switch (choice) {
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword ends a switch case?',
-                    type: 'multiple-choice',
-                    options: ['end', 'stop', 'break', 'exit'],
-                    answer: 2
-                }
+                        prompt: 'What keyword ends a switch case?',
+                        type: 'multiple-choice',
+                        options: ['end', 'stop', 'break', 'exit'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -19043,11 +19043,11 @@ greet("Alice"); // Hello, Alice
     `,
                 exercises: [
                     {
-                    prompt: 'What return type means no value returned?',
-                    type: 'multiple-choice',
-                    options: ['null', 'void', 'none', 'empty'],
-                    answer: 1
-                }
+                        prompt: 'What return type means no value returned?',
+                        type: 'multiple-choice',
+                        options: ['null', 'void', 'none', 'empty'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19096,11 +19096,11 @@ cout << matrix[0][1];  // 2
     `,
                 exercises: [
                     {
-                    prompt: 'What index is the first element?',
-                    type: 'multiple-choice',
-                    options: ['1', '0', '-1', 'first'],
-                    answer: 1
-                }
+                        prompt: 'What index is the first element?',
+                        type: 'multiple-choice',
+                        options: ['1', '0', '-1', 'first'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19151,11 +19151,11 @@ cout << *(p+2);   // 30
     `,
                 exercises: [
                     {
-                    prompt: 'What operator gets the address of a variable?',
-                    type: 'multiple-choice',
-                    options: ['*', '&', '@', '#'],
-                    answer: 1
-                }
+                        prompt: 'What operator gets the address of a variable?',
+                        type: 'multiple-choice',
+                        options: ['*', '&', '@', '#'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19203,11 +19203,11 @@ void print(const string& s) {
     `,
                 exercises: [
                     {
-                    prompt: 'What does & mean in a parameter?',
-                    type: 'multiple-choice',
-                    options: ['Address of', 'Pass by reference', 'Pointer', 'Copy'],
-                    answer: 1
-                }
+                        prompt: 'What does & mean in a parameter?',
+                        type: 'multiple-choice',
+                        options: ['Address of', 'Pass by reference', 'Pointer', 'Copy'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19253,11 +19253,11 @@ void good() {
     `,
                 exercises: [
                     {
-                    prompt: 'What frees dynamically allocated arrays?',
-                    type: 'multiple-choice',
-                    options: ['delete', 'delete[]', 'free', 'remove'],
-                    answer: 1
-                }
+                        prompt: 'What frees dynamically allocated arrays?',
+                        type: 'multiple-choice',
+                        options: ['delete', 'delete[]', 'free', 'remove'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19310,11 +19310,11 @@ if (s1 < s2) { }        // Lexicographic
     `,
                 exercises: [
                     {
-                    prompt: 'What reads a line with spaces?',
-                    type: 'multiple-choice',
-                    options: ['cin >>', 'getline()', 'readline()', 'scanline()'],
-                    answer: 1
-                }
+                        prompt: 'What reads a line with spaces?',
+                        type: 'multiple-choice',
+                        options: ['cin >>', 'getline()', 'readline()', 'scanline()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19360,11 +19360,11 @@ for (int n : nums) {
     `,
                 exercises: [
                     {
-                    prompt: 'What adds an element to a vector?',
-                    type: 'multiple-choice',
-                    options: ['add()', 'append()', 'push_back()', 'insert()'],
-                    answer: 2
-                }
+                        prompt: 'What adds an element to a vector?',
+                        type: 'multiple-choice',
+                        options: ['add()', 'append()', 'push_back()', 'insert()'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -19417,11 +19417,11 @@ unordered_map<string, int> data;
     `,
                 exercises: [
                     {
-                    prompt: 'What property holds the key in a map pair?',
-                    type: 'multiple-choice',
-                    options: ['key', 'first', 'name', 'index'],
-                    answer: 1
-                }
+                        prompt: 'What property holds the key in a map pair?',
+                        type: 'multiple-choice',
+                        options: ['key', 'first', 'name', 'index'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19469,11 +19469,11 @@ cout << p.getName();
     `,
                 exercises: [
                     {
-                    prompt: 'What access modifier hides data?',
-                    type: 'multiple-choice',
-                    options: ['public', 'private', 'protected', 'hidden'],
-                    answer: 1
-                }
+                        prompt: 'What access modifier hides data?',
+                        type: 'multiple-choice',
+                        options: ['public', 'private', 'protected', 'hidden'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19532,11 +19532,11 @@ public:
     `,
                 exercises: [
                     {
-                    prompt: 'What cleans up when object is destroyed?',
-                    type: 'multiple-choice',
-                    options: ['constructor', 'destructor', 'finalizer', 'cleaner'],
-                    answer: 1
-                }
+                        prompt: 'What cleans up when object is destroyed?',
+                        type: 'multiple-choice',
+                        options: ['constructor', 'destructor', 'finalizer', 'cleaner'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19585,11 +19585,11 @@ class A : private B { };   // Private (default)
     `,
                 exercises: [
                     {
-                    prompt: 'What access allows derived class access?',
-                    type: 'multiple-choice',
-                    options: ['public only', 'protected', 'private', 'friend'],
-                    answer: 1
-                }
+                        prompt: 'What access allows derived class access?',
+                        type: 'multiple-choice',
+                        options: ['public only', 'protected', 'private', 'friend'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19643,11 +19643,11 @@ public:
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword enables runtime polymorphism?',
-                    type: 'multiple-choice',
-                    options: ['abstract', 'virtual', 'override', 'dynamic'],
-                    answer: 1
-                }
+                        prompt: 'What keyword enables runtime polymorphism?',
+                        type: 'multiple-choice',
+                        options: ['abstract', 'virtual', 'override', 'dynamic'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19701,11 +19701,11 @@ Pair<string, int> p("Age", 25);
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword declares a template?',
-                    type: 'multiple-choice',
-                    options: ['generic', 'template', 'type', 'any'],
-                    answer: 1
-                }
+                        prompt: 'What keyword declares a template?',
+                        type: 'multiple-choice',
+                        options: ['generic', 'template', 'type', 'any'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19756,11 +19756,11 @@ if (auto p = wp.lock()) {
     `,
                 exercises: [
                     {
-                    prompt: 'What smart pointer allows only one owner?',
-                    type: 'multiple-choice',
-                    options: ['shared_ptr', 'unique_ptr', 'weak_ptr', 'auto_ptr'],
-                    answer: 1
-                }
+                        prompt: 'What smart pointer allows only one owner?',
+                        type: 'multiple-choice',
+                        options: ['shared_ptr', 'unique_ptr', 'weak_ptr', 'auto_ptr'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19814,11 +19814,11 @@ public:
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword throws an exception?',
-                    type: 'multiple-choice',
-                    options: ['raise', 'throw', 'error', 'except'],
-                    answer: 1
-                }
+                        prompt: 'What keyword throws an exception?',
+                        type: 'multiple-choice',
+                        options: ['raise', 'throw', 'error', 'except'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19875,11 +19875,11 @@ Congratulations! You've learned C++! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What class writes to files?',
-                    type: 'multiple-choice',
-                    options: ['fstream', 'ofstream', 'ifstream', 'filestream'],
-                    answer: 1
-                }
+                        prompt: 'What class writes to files?',
+                        type: 'multiple-choice',
+                        options: ['fstream', 'ofstream', 'ifstream', 'filestream'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -19921,12 +19921,12 @@ fn main() {
                 `,
                 exercises: [
                     {
-                    prompt: 'Write a display statement for "Welcome to Rust"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Welcome to Rust',
-                    hint: 'Use display "..." end display'
-                }
+                        prompt: 'Write a display statement for "Welcome to Rust"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Welcome to Rust',
+                        hint: 'Use display "..." end display'
+                    }
                 ]
             },
             {
@@ -19957,11 +19957,11 @@ let mut y = 10;   // Mutable
                 `,
                 exercises: [
                     {
-                    prompt: 'What keyword makes a variable changeable in Rust?',
-                    type: 'multiple-choice',
-                    options: ['var', 'mut', 'let', 'change'],
-                    answer: 1
-                }
+                        prompt: 'What keyword makes a variable changeable in Rust?',
+                        type: 'multiple-choice',
+                        options: ['var', 'mut', 'let', 'change'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -19998,11 +19998,11 @@ let first = arr[0];
     `,
                 exercises: [
                     {
-                    prompt: 'What is u32?',
-                    type: 'multiple-choice',
-                    options: ['Signed 32-bit', 'Unsigned 32-bit', 'Unicode', 'Unknown'],
-                    answer: 1
-                }
+                        prompt: 'What is u32?',
+                        type: 'multiple-choice',
+                        options: ['Signed 32-bit', 'Unsigned 32-bit', 'Unicode', 'Unknown'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20047,11 +20047,11 @@ fn swap(a: i32, b: i32) -> (i32, i32) {
     `,
                 exercises: [
                     {
-                    prompt: 'What does -> indicate in Rust?',
-                    type: 'multiple-choice',
-                    options: ['Input', 'Return type', 'Arrow function', 'Pointer'],
-                    answer: 1
-                }
+                        prompt: 'What does -> indicate in Rust?',
+                        type: 'multiple-choice',
+                        options: ['Input', 'Return type', 'Arrow function', 'Pointer'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20105,11 +20105,11 @@ for item in arr.iter() {
     `,
                 exercises: [
                     {
-                    prompt: 'What is 0..5 in Rust?',
-                    type: 'multiple-choice',
-                    options: ['Slice', 'Range', 'Array', 'Tuple'],
-                    answer: 1
-                }
+                        prompt: 'What is 0..5 in Rust?',
+                        type: 'multiple-choice',
+                        options: ['Slice', 'Range', 'Array', 'Tuple'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20150,11 +20150,11 @@ let y = x;  // Copy, both valid
     `,
                 exercises: [
                     {
-                    prompt: 'What happens when you assign a String to another variable?',
-                    type: 'multiple-choice',
-                    options: ['Copy', 'Move', 'Clone', 'Reference'],
-                    answer: 1
-                }
+                        prompt: 'What happens when you assign a String to another variable?',
+                        type: 'multiple-choice',
+                        options: ['Copy', 'Move', 'Clone', 'Reference'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20201,11 +20201,11 @@ let r2 = &s;      // OK
     `,
                 exercises: [
                     {
-                    prompt: 'What symbol creates a reference?',
-                    type: 'multiple-choice',
-                    options: ['*', '&', '@', '#'],
-                    answer: 1
-                }
+                        prompt: 'What symbol creates a reference?',
+                        type: 'multiple-choice',
+                        options: ['*', '&', '@', '#'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20252,11 +20252,11 @@ let black = Color(0, 0, 0);
     `,
                 exercises: [
                     {
-                    prompt: 'How do you access struct fields?',
-                    type: 'multiple-choice',
-                    options: ['user1["username"]', 'user1.username', 'user1->username', 'user1::username'],
-                    answer: 1
-                }
+                        prompt: 'How do you access struct fields?',
+                        type: 'multiple-choice',
+                        options: ['user1["username"]', 'user1.username', 'user1->username', 'user1::username'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20304,11 +20304,11 @@ let sq = Rectangle::square(10);
     `,
                 exercises: [
                     {
-                    prompt: 'What is &self in a method?',
-                    type: 'multiple-choice',
-                    options: ['A new instance', 'Reference to the instance', 'A static variable', 'A copy'],
-                    answer: 1
-                }
+                        prompt: 'What is &self in a method?',
+                        type: 'multiple-choice',
+                        options: ['A new instance', 'Reference to the instance', 'A static variable', 'A copy'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20356,11 +20356,11 @@ let no_number: Option<i32> = None;
     `,
                 exercises: [
                     {
-                    prompt: 'What replaces null in Rust?',
-                    type: 'multiple-choice',
-                    options: ['nil', 'None', 'null', 'undefined'],
-                    answer: 1
-                }
+                        prompt: 'What replaces null in Rust?',
+                        type: 'multiple-choice',
+                        options: ['nil', 'None', 'null', 'undefined'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20414,11 +20414,11 @@ match point {
     `,
                 exercises: [
                     {
-                    prompt: 'What is _ in match?',
-                    type: 'multiple-choice',
-                    options: ['Underscore literal', 'Catch-all pattern', 'Ignore', 'Error'],
-                    answer: 1
-                }
+                        prompt: 'What is _ in match?',
+                        type: 'multiple-choice',
+                        options: ['Underscore literal', 'Catch-all pattern', 'Ignore', 'Error'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20474,11 +20474,11 @@ let row = vec![
     `,
                 exercises: [
                     {
-                    prompt: 'How do you create a vector with values?',
-                    type: 'multiple-choice',
-                    options: ['Vec::new([1,2,3])', 'vec![1, 2, 3]', 'Vector(1, 2, 3)', '[1, 2, 3].to_vec()'],
-                    answer: 1
-                }
+                        prompt: 'How do you create a vector with values?',
+                        type: 'multiple-choice',
+                        options: ['Vec::new([1,2,3])', 'vec![1, 2, 3]', 'Vector(1, 2, 3)', '[1, 2, 3].to_vec()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20526,11 +20526,11 @@ let slice = &s[0..2];  // "he"
     `,
                 exercises: [
                     {
-                    prompt: 'What is &str?',
-                    type: 'multiple-choice',
-                    options: ['Mutable string', 'String slice', 'String pointer', 'Character'],
-                    answer: 1
-                }
+                        prompt: 'What is &str?',
+                        type: 'multiple-choice',
+                        options: ['Mutable string', 'String slice', 'String pointer', 'Character'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20583,11 +20583,11 @@ for (key, value) in &scores {
     `,
                 exercises: [
                     {
-                    prompt: 'What does or_insert do?',
-                    type: 'multiple-choice',
-                    options: ['Always inserts', 'Inserts if key missing', 'Returns Option', 'Deletes key'],
-                    answer: 1
-                }
+                        prompt: 'What does or_insert do?',
+                        type: 'multiple-choice',
+                        options: ['Always inserts', 'Inserts if key missing', 'Returns Option', 'Deletes key'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20635,11 +20635,11 @@ let f = File::open("hello.txt").expect("Failed to open");
     `,
                 exercises: [
                     {
-                    prompt: 'What does ? do with errors?',
-                    type: 'multiple-choice',
-                    options: ['Ignores them', 'Propagates them', 'Logs them', 'Converts to panic'],
-                    answer: 1
-                }
+                        prompt: 'What does ? do with errors?',
+                        type: 'multiple-choice',
+                        options: ['Ignores them', 'Propagates them', 'Logs them', 'Converts to panic'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20695,11 +20695,11 @@ fn notify<T: Summary>(item: &T) {
     `,
                 exercises: [
                     {
-                    prompt: 'What are traits similar to?',
-                    type: 'multiple-choice',
-                    options: ['Classes', 'Interfaces', 'Structs', 'Enums'],
-                    answer: 1
-                }
+                        prompt: 'What are traits similar to?',
+                        type: 'multiple-choice',
+                        options: ['Classes', 'Interfaces', 'Structs', 'Enums'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20757,11 +20757,11 @@ impl<T> Point<T> {
     `,
                 exercises: [
                     {
-                    prompt: 'Where do you put type parameters?',
-                    type: 'multiple-choice',
-                    options: ['Before function name', 'After function name', 'In parentheses', 'In square brackets'],
-                    answer: 1
-                }
+                        prompt: 'Where do you put type parameters?',
+                        type: 'multiple-choice',
+                        options: ['Before function name', 'After function name', 'In parentheses', 'In square brackets'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20806,11 +20806,11 @@ Rust infers lifetimes in many cases automatically!
     `,
                 exercises: [
                     {
-                    prompt: 'What do lifetimes prevent?',
-                    type: 'multiple-choice',
-                    options: ['Memory leaks', 'Dangling references', 'Null pointers', 'Race conditions'],
-                    answer: 1
-                }
+                        prompt: 'What do lifetimes prevent?',
+                        type: 'multiple-choice',
+                        options: ['Memory leaks', 'Dangling references', 'Null pointers', 'Race conditions'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20859,11 +20859,11 @@ let closure = move || println!("{}", s);
     `,
                 exercises: [
                     {
-                    prompt: 'What symbol starts a closure?',
-                    type: 'multiple-choice',
-                    options: ['{}', '||', '()', '[]'],
-                    answer: 1
-                }
+                        prompt: 'What symbol starts a closure?',
+                        type: 'multiple-choice',
+                        options: ['{}', '||', '()', '[]'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20912,11 +20912,11 @@ Congratulations! You've learned Rust! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What turns an iterator into a collection?',
-                    type: 'multiple-choice',
-                    options: ['to_vec()', 'collect()', 'gather()', 'build()'],
-                    answer: 1
-                }
+                        prompt: 'What turns an iterator into a collection?',
+                        type: 'multiple-choice',
+                        options: ['to_vec()', 'collect()', 'gather()', 'build()'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -20957,11 +20957,11 @@ let age: number = 25;
                 `,
                 exercises: [
                     {
-                    prompt: 'What does TypeScript add to JavaScript?',
-                    type: 'multiple-choice',
-                    options: ['Speed', 'Types', 'Graphics', 'Sound'],
-                    answer: 1
-                }
+                        prompt: 'What does TypeScript add to JavaScript?',
+                        type: 'multiple-choice',
+                        options: ['Speed', 'Types', 'Graphics', 'Sound'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -20986,12 +20986,12 @@ create number count = 42
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: create number score = 100',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'create number score = 100',
-                    hint: 'Declare a typed number variable'
-                }
+                        prompt: 'Write: create number score = 100',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'create number score = 100',
+                        hint: 'Declare a typed number variable'
+                    }
                 ]
             },
             {
@@ -21029,11 +21029,11 @@ let readonlyArr: readonly number[] = [1, 2, 3];
     `,
                 exercises: [
                     {
-                    prompt: 'What is [string, number] called?',
-                    type: 'multiple-choice',
-                    options: ['Array', 'Tuple', 'Object', 'Union'],
-                    answer: 1
-                }
+                        prompt: 'What is [string, number] called?',
+                        type: 'multiple-choice',
+                        options: ['Array', 'Tuple', 'Object', 'Union'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21079,11 +21079,11 @@ const add = (a: number, b: number): number => a + b;
     `,
                 exercises: [
                     {
-                    prompt: 'What does void mean?',
-                    type: 'multiple-choice',
-                    options: ['Returns undefined', 'Returns null', 'Returns nothing', 'Returns any'],
-                    answer: 2
-                }
+                        prompt: 'What does void mean?',
+                        type: 'multiple-choice',
+                        options: ['Returns undefined', 'Returns null', 'Returns nothing', 'Returns any'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -21129,11 +21129,11 @@ let p: Point = { x: 10, y: 20 };
     `,
                 exercises: [
                     {
-                    prompt: 'What makes a property optional?',
-                    type: 'multiple-choice',
-                    options: ['optional keyword', '? after name', 'undefined type', 'null value'],
-                    answer: 1
-                }
+                        prompt: 'What makes a property optional?',
+                        type: 'multiple-choice',
+                        options: ['optional keyword', '? after name', 'undefined type', 'null value'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21179,11 +21179,11 @@ move("up");     // OK
     `,
                 exercises: [
                     {
-                    prompt: 'What symbol creates a union type?',
-                    type: 'multiple-choice',
-                    options: ['&', '|', '+', ','],
-                    answer: 1
-                }
+                        prompt: 'What symbol creates a union type?',
+                        type: 'multiple-choice',
+                        options: ['&', '|', '+', ','],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21233,11 +21233,11 @@ let p: Person = { name: "Alice", age: 25 };
     `,
                 exercises: [
                     {
-                    prompt: 'What combines two types into one?',
-                    type: 'multiple-choice',
-                    options: ['|', '&', '+', 'extends'],
-                    answer: 1
-                }
+                        prompt: 'What combines two types into one?',
+                        type: 'multiple-choice',
+                        options: ['|', '&', '+', 'extends'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21290,11 +21290,11 @@ function move(animal: Bird | Fish) {
     `,
                 exercises: [
                     {
-                    prompt: 'What checks if a property exists?',
-                    type: 'multiple-choice',
-                    options: ['has', 'in', 'exists', 'contains'],
-                    answer: 1
-                }
+                        prompt: 'What checks if a property exists?',
+                        type: 'multiple-choice',
+                        options: ['has', 'in', 'exists', 'contains'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21349,11 +21349,11 @@ logLength([1, 2, 3]);   // OK
     `,
                 exercises: [
                     {
-                    prompt: 'What are <T> called?',
-                    type: 'multiple-choice',
-                    options: ['Templates', 'Type parameters', 'Generics', 'Placeholders'],
-                    answer: 1
-                }
+                        prompt: 'What are <T> called?',
+                        type: 'multiple-choice',
+                        options: ['Templates', 'Type parameters', 'Generics', 'Placeholders'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21400,11 +21400,11 @@ class Person {
     `,
                 exercises: [
                     {
-                    prompt: 'What hides a property from outside?',
-                    type: 'multiple-choice',
-                    options: ['public', 'private', 'protected', 'readonly'],
-                    answer: 1
-                }
+                        prompt: 'What hides a property from outside?',
+                        type: 'multiple-choice',
+                        options: ['public', 'private', 'protected', 'readonly'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21463,11 +21463,11 @@ abstract class Shape {
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword extends a class?',
-                    type: 'multiple-choice',
-                    options: ['inherits', 'extends', 'implements', 'uses'],
-                    answer: 1
-                }
+                        prompt: 'What keyword extends a class?',
+                        type: 'multiple-choice',
+                        options: ['inherits', 'extends', 'implements', 'uses'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21523,11 +21523,11 @@ const views: PageViews = { home: 100, about: 50 };
     `,
                 exercises: [
                     {
-                    prompt: 'What makes all properties optional?',
-                    type: 'multiple-choice',
-                    options: ['Optional<T>', 'Partial<T>', 'Maybe<T>', 'Nullable<T>'],
-                    answer: 1
-                }
+                        prompt: 'What makes all properties optional?',
+                        type: 'multiple-choice',
+                        options: ['Optional<T>', 'Partial<T>', 'Maybe<T>', 'Nullable<T>'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21578,11 +21578,11 @@ type PersonGetters = Getters<Person>;
     `,
                 exercises: [
                     {
-                    prompt: 'What gets all keys of a type?',
-                    type: 'multiple-choice',
-                    options: ['keys', 'keyof', 'typeof', 'nameof'],
-                    answer: 1
-                }
+                        prompt: 'What gets all keys of a type?',
+                        type: 'multiple-choice',
+                        options: ['keys', 'keyof', 'typeof', 'nameof'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21627,11 +21627,11 @@ type T2 = Extract<"a" | "b" | "c", "a" | "f">;  // "a"
     `,
                 exercises: [
                     {
-                    prompt: 'What extracts the return type from a function?',
-                    type: 'multiple-choice',
-                    options: ['ReturnOf<T>', 'ReturnType<T>', 'GetReturn<T>', 'FunctionReturn<T>'],
-                    answer: 1
-                }
+                        prompt: 'What extracts the return type from a function?',
+                        type: 'multiple-choice',
+                        options: ['ReturnOf<T>', 'ReturnType<T>', 'GetReturn<T>', 'FunctionReturn<T>'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21684,11 +21684,11 @@ Congratulations! You've learned TypeScript! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What imports only type information?',
-                    type: 'multiple-choice',
-                    options: ['import type', 'import @type', 'type import', 'using type'],
-                    answer: 0
-                }
+                        prompt: 'What imports only type information?',
+                        type: 'multiple-choice',
+                        options: ['import type', 'import @type', 'type import', 'using type'],
+                        answer: 0
+                    }
                 ]
             }
         ]
@@ -21727,11 +21727,11 @@ Ask questions, get answers from data.
                 `,
                 exercises: [
                     {
-                    prompt: 'What does SQL stand for?',
-                    type: 'multiple-choice',
-                    options: ['Simple Query Language', 'Structured Query Language', 'System Query Logic', 'Standard Question Language'],
-                    answer: 1
-                }
+                        prompt: 'What does SQL stand for?',
+                        type: 'multiple-choice',
+                        options: ['Simple Query Language', 'Structured Query Language', 'System Query Logic', 'Standard Question Language'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21756,12 +21756,12 @@ SELECT name, email FROM users;
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: get all from products',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'get all from products',
-                    hint: 'Use get all from tablename'
-                }
+                        prompt: 'Write: get all from products',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'get all from products',
+                        hint: 'Use get all from tablename'
+                    }
                 ]
             },
             {
@@ -21784,12 +21784,12 @@ SELECT * FROM users WHERE age > 18;
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: get name from users where active = true',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write: get name from users where active = true',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'get name from users where active = true',
-                    hint: 'Add a where clause'
-                }
+                        hint: 'Add a where clause'
+                    }
                 ]
             },
             {
@@ -21830,11 +21830,11 @@ SELECT * FROM users WHERE country IN ('USA', 'Canada', 'UK');
     `,
                 exercises: [
                     {
-                    prompt: 'What checks if a value is in a list?',
-                    type: 'multiple-choice',
-                    options: ['CONTAINS', 'IN', 'HAS', 'INCLUDES'],
-                    answer: 1
-                }
+                        prompt: 'What checks if a value is in a list?',
+                        type: 'multiple-choice',
+                        options: ['CONTAINS', 'IN', 'HAS', 'INCLUDES'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21872,11 +21872,11 @@ SELECT * FROM products ORDER BY price DESC LIMIT 10;
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword sorts from highest to lowest?',
-                    type: 'multiple-choice',
-                    options: ['ASC', 'DESC', 'HIGH', 'DOWN'],
-                    answer: 1
-                }
+                        prompt: 'What keyword sorts from highest to lowest?',
+                        type: 'multiple-choice',
+                        options: ['ASC', 'DESC', 'HIGH', 'DOWN'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21918,11 +21918,11 @@ FROM products;
     `,
                 exercises: [
                     {
-                    prompt: 'What counts rows in a table?',
-                    type: 'multiple-choice',
-                    options: ['TOTAL()', 'COUNT()', 'NUM()', 'SIZE()'],
-                    answer: 1
-                }
+                        prompt: 'What counts rows in a table?',
+                        type: 'multiple-choice',
+                        options: ['TOTAL()', 'COUNT()', 'NUM()', 'SIZE()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -21969,11 +21969,11 @@ ORDER BY total DESC;
     `,
                 exercises: [
                     {
-                    prompt: 'What filters grouped results?',
-                    type: 'multiple-choice',
-                    options: ['WHERE', 'HAVING', 'FILTER', 'WHEN'],
-                    answer: 1
-                }
+                        prompt: 'What filters grouped results?',
+                        type: 'multiple-choice',
+                        options: ['WHERE', 'HAVING', 'FILTER', 'WHEN'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22016,11 +22016,11 @@ WHERE o.total > 100;
     `,
                 exercises: [
                     {
-                    prompt: 'What returns only matching rows from both tables?',
-                    type: 'multiple-choice',
-                    options: ['LEFT JOIN', 'RIGHT JOIN', 'INNER JOIN', 'FULL JOIN'],
-                    answer: 2
-                }
+                        prompt: 'What returns only matching rows from both tables?',
+                        type: 'multiple-choice',
+                        options: ['LEFT JOIN', 'RIGHT JOIN', 'INNER JOIN', 'FULL JOIN'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -22060,11 +22060,11 @@ WHERE o.id IS NULL;
     `,
                 exercises: [
                     {
-                    prompt: 'Which JOIN returns all rows from the first table?',
-                    type: 'multiple-choice',
-                    options: ['INNER JOIN', 'LEFT JOIN', 'RIGHT JOIN', 'CROSS JOIN'],
-                    answer: 1
-                }
+                        prompt: 'Which JOIN returns all rows from the first table?',
+                        type: 'multiple-choice',
+                        options: ['INNER JOIN', 'LEFT JOIN', 'RIGHT JOIN', 'CROSS JOIN'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22110,11 +22110,11 @@ WHERE EXISTS (
     `,
                 exercises: [
                     {
-                    prompt: 'What checks if a subquery has results?',
-                    type: 'multiple-choice',
-                    options: ['HAS', 'EXISTS', 'FOUND', 'ANY'],
-                    answer: 1
-                }
+                        prompt: 'What checks if a subquery has results?',
+                        type: 'multiple-choice',
+                        options: ['HAS', 'EXISTS', 'FOUND', 'ANY'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22155,11 +22155,11 @@ VALUES ('Bob', 'bob@example.com');
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword adds new rows?',
-                    type: 'multiple-choice',
-                    options: ['ADD', 'INSERT', 'CREATE', 'PUT'],
-                    answer: 1
-                }
+                        prompt: 'What keyword adds new rows?',
+                        type: 'multiple-choice',
+                        options: ['ADD', 'INSERT', 'CREATE', 'PUT'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22202,11 +22202,11 @@ UPDATE products SET price = 0 WHERE id = 1;
     `,
                 exercises: [
                     {
-                    prompt: 'What clause prevents updating all rows?',
-                    type: 'multiple-choice',
-                    options: ['LIMIT', 'WHERE', 'ONLY', 'FILTER'],
-                    answer: 1
-                }
+                        prompt: 'What clause prevents updating all rows?',
+                        type: 'multiple-choice',
+                        options: ['LIMIT', 'WHERE', 'ONLY', 'FILTER'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22253,11 +22253,11 @@ DELETE FROM users WHERE last_login < '2020-01-01';
     `,
                 exercises: [
                     {
-                    prompt: 'What is faster than DELETE for removing all rows?',
-                    type: 'multiple-choice',
-                    options: ['REMOVE', 'TRUNCATE', 'CLEAR', 'DROP'],
-                    answer: 1
-                }
+                        prompt: 'What is faster than DELETE for removing all rows?',
+                        type: 'multiple-choice',
+                        options: ['REMOVE', 'TRUNCATE', 'CLEAR', 'DROP'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22296,11 +22296,11 @@ CREATE TABLE users (
     `,
                 exercises: [
                     {
-                    prompt: 'What constraint makes a column required?',
-                    type: 'multiple-choice',
-                    options: ['REQUIRED', 'NOT NULL', 'MANDATORY', 'NEEDED'],
-                    answer: 1
-                }
+                        prompt: 'What constraint makes a column required?',
+                        type: 'multiple-choice',
+                        options: ['REQUIRED', 'NOT NULL', 'MANDATORY', 'NEEDED'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22342,11 +22342,11 @@ Congratulations! You've learned SQL! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What happens with ON DELETE CASCADE?',
-                    type: 'multiple-choice',
-                    options: ['Error occurs', 'Related rows deleted', 'Set to NULL', 'Nothing'],
-                    answer: 1
-                }
+                        prompt: 'What happens with ON DELETE CASCADE?',
+                        type: 'multiple-choice',
+                        options: ['Error occurs', 'Related rows deleted', 'Set to NULL', 'Nothing'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -22388,12 +22388,12 @@ Simple and clean!
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: display "Ruby is fun!" end display',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Ruby is fun!',
-                    hint: 'Use display with quotes'
-                }
+                        prompt: 'Write: display "Ruby is fun!" end display',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Ruby is fun!',
+                        hint: 'Use display with quotes'
+                    }
                 ]
             },
             {
@@ -22420,12 +22420,12 @@ age = 25
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: create language = "Ruby"',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write: create language = "Ruby"',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'create language = "Ruby"',
-                    hint: 'Create a variable'
-                }
+                        hint: 'Create a variable'
+                    }
                 ]
             },
             {
@@ -22469,11 +22469,11 @@ nothing = nil
     `,
                 exercises: [
                     {
-                    prompt: 'What syntax creates a symbol?',
-                    type: 'multiple-choice',
-                    options: ['"symbol"', "'symbol'", ':symbol', '@symbol'],
-                    answer: 2
-                }
+                        prompt: 'What syntax creates a symbol?',
+                        type: 'multiple-choice',
+                        options: ['"symbol"', "'symbol'", ':symbol', '@symbol'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -22522,11 +22522,11 @@ end
     `,
                 exercises: [
                     {
-                    prompt: 'What is the opposite of if?',
-                    type: 'multiple-choice',
-                    options: ['else', 'unless', 'not', 'except'],
-                    answer: 1
-                }
+                        prompt: 'What is the opposite of if?',
+                        type: 'multiple-choice',
+                        options: ['else', 'unless', 'not', 'except'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22578,11 +22578,11 @@ end
     `,
                 exercises: [
                     {
-                    prompt: 'What is the Ruby-preferred way to loop?',
-                    type: 'multiple-choice',
-                    options: ['for', 'while', 'each', 'loop'],
-                    answer: 2
-                }
+                        prompt: 'What is the Ruby-preferred way to loop?',
+                        type: 'multiple-choice',
+                        options: ['for', 'while', 'each', 'loop'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -22634,11 +22634,11 @@ greet("Ruby")     # Also valid
     `,
                 exercises: [
                     {
-                    prompt: 'What does ? at end of method name mean?',
-                    type: 'multiple-choice',
-                    options: ['Optional', 'Returns boolean', 'Private', 'Raises error'],
-                    answer: 1
-                }
+                        prompt: 'What does ? at end of method name mean?',
+                        type: 'multiple-choice',
+                        options: ['Optional', 'Returns boolean', 'Private', 'Raises error'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22683,11 +22683,11 @@ arr.select { |x| x > 2 }  # [3, 4]
     `,
                 exercises: [
                     {
-                    prompt: 'What adds an element to the end?',
-                    type: 'multiple-choice',
-                    options: ['add', 'push or <<', 'append', 'insert'],
-                    answer: 1
-                }
+                        prompt: 'What adds an element to the end?',
+                        type: 'multiple-choice',
+                        options: ['add', 'push or <<', 'append', 'insert'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22736,11 +22736,11 @@ end
     `,
                 exercises: [
                     {
-                    prompt: 'What is the preferred key type?',
-                    type: 'multiple-choice',
-                    options: ['Strings', 'Numbers', 'Symbols', 'Arrays'],
-                    answer: 2
-                }
+                        prompt: 'What is the preferred key type?',
+                        type: 'multiple-choice',
+                        options: ['Strings', 'Numbers', 'Symbols', 'Arrays'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -22787,11 +22787,11 @@ repeat(3) { |i| puts "Iteration #{i}" }
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword passes control to a block?',
-                    type: 'multiple-choice',
-                    options: ['call', 'run', 'yield', 'exec'],
-                    answer: 2
-                }
+                        prompt: 'What keyword passes control to a block?',
+                        type: 'multiple-choice',
+                        options: ['call', 'run', 'yield', 'exec'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -22838,11 +22838,11 @@ end
     `,
                 exercises: [
                     {
-                    prompt: 'What creates both getter and setter?',
-                    type: 'multiple-choice',
-                    options: ['attr_reader', 'attr_writer', 'attr_accessor', 'attr_both'],
-                    answer: 2
-                }
+                        prompt: 'What creates both getter and setter?',
+                        type: 'multiple-choice',
+                        options: ['attr_reader', 'attr_writer', 'attr_accessor', 'attr_both'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -22901,11 +22901,11 @@ end
     `,
                 exercises: [
                     {
-                    prompt: 'What symbol indicates inheritance?',
-                    type: 'multiple-choice',
-                    options: [':', '<', 'extends', '->'],
-                    answer: 1
-                }
+                        prompt: 'What symbol indicates inheritance?',
+                        type: 'multiple-choice',
+                        options: [':', '<', 'extends', '->'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -22956,11 +22956,11 @@ Congratulations! You've learned Ruby! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What adds module methods as instance methods?',
-                    type: 'multiple-choice',
-                    options: ['require', 'include', 'extend', 'import'],
-                    answer: 1
-                }
+                        prompt: 'What adds module methods as instance methods?',
+                        type: 'multiple-choice',
+                        options: ['require', 'include', 'extend', 'import'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -23002,11 +23002,11 @@ echo "Hello from the server!";
                 `,
                 exercises: [
                     {
-                    prompt: 'Where does PHP code run?',
-                    type: 'multiple-choice',
-                    options: ['Browser', 'Server', 'Database', 'CSS'],
-                    answer: 1
-                }
+                        prompt: 'Where does PHP code run?',
+                        type: 'multiple-choice',
+                        options: ['Browser', 'Server', 'Database', 'CSS'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -23031,11 +23031,11 @@ $name = "Alice";
                 `,
                 exercises: [
                     {
-                    prompt: 'What symbol starts PHP variables?',
-                    type: 'multiple-choice',
-                    options: ['@', '#', '$', '&'],
-                    answer: 2
-                }
+                        prompt: 'What symbol starts PHP variables?',
+                        type: 'multiple-choice',
+                        options: ['@', '#', '$', '&'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -23081,11 +23081,11 @@ $nothing = null;
     `,
                 exercises: [
                     {
-                    prompt: 'How do you include a variable in a string?',
-                    type: 'multiple-choice',
-                    options: ['$var', '${var}', 'Use double quotes', 'All of these'],
-                    answer: 3
-                }
+                        prompt: 'How do you include a variable in a string?',
+                        type: 'multiple-choice',
+                        options: ['$var', '${var}', 'Use double quotes', 'All of these'],
+                        answer: 3
+                    }
                 ]
             },
             {
@@ -23138,11 +23138,11 @@ while ($count < 10) {
     `,
                 exercises: [
                     {
-                    prompt: 'What is the PHP else if keyword?',
-                    type: 'multiple-choice',
-                    options: ['else if', 'elseif', 'elif', 'Both A and B'],
-                    answer: 3
-                }
+                        prompt: 'What is the PHP else if keyword?',
+                        type: 'multiple-choice',
+                        options: ['else if', 'elseif', 'elif', 'Both A and B'],
+                        answer: 3
+                    }
                 ]
             },
             {
@@ -23192,11 +23192,11 @@ foreach ($person as $key => $value) {
     `,
                 exercises: [
                     {
-                    prompt: 'What symbol separates key and value?',
-                    type: 'multiple-choice',
-                    options: [':', '=>', '->', '='],
-                    answer: 1
-                }
+                        prompt: 'What symbol separates key and value?',
+                        type: 'multiple-choice',
+                        options: [':', '=>', '->', '='],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -23244,11 +23244,11 @@ echo $greet("Alice");
     `,
                 exercises: [
                     {
-                    prompt: 'What is : int after parameters?',
-                    type: 'multiple-choice',
-                    options: ['Comment', 'Return type', 'Variable type', 'Error'],
-                    answer: 1
-                }
+                        prompt: 'What is : int after parameters?',
+                        type: 'multiple-choice',
+                        options: ['Comment', 'Return type', 'Variable type', 'Error'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -23290,11 +23290,11 @@ $joined = implode("-", $parts);  // "a-b-c"
     `,
                 exercises: [
                     {
-                    prompt: 'What splits a string into an array?',
-                    type: 'multiple-choice',
-                    options: ['split()', 'explode()', 'break()', 'divide()'],
-                    answer: 1
-                }
+                        prompt: 'What splits a string into an array?',
+                        type: 'multiple-choice',
+                        options: ['split()', 'explode()', 'break()', 'divide()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -23340,11 +23340,11 @@ if (empty($_POST["username"])) {
     `,
                 exercises: [
                     {
-                    prompt: 'What superglobal holds POST data?',
-                    type: 'multiple-choice',
-                    options: ['$POST', '$_POST', '$HTTP_POST', '$form'],
-                    answer: 1
-                }
+                        prompt: 'What superglobal holds POST data?',
+                        type: 'multiple-choice',
+                        options: ['$POST', '$_POST', '$HTTP_POST', '$form'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -23397,11 +23397,11 @@ echo Counter::$count;
     `,
                 exercises: [
                     {
-                    prompt: 'What is $this in PHP?',
-                    type: 'multiple-choice',
-                    options: ['Current class', 'Current object', 'Parent class', 'Static reference'],
-                    answer: 1
-                }
+                        prompt: 'What is $this in PHP?',
+                        type: 'multiple-choice',
+                        options: ['Current class', 'Current object', 'Parent class', 'Static reference'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -23461,11 +23461,11 @@ Congratulations! You've learned PHP! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword extends a class?',
-                    type: 'multiple-choice',
-                    options: ['inherits', 'extends', 'implements', 'uses'],
-                    answer: 1
-                }
+                        prompt: 'What keyword extends a class?',
+                        type: 'multiple-choice',
+                        options: ['inherits', 'extends', 'implements', 'uses'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -24113,11 +24113,11 @@ JSON (JavaScript Object Notation) stores data in a readable format.
                 `,
                 exercises: [
                     {
-                    prompt: 'What does JSON stand for?',
-                    type: 'multiple-choice',
-                    options: ['Java Standard Object Notation', 'JavaScript Object Notation', 'Just Simple Object Names', 'JSON Script Object Notation'],
-                    answer: 1
-                }
+                        prompt: 'What does JSON stand for?',
+                        type: 'multiple-choice',
+                        options: ['Java Standard Object Notation', 'JavaScript Object Notation', 'Just Simple Object Names', 'JSON Script Object Notation'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24147,11 +24147,11 @@ JSON (JavaScript Object Notation) stores data in a readable format.
                 `,
                 exercises: [
                     {
-                    prompt: 'What quotes does JSON require for keys?',
-                    type: 'multiple-choice',
-                    options: ['Single quotes', 'Double quotes', 'No quotes', 'Backticks'],
-                    answer: 1
-                }
+                        prompt: 'What quotes does JSON require for keys?',
+                        type: 'multiple-choice',
+                        options: ['Single quotes', 'Double quotes', 'No quotes', 'Backticks'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24194,11 +24194,11 @@ JSON (JavaScript Object Notation) stores data in a readable format.
     `,
                 exercises: [
                     {
-                    prompt: 'How do you represent "no value" in JSON?',
-                    type: 'multiple-choice',
-                    options: ['undefined', 'null', 'none', 'empty'],
-                    answer: 1
-                }
+                        prompt: 'How do you represent "no value" in JSON?',
+                        type: 'multiple-choice',
+                        options: ['undefined', 'null', 'none', 'empty'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24250,11 +24250,11 @@ JSON (JavaScript Object Notation) stores data in a readable format.
     `,
                 exercises: [
                     {
-                    prompt: 'Can objects contain arrays?',
-                    type: 'multiple-choice',
-                    options: ['No', 'Yes', 'Only strings', 'Only numbers'],
-                    answer: 1
-                }
+                        prompt: 'Can objects contain arrays?',
+                        type: 'multiple-choice',
+                        options: ['No', 'Yes', 'Only strings', 'Only numbers'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24296,11 +24296,11 @@ try {
     `,
                 exercises: [
                     {
-                    prompt: 'What converts a string to an object?',
-                    type: 'multiple-choice',
-                    options: ['JSON.stringify()', 'JSON.parse()', 'JSON.convert()', 'JSON.decode()'],
-                    answer: 1
-                }
+                        prompt: 'What converts a string to an object?',
+                        type: 'multiple-choice',
+                        options: ['JSON.stringify()', 'JSON.parse()', 'JSON.convert()', 'JSON.decode()'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24341,11 +24341,11 @@ Congratulations! You've learned JSON! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What does JSON Schema validate?',
-                    type: 'multiple-choice',
-                    options: ['JSON syntax', 'JSON structure', 'JSON speed', 'JSON size'],
-                    answer: 1
-                }
+                        prompt: 'What does JSON Schema validate?',
+                        type: 'multiple-choice',
+                        options: ['JSON syntax', 'JSON structure', 'JSON speed', 'JSON size'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -24386,11 +24386,11 @@ Markdown is a simple way to format text.
                 `,
                 exercises: [
                     {
-                    prompt: 'What symbol creates a heading in Markdown?',
-                    type: 'multiple-choice',
-                    options: ['*', '#', '@', '!'],
-                    answer: 1
-                }
+                        prompt: 'What symbol creates a heading in Markdown?',
+                        type: 'multiple-choice',
+                        options: ['*', '#', '@', '!'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24418,11 +24418,11 @@ Markdown is a simple way to format text.
                 `,
                 exercises: [
                     {
-                    prompt: 'How do you make text bold in Markdown?',
-                    type: 'multiple-choice',
-                    options: ['<b>text</b>', '**text**', '!!text!!', '##text##'],
-                    answer: 1
-                }
+                        prompt: 'How do you make text bold in Markdown?',
+                        type: 'multiple-choice',
+                        options: ['<b>text</b>', '**text**', '!!text!!', '##text##'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24459,11 +24459,11 @@ Markdown is a simple way to format text.
     `,
                 exercises: [
                     {
-                    prompt: 'What makes an image different from a link?',
-                    type: 'multiple-choice',
-                    options: ['Different brackets', 'Starts with !', 'Uses { }', 'Uses < >'],
-                    answer: 1
-                }
+                        prompt: 'What makes an image different from a link?',
+                        type: 'multiple-choice',
+                        options: ['Different brackets', 'Starts with !', 'Uses { }', 'Uses < >'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24505,11 +24505,11 @@ or
     `,
                 exercises: [
                     {
-                    prompt: 'What wraps inline code?',
-                    type: 'multiple-choice',
-                    options: ['Single quotes', 'Backticks', 'Double quotes', 'Parentheses'],
-                    answer: 1
-                }
+                        prompt: 'What wraps inline code?',
+                        type: 'multiple-choice',
+                        options: ['Single quotes', 'Backticks', 'Double quotes', 'Parentheses'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24544,11 +24544,11 @@ or
     `,
                 exercises: [
                     {
-                    prompt: 'What symbol separates columns?',
-                    type: 'multiple-choice',
-                    options: [',', '|', ';', ':'],
-                    answer: 1
-                }
+                        prompt: 'What symbol separates columns?',
+                        type: 'multiple-choice',
+                        options: [',', '|', ';', ':'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24585,11 +24585,11 @@ Great for:
     `,
                 exercises: [
                     {
-                    prompt: 'What marks a task as complete?',
-                    type: 'multiple-choice',
-                    options: ['[*]', '[x]', '[+]', '[✓]'],
-                    answer: 1
-                }
+                        prompt: 'What marks a task as complete?',
+                        type: 'multiple-choice',
+                        options: ['[*]', '[x]', '[+]', '[✓]'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24635,11 +24635,11 @@ Congratulations! You've learned Markdown! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'Can you use HTML in Markdown?',
-                    type: 'multiple-choice',
-                    options: ['Never', 'Sometimes', 'Yes, in most parsers', 'Only images'],
-                    answer: 2
-                }
+                        prompt: 'Can you use HTML in Markdown?',
+                        type: 'multiple-choice',
+                        options: ['Never', 'Sometimes', 'Yes, in most parsers', 'Only images'],
+                        answer: 2
+                    }
                 ]
             }
         ]
@@ -24681,11 +24681,11 @@ It's how programs talk to each other.
                 `,
                 exercises: [
                     {
-                    prompt: 'What does API stand for?',
-                    type: 'multiple-choice',
-                    options: ['Automated Program Interface', 'Application Programming Interface', 'Applied Programming Integration', 'Automatic Process Integration'],
-                    answer: 1
-                }
+                        prompt: 'What does API stand for?',
+                        type: 'multiple-choice',
+                        options: ['Automated Program Interface', 'Application Programming Interface', 'Applied Programming Integration', 'Automatic Process Integration'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24710,12 +24710,12 @@ fetch("https://api.example.com/users")
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: fetch data from "https://api.weather.com"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'fetch data from "https://api.weather.com"',
-                    hint: 'Use fetch data from with the URL'
-                }
+                        prompt: 'Write: fetch data from "https://api.weather.com"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'fetch data from "https://api.weather.com"',
+                        hint: 'Use fetch data from with the URL'
+                    }
                 ]
             },
             {
@@ -24758,11 +24758,11 @@ fetch('/api/users/1', {
     `,
                 exercises: [
                     {
-                    prompt: 'What method creates new data?',
-                    type: 'multiple-choice',
-                    options: ['GET', 'POST', 'PUT', 'PATCH'],
-                    answer: 1
-                }
+                        prompt: 'What method creates new data?',
+                        type: 'multiple-choice',
+                        options: ['GET', 'POST', 'PUT', 'PATCH'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24797,11 +24797,11 @@ fetch('/api/users/1', {
     `,
                 exercises: [
                     {
-                    prompt: 'What does 404 mean?',
-                    type: 'multiple-choice',
-                    options: ['Success', 'Unauthorized', 'Not Found', 'Server Error'],
-                    answer: 2
-                }
+                        prompt: 'What does 404 mean?',
+                        type: 'multiple-choice',
+                        options: ['Success', 'Unauthorized', 'Not Found', 'Server Error'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -24850,11 +24850,11 @@ async function getData() {
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword pauses until promise resolves?',
-                    type: 'multiple-choice',
-                    options: ['pause', 'wait', 'await', 'hold'],
-                    answer: 2
-                }
+                        prompt: 'What keyword pauses until promise resolves?',
+                        type: 'multiple-choice',
+                        options: ['pause', 'wait', 'await', 'hold'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -24899,11 +24899,11 @@ async function searchUsers(query, page = 1) {
     `,
                 exercises: [
                     {
-                    prompt: 'What separates query params from the URL?',
-                    type: 'multiple-choice',
-                    options: ['&', '#', '?', '/'],
-                    answer: 2
-                }
+                        prompt: 'What separates query params from the URL?',
+                        type: 'multiple-choice',
+                        options: ['&', '#', '?', '/'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -24947,11 +24947,11 @@ APIs use these to control who can access them.
     `,
                 exercises: [
                     {
-                    prompt: 'What header sends a token?',
-                    type: 'multiple-choice',
-                    options: ['Token', 'Authorization', 'Auth', 'Bearer'],
-                    answer: 1
-                }
+                        prompt: 'What header sends a token?',
+                        type: 'multiple-choice',
+                        options: ['Token', 'Authorization', 'Auth', 'Bearer'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -24992,11 +24992,11 @@ POST /users/1/comments - Add comment
     `,
                 exercises: [
                     {
-                    prompt: 'What should resource names use?',
-                    type: 'multiple-choice',
-                    options: ['Verbs', 'Nouns', 'Actions', 'Descriptions'],
-                    answer: 1
-                }
+                        prompt: 'What should resource names use?',
+                        type: 'multiple-choice',
+                        options: ['Verbs', 'Nouns', 'Actions', 'Descriptions'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25052,11 +25052,11 @@ Congratulations! You've learned APIs! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'How do you check if a response succeeded?',
-                    type: 'multiple-choice',
-                    options: ['response.success', 'response.ok', 'response.valid', 'response.status === 200'],
-                    answer: 1
-                }
+                        prompt: 'How do you check if a response succeeded?',
+                        type: 'multiple-choice',
+                        options: ['response.success', 'response.ok', 'response.valid', 'response.status === 200'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -25096,11 +25096,11 @@ print("Hello, Swift!")
                 `,
                 exercises: [
                     {
-                    prompt: 'What platforms use Swift?',
-                    type: 'multiple-choice',
-                    options: ['Windows', 'iOS and macOS', 'Android', 'Linux only'],
-                    answer: 1
-                }
+                        prompt: 'What platforms use Swift?',
+                        type: 'multiple-choice',
+                        options: ['Windows', 'iOS and macOS', 'Android', 'Linux only'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25124,11 +25124,11 @@ score = 10
                 `,
                 exercises: [
                     {
-                    prompt: 'Which keyword creates a constant in Swift?',
-                    type: 'multiple-choice',
-                    options: ['var', 'let', 'const', 'final'],
-                    answer: 1
-                }
+                        prompt: 'Which keyword creates a constant in Swift?',
+                        type: 'multiple-choice',
+                        options: ['var', 'let', 'const', 'final'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25168,11 +25168,11 @@ let greeting = "Hello, \\(name)!"
     `,
                 exercises: [
                     {
-                    prompt: 'How do you embed variables in strings?',
-                    type: 'multiple-choice',
-                    options: ['${name}', '\\(name)', '{name}', '#{name}'],
-                    answer: 1
-                }
+                        prompt: 'How do you embed variables in strings?',
+                        type: 'multiple-choice',
+                        options: ['${name}', '\\(name)', '{name}', '#{name}'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25228,11 +25228,11 @@ while count < 10 {
     `,
                 exercises: [
                     {
-                    prompt: 'What is 1...5 in Swift?',
-                    type: 'multiple-choice',
-                    options: ['Array', 'Range', 'Tuple', 'Set'],
-                    answer: 1
-                }
+                        prompt: 'What is 1...5 in Swift?',
+                        type: 'multiple-choice',
+                        options: ['Array', 'Range', 'Tuple', 'Set'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25279,11 +25279,11 @@ let length = name?.count
     `,
                 exercises: [
                     {
-                    prompt: 'What operator provides a default value?',
-                    type: 'multiple-choice',
-                    options: ['||', '??', '?:', '&&'],
-                    answer: 1
-                }
+                        prompt: 'What operator provides a default value?',
+                        type: 'multiple-choice',
+                        options: ['||', '??', '?:', '&&'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25334,11 +25334,11 @@ func minMax(array: [Int]) -> (min: Int, max: Int) {
     `,
                 exercises: [
                     {
-                    prompt: 'What symbol indicates return type?',
-                    type: 'multiple-choice',
-                    options: [':', '=>', '->', '::'],
-                    answer: 2
-                }
+                        prompt: 'What symbol indicates return type?',
+                        type: 'multiple-choice',
+                        options: [':', '=>', '->', '::'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -25379,11 +25379,11 @@ for (name, age) in ages { }
     `,
                 exercises: [
                     {
-                    prompt: 'What collection has unique values?',
-                    type: 'multiple-choice',
-                    options: ['Array', 'Set', 'Dictionary', 'Tuple'],
-                    answer: 1
-                }
+                        prompt: 'What collection has unique values?',
+                        type: 'multiple-choice',
+                        options: ['Array', 'Set', 'Dictionary', 'Tuple'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25434,11 +25434,11 @@ struct Rectangle {
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword allows struct methods to modify properties?',
-                    type: 'multiple-choice',
-                    options: ['mutable', 'mutating', 'var', 'modify'],
-                    answer: 1
-                }
+                        prompt: 'What keyword allows struct methods to modify properties?',
+                        type: 'multiple-choice',
+                        options: ['mutable', 'mutating', 'var', 'modify'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25482,11 +25482,11 @@ var b = a  // Struct: b is copy
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword overrides a parent method?',
-                    type: 'multiple-choice',
-                    options: ['super', 'override', 'extends', 'virtual'],
-                    answer: 1
-                }
+                        prompt: 'What keyword overrides a parent method?',
+                        type: 'multiple-choice',
+                        options: ['super', 'override', 'extends', 'virtual'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25542,11 +25542,11 @@ case .qr(let code):
     `,
                 exercises: [
                     {
-                    prompt: 'What can enum cases store?',
-                    type: 'multiple-choice',
-                    options: ['Only strings', 'Only numbers', 'Associated values', 'Nothing'],
-                    answer: 2
-                }
+                        prompt: 'What can enum cases store?',
+                        type: 'multiple-choice',
+                        options: ['Only strings', 'Only numbers', 'Associated values', 'Nothing'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -25594,11 +25594,11 @@ func makeCounter() -> () -> Int {
     `,
                 exercises: [
                     {
-                    prompt: 'What is $0 in a closure?',
-                    type: 'multiple-choice',
-                    options: ['Zero', 'First parameter', 'Return value', 'Self'],
-                    answer: 1
-                }
+                        prompt: 'What is $0 in a closure?',
+                        type: 'multiple-choice',
+                        options: ['Zero', 'First parameter', 'Return value', 'Self'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25649,11 +25649,11 @@ Congratulations! You've learned Swift! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What are protocols similar to?',
-                    type: 'multiple-choice',
-                    options: ['Classes', 'Structs', 'Interfaces', 'Enums'],
-                    answer: 2
-                }
+                        prompt: 'What are protocols similar to?',
+                        type: 'multiple-choice',
+                        options: ['Classes', 'Structs', 'Interfaces', 'Enums'],
+                        answer: 2
+                    }
                 ]
             }
         ]
@@ -25693,11 +25693,11 @@ Console.WriteLine("Hello, C#!");
                 `,
                 exercises: [
                     {
-                    prompt: 'What game engine uses C#?',
-                    type: 'multiple-choice',
-                    options: ['Unreal', 'Unity', 'Godot', 'GameMaker'],
-                    answer: 1
-                }
+                        prompt: 'What game engine uses C#?',
+                        type: 'multiple-choice',
+                        options: ['Unreal', 'Unity', 'Godot', 'GameMaker'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25724,12 +25724,12 @@ int age = 25;
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: create text greeting = "Hi"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'create text greeting = "Hi"',
-                    hint: 'Declare a text variable'
-                }
+                        prompt: 'Write: create text greeting = "Hi"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'create text greeting = "Hi"',
+                        hint: 'Declare a text variable'
+                    }
                 ]
             },
             {
@@ -25766,11 +25766,11 @@ if (nullableInt.HasValue)
     `,
                 exercises: [
                     {
-                    prompt: 'What lets the compiler infer the type?',
-                    type: 'multiple-choice',
-                    options: ['auto', 'var', 'let', 'infer'],
-                    answer: 1
-                }
+                        prompt: 'What lets the compiler infer the type?',
+                        type: 'multiple-choice',
+                        options: ['auto', 'var', 'let', 'infer'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25824,11 +25824,11 @@ do { } while (condition);
     `,
                 exercises: [
                     {
-                    prompt: 'What iterates over collections easily?',
-                    type: 'multiple-choice',
-                    options: ['for', 'foreach', 'while', 'iterate'],
-                    answer: 1
-                }
+                        prompt: 'What iterates over collections easily?',
+                        type: 'multiple-choice',
+                        options: ['for', 'foreach', 'while', 'iterate'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25876,11 +25876,11 @@ public void GetValues(out int x, ref int y)
     `,
                 exercises: [
                     {
-                    prompt: 'What means no return value?',
-                    type: 'multiple-choice',
-                    options: ['null', 'void', 'none', 'empty'],
-                    answer: 1
-                }
+                        prompt: 'What means no return value?',
+                        type: 'multiple-choice',
+                        options: ['null', 'void', 'none', 'empty'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25925,11 +25925,11 @@ var sum = numbers.Sum();
     `,
                 exercises: [
                     {
-                    prompt: 'What collection grows dynamically?',
-                    type: 'multiple-choice',
-                    options: ['Array', 'List', 'Dictionary', 'Set'],
-                    answer: 1
-                }
+                        prompt: 'What collection grows dynamically?',
+                        type: 'multiple-choice',
+                        options: ['Array', 'List', 'Dictionary', 'Set'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -25980,11 +25980,11 @@ Console.WriteLine(person.Greet());
     `,
                 exercises: [
                     {
-                    prompt: 'What is { get; set; }?',
-                    type: 'multiple-choice',
-                    options: ['Method', 'Auto-property', 'Field', 'Constructor'],
-                    answer: 1
-                }
+                        prompt: 'What is { get; set; }?',
+                        type: 'multiple-choice',
+                        options: ['Method', 'Auto-property', 'Field', 'Constructor'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26036,11 +26036,11 @@ public sealed class FinalClass { }
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword overrides a virtual method?',
-                    type: 'multiple-choice',
-                    options: ['virtual', 'override', 'new', 'base'],
-                    answer: 1
-                }
+                        prompt: 'What keyword overrides a virtual method?',
+                        type: 'multiple-choice',
+                        options: ['virtual', 'override', 'new', 'base'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26090,11 +26090,11 @@ public interface ILogger
     `,
                 exercises: [
                     {
-                    prompt: 'What prefix is convention for interfaces?',
-                    type: 'multiple-choice',
-                    options: ['Int', 'I', 'If', 'Interface'],
-                    answer: 1
-                }
+                        prompt: 'What prefix is convention for interfaces?',
+                        type: 'multiple-choice',
+                        options: ['Int', 'I', 'If', 'Interface'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26139,11 +26139,11 @@ where T : IDisposable  // Implements interface
     `,
                 exercises: [
                     {
-                    prompt: 'What restricts generic type parameters?',
-                    type: 'multiple-choice',
-                    options: ['where', 'limit', 'constraint', 'restrict'],
-                    answer: 0
-                }
+                        prompt: 'What restricts generic type parameters?',
+                        type: 'multiple-choice',
+                        options: ['where', 'limit', 'constraint', 'restrict'],
+                        answer: 0
+                    }
                 ]
             },
             {
@@ -26186,11 +26186,11 @@ var posts = task2.Result;
     `,
                 exercises: [
                     {
-                    prompt: 'What type wraps an async return value?',
-                    type: 'multiple-choice',
-                    options: ['Async<T>', 'Task<T>', 'Future<T>', 'Promise<T>'],
-                    answer: 1
-                }
+                        prompt: 'What type wraps an async return value?',
+                        type: 'multiple-choice',
+                        options: ['Async<T>', 'Task<T>', 'Future<T>', 'Promise<T>'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26241,11 +26241,11 @@ Congratulations! You've learned C#! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What block always runs?',
-                    type: 'multiple-choice',
-                    options: ['try', 'catch', 'finally', 'throw'],
-                    answer: 2
-                }
+                        prompt: 'What block always runs?',
+                        type: 'multiple-choice',
+                        options: ['try', 'catch', 'finally', 'throw'],
+                        answer: 2
+                    }
                 ]
             }
         ]
@@ -26286,11 +26286,11 @@ Git tracks changes to your code over time.
                 `,
                 exercises: [
                     {
-                    prompt: 'What does Git track?',
-                    type: 'multiple-choice',
-                    options: ['Time spent coding', 'Changes to code', 'Computer memory', 'Internet speed'],
-                    answer: 1
-                }
+                        prompt: 'What does Git track?',
+                        type: 'multiple-choice',
+                        options: ['Time spent coding', 'Changes to code', 'Computer memory', 'Internet speed'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26315,12 +26315,12 @@ git commit -m "message"      # Save with message
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: git add .',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'git add .',
-                    hint: 'Stage all changes'
-                }
+                        prompt: 'Write: git add .',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'git add .',
+                        hint: 'Stage all changes'
+                    }
                 ]
             },
             {
@@ -26358,11 +26358,11 @@ git log -p            # With diffs
     `,
                 exercises: [
                     {
-                    prompt: 'What shows staged changes?',
-                    type: 'multiple-choice',
-                    options: ['git diff', 'git diff --staged', 'git status', 'git show'],
-                    answer: 1
-                }
+                        prompt: 'What shows staged changes?',
+                        type: 'multiple-choice',
+                        options: ['git diff', 'git diff --staged', 'git status', 'git show'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26401,11 +26401,11 @@ git branch -D feature   # Force delete
     `,
                 exercises: [
                     {
-                    prompt: 'What creates and switches to a branch?',
-                    type: 'multiple-choice',
-                    options: ['git branch -b', 'git checkout -b', 'git create', 'git new'],
-                    answer: 1
-                }
+                        prompt: 'What creates and switches to a branch?',
+                        type: 'multiple-choice',
+                        options: ['git branch -b', 'git checkout -b', 'git create', 'git new'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26446,11 +26446,11 @@ git merge --abort
     `,
                 exercises: [
                     {
-                    prompt: 'What happens if both branches change the same line?',
-                    type: 'multiple-choice',
-                    options: ['Auto-merged', 'Conflict', 'Error', 'Ignored'],
-                    answer: 1
-                }
+                        prompt: 'What happens if both branches change the same line?',
+                        type: 'multiple-choice',
+                        options: ['Auto-merged', 'Conflict', 'Error', 'Ignored'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26488,11 +26488,11 @@ git branch --set-upstream-to=origin/main main
     `,
                 exercises: [
                     {
-                    prompt: 'What uploads commits to GitHub?',
-                    type: 'multiple-choice',
-                    options: ['git upload', 'git push', 'git send', 'git sync'],
-                    answer: 1
-                }
+                        prompt: 'What uploads commits to GitHub?',
+                        type: 'multiple-choice',
+                        options: ['git upload', 'git push', 'git send', 'git sync'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26531,11 +26531,11 @@ git revert abc123         # Revert specific commit
     `,
                 exercises: [
                     {
-                    prompt: 'What safely undoes a public commit?',
-                    type: 'multiple-choice',
-                    options: ['reset', 'revert', 'restore', 'undo'],
-                    answer: 1
-                }
+                        prompt: 'What safely undoes a public commit?',
+                        type: 'multiple-choice',
+                        options: ['reset', 'revert', 'restore', 'undo'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26580,11 +26580,11 @@ git stash apply stash@{2}
     `,
                 exercises: [
                     {
-                    prompt: 'What applies and removes a stash?',
-                    type: 'multiple-choice',
-                    options: ['stash apply', 'stash pop', 'stash get', 'stash use'],
-                    answer: 1
-                }
+                        prompt: 'What applies and removes a stash?',
+                        type: 'multiple-choice',
+                        options: ['stash apply', 'stash pop', 'stash get', 'stash use'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26624,11 +26624,11 @@ Congratulations! You've learned Git! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'When should you NOT rebase?',
-                    type: 'multiple-choice',
-                    options: ['Feature branches', 'Shared branches', 'Before merge', 'Local commits'],
-                    answer: 1
-                }
+                        prompt: 'When should you NOT rebase?',
+                        type: 'multiple-choice',
+                        options: ['Feature branches', 'Shared branches', 'Before merge', 'Local commits'],
+                        answer: 1
+                    }
                 ]
             }
         ]
@@ -26668,11 +26668,11 @@ Authentication = Proving who you are
                 `,
                 exercises: [
                     {
-                    prompt: 'What is the difference between authentication and authorization?',
-                    type: 'multiple-choice',
-                    options: ['They are the same', 'Auth = who, Author = what', 'Auth = what, Author = who', 'Neither relates to security'],
-                    answer: 1
-                }
+                        prompt: 'What is the difference between authentication and authorization?',
+                        type: 'multiple-choice',
+                        options: ['They are the same', 'Auth = who, Author = what', 'Auth = what, Author = who', 'Neither relates to security'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26699,11 +26699,11 @@ OAuth lets users login with existing accounts.
                 `,
                 exercises: [
                     {
-                    prompt: 'What does OAuth let users do?',
-                    type: 'multiple-choice',
-                    options: ['Create new passwords', 'Login with existing accounts', 'Delete accounts', 'Encrypt files'],
-                    answer: 1
-                }
+                        prompt: 'What does OAuth let users do?',
+                        type: 'multiple-choice',
+                        options: ['Create new passwords', 'Login with existing accounts', 'Delete accounts', 'Encrypt files'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26747,11 +26747,11 @@ const match = await bcrypt.compare(password, hash);
     `,
                 exercises: [
                     {
-                    prompt: 'What prevents rainbow table attacks?',
-                    type: 'multiple-choice',
-                    options: ['Encryption', 'Salting', 'Compression', 'Encoding'],
-                    answer: 1
-                }
+                        prompt: 'What prevents rainbow table attacks?',
+                        type: 'multiple-choice',
+                        options: ['Encryption', 'Salting', 'Compression', 'Encoding'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26800,11 +26800,11 @@ delete sessions[sessionId];
     `,
                 exercises: [
                     {
-                    prompt: 'Where is session ID typically stored?',
-                    type: 'multiple-choice',
-                    options: ['URL', 'Cookie', 'Header', 'Body'],
-                    answer: 1
-                }
+                        prompt: 'Where is session ID typically stored?',
+                        type: 'multiple-choice',
+                        options: ['URL', 'Cookie', 'Header', 'Body'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26854,11 +26854,11 @@ console.log(decoded.userId);
     `,
                 exercises: [
                     {
-                    prompt: 'How many parts does a JWT have?',
-                    type: 'multiple-choice',
-                    options: ['1', '2', '3', '4'],
-                    answer: 2
-                }
+                        prompt: 'How many parts does a JWT have?',
+                        type: 'multiple-choice',
+                        options: ['1', '2', '3', '4'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -26901,11 +26901,11 @@ Short-lived JWT + Refresh tokens
     `,
                 exercises: [
                     {
-                    prompt: 'Which is easier to scale?',
-                    type: 'multiple-choice',
-                    options: ['Sessions', 'JWT', 'Both equal', 'Neither'],
-                    answer: 1
-                }
+                        prompt: 'Which is easier to scale?',
+                        type: 'multiple-choice',
+                        options: ['Sessions', 'JWT', 'Both equal', 'Neither'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -26954,11 +26954,11 @@ app.post('/refresh', async (req, res) => {
     `,
                 exercises: [
                     {
-                    prompt: 'Which token lasts longer?',
-                    type: 'multiple-choice',
-                    options: ['Access token', 'Refresh token', 'Both same', 'Neither'],
-                    answer: 1
-                }
+                        prompt: 'Which token lasts longer?',
+                        type: 'multiple-choice',
+                        options: ['Access token', 'Refresh token', 'Both same', 'Neither'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -27013,11 +27013,11 @@ const adminOnly = (req, res, next) => {
     `,
                 exercises: [
                     {
-                    prompt: 'What status code for "no permission"?',
-                    type: 'multiple-choice',
-                    options: ['401', '403', '404', '500'],
-                    answer: 1
-                }
+                        prompt: 'What status code for "no permission"?',
+                        type: 'multiple-choice',
+                        options: ['401', '403', '404', '500'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -27069,11 +27069,11 @@ Congratulations! You've learned Authentication! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What cookie flag prevents JavaScript access?',
-                    type: 'multiple-choice',
-                    options: ['secure', 'httpOnly', 'sameSite', 'noScript'],
-                    answer: 1
-                }
+                        prompt: 'What cookie flag prevents JavaScript access?',
+                        type: 'multiple-choice',
+                        options: ['secure', 'httpOnly', 'sameSite', 'noScript'],
+                        answer: 1
+                    }
                 ]
             }
         ]

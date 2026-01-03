@@ -36,16 +36,16 @@ Firebase is a Backend-as-a-Service (BaaS) platform by Google.
                 `,
                 exercises: [
                     {
-                    prompt: 'Firebase is a Backend-as-a-Service. What does that mean?',
-                    type: 'multiple-choice',
-                    options: [
-                        'You must build your own server',
-                        'Firebase handles server infrastructure for you',
-                        'You can only use it with Python',
-                        'It only works offline'
-                    ],
-                    answer: 1
-                }
+                        prompt: 'Firebase is a Backend-as-a-Service. What does that mean?',
+                        type: 'multiple-choice',
+                        options: [
+                            'You must build your own server',
+                            'Firebase handles server infrastructure for you',
+                            'You can only use it with Python',
+                            'It only works offline'
+                        ],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -73,12 +73,12 @@ sign out current user
                 `,
                 exercises: [
                     {
-                    prompt: 'Write the command to create a new user account.',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: 'create user with email and password',
-                    hint: 'Use: create user with email and password'
-                }
+                        prompt: 'Write the command to create a new user account.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'create user with email and password',
+                        hint: 'Use: create user with email and password'
+                    }
                 ]
             },
             {
@@ -106,12 +106,12 @@ delete document "user123" from collection "users"
                 `,
                 exercises: [
                     {
-                    prompt: 'Write command to add a document to "products" with name: "Laptop".',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'add document to collection "products" with data name: "Laptop" end add',
-                    hint: 'Use: add document to collection "name" with data field: value end add'
-                }
+                        prompt: 'Write command to add a document to "products" with name: "Laptop".',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'add document to collection "products" with data name: "Laptop" end add',
+                        hint: 'Use: add document to collection "name" with data field: value end add'
+                    }
                 ]
             },
             {
@@ -145,16 +145,16 @@ match /collection/{documentId} {
                 `,
                 exercises: [
                     {
-                    prompt: 'What is the danger of "allow read, write: if true"?',
-                    type: 'multiple-choice',
-                    options: [
-                        'The database runs slower',
-                        'Anyone on the internet can read and modify all your data',
-                        'Users cannot log in',
-                        'The app will not load'
-                    ],
-                    answer: 1
-                }
+                        prompt: 'What is the danger of "allow read, write: if true"?',
+                        type: 'multiple-choice',
+                        options: [
+                            'The database runs slower',
+                            'Anyone on the internet can read and modify all your data',
+                            'Users cannot log in',
+                            'The app will not load'
+                        ],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -185,12 +185,12 @@ match /posts/{postId} {
                 `,
                 exercises: [
                     {
-                    prompt: 'Write a condition that checks if a user is logged in.',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write a condition that checks if a user is logged in.',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'request.auth != null',
-                    hint: 'Check if request.auth is not null'
-                }
+                        hint: 'Check if request.auth is not null'
+                    }
                 ]
             },
             {
@@ -217,12 +217,12 @@ match /users/{userId} {
                 `,
                 exercises: [
                     {
-                    prompt: 'Write a rule condition allowing access only when user ID matches document userId.',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write a rule condition allowing access only when user ID matches document userId.',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'request.auth.uid == userId',
-                    hint: 'Compare request.auth.uid with userId'
-                }
+                        hint: 'Compare request.auth.uid with userId'
+                    }
                 ]
             },
             {
@@ -252,12 +252,12 @@ allow update, delete: if request.auth.uid == resource.data.authorId;
                 `,
                 exercises: [
                     {
-                    prompt: 'Write rules: anyone can read, only authenticated users can write.',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write rules: anyone can read, only authenticated users can write.',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'allow read: if true; allow write: if request.auth != null;',
-                    hint: 'Separate read and write rules'
-                }
+                        hint: 'Separate read and write rules'
+                    }
                 ]
             },
             {
@@ -289,12 +289,12 @@ allow write: if request.resource.data.status in ['draft', 'published'];
                 `,
                 exercises: [
                     {
-                    prompt: 'Write validation ensuring title is max 200 characters.',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write validation ensuring title is max 200 characters.',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'request.resource.data.title.size() <= 200',
-                    hint: 'Use .size() for string length'
-                }
+                        hint: 'Use .size() for string length'
+                    }
                 ]
             },
             {
@@ -320,12 +320,12 @@ allow write: if request.auth.token.admin == true;
                 `,
                 exercises: [
                     {
-                    prompt: 'Write a condition checking if user has admin claim.',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write a condition checking if user has admin claim.',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'request.auth.token.admin == true',
-                    hint: 'Access admin from request.auth.token'
-                }
+                        hint: 'Access admin from request.auth.token'
+                    }
                 ]
             }
         ]
@@ -362,16 +362,16 @@ GitHub is a web platform for hosting Git repositories.
                 `,
                 exercises: [
                     {
-                    prompt: 'What is the main difference between Git and GitHub?',
-                    type: 'multiple-choice',
-                    options: [
-                        'They are the same thing',
-                        'Git is local version control, GitHub is cloud hosting',
-                        'GitHub is faster than Git',
-                        'Git only works on Windows'
-                    ],
-                    answer: 1
-                }
+                        prompt: 'What is the main difference between Git and GitHub?',
+                        type: 'multiple-choice',
+                        options: [
+                            'They are the same thing',
+                            'Git is local version control, GitHub is cloud hosting',
+                            'GitHub is faster than Git',
+                            'Git only works on Windows'
+                        ],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -407,16 +407,16 @@ A license tells others what they can do with your code.
                 `,
                 exercises: [
                     {
-                    prompt: 'Which license is best for maximum adoption with minimal restrictions?',
-                    type: 'multiple-choice',
-                    options: [
-                        'GPL',
-                        'MIT',
-                        'No license',
-                        'Creative Commons'
-                    ],
-                    answer: 1
-                }
+                        prompt: 'Which license is best for maximum adoption with minimal restrictions?',
+                        type: 'multiple-choice',
+                        options: [
+                            'GPL',
+                            'MIT',
+                            'No license',
+                            'Creative Commons'
+                        ],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -441,12 +441,12 @@ This project is licensed under the MIT License.
                 `,
                 exercises: [
                     {
-                    prompt: 'What should you name the license file?',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'LICENSE',
-                    hint: 'All uppercase'
-                }
+                        prompt: 'What should you name the license file?',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'LICENSE',
+                        hint: 'All uppercase'
+                    }
                 ]
             },
             {
@@ -487,12 +487,12 @@ What actually happens
                 `,
                 exercises: [
                     {
-                    prompt: 'Write a clear bug title for: dark mode toggle sometimes works, page flickers.',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write a clear bug title for: dark mode toggle sometimes works, page flickers.',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'Dark mode toggle',
-                    hint: 'Be specific about component and behavior'
-                }
+                        hint: 'Be specific about component and behavior'
+                    }
                 ]
             },
             {
@@ -519,16 +519,16 @@ Public issues expose vulnerabilities to attackers.
                 `,
                 exercises: [
                     {
-                    prompt: 'Why should you NEVER post security vulnerabilities as public issues?',
-                    type: 'multiple-choice',
-                    options: [
-                        'It takes too long',
-                        'Public issues expose the vulnerability to attackers',
-                        'Security issues are not allowed',
-                        'Only admins can see issues'
-                    ],
-                    answer: 1
-                }
+                        prompt: 'Why should you NEVER post security vulnerabilities as public issues?',
+                        type: 'multiple-choice',
+                        options: [
+                            'It takes too long',
+                            'Public issues expose the vulnerability to attackers',
+                            'Security issues are not allowed',
+                            'Only admins can see issues'
+                        ],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -561,12 +561,12 @@ Report via:
                 `,
                 exercises: [
                     {
-                    prompt: 'What folder should SECURITY.md be placed in?',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'What folder should SECURITY.md be placed in?',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: '.github',
-                    hint: 'Starts with a dot'
-                }
+                        hint: 'Starts with a dot'
+                    }
                 ]
             },
             {
@@ -597,12 +597,12 @@ git push origin feature/new-button
                 `,
                 exercises: [
                     {
-                    prompt: 'Write command to create branch "bugfix/login-error".',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'Write command to create branch "bugfix/login-error".',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'git checkout -b bugfix/login-error',
-                    hint: 'Use: git checkout -b <branch-name>'
-                }
+                        hint: 'Use: git checkout -b <branch-name>'
+                    }
                 ]
             },
             {
@@ -636,12 +636,12 @@ What should happen.
                 `,
                 exercises: [
                     {
-                    prompt: 'What folder should issue templates be in?',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'What folder should issue templates be in?',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: '.github/ISSUE_TEMPLATE',
-                    hint: 'Inside .github folder'
-                }
+                        hint: 'Inside .github folder'
+                    }
                 ]
             },
             {
@@ -676,12 +676,12 @@ jobs:
                 `,
                 exercises: [
                     {
-                    prompt: 'What keyword specifies when the workflow runs?',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'What keyword specifies when the workflow runs?',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'on',
-                    hint: 'Two-letter keyword'
-                }
+                        hint: 'Two-letter keyword'
+                    }
                 ]
             },
             {
@@ -711,12 +711,12 @@ updates:
                 `,
                 exercises: [
                     {
-                    prompt: 'What is the filename for Dependabot config?',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'What is the filename for Dependabot config?',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'dependabot.yml',
-                    hint: 'YAML file in .github'
-                }
+                        hint: 'YAML file in .github'
+                    }
                 ]
             }
         ]
@@ -758,11 +758,11 @@ VS Code is a free, powerful code editor.
                 `,
                 exercises: [
                     {
-                    prompt: 'What shortcut opens the Command Palette?',
-                    type: 'multiple-choice',
-                    options: ['Ctrl + P', 'Ctrl + Shift + P', 'Ctrl + O', 'Ctrl + N'],
-                    answer: 1
-                }
+                        prompt: 'What shortcut opens the Command Palette?',
+                        type: 'multiple-choice',
+                        options: ['Ctrl + P', 'Ctrl + Shift + P', 'Ctrl + O', 'Ctrl + N'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -790,11 +790,11 @@ VS Code is a free, powerful code editor.
                 `,
                 exercises: [
                     {
-                    prompt: 'What shortcut selects all occurrences of selected text?',
-                    type: 'multiple-choice',
-                    options: ['Ctrl + D', 'Ctrl + Shift + L', 'Ctrl + A', 'Alt + Click'],
-                    answer: 1
-                }
+                        prompt: 'What shortcut selects all occurrences of selected text?',
+                        type: 'multiple-choice',
+                        options: ['Ctrl + D', 'Ctrl + Shift + L', 'Ctrl + A', 'Alt + Click'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -822,11 +822,11 @@ Install: Ctrl + Shift + X
                 `,
                 exercises: [
                     {
-                    prompt: 'Which extension auto-formats JavaScript on save?',
-                    type: 'multiple-choice',
-                    options: ['ESLint', 'Prettier', 'GitLens', 'Live Server'],
-                    answer: 1
-                }
+                        prompt: 'Which extension auto-formats JavaScript on save?',
+                        type: 'multiple-choice',
+                        options: ['ESLint', 'Prettier', 'GitLens', 'Live Server'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -855,12 +855,12 @@ Open: Ctrl + Shift + P → "Open User Settings (JSON)"
                 `,
                 exercises: [
                     {
-                    prompt: 'Write the setting to format code on save.',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'editor.formatOnSave',
-                    hint: 'Starts with editor.'
-                }
+                        prompt: 'Write the setting to format code on save.',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'editor.formatOnSave',
+                        hint: 'Starts with editor.'
+                    }
                 ]
             },
             {
@@ -885,12 +885,12 @@ Open: Ctrl + Shift + P → "Open User Settings (JSON)"
                 `,
                 exercises: [
                     {
-                    prompt: 'What shortcut toggles the terminal?',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'What shortcut toggles the terminal?',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'Ctrl + `',
-                    hint: 'Uses backtick key'
-                }
+                        hint: 'Uses backtick key'
+                    }
                 ]
             },
             {
@@ -915,16 +915,16 @@ Code pauses here during debugging
                 `,
                 exercises: [
                     {
-                    prompt: 'How do you pause execution on line 42?',
-                    type: 'multiple-choice',
-                    options: [
-                        'Add a comment',
-                        'Add a breakpoint (click left of line number)',
-                        'console.log()',
-                        'Type "debugger"'
-                    ],
-                    answer: 1
-                }
+                        prompt: 'How do you pause execution on line 42?',
+                        type: 'multiple-choice',
+                        options: [
+                            'Add a comment',
+                            'Add a breakpoint (click left of line number)',
+                            'console.log()',
+                            'Type "debugger"'
+                        ],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -958,12 +958,12 @@ project/
                 `,
                 exercises: [
                     {
-                    prompt: 'What file specifies recommended extensions for the team?',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'What file specifies recommended extensions for the team?',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'extensions.json',
-                    hint: 'Has "extensions" in name'
-                }
+                        hint: 'Has "extensions" in name'
+                    }
                 ]
             },
             {
@@ -994,12 +994,12 @@ Create: .vscode/tasks.json
                 `,
                 exercises: [
                     {
-                    prompt: 'What shortcut runs the default build task?',
-                    type: 'code',
-                    language: 'natural',
+                        prompt: 'What shortcut runs the default build task?',
+                        type: 'code',
+                        language: 'natural',
                         expectedOutput: 'Ctrl + Shift + B',
-                    hint: 'Ctrl + Shift + B for Build'
-                }
+                        hint: 'Ctrl + Shift + B for Build'
+                    }
                 ]
             },
             {
@@ -1024,16 +1024,16 @@ Create: .vscode/tasks.json
                 `,
                 exercises: [
                     {
-                    prompt: 'What does a blue bar in the gutter indicate?',
-                    type: 'multiple-choice',
-                    options: [
-                        'An error',
-                        'A breakpoint',
-                        'A modified line not yet committed',
-                        'A bookmark'
-                    ],
-                    answer: 2
-                }
+                        prompt: 'What does a blue bar in the gutter indicate?',
+                        type: 'multiple-choice',
+                        options: [
+                            'An error',
+                            'A breakpoint',
+                            'A modified line not yet committed',
+                            'A bookmark'
+                        ],
+                        answer: 2
+                    }
                 ]
             }
         ]

@@ -12,9 +12,12 @@ import {
     linkWithPopup,
     unlink,
     EmailAuthProvider,
-    linkWithCredential
+    linkWithCredential,
+    signInWithCredential,
+    GoogleAuthProvider,
+    GithubAuthProvider
 } from 'firebase/auth';
-import { doc, setDoc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc, serverTimestamp, updateDoc, deleteDoc } from 'firebase/firestore';
 import {
     auth,
     db,
@@ -384,6 +387,151 @@ export const useAuthStore = create(
                 if (!user) return false;
                 // Can merge if user has less than 3 providers linked
                 return user.providerData.length < 3;
+            },
+
+            // Merge progress from another account by signing in and combining data
+            mergeAccountProgress: async (providerName) => {
+                const { user, userProfile } = get();
+                if (!user) throw new Error('Not logged in');
+
+                let provider;
+                switch (providerName) {
+                    case 'google':
+                        provider = googleProvider;
+                        break;
+                    case 'github':
+                        provider = githubProvider;
+                        break;
+                    default:
+                        throw new Error('Invalid provider');
+                }
+
+                try {
+                    // Try to link the provider (this will merge the accounts)
+                    const result = await linkWithPopup(user, provider);
+
+                    // Get the other account's data from Firestore
+                    // The linked provider might have had its own account
+                    const linkedEmail = result.user.providerData.find(p => 
+                        p.providerId === `${providerName}.com`
+                    )?.email;
+
+                    // Update current user with linked provider info
+                    const userRef = doc(db, 'users', user.uid);
+                    const linkedProviders = result.user.providerData.map(p => ({
+                        providerId: p.providerId,
+                        email: p.email,
+                        displayName: p.displayName,
+                        photoURL: p.photoURL,
+                        linkedAt: new Date().toISOString()
+                    }));
+
+                    await updateFirestoreSafe(userRef, {
+                        linkedProviders,
+                        [`${providerName}Linked`]: true,
+                        [`${providerName}Email`]: linkedEmail
+                    });
+
+                    // Refresh user profile
+                    const updatedProfile = await getUserProfileSafe(result.user);
+                    set({ user: result.user, userProfile: updatedProfile });
+
+                    return { 
+                        success: true, 
+                        message: `${providerName} account linked successfully! Progress will be shared.` 
+                    };
+                } catch (error) {
+                    if (error.code === 'auth/credential-already-in-use') {
+                        // This account exists separately - offer to merge progress
+                        const credential = GoogleAuthProvider.credentialFromError?.(error) || 
+                                          GithubAuthProvider.credentialFromError?.(error);
+                        
+                        throw new Error(
+                            `This ${providerName} account already exists. ` +
+                            `To merge, sign out and sign in with the ${providerName} account first, ` +
+                            `then link your current account from Settings.`
+                        );
+                    }
+                    if (error.code === 'auth/provider-already-linked') {
+                        throw new Error(`A ${providerName} account is already linked.`);
+                    }
+                    throw error;
+                }
+            },
+
+            // Merge progress data from two accounts (combines completedLessons, certificates, etc.)
+            mergeProgressData: async (sourceData, targetUserId) => {
+                if (!sourceData || !targetUserId) return;
+
+                try {
+                    const targetRef = doc(db, 'users', targetUserId);
+                    const targetSnap = await getDoc(targetRef);
+                    const targetData = targetSnap.exists() ? targetSnap.data() : {};
+
+                    // Merge completed lessons (union of both)
+                    const mergedLessons = [...new Set([
+                        ...(targetData.completedLessons || []),
+                        ...(sourceData.completedLessons || [])
+                    ])];
+
+                    // Merge certificates (union, dedupe by courseId)
+                    const existingCertIds = new Set((targetData.certificates || []).map(c => c.courseId));
+                    const newCerts = (sourceData.certificates || []).filter(c => !existingCertIds.has(c.courseId));
+                    const mergedCerts = [...(targetData.certificates || []), ...newCerts];
+
+                    // Merge activity logs (sum for same days)
+                    const mergedActivity = { ...(targetData.activityLog || {}) };
+                    for (const [date, count] of Object.entries(sourceData.activityLog || {})) {
+                        mergedActivity[date] = (mergedActivity[date] || 0) + count;
+                    }
+
+                    // Merge test scores (keep highest)
+                    const mergedScores = { ...(targetData.testScores || {}) };
+                    for (const [testId, score] of Object.entries(sourceData.testScores || {})) {
+                        if (!mergedScores[testId] || score.score > mergedScores[testId].score) {
+                            mergedScores[testId] = score;
+                        }
+                    }
+
+                    // Update target account
+                    await setDoc(targetRef, {
+                        completedLessons: mergedLessons,
+                        certificates: mergedCerts,
+                        activityLog: mergedActivity,
+                        testScores: mergedScores,
+                        lastMerged: new Date().toISOString()
+                    }, { merge: true });
+
+                    return {
+                        lessonsAdded: mergedLessons.length - (targetData.completedLessons?.length || 0),
+                        certsAdded: newCerts.length
+                    };
+                } catch (error) {
+                    console.error('Failed to merge progress:', error);
+                    throw error;
+                }
+            },
+
+            // Update profile picture
+            updateProfilePicture: async (photoURL) => {
+                const { user } = get();
+                if (!user) return;
+
+                try {
+                    // Update Firebase Auth profile
+                    await updateProfile(user, { photoURL });
+
+                    // Update Firestore
+                    const userRef = doc(db, 'users', user.uid);
+                    await updateFirestoreSafe(userRef, { photoURL });
+
+                    // Update local state
+                    const updatedProfile = await getUserProfileSafe(user);
+                    set({ userProfile: updatedProfile });
+                } catch (error) {
+                    console.error('Failed to update profile picture:', error);
+                    throw error;
+                }
             }
         }),
         {
