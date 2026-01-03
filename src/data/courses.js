@@ -13101,8 +13101,8 @@ boolean isActive = true;
 \`\`\`
 
 ## Important:
-- Every statement ends with \`;\ `
-                    - String uses capital S
+- Every statement ends with \`;\`
+- String uses capital S
 - No "create" keyword
                 `,
                 exercise: {
@@ -18275,6 +18275,8 @@ Congratulations! You've mastered the terminal! 🎉
                                                     answer: 1
                                                 }
                                             }
+                                        ]
+},
 
 // C++ Course
 'cpp': {
@@ -19292,6 +19294,8 @@ Congratulations! You've learned C++! 🎉
                                                             answer: 1
                                                         }
                                                     }
+                                                ]
+},
 
 // Rust Course
 'rust': {
@@ -20286,6 +20290,8 @@ Congratulations! You've learned Rust! 🎉
                                                                     answer: 1
                                                                 }
                                                             }
+                                                        ]
+},
 
 // TypeScript Course
 'typescript': {
@@ -21025,6 +21031,8 @@ Congratulations! You've learned TypeScript! 🎉
                                                                             answer: 0
                                                                         }
                                                                     }
+                                                                ]
+},
 
 // SQL Course
 'sql': {
@@ -21649,6 +21657,8 @@ Congratulations! You've learned SQL! 🎉
                                                                                     answer: 1
                                                                                 }
                                                                             }
+                                                                        ]
+},
 
 // Ruby Course
 'ruby': {
@@ -22235,6 +22245,8 @@ Congratulations! You've learned Ruby! 🎉
                                                                                             answer: 1
                                                                                         }
                                                                                     }
+                                                                                ]
+},
 
 // PHP Course
 'php': {
@@ -22718,6 +22730,8 @@ Congratulations! You've learned PHP! 🎉
                                                                                                     answer: 1
                                                                                                 }
                                                                                             }
+                                                                                        ]
+},
 
 // Bash Scripting Course
 'bash': {
@@ -23138,6 +23152,8 @@ Congratulations! You've learned Bash! 🎉
                                                                                                             answer: 1
                                                                                                         }
                                                                                                     }
+                                                                                                ]
+},
 
 // JSON Course
 'json': {
@@ -23399,6 +23415,8 @@ Congratulations! You've learned JSON! 🎉
                                                                                                                     answer: 1
                                                                                                                 }
                                                                                                             }
+                                                                                                        ]
+},
 
                                                                                                     // Markdown Course
                                                                                                     'markdown': {
@@ -23677,6 +23695,8 @@ Congratulations! You've learned Markdown! 🎉
                                                                                                                             answer: 2
                                                                                                                         }
                                                                                                                     }
+                                                                                                                ]
+},
 
                                                                                                     // APIs Course
                                                                                                     'apis': {
@@ -24073,6 +24093,8 @@ Congratulations! You've learned APIs! 🎉
                                                                                                                                     answer: 1
                                                                                                                                 }
                                                                                                                             }
+                                                                                                                        ]
+},
 
 // Swift Course
 'swift': {
@@ -24644,6 +24666,8 @@ Congratulations! You've learned Swift! 🎉
                                                                                                                                             answer: 2
                                                                                                                                         }
                                                                                                                                     }
+                                                                                                                                ]
+},
 
 // C# Course
 'csharp': {
@@ -25209,6 +25233,8 @@ Congratulations! You've learned C#! 🎉
                                                                                                                                                     answer: 2
                                                                                                                                                 }
                                                                                                                                             }
+                                                                                                                                        ]
+},
 
 // Git Course
 'git': {
@@ -25571,6 +25597,8 @@ Congratulations! You've learned Git! 🎉
                                                                                                                                                             answer: 1
                                                                                                                                                         }
                                                                                                                                                     }
+                                                                                                                                                ]
+},
 
 // Authentication Course
 'authentication': {
@@ -25996,43 +26024,46 @@ Congratulations! You've learned Authentication! 🎉
                                                                                                                                                                     answer: 1
                                                                                                                                                                 }
                                                                                                                                                             }
+                                                                                                                                                        ]
+}
+};
 
 // Get all courses
 export const getAllCourses = () => Object.values(courses);
 
-                                                                                                                                                        // Get course by ID
-                                                                                                                                                        export const getCourse = (courseId) => courses[courseId];
+// Get course by ID
+export const getCourse = (courseId) => courses[courseId];
 
-                                                                                                                                                        // Get lessons for a course
-                                                                                                                                                        export const getLessons = (courseId) => {
-                                                                                                                                                            const course = courses[courseId];
-                                                                                                                                                            return course ? course.lessons : [];
-                                                                                                                                                        };
+// Get lessons for a course
+export const getLessons = (courseId) => {
+    const course = courses[courseId];
+    return course ? course.lessons : [];
+};
 
-                                                                                                                                                        // Get a specific lesson
-                                                                                                                                                        export const getLesson = (courseId, lessonId) => {
-                                                                                                                                                            const course = courses[courseId];
-                                                                                                                                                            if (!course) return null;
-                                                                                                                                                            return course.lessons.find(l => l.id === lessonId);
-                                                                                                                                                        };
+// Get a specific lesson
+export const getLesson = (courseId, lessonId) => {
+    const course = courses[courseId];
+    if (!course) return null;
+    return course.lessons.find(l => l.id === lessonId);
+};
 
-                                                                                                                                                        // Get next lesson in course
-                                                                                                                                                        export const getNextLesson = (courseId, currentLessonId) => {
-                                                                                                                                                            const lessons = getLessons(courseId);
-                                                                                                                                                            const currentIndex = lessons.findIndex(l => l.id === currentLessonId);
-                                                                                                                                                            if (currentIndex === -1 || currentIndex === lessons.length - 1) return null;
-                                                                                                                                                            return lessons[currentIndex + 1];
-                                                                                                                                                        };
+// Get next lesson in course
+export const getNextLesson = (courseId, currentLessonId) => {
+    const lessons = getLessons(courseId);
+    const currentIndex = lessons.findIndex(l => l.id === currentLessonId);
+    if (currentIndex === -1 || currentIndex === lessons.length - 1) return null;
+    return lessons[currentIndex + 1];
+};
 
-                                                                                                                                                        // Get courses by category
-                                                                                                                                                        export const getCoursesByCategory = (category) => {
-                                                                                                                                                            return getAllCourses().filter(c => c.category === category);
-                                                                                                                                                        };
+// Get courses by category
+export const getCoursesByCategory = (category) => {
+    return getAllCourses().filter(c => c.category === category);
+};
 
-                                                                                                                                                        // Check if course is completed
-                                                                                                                                                        export const isCourseCompleted = (courseId, completedLessons) => {
-                                                                                                                                                            const lessons = getLessons(courseId);
-                                                                                                                                                            return lessons.every(l => completedLessons.includes(l.id));
-                                                                                                                                                        };
+// Check if course is completed
+export const isCourseCompleted = (courseId, completedLessons) => {
+    const lessons = getLessons(courseId);
+    return lessons.every(l => completedLessons.includes(l.id));
+};
 
-                                                                                                                                                        export default courses;
+export default courses;

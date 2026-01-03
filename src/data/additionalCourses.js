@@ -983,7 +983,7 @@ Create: .vscode/tasks.json
                 title: 'What are Algorithms?',
                 description: 'Understanding algorithms and why they matter',
                 stage: 1,
-                content: \`
+                content: `
 # What are Algorithms?
 
 An algorithm is a step-by-step procedure to solve a problem.
@@ -1019,7 +1019,7 @@ def find_max(numbers):
 
 print(find_max([3, 7, 2, 9, 1]))  # 9
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is an algorithm?',
@@ -1046,7 +1046,7 @@ print(find_max([3, 7, 2, 9, 1]))  # 9
                 title: 'Big O Notation',
                 description: 'Measuring algorithm efficiency',
                 stage: 1,
-                content: \`
+                content: `
 # Big O Notation
 
 Big O describes how algorithm performance scales with input size.
@@ -1086,7 +1086,7 @@ def find_pairs(arr):
 1. Drop constants: O(2n) → O(n)
 2. Drop lower terms: O(n² + n) → O(n²)
 3. Consider worst case
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is O(1) called?',
@@ -1113,7 +1113,7 @@ def find_pairs(arr):
                 title: 'Arrays and Lists',
                 description: 'The most fundamental data structure',
                 stage: 2,
-                content: \`
+                content: `
 # Arrays and Lists
 
 Arrays store elements in contiguous memory locations.
@@ -1160,7 +1160,7 @@ def max_sum_subarray(arr, k):
     
     return max_sum
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the time complexity of array access by index?',
@@ -1187,7 +1187,7 @@ def max_sum_subarray(arr, k):
                 title: 'Linked Lists',
                 description: 'Dynamic data structure with nodes',
                 stage: 2,
-                content: \`
+                content: `
 # Linked Lists
 
 Nodes connected by pointers - no contiguous memory needed.
@@ -1242,7 +1242,7 @@ class LinkedList:
 | Insert at start | O(n) | O(1) |
 | Insert at end | O(1) | O(n) or O(1) |
 | Delete | O(n) | O(1) if node known |
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the time complexity to access the nth element in a linked list?',
@@ -1269,7 +1269,7 @@ class LinkedList:
                 title: 'Stacks',
                 description: 'Last In, First Out (LIFO)',
                 stage: 2,
-                content: \`
+                content: `
 # Stacks - LIFO
 
 Last In, First Out - like a stack of plates.
@@ -1324,7 +1324,7 @@ def is_valid_parentheses(s):
 print(is_valid_parentheses("([])"))  # True
 print(is_valid_parentheses("([)]"))  # False
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What does LIFO stand for?',
@@ -1351,7 +1351,7 @@ print(is_valid_parentheses("([)]"))  # False
                 title: 'Queues',
                 description: 'First In, First Out (FIFO)',
                 stage: 2,
-                content: \`
+                content: `
 # Queues - FIFO
 
 First In, First Out - like a line at a store.
@@ -1406,7 +1406,7 @@ print(heapq.heappop(pq))  # 1 (smallest)
 2. **Print queue**
 3. **BFS graph traversal**
 4. **Message queues**
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What does FIFO stand for?',
@@ -1433,7 +1433,7 @@ print(heapq.heappop(pq))  # 1 (smallest)
                 title: 'Hash Tables',
                 description: 'O(1) lookup with dictionaries',
                 stage: 2,
-                content: \`
+                content: `
 # Hash Tables (Dictionaries)
 
 Key-value storage with O(1) average lookup.
@@ -1489,7 +1489,7 @@ my_set.add(4)       # O(1)
 my_set.remove(1)    # O(1)
 2 in my_set         # O(1)
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the average time complexity for dictionary lookup?',
@@ -1516,7 +1516,7 @@ my_set.remove(1)    # O(1)
                 title: 'Binary Search',
                 description: 'O(log n) search in sorted arrays',
                 stage: 3,
-                content: \`
+                content: `
 # Binary Search
 
 Divide and conquer on sorted arrays - O(log n).
@@ -1576,7 +1576,7 @@ def search_insert(nums, target):
     
     return left
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the time complexity of binary search?',
@@ -1603,7 +1603,7 @@ def search_insert(nums, target):
                 title: 'Bubble Sort',
                 description: 'Simple but slow sorting',
                 stage: 3,
-                content: \`
+                content: `
 # Bubble Sort
 
 Repeatedly swap adjacent elements - O(n²).
@@ -1640,7 +1640,7 @@ Pass 2: [34, 25, 12, 22, 64] → [25, 12, 22, 34, 64]
 - Educational purposes
 - Small datasets
 - Nearly sorted data (with optimization)
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the time complexity of bubble sort?',
@@ -1667,7 +1667,7 @@ Pass 2: [34, 25, 12, 22, 64] → [25, 12, 22, 34, 64]
                 title: 'Merge Sort',
                 description: 'Divide and conquer sorting - O(n log n)',
                 stage: 3,
-                content: \`
+                content: `
 # Merge Sort
 
 Divide, sort, merge - O(n log n) guaranteed.
@@ -1714,7 +1714,7 @@ Merge: [27, 38] + [3, 43] → [3, 27, 38, 43]
 - **Time**: O(n log n) always
 - **Space**: O(n) - needs extra space
 - **Stable**: Yes
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the time complexity of merge sort?',
@@ -1741,7 +1741,7 @@ Merge: [27, 38] + [3, 43] → [3, 27, 38, 43]
                 title: 'Quick Sort',
                 description: 'Fast in-place sorting',
                 stage: 3,
-                content: \`
+                content: `
 # Quick Sort
 
 Partition around pivot - O(n log n) average.
@@ -1786,7 +1786,7 @@ def partition(arr, low, high):
 - **Time**: O(n log n) average, O(n²) worst
 - **Space**: O(log n) for recursion
 - **Not Stable**: May change order of equals
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the average time complexity of quick sort?',
@@ -1813,7 +1813,7 @@ def partition(arr, low, high):
                 title: 'Trees and Binary Trees',
                 description: 'Hierarchical data structures',
                 stage: 3,
-                content: \`
+                content: `
 # Trees
 
 Hierarchical structures with nodes and edges.
@@ -1866,7 +1866,7 @@ def postorder(node):  # Left, Right, Root
         postorder(node.right)
         print(node.val)
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the root of a tree?',
@@ -1893,7 +1893,7 @@ def postorder(node):  # Left, Right, Root
                 title: 'Binary Search Trees',
                 description: 'Ordered binary trees for fast lookup',
                 stage: 3,
-                content: \`
+                content: `
 # Binary Search Trees (BST)
 
 Left child < Parent < Right child.
@@ -1943,7 +1943,7 @@ class BST:
 ## Complexity:
 - **Search/Insert/Delete**: O(log n) average, O(n) worst
 - **Inorder traversal**: Gives sorted order!
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'In a BST, where are smaller values stored?',
@@ -1970,7 +1970,7 @@ class BST:
                 title: 'Graphs Introduction',
                 description: 'Nodes and edges for complex relationships',
                 stage: 4,
-                content: \`
+                content: `
 # Graphs
 
 Vertices (nodes) connected by edges.
@@ -2014,7 +2014,7 @@ edges = [('A', 'B'), ('A', 'C'), ('B', 'D'), ('C', 'D')]
 - Cycle detection
 - Connected components
 - Topological sort
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the most common way to represent a graph?',
@@ -2041,7 +2041,7 @@ edges = [('A', 'B'), ('A', 'C'), ('B', 'D'), ('C', 'D')]
                 title: 'BFS - Breadth-First Search',
                 description: 'Level-by-level graph traversal',
                 stage: 4,
-                content: \`
+                content: `
 # Breadth-First Search (BFS)
 
 Explore all neighbors before going deeper.
@@ -2100,7 +2100,7 @@ def shortest_path(graph, start, end):
 - Shortest path (unweighted)
 - Level-order tree traversal
 - Social network connections
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What data structure does BFS use?',
@@ -2127,7 +2127,7 @@ def shortest_path(graph, start, end):
                 title: 'DFS - Depth-First Search',
                 description: 'Go deep before going wide',
                 stage: 4,
-                content: \`
+                content: `
 # Depth-First Search (DFS)
 
 Go as deep as possible, then backtrack.
@@ -2178,7 +2178,7 @@ def dfs_iterative(graph, start):
 - Cycle detection
 - Topological sorting
 - Maze solving
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What data structure does iterative DFS use?',
@@ -2205,7 +2205,7 @@ def dfs_iterative(graph, start):
                 title: 'Recursion',
                 description: 'Functions that call themselves',
                 stage: 4,
-                content: \`
+                content: `
 # Recursion
 
 A function that calls itself with smaller input.
@@ -2257,7 +2257,7 @@ def factorial_rec(n):
 - Always have a base case
 - Ensure progress toward base case
 - Watch for stack overflow
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is the base case?',
@@ -2284,7 +2284,7 @@ def factorial_rec(n):
                 title: 'Dynamic Programming Basics',
                 description: 'Optimize by storing subproblem solutions',
                 stage: 4,
-                content: \`
+                content: `
 # Dynamic Programming (DP)
 
 Solve complex problems by breaking into subproblems.
@@ -2331,7 +2331,7 @@ def fib_optimized(n):
         prev1 = curr
     return prev1
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What does memoization do?',
@@ -2358,7 +2358,7 @@ def fib_optimized(n):
                 title: 'Classic DP Problems',
                 description: 'Climbing stairs and coin change',
                 stage: 4,
-                content: \`
+                content: `
 # Classic DP Problems
 
 ## Climbing Stairs:
@@ -2412,7 +2412,7 @@ def knapsack(weights, values, capacity):
     
     return dp[n][capacity]
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Climbing stairs with 1 or 2 steps is similar to:',
@@ -2439,7 +2439,7 @@ def knapsack(weights, values, capacity):
                 title: 'Heaps and Priority Queues',
                 description: 'Efficient min/max element access',
                 stage: 4,
-                content: \`
+                content: `
 # Heaps
 
 Complete binary tree with heap property.
@@ -2487,7 +2487,7 @@ largest = -heapq.heappop(max_heap)  # 5
 - Heapify: O(n)
 
 Congratulations! You've completed Algorithms & Data Structures! 🎉
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'In a min-heap, the smallest element is at:',
@@ -2502,7 +2502,7 @@ Congratulations! You've completed Algorithms & Data Structures! 🎉
                         answer: 2
                     },
                     {
-                        prompt: 'Python\\'s heapq implements:',
+                        prompt: "Python's heapq implements:",
                         type: 'multiple-choice',
                         options: ['Max-heap', 'Min-heap', 'Both', 'Neither'],
                         answer: 1
@@ -2529,7 +2529,7 @@ Congratulations! You've completed Algorithms & Data Structures! 🎉
                 title: 'What is React?',
                 description: 'Introduction to React and component-based architecture',
                 stage: 1,
-                content: \`
+                content: `
 # What is React?
 
 React is a JavaScript library for building user interfaces.
@@ -2567,7 +2567,7 @@ function App() {
     return <h1>Hello</h1>;
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What is React primarily used for?',
@@ -2594,7 +2594,7 @@ function App() {
                 title: 'JSX Fundamentals',
                 description: 'Understanding JSX syntax',
                 stage: 1,
-                content: \`
+                content: `
 # JSX Fundamentals
 
 JSX = JavaScript + XML-like syntax.
@@ -2647,7 +2647,7 @@ function List() {
     );
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'How do you embed JavaScript in JSX?',
@@ -2674,7 +2674,7 @@ function List() {
                 title: 'Components and Props',
                 description: 'Building reusable components with props',
                 stage: 1,
-                content: \`
+                content: `
 # Components and Props
 
 Components are reusable UI building blocks.
@@ -2740,7 +2740,7 @@ function Card({ children, title }) {
     <p>This is the card content!</p>
 </Card>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'What are props in React?',
@@ -2767,7 +2767,7 @@ function Card({ children, title }) {
                 title: 'useState Hook',
                 description: 'Managing component state',
                 stage: 2,
-                content: \`
+                content: `
 # useState Hook
 
 State allows components to remember values.
@@ -2832,7 +2832,7 @@ function Profile() {
     return <button onClick={updateAge}>Birthday!</button>;
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'useState returns:',
@@ -2859,7 +2859,7 @@ function Profile() {
                 title: 'useEffect Hook',
                 description: 'Side effects in React',
                 stage: 2,
-                content: \`
+                content: `
 # useEffect Hook
 
 Handle side effects: data fetching, subscriptions, DOM updates.
@@ -2922,7 +2922,7 @@ function Users() {
     return <ul>{users.map(u => <li key={u.id}>{u.name}</li>)}</ul>;
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'An empty dependency array [] means:',
@@ -2949,7 +2949,7 @@ function Users() {
                 title: 'Event Handling',
                 description: 'Handling user interactions',
                 stage: 2,
-                content: \`
+                content: `
 # Event Handling
 
 React events use camelCase and pass functions.
@@ -3017,7 +3017,7 @@ function ItemList() {
 - \`onSubmit\`, \`onFocus\`, \`onBlur\`
 - \`onKeyDown\`, \`onKeyUp\`, \`onKeyPress\`
 - \`onMouseOver\`, \`onMouseOut\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'React event handlers are named using:',
@@ -3044,7 +3044,7 @@ function ItemList() {
                 title: 'Conditional Rendering',
                 description: 'Rendering based on conditions',
                 stage: 2,
-                content: \`
+                content: `
 # Conditional Rendering
 
 Show different UI based on conditions.
@@ -3108,7 +3108,7 @@ function Banner({ show }) {
     return <div className="banner">Important Message!</div>;
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'The && operator renders the right side when:',
@@ -3135,7 +3135,7 @@ function Banner({ show }) {
                 title: 'Lists and Keys',
                 description: 'Rendering dynamic lists',
                 stage: 2,
-                content: \`
+                content: `
 # Lists and Keys
 
 Render arrays of data with unique keys.
@@ -3210,7 +3210,7 @@ function ActiveUsers({ users }) {
     );
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Keys in React should be:',
@@ -3237,7 +3237,7 @@ function ActiveUsers({ users }) {
                 title: 'Forms and Controlled Components',
                 description: 'Handling form inputs',
                 stage: 2,
-                content: \`
+                content: `
 # Forms and Controlled Components
 
 Control form inputs with React state.
@@ -3304,7 +3304,7 @@ function Form() {
     );
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'A controlled component has its value managed by:',
@@ -3331,7 +3331,7 @@ function Form() {
                 title: 'useRef Hook',
                 description: 'Accessing DOM elements and persisting values',
                 stage: 3,
-                content: \`
+                content: `
 # useRef Hook
 
 Access DOM elements and persist values without re-renders.
@@ -3415,7 +3415,7 @@ function Stopwatch() {
     };
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'useRef.current changes:',
@@ -3442,7 +3442,7 @@ function Stopwatch() {
                 title: 'useContext Hook',
                 description: 'Sharing state without prop drilling',
                 stage: 3,
-                content: \`
+                content: `
 # useContext Hook
 
 Share data globally without passing props.
@@ -3511,7 +3511,7 @@ function Main() {
 - User authentication
 - Language/locale
 - App configuration
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Context is used to avoid:',
@@ -3538,7 +3538,7 @@ function Main() {
                 title: 'Custom Hooks',
                 description: 'Creating reusable logic',
                 stage: 3,
-                content: \`
+                content: `
 # Custom Hooks
 
 Extract and reuse component logic.
@@ -3619,7 +3619,7 @@ function useLocalStorage(key, initialValue) {
     return [value, setValue];
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Custom hooks must start with:',
@@ -3646,7 +3646,7 @@ function useLocalStorage(key, initialValue) {
                 title: 'useMemo and useCallback',
                 description: 'Optimizing performance',
                 stage: 3,
-                content: \`
+                content: `
 # useMemo and useCallback
 
 Memoize values and functions for performance.
@@ -3710,7 +3710,7 @@ const ExpensiveChild = React.memo(({ onClick }) => {
 - **useMemo**: Expensive calculations
 - **useCallback**: Functions passed to memoized children
 - Don't overuse! Only optimize when needed
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'useMemo is used for:',
@@ -3737,7 +3737,7 @@ const ExpensiveChild = React.memo(({ onClick }) => {
                 title: 'useReducer Hook',
                 description: 'Complex state management',
                 stage: 3,
-                content: \`
+                content: `
 # useReducer Hook
 
 Manage complex state with reducer pattern.
@@ -3816,7 +3816,7 @@ function TodoApp() {
     );
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'useReducer returns:',
@@ -3843,7 +3843,7 @@ function TodoApp() {
                 title: 'React Router',
                 description: 'Client-side routing',
                 stage: 4,
-                content: \`
+                content: `
 # React Router
 
 Navigate between pages in React apps.
@@ -3919,7 +3919,7 @@ function Dashboard() {
     );
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Link component is used for:',
@@ -3946,7 +3946,7 @@ function Dashboard() {
                 title: 'Component Patterns',
                 description: 'Common design patterns in React',
                 stage: 4,
-                content: \`
+                content: `
 # Component Patterns
 
 Reusable patterns for building React apps.
@@ -4016,7 +4016,7 @@ function MouseTracker({ render }) {
     <p>Mouse: {x}, {y}</p>
 )} />
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Compound components share state via:',
@@ -4043,7 +4043,7 @@ function MouseTracker({ render }) {
                 title: 'Error Boundaries',
                 description: 'Handling errors gracefully',
                 stage: 4,
-                content: \`
+                content: `
 # Error Boundaries
 
 Catch JavaScript errors in child components.
@@ -4125,7 +4125,7 @@ function App() {
 - Don't catch errors in event handlers
 - Don't catch async errors
 - Don't catch errors in error boundary itself
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Error boundaries must be:',
@@ -4152,7 +4152,7 @@ function App() {
                 title: 'State Management with Zustand',
                 description: 'Simple global state management',
                 stage: 4,
-                content: \`
+                content: `
 # State Management with Zustand
 
 Simple, fast global state management.
@@ -4227,7 +4227,7 @@ function UserProfile() {
 - Simple API
 - Good TypeScript support
 - Selective subscriptions (performance)
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Zustand stores are created with:',
@@ -4254,7 +4254,7 @@ function UserProfile() {
                 title: 'Testing React Components',
                 description: 'Unit testing with React Testing Library',
                 stage: 4,
-                content: \`
+                content: `
 # Testing React Components
 
 Test components with React Testing Library.
@@ -4320,7 +4320,7 @@ test('submits form with user input', async () => {
 - Test behavior, not implementation
 - Use accessible queries (getByRole, getByLabelText)
 - Avoid testing implementation details
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'React Testing Library encourages testing:',
@@ -4347,7 +4347,7 @@ test('submits form with user input', async () => {
                 title: 'Best Practices and Patterns',
                 description: 'Writing clean, maintainable React code',
                 stage: 4,
-                content: \`
+                content: `
 # React Best Practices
 
 Write clean, maintainable React code.
@@ -4425,7 +4425,7 @@ const handleClick = useCallback(() => {
 \\\`\\\`\\\`
 
 Congratulations! You've completed React & JSX Deep Dive! 🎉
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Single responsibility means:',
@@ -4467,7 +4467,7 @@ Congratulations! You've completed React & JSX Deep Dive! 🎉
                 title: 'What is Tailwind CSS?',
                 description: 'Introduction to utility-first CSS',
                 stage: 1,
-                content: \`
+                content: `
 # What is Tailwind CSS?
 
 Tailwind is a utility-first CSS framework.
@@ -4517,7 +4517,7 @@ module.exports = {
     plugins: [],
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Tailwind CSS is called:',
@@ -4544,7 +4544,7 @@ module.exports = {
                 title: 'Spacing and Sizing',
                 description: 'Padding, margin, width, and height',
                 stage: 1,
-                content: \`
+                content: `
 # Spacing and Sizing
 
 Consistent spacing scale from 0 to 96.
@@ -4589,7 +4589,7 @@ Consistent spacing scale from 0 to 96.
 <div class="min-h-screen">Min height = viewport</div>
 <div class="max-w-lg">Max width large</div>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'p-4 applies how much padding?',
@@ -4616,7 +4616,7 @@ Consistent spacing scale from 0 to 96.
                 title: 'Colors',
                 description: 'Using Tailwind color palette',
                 stage: 1,
-                content: \`
+                content: `
 # Colors
 
 Extensive color palette with shades.
@@ -4659,7 +4659,7 @@ Extensive color palette with shades.
 
 ## Available Colors:
 slate, gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'The lower the color number, the:',
@@ -4686,7 +4686,7 @@ slate, gray, zinc, neutral, stone, red, orange, amber, yellow, lime, green, emer
                 title: 'Typography',
                 description: 'Font size, weight, and text styling',
                 stage: 1,
-                content: \`
+                content: `
 # Typography
 
 Complete text styling utilities.
@@ -4734,7 +4734,7 @@ Complete text styling utilities.
 <p class="leading-normal">Normal line height</p>
 <p class="leading-loose">Loose line height</p>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'text-2xl sets:',
@@ -4761,7 +4761,7 @@ Complete text styling utilities.
                 title: 'Flexbox',
                 description: 'Flexible box layout',
                 stage: 2,
-                content: \`
+                content: `
 # Flexbox
 
 Powerful layout with flex utilities.
@@ -4818,7 +4818,7 @@ Powerful layout with flex utilities.
     <div>Item 3</div>
 </div>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'To center items vertically and horizontally:',
@@ -4845,7 +4845,7 @@ Powerful layout with flex utilities.
                 title: 'Grid Layout',
                 description: 'CSS Grid with Tailwind',
                 stage: 2,
-                content: \`
+                content: `
 # Grid Layout
 
 Two-dimensional layouts with grid.
@@ -4901,7 +4901,7 @@ Two-dimensional layouts with grid.
     <div class="bg-white p-4 rounded">Card</div>
 </div>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'grid-cols-3 creates:',
@@ -4928,7 +4928,7 @@ Two-dimensional layouts with grid.
                 title: 'Responsive Design',
                 description: 'Mobile-first breakpoints',
                 stage: 2,
-                content: \`
+                content: `
 # Responsive Design
 
 Mobile-first breakpoint prefixes.
@@ -4980,7 +4980,7 @@ Mobile-first breakpoint prefixes.
     Responsive width
 </div>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Tailwind is mobile-first, meaning:',
@@ -5007,7 +5007,7 @@ Mobile-first breakpoint prefixes.
                 title: 'Hover, Focus, and States',
                 description: 'Interactive state styling',
                 stage: 2,
-                content: \`
+                content: `
 # State Modifiers
 
 Style different interactive states.
@@ -5062,7 +5062,7 @@ Style different interactive states.
     <li class="first:pt-0 last:pb-0 py-2">Item</li>
 </ul>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'hover:bg-blue-600 applies:',
@@ -5089,7 +5089,7 @@ Style different interactive states.
                 title: 'Borders and Rounded Corners',
                 description: 'Border styling utilities',
                 stage: 2,
-                content: \`
+                content: `
 # Borders and Rounded Corners
 
 Border width, color, and radius.
@@ -5141,7 +5141,7 @@ Border width, color, and radius.
     Button with ring
 </button>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'rounded-full creates:',
@@ -5168,7 +5168,7 @@ Border width, color, and radius.
                 title: 'Shadows and Effects',
                 description: 'Box shadows and visual effects',
                 stage: 3,
-                content: \`
+                content: `
 # Shadows and Effects
 
 Add depth and visual effects.
@@ -5222,7 +5222,7 @@ Add depth and visual effects.
     Frosted glass effect
 </div>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'shadow-lg adds:',
@@ -5249,7 +5249,7 @@ Add depth and visual effects.
                 title: 'Transitions and Animations',
                 description: 'Smooth transitions and animations',
                 stage: 3,
-                content: \`
+                content: `
 # Transitions and Animations
 
 Smooth state changes and animations.
@@ -5303,7 +5303,7 @@ Smooth state changes and animations.
     Float up on hover
 </div>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'transition-colors enables smooth transition of:',
@@ -5330,7 +5330,7 @@ Smooth state changes and animations.
                 title: 'Transforms',
                 description: 'Scale, rotate, and translate elements',
                 stage: 3,
-                content: \`
+                content: `
 # Transforms
 
 Scale, rotate, translate, and skew elements.
@@ -5383,7 +5383,7 @@ Scale, rotate, translate, and skew elements.
 <div class="origin-top-right">Top right</div>
 <div class="origin-bottom-left">Bottom left</div>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'scale-150 makes element:',
@@ -5410,7 +5410,7 @@ Scale, rotate, translate, and skew elements.
                 title: 'Position and Z-Index',
                 description: 'Positioning elements',
                 stage: 3,
-                content: \`
+                content: `
 # Position and Z-Index
 
 Control element positioning.
@@ -5466,7 +5466,7 @@ Control element positioning.
     </div>
 </div>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'inset-0 sets:',
@@ -5493,7 +5493,7 @@ Control element positioning.
                 title: 'Dark Mode',
                 description: 'Implementing dark mode',
                 stage: 3,
-                content: \`
+                content: `
 # Dark Mode
 
 Built-in dark mode support.
@@ -5555,7 +5555,7 @@ if (localStorage.theme === 'dark' ||
     </button>
 </div>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'darkMode: "class" means dark mode activates when:',
@@ -5582,7 +5582,7 @@ if (localStorage.theme === 'dark' ||
                 title: 'Custom Configuration',
                 description: 'Extending and customizing Tailwind',
                 stage: 4,
-                content: \`
+                content: `
 # Custom Configuration
 
 Customize Tailwind for your project.
@@ -5655,7 +5655,7 @@ module.exports = {
     ],
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'extend in theme config:',
@@ -5682,7 +5682,7 @@ module.exports = {
                 title: 'Building Components',
                 description: 'Common UI component patterns',
                 stage: 4,
-                content: \`
+                content: `
 # Building Components
 
 Common UI patterns with Tailwind.
@@ -5734,7 +5734,7 @@ Common UI patterns with Tailwind.
 <img src="avatar.jpg" 
      class="w-10 h-10 rounded-full ring-2 ring-white object-cover" />
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'object-cover on images:',
@@ -5761,7 +5761,7 @@ Common UI patterns with Tailwind.
                 title: 'Layouts and Patterns',
                 description: 'Common layout structures',
                 stage: 4,
-                content: \`
+                content: `
 # Layouts and Patterns
 
 Common page layouts with Tailwind.
@@ -5821,7 +5821,7 @@ Common page layouts with Tailwind.
     </div>
 </section>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'flex-1 makes an element:',
@@ -5848,7 +5848,7 @@ Common page layouts with Tailwind.
                 title: '@apply and CSS',
                 description: 'Using Tailwind in CSS files',
                 stage: 4,
-                content: \`
+                content: `
 # @apply Directive
 
 Extract repeated patterns to CSS classes.
@@ -5908,7 +5908,7 @@ Extract repeated patterns to CSS classes.
     <p>Content styled automatically...</p>
 </article>
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: '@apply is used in:',
@@ -5935,7 +5935,7 @@ Extract repeated patterns to CSS classes.
                 title: 'Tailwind with React',
                 description: 'Using Tailwind in React projects',
                 stage: 4,
-                content: \`
+                content: `
 # Tailwind with React
 
 Best practices for Tailwind in React.
@@ -6005,7 +6005,7 @@ function Button({ className, children }) {
 \\\`\\\`\\\`
 
 Congratulations! You've completed Tailwind CSS! 🎨
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'clsx is used for:',
@@ -6047,7 +6047,7 @@ Congratulations! You've completed Tailwind CSS! 🎨
                 title: 'What is Electron?',
                 description: 'Introduction to Electron framework',
                 stage: 1,
-                content: \`
+                content: `
 # What is Electron?
 
 Electron enables building desktop apps with web technologies.
@@ -6092,7 +6092,7 @@ Electron enables building desktop apps with web technologies.
 - Larger app size (~100MB+)
 - Higher memory usage
 - Not truly native feel
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Electron combines which technologies?',
@@ -6119,7 +6119,7 @@ Electron enables building desktop apps with web technologies.
                 title: 'Project Setup',
                 description: 'Creating your first Electron app',
                 stage: 1,
-                content: \`
+                content: `
 # Project Setup
 
 Create an Electron project from scratch.
@@ -6186,7 +6186,7 @@ app.on('window-all-closed', () => {
 \\\`\\\`\\\`bash
 npm start
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'The main entry point is defined in package.json as:',
@@ -6213,7 +6213,7 @@ npm start
                 title: 'BrowserWindow Options',
                 description: 'Configuring window appearance and behavior',
                 stage: 1,
-                content: \`
+                content: `
 # BrowserWindow Options
 
 Customize your application windows.
@@ -6289,7 +6289,7 @@ main.once('ready-to-show', () => {
     main.show();
 });
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'frame: false creates:',
@@ -6316,7 +6316,7 @@ main.once('ready-to-show', () => {
                 title: 'Preload Scripts',
                 description: 'Bridging main and renderer safely',
                 stage: 2,
-                content: \`
+                content: `
 # Preload Scripts
 
 Safely expose functionality to the renderer.
@@ -6373,7 +6373,7 @@ window.electronAPI.onMessage('update-available', (version) => {
 // Get platform
 console.log('Running on:', window.electronAPI.platform);
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'contextBridge.exposeInMainWorld:',
@@ -6400,7 +6400,7 @@ console.log('Running on:', window.electronAPI.platform);
                 title: 'IPC Communication',
                 description: 'Inter-Process Communication',
                 stage: 2,
-                content: \`
+                content: `
 # IPC Communication
 
 Communication between main and renderer processes.
@@ -6467,7 +6467,7 @@ window.api.onMenuNew(() => {
     createNewDocument();
 });
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'ipcMain.handle is used for:',
@@ -6494,7 +6494,7 @@ window.api.onMenuNew(() => {
                 title: 'Application Menu',
                 description: 'Creating native menus',
                 stage: 2,
-                content: \`
+                content: `
 # Application Menu
 
 Create native application menus.
@@ -6566,7 +6566,7 @@ if (process.platform === 'darwin') {
 const menu = Menu.buildFromTemplate(template);
 Menu.setApplicationMenu(menu);
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'CmdOrCtrl+S works on:',
@@ -6593,7 +6593,7 @@ Menu.setApplicationMenu(menu);
                 title: 'Dialog and File System',
                 description: 'Native dialogs and file operations',
                 stage: 2,
-                content: \`
+                content: `
 # Dialogs and File System
 
 Native file dialogs and file operations.
@@ -6659,7 +6659,7 @@ ipcMain.handle('confirm-delete', async (event, filename) => {
 \\\`\\\`\\\`javascript
 dialog.showErrorBox('Error', 'Something went wrong!');
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'showOpenDialog returns:',
@@ -6686,7 +6686,7 @@ dialog.showErrorBox('Error', 'Something went wrong!');
                 title: 'System Tray',
                 description: 'Creating system tray applications',
                 stage: 3,
-                content: \`
+                content: `
 # System Tray
 
 Add your app to the system tray.
@@ -6754,7 +6754,7 @@ function updateTrayTitle(count) {
     tray.setTitle(count > 0 ? \\\`(\${count})\\\` : '');
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'System tray is created with:',
@@ -6781,7 +6781,7 @@ function updateTrayTitle(count) {
                 title: 'Native Notifications',
                 description: 'System notifications',
                 stage: 3,
-                content: \`
+                content: `
 # Native Notifications
 
 Send system notifications.
@@ -6853,7 +6853,7 @@ ipcMain.on('show-notification', (event, title, body) => {
 // renderer
 window.api.notify('Task Complete', 'Your task has finished.');
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Notification.isSupported() checks:',
@@ -6880,7 +6880,7 @@ window.api.notify('Task Complete', 'Your task has finished.');
                 title: 'Auto Updates',
                 description: 'Implementing automatic updates',
                 stage: 3,
-                content: \`
+                content: `
 # Auto Updates
 
 Automatically update your Electron app.
@@ -6952,7 +6952,7 @@ window.api.onUpdateReady(() => {
     }
 });
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'electron-updater requires updates hosted on:',
@@ -6979,7 +6979,7 @@ window.api.onUpdateReady(() => {
                 title: 'App Lifecycle',
                 description: 'Managing application lifecycle events',
                 stage: 3,
-                content: \`
+                content: `
 # App Lifecycle
 
 Handle application lifecycle events.
@@ -7059,7 +7059,7 @@ mainWindow.on('blur', () => {
     // Window lost focus
 });
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'app.whenReady() returns:',
@@ -7086,7 +7086,7 @@ mainWindow.on('blur', () => {
                 title: 'Security Best Practices',
                 description: 'Securing your Electron app',
                 stage: 4,
-                content: \`
+                content: `
 # Security Best Practices
 
 Essential security for Electron apps.
@@ -7160,7 +7160,7 @@ win.loadURL('https://untrusted-site.com');
 // ✅ Prefer local files
 win.loadFile('index.html');
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'nodeIntegration: false is:',
@@ -7187,7 +7187,7 @@ win.loadFile('index.html');
                 title: 'Building and Packaging',
                 description: 'Creating distributable packages',
                 stage: 4,
-                content: \`
+                content: `
 # Building and Packaging
 
 Package your app for distribution.
@@ -7258,7 +7258,7 @@ npm run build
 npm run build:win
 npm run build:mac
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'electron-builder creates:',
@@ -7285,7 +7285,7 @@ npm run build:mac
                 title: 'Integrating with React/Vite',
                 description: 'Using modern frameworks with Electron',
                 stage: 4,
-                content: \`
+                content: `
 # Electron with React/Vite
 
 Modern frontend frameworks in Electron.
@@ -7369,7 +7369,7 @@ function App() {
 \\\`\\\`\\\`
 
 Congratulations! You've completed Electron Development! 🖥️
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'vite-plugin-electron enables:',
@@ -7411,7 +7411,7 @@ Congratulations! You've completed Electron Development! 🖥️
                 title: 'What are Package Managers?',
                 description: 'Understanding package managers and dependencies',
                 stage: 1,
-                content: \`
+                content: `
 # What are Package Managers?
 
 Package managers automate installing, updating, and removing software.
@@ -7444,7 +7444,7 @@ Package managers automate installing, updating, and removing software.
 - **Dependency**: Package that your code needs
 - **Registry**: Central repository of packages
 - **Lock file**: Exact versions for reproducibility
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'The main purpose of package managers is:',
@@ -7471,7 +7471,7 @@ Package managers automate installing, updating, and removing software.
                 title: 'npm Basics',
                 description: 'Node Package Manager fundamentals',
                 stage: 1,
-                content: \`
+                content: `
 # npm Basics
 
 The default package manager for Node.js.
@@ -7540,7 +7540,7 @@ npm outdated            # Check for updates
 npm run test            # Run script
 npm ls                  # List installed packages
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'npm init -y:',
@@ -7567,7 +7567,7 @@ npm ls                  # List installed packages
                 title: 'npm Version Ranges',
                 description: 'Understanding semantic versioning',
                 stage: 1,
-                content: \`
+                content: `
 # Semantic Versioning
 
 Version numbers follow MAJOR.MINOR.PATCH.
@@ -7624,7 +7624,7 @@ npm install --dry-run
 # Install exact versions from lock file
 npm ci  # Clean install (for CI/CD)
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'In SemVer, a MAJOR version bump means:',
@@ -7651,7 +7651,7 @@ npm ci  # Clean install (for CI/CD)
                 title: 'npm Scripts and npx',
                 description: 'Automating tasks with npm',
                 stage: 2,
-                content: \`
+                content: `
 # npm Scripts and npx
 
 Automate common tasks.
@@ -7722,7 +7722,7 @@ npx jest
     }
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'npx allows you to:',
@@ -7749,7 +7749,7 @@ npx jest
                 title: 'yarn and pnpm',
                 description: 'Alternative JavaScript package managers',
                 stage: 2,
-                content: \`
+                content: `
 # yarn and pnpm
 
 Faster, more efficient alternatives to npm.
@@ -7809,7 +7809,7 @@ pnpm run test
 - **npm**: Default, most compatible
 - **yarn**: Mature, great for monorepos
 - **pnpm**: Best performance, strictest
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'yarn add is equivalent to:',
@@ -7836,7 +7836,7 @@ pnpm run test
                 title: 'pip for Python',
                 description: 'Python package management',
                 stage: 2,
-                content: \`
+                content: `
 # pip for Python
 
 Python's package installer.
@@ -7907,7 +7907,7 @@ pip install requests
 index-url = https://pypi.org/simple/
 trusted-host = pypi.org
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'pip freeze outputs:',
@@ -7934,7 +7934,7 @@ trusted-host = pypi.org
                 title: 'Poetry for Python',
                 description: 'Modern Python dependency management',
                 stage: 3,
-                content: \`
+                content: `
 # Poetry for Python
 
 Modern dependency management and packaging.
@@ -8013,7 +8013,7 @@ poetry publish
 - Automatic virtual environment
 - Better dependency resolution
 - Built-in publishing
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Poetry uses which config file?',
@@ -8040,7 +8040,7 @@ poetry publish
                 title: 'Cargo for Rust',
                 description: 'Rust package management and build',
                 stage: 3,
-                content: \`
+                content: `
 # Cargo for Rust
 
 Rust's package manager and build system.
@@ -8130,7 +8130,7 @@ members = [
 opt-level = 3
 lto = true
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'cargo new creates:',
@@ -8157,7 +8157,7 @@ lto = true
                 title: 'Go Modules',
                 description: 'Go dependency management',
                 stage: 3,
-                content: \`
+                content: `
 # Go Modules
 
 Go's built-in dependency management.
@@ -8240,7 +8240,7 @@ go install
 // go.mod
 replace github.com/original/pkg => ../local/pkg
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'go mod init creates:',
@@ -8267,7 +8267,7 @@ replace github.com/original/pkg => ../local/pkg
                 title: 'Homebrew and System Packages',
                 description: 'System-level package management',
                 stage: 3,
-                content: \`
+                content: `
 # System Package Managers
 
 Managing system-wide software.
@@ -8349,7 +8349,7 @@ winget upgrade --all
 # List
 winget list
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'brew install --cask is for:',
@@ -8376,7 +8376,7 @@ winget list
                 title: 'Managing Dependencies',
                 description: 'Best practices for dependency management',
                 stage: 4,
-                content: \`
+                content: `
 # Managing Dependencies
 
 Best practices for healthy dependencies.
@@ -8443,7 +8443,7 @@ updates:
 - Open issues
 - Maintainers
 - License
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'npm audit is used for:',
@@ -8470,7 +8470,7 @@ updates:
                 title: 'Publishing Packages',
                 description: 'Creating and publishing your own packages',
                 stage: 4,
-                content: \`
+                content: `
 # Publishing Packages
 
 Share your code with the world.
@@ -8544,7 +8544,7 @@ cargo publish
 8. Use semantic versioning
 
 Congratulations! You've completed Package Management! 📦
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'npm version patch:',
@@ -8586,7 +8586,7 @@ Congratulations! You've completed Package Management! 📦
                 title: 'Why Performance Matters',
                 description: 'Understanding the importance of optimization',
                 stage: 1,
-                content: \`
+                content: `
 # Why Performance Matters
 
 Fast code = happy users and lower costs.
@@ -8624,7 +8624,7 @@ Fast code = happy users and lower costs.
 3. **Optimize**: Fix the bottleneck
 4. **Verify**: Measure improvement
 5. **Repeat**: Until acceptable
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'When should you optimize code?',
@@ -8651,7 +8651,7 @@ Fast code = happy users and lower costs.
                 title: 'Big O Notation',
                 description: 'Analyzing algorithm efficiency',
                 stage: 1,
-                content: \`
+                content: `
 # Big O Notation
 
 Describes how algorithms scale.
@@ -8710,7 +8710,7 @@ function bubbleSort(arr) {
 1. Drop constants: O(2n) → O(n)
 2. Drop lower terms: O(n² + n) → O(n²)
 3. Consider worst case
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'A nested loop is typically:',
@@ -8737,7 +8737,7 @@ function bubbleSort(arr) {
                 title: 'Space Complexity',
                 description: 'Memory usage analysis',
                 stage: 1,
-                content: \`
+                content: `
 # Space Complexity
 
 How much memory does your algorithm use?
@@ -8808,7 +8808,7 @@ function fibSlow(n) {
 - Each recursive call uses stack memory
 - Deep recursion can cause stack overflow
 - Consider iterative alternatives
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Recursion uses memory for:',
@@ -8835,7 +8835,7 @@ function fibSlow(n) {
                 title: 'Profiling JavaScript',
                 description: 'Measuring performance in JS',
                 stage: 2,
-                content: \`
+                content: `
 # Profiling JavaScript
 
 Measure before you optimize.
@@ -8902,7 +8902,7 @@ suite
     })
     .run();
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'console.time measures:',
@@ -8929,7 +8929,7 @@ suite
                 title: 'Loop Optimizations',
                 description: 'Making loops faster',
                 stage: 2,
-                content: \`
+                content: `
 # Loop Optimizations
 
 Loops are often the biggest bottleneck.
@@ -9007,7 +9007,7 @@ for (let i = 0; i < len; i += 4) {
     process(arr[i + 3]);
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Caching array length helps because:',
@@ -9034,7 +9034,7 @@ for (let i = 0; i < len; i += 4) {
                 title: 'Data Structure Selection',
                 description: 'Choosing the right data structure',
                 stage: 2,
-                content: \`
+                content: `
 # Data Structure Selection
 
 The right structure makes all the difference.
@@ -9105,7 +9105,7 @@ function fib(n) {
     return fibonacci[n];
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Set.has() is faster than Array.includes() because:',
@@ -9132,7 +9132,7 @@ function fib(n) {
                 title: 'String Optimization',
                 description: 'Efficient string handling',
                 stage: 3,
-                content: \`
+                content: `
 # String Optimization
 
 Strings are immutable - each change creates new string.
@@ -9202,7 +9202,7 @@ str.includes('hello')      // Faster than /hello/.test(str)
 str.startsWith('hello')    // Faster than /^hello/.test(str)
 str.endsWith('hello')      // Faster than /hello$/.test(str)
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Strings in JavaScript are:',
@@ -9229,7 +9229,7 @@ str.endsWith('hello')      // Faster than /hello$/.test(str)
                 title: 'Memory Optimization',
                 description: 'Reducing memory usage',
                 stage: 3,
-                content: \`
+                content: `
 # Memory Optimization
 
 Efficient memory usage prevents leaks and improves performance.
@@ -9305,7 +9305,7 @@ class ObjectPool {
     }
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Memory leaks often come from:',
@@ -9332,7 +9332,7 @@ class ObjectPool {
                 title: 'DOM Optimization',
                 description: 'Fast DOM manipulation',
                 stage: 3,
-                content: \`
+                content: `
 # DOM Optimization
 
 DOM operations are expensive.
@@ -9405,7 +9405,7 @@ el.classList.add('highlighted');
 ## Virtual DOM:
 React, Vue use virtual DOM to batch changes
 and minimize actual DOM operations.
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'DocumentFragment is used to:',
@@ -9422,7 +9422,7 @@ and minimize actual DOM operations.
                     {
                         prompt: 'Changing CSS class instead of individual styles:',
                         type: 'multiple-choice',
-                        options: ['Is slower', 'Is faster - single reflow', 'Uses more memory', 'Doesn\\'t work'],
+                        options: ['Is slower', 'Is faster - single reflow', 'Uses more memory', "Doesn't work"],
                         answer: 1
                     }
                 ]
@@ -9432,7 +9432,7 @@ and minimize actual DOM operations.
                 title: 'Async Optimization',
                 description: 'Optimizing asynchronous code',
                 stage: 4,
-                content: \`
+                content: `
 # Async Optimization
 
 Non-blocking code for better performance.
@@ -9514,7 +9514,7 @@ worker.onmessage = (e) => {
     console.log('Result:', e.data);
 };
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Promise.all runs promises:',
@@ -9541,7 +9541,7 @@ worker.onmessage = (e) => {
                 title: 'Caching Strategies',
                 description: 'Store results to avoid recomputation',
                 stage: 4,
-                content: \`
+                content: `
 # Caching Strategies
 
 Store results to avoid repeated work.
@@ -9635,7 +9635,7 @@ function getFromCache(key) {
     return item.data;
 }
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Memoization stores:',
@@ -9662,7 +9662,7 @@ function getFromCache(key) {
                 title: 'Network Optimization',
                 description: 'Faster data loading',
                 stage: 4,
-                content: \`
+                content: `
 # Network Optimization
 
 Reduce network latency and bandwidth.
@@ -9736,7 +9736,7 @@ const page1 = await fetch('/api/items?page=1&limit=20');
 
 ## Service Workers:
 Cache assets for offline use and faster loads.
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'loading="lazy" on images:',
@@ -9763,7 +9763,7 @@ Cache assets for offline use and faster loads.
                 title: 'Algorithm Optimization',
                 description: 'Choosing better algorithms',
                 stage: 5,
-                content: \`
+                content: `
 # Algorithm Optimization
 
 Better algorithms beat micro-optimizations.
@@ -9834,7 +9834,7 @@ function maxSumSubarray(arr, k) {
 
 ## Early Termination:
 When possible, return as soon as you find the answer.
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Binary search requires:',
@@ -9861,7 +9861,7 @@ When possible, return as soon as you find the answer.
                 title: 'Build Optimization',
                 description: 'Faster builds and smaller bundles',
                 stage: 5,
-                content: \`
+                content: `
 # Build Optimization
 
 Ship smaller, faster code.
@@ -9933,7 +9933,7 @@ Inline critical styles, defer the rest.
 # Check bundle size before adding
 npx bundlephobia lodash
 \\\`\\\`\\\`
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Tree shaking removes:',
@@ -9960,7 +9960,7 @@ npx bundlephobia lodash
                 title: 'Performance Testing',
                 description: 'Measuring and monitoring',
                 stage: 5,
-                content: \`
+                content: `
 # Performance Testing
 
 Continuous measurement prevents regression.
@@ -10027,7 +10027,7 @@ new PerformanceObserver((list) => {
 \\\`\\\`\\\`
 
 Congratulations! You've completed Code Optimization! ⚡
-        \`,
+        `,
                 exercises: [
                     {
                         prompt: 'Lighthouse measures:',
