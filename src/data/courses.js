@@ -54,12 +54,26 @@ Think about making a sandwich:
 
 This is logic! A sequence of steps with a condition (if you want butter).
         `,
-                exercise: {
-                    prompt: 'What are the two possible values in logic?',
-                    type: 'multiple-choice',
-                    options: ['True and False', 'Yes and Maybe', 'On and Off', 'All of the above except B'],
-                    answer: 0
-                }
+                exercises: [
+                    {
+                        prompt: 'What are the two possible values in logic?',
+                        type: 'multiple-choice',
+                        options: ['True and False', 'Yes and Maybe', 'On and Off', 'All of the above except B'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What do we call the "questions with yes/no answers" in programming?',
+                        type: 'multiple-choice',
+                        options: ['Variables', 'Conditions', 'Loops', 'Functions'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'In the sandwich example, what type of logic structure is "If you want butter, spread butter"?',
+                        type: 'multiple-choice',
+                        options: ['A sequence', 'A condition', 'A loop', 'A variable'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'logic-2',
@@ -83,12 +97,26 @@ Everything in logic comes down to these two values.
 - "true value" means something is correct/yes
 - "false value" means something is incorrect/no
         `,
-                exercise: {
-                    prompt: 'Is 7 greater than 10?',
-                    type: 'multiple-choice',
-                    options: ['true value', 'false value'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'Is 7 greater than 10?',
+                        type: 'multiple-choice',
+                        options: ['true value', 'false value'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Is 10 equal to 10?',
+                        type: 'multiple-choice',
+                        options: ['true value', 'false value'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What are True and False values called in programming?',
+                        type: 'multiple-choice',
+                        options: ['Integer values', 'Boolean values', 'String values', 'Float values'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'logic-3',
@@ -115,12 +143,26 @@ To make decisions, we need to compare things. Here are the comparison operations
 - 7 is greater than 7 → **false value**
 - 7 is greater than or equal to 7 → **true value**
         `,
-                exercise: {
-                    prompt: 'Write code that displays if 5 is less than 10. Hint: display "true" or display "false"',
-                    type: 'code',
-                    expectedOutput: 'true',
-                    hint: 'Write: if 5 is less than 10 then\\n    display "true"\\nend if'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write code that displays if 5 is less than 10. Hint: display "true" or display "false"',
+                        type: 'code',
+                        expectedOutput: 'true',
+                        hint: 'Write: if 5 is less than 10 then\\n    display "true"\\nend if'
+                    },
+                    {
+                        prompt: 'What is the result of: 8 is greater than 8?',
+                        type: 'multiple-choice',
+                        options: ['true value', 'false value'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is the result of: 8 is greater than or equal to 8?',
+                        type: 'multiple-choice',
+                        options: ['true value', 'false value'],
+                        answer: 0
+                    }
+                ]
             },
             {
                 id: 'logic-4',
@@ -160,12 +202,32 @@ Reverses the value:
 | false | true | true |
 | false | false | false |
         `,
-                exercise: {
-                    prompt: 'If A is true and B is false, what is "A and B"?',
-                    type: 'multiple-choice',
-                    options: ['true value', 'false value'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'If A is true and B is false, what is "A and B"?',
+                        type: 'multiple-choice',
+                        options: ['true value', 'false value'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'If A is true and B is false, what is "A or B"?',
+                        type: 'multiple-choice',
+                        options: ['true value', 'false value'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'If A is false and B is false, what is "A or B"?',
+                        type: 'multiple-choice',
+                        options: ['true value', 'false value'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'If "raining" is true, what is "NOT raining"?',
+                        type: 'multiple-choice',
+                        options: ['true value', 'false value'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'logic-5',
@@ -201,12 +263,26 @@ otherwise
 end if
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What would this code do if x = 5?\n\nif x is equal to 5 then\n    display "Found it!"\nend if',
-                    type: 'multiple-choice',
-                    options: ['Display "Found it!"', 'Display nothing', 'Show an error', 'Display "x"'],
-                    answer: 0
-                }
+                exercises: [
+                    {
+                        prompt: 'What would this code do if x = 5?\n\nif x is equal to 5 then\n    display "Found it!"\nend if',
+                        type: 'multiple-choice',
+                        options: ['Display "Found it!"', 'Display nothing', 'Show an error', 'Display "x"'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What would this code do if age = 16?\n\nif age is greater than or equal to 18 then\n    display "You can vote"\notherwise\n    display "You cannot vote yet"\nend if',
+                        type: 'multiple-choice',
+                        options: ['Display "You can vote"', 'Display "You cannot vote yet"', 'Display nothing', 'Show an error'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What keyword do we use for the "else" case in our natural language?',
+                        type: 'multiple-choice',
+                        options: ['else', 'otherwise', 'or else', 'then not'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'logic-6',
@@ -241,12 +317,26 @@ Now score is 10!
 - No spaces allowed
 - Start with a letter
         `,
-                exercise: {
-                    prompt: 'Create a variable called "age" set to 25, then display it.',
-                    type: 'code',
-                    expectedOutput: '25',
-                    hint: 'First: create variable age to 25\\nThen: display age'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a variable called "age" set to 25, then display it.',
+                        type: 'code',
+                        expectedOutput: '25',
+                        hint: 'First: create variable age to 25\\nThen: display age'
+                    },
+                    {
+                        prompt: 'If score is 10, what is score after: set score to score plus 5?',
+                        type: 'multiple-choice',
+                        options: ['10', '15', '5', 'score plus 5'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Which is a valid variable name?',
+                        type: 'multiple-choice',
+                        options: ['player name', '1stPlayer', 'playerName', 'player-name'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'logic-7',
@@ -285,12 +375,26 @@ for each item in list fruits do
 end loop
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Write a loop that repeats 3 times and displays "Hi"',
-                    type: 'code',
-                    expectedOutput: 'Hi\nHi\nHi',
-                    hint: 'Use: repeat 3 times\\n    display "Hi"\\nend loop'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write a loop that repeats 3 times and displays "Hi"',
+                        type: 'code',
+                        expectedOutput: 'Hi\nHi\nHi',
+                        hint: 'Use: repeat 3 times\\n    display "Hi"\\nend loop'
+                    },
+                    {
+                        prompt: 'How many times will this display "Hello"?\n\nrepeat 4 times\n    display "Hello"\nend loop',
+                        type: 'multiple-choice',
+                        options: ['1 time', '3 times', '4 times', '5 times'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What type of loop goes through each item in a list?',
+                        type: 'multiple-choice',
+                        options: ['repeat N times', 'repeat while', 'for each', 'do until'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'logic-8',
@@ -334,12 +438,26 @@ create variable sum to add 5, 3
 \`\`\`
 sum is now 8
         `,
-                exercise: {
-                    prompt: 'Define a function called "shout" that displays "WOW!", then call it.',
-                    type: 'code',
-                    expectedOutput: 'WOW!',
-                    hint: 'Define the function, then call it: shout'
-                }
+                exercises: [
+                    {
+                        prompt: 'Define a function called "shout" that displays "WOW!", then call it.',
+                        type: 'code',
+                        expectedOutput: 'WOW!',
+                        hint: 'Define the function, then call it: shout'
+                    },
+                    {
+                        prompt: 'What does the "return" keyword do in a function?',
+                        type: 'multiple-choice',
+                        options: ['Displays a value', 'Sends a value back to the caller', 'Creates a variable', 'Ends the program'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What would add(3, 7) return if add is defined as:\ndefine function add with parameters a, b\n    return a plus b\nend function',
+                        type: 'multiple-choice',
+                        options: ['3', '7', '10', 'a plus b'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'logic-9',
@@ -376,12 +494,26 @@ for each fruit in list fruits do
 end loop
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create a list of colors and display each one.',
-                    type: 'code',
-                    expectedOutput: 'red\nblue\ngreen',
-                    hint: 'Create list, then use: for each color in list colors do\\n    display color\\nend loop'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a list of colors and display each one.',
+                        type: 'code',
+                        expectedOutput: 'red\nblue\ngreen',
+                        hint: 'Create list, then use: for each color in list colors do\\n    display color\\nend loop'
+                    },
+                    {
+                        prompt: 'What index is the first item in a list?',
+                        type: 'multiple-choice',
+                        options: ['0', '1', '-1', 'first'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'If fruits = ["apple", "banana", "orange"], what is get item 1 from fruits?',
+                        type: 'multiple-choice',
+                        options: ['apple', 'banana', 'orange', 'Error'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'logic-10',
@@ -417,12 +549,26 @@ Output: The largest number is: 9
 - Conditions ✓
 - Comparisons ✓
         `,
-                exercise: {
-                    prompt: 'What will this code display if numbers is [3, 7, 2]?',
-                    type: 'multiple-choice',
-                    options: ['3', '7', '2', '12'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What will this code display if numbers is [3, 7, 2]?',
+                        type: 'multiple-choice',
+                        options: ['3', '7', '2', '12'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'In the "find largest" algorithm, why do we start with largest = first item?',
+                        type: 'multiple-choice',
+                        options: ['It is always the largest', 'We need a starting point to compare against', 'Lists always start with the largest', 'It does not matter'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What programming concepts did we combine in this lesson?',
+                        type: 'multiple-choice',
+                        options: ['Only variables', 'Only loops', 'Variables, lists, loops, and conditions', 'Only functions'],
+                        answer: 2
+                    }
+                ]
             }
         ]
     },
