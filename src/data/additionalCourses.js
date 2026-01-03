@@ -34,7 +34,8 @@ Firebase is a Backend-as-a-Service (BaaS) platform by Google.
 - Scales automatically
 - Free tier available
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Firebase is a Backend-as-a-Service. What does that mean?',
                     type: 'multiple-choice',
                     options: [
@@ -45,6 +46,7 @@ Firebase is a Backend-as-a-Service (BaaS) platform by Google.
                     ],
                     answer: 1
                 }
+                ]
             },
             {
                 id: 'firebase-2',
@@ -69,13 +71,15 @@ sign in with email and password
 sign out current user
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write the command to create a new user account.',
                     type: 'code',
                     language: 'javascript',
                     expectedOutput: 'create user with email and password',
                     hint: 'Use: create user with email and password'
                 }
+                ]
             },
             {
                 id: 'firebase-3',
@@ -100,13 +104,15 @@ update document "user123" set role to "admin" end update
 delete document "user123" from collection "users"
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write command to add a document to "products" with name: "Laptop".',
                     type: 'code',
                     language: 'natural',
                     expectedOutput: 'add document to collection "products" with data name: "Laptop" end add',
                     hint: 'Use: add document to collection "name" with data field: value end add'
                 }
+                ]
             },
             {
                 id: 'firebase-4',
@@ -137,7 +143,8 @@ match /collection/{documentId} {
 }
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What is the danger of "allow read, write: if true"?',
                     type: 'multiple-choice',
                     options: [
@@ -148,6 +155,7 @@ match /collection/{documentId} {
                     ],
                     answer: 1
                 }
+                ]
             },
             {
                 id: 'firebase-5',
@@ -175,13 +183,15 @@ match /posts/{postId} {
 - \`request.auth != null\` = user is logged in
 - If not logged in, request.auth is null
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write a condition that checks if a user is logged in.',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'request.auth != null',
                     hint: 'Check if request.auth is not null'
                 }
+                ]
             },
             {
                 id: 'firebase-6',
@@ -205,13 +215,15 @@ match /users/{userId} {
 2. \`request.auth.uid\` is logged-in user's ID
 3. They must match for access
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write a rule condition allowing access only when user ID matches document userId.',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'request.auth.uid == userId',
                     hint: 'Compare request.auth.uid with userId'
                 }
+                ]
             },
             {
                 id: 'firebase-7',
@@ -238,13 +250,15 @@ allow create: if request.auth != null;
 allow update, delete: if request.auth.uid == resource.data.authorId;
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write rules: anyone can read, only authenticated users can write.',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'allow read: if true; allow write: if request.auth != null;',
                     hint: 'Separate read and write rules'
                 }
+                ]
             },
             {
                 id: 'firebase-8',
@@ -273,13 +287,15 @@ allow create: if request.resource.data.title.size() <= 100;
 allow write: if request.resource.data.status in ['draft', 'published'];
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write validation ensuring title is max 200 characters.',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'request.resource.data.title.size() <= 200',
                     hint: 'Use .size() for string length'
                 }
+                ]
             },
             {
                 id: 'firebase-9',
@@ -302,13 +318,15 @@ allow write: if request.auth.token.admin == true;
 - **moderator**: Read + create + edit others
 - **admin**: Full access
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write a condition checking if user has admin claim.',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'request.auth.token.admin == true',
                     hint: 'Access admin from request.auth.token'
                 }
+                ]
             }
         ]
     },
@@ -342,7 +360,8 @@ GitHub is a web platform for hosting Git repositories.
 - Repositories, Issues, Pull Requests
 - Actions (CI/CD), Pages (hosting)
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What is the main difference between Git and GitHub?',
                     type: 'multiple-choice',
                     options: [
@@ -353,6 +372,7 @@ GitHub is a web platform for hosting Git repositories.
                     ],
                     answer: 1
                 }
+                ]
             },
             {
                 id: 'github-2',
@@ -385,7 +405,8 @@ A license tells others what they can do with your code.
 - Patent protection? → **Apache 2.0**
 - Keep code open? → **GPL**
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Which license is best for maximum adoption with minimal restrictions?',
                     type: 'multiple-choice',
                     options: [
@@ -396,6 +417,7 @@ A license tells others what they can do with your code.
                     ],
                     answer: 1
                 }
+                ]
             },
             {
                 id: 'github-3',
@@ -417,13 +439,15 @@ Create file named LICENSE with license text.
 This project is licensed under the MIT License.
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What should you name the license file?',
                     type: 'code',
                     language: 'natural',
                     expectedOutput: 'LICENSE',
                     hint: 'All uppercase'
                 }
+                ]
             },
             {
                 id: 'github-4',
@@ -461,13 +485,15 @@ What actually happens
 - Browser: Safari 17.0
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write a clear bug title for: dark mode toggle sometimes works, page flickers.',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'Dark mode toggle',
                     hint: 'Be specific about component and behavior'
                 }
+                ]
             },
             {
                 id: 'github-5',
@@ -491,7 +517,8 @@ Public issues expose vulnerabilities to attackers.
 - Potential impact
 - Suggested fix
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Why should you NEVER post security vulnerabilities as public issues?',
                     type: 'multiple-choice',
                     options: [
@@ -502,6 +529,7 @@ Public issues expose vulnerabilities to attackers.
                     ],
                     answer: 1
                 }
+                ]
             },
             {
                 id: 'github-6',
@@ -531,13 +559,15 @@ Report via:
 - Status update: 7 days
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What folder should SECURITY.md be placed in?',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: '.github',
                     hint: 'Starts with a dot'
                 }
+                ]
             },
             {
                 id: 'github-7',
@@ -565,13 +595,15 @@ git commit -m "Add new button"
 git push origin feature/new-button
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write command to create branch "bugfix/login-error".',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'git checkout -b bugfix/login-error',
                     hint: 'Use: git checkout -b <branch-name>'
                 }
+                ]
             },
             {
                 id: 'github-8',
@@ -602,13 +634,15 @@ A clear description of the bug.
 What should happen.
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What folder should issue templates be in?',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: '.github/ISSUE_TEMPLATE',
                     hint: 'Inside .github folder'
                 }
+                ]
             },
             {
                 id: 'github-9',
@@ -640,13 +674,15 @@ jobs:
 - **jobs**: Parallel work units
 - **steps**: Sequential tasks
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What keyword specifies when the workflow runs?',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'on',
                     hint: 'Two-letter keyword'
                 }
+                ]
             },
             {
                 id: 'github-10',
@@ -673,13 +709,15 @@ updates:
 - Creates PRs to update
 - Runs CI on updates
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What is the filename for Dependabot config?',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'dependabot.yml',
                     hint: 'YAML file in .github'
                 }
+                ]
             }
         ]
     },
@@ -718,12 +756,14 @@ VS Code is a free, powerful code editor.
 - Command Palette: Ctrl/Cmd + Shift + P
 - Settings: Ctrl/Cmd + ,
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What shortcut opens the Command Palette?',
                     type: 'multiple-choice',
                     options: ['Ctrl + P', 'Ctrl + Shift + P', 'Ctrl + O', 'Ctrl + N'],
                     answer: 1
                 }
+                ]
             },
             {
                 id: 'vscode-2',
@@ -748,12 +788,14 @@ VS Code is a free, powerful code editor.
 - Alt + Click: Add cursor
 - Ctrl + Alt + Up/Down: Add cursor above/below
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What shortcut selects all occurrences of selected text?',
                     type: 'multiple-choice',
                     options: ['Ctrl + D', 'Ctrl + Shift + L', 'Ctrl + A', 'Alt + Click'],
                     answer: 1
                 }
+                ]
             },
             {
                 id: 'vscode-3',
@@ -778,12 +820,14 @@ Install: Ctrl + Shift + X
 - **Code Spell Checker**: Catch typos
 - **Path Intellisense**: Autocomplete paths
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Which extension auto-formats JavaScript on save?',
                     type: 'multiple-choice',
                     options: ['ESLint', 'Prettier', 'GitLens', 'Live Server'],
                     answer: 1
                 }
+                ]
             },
             {
                 id: 'vscode-4',
@@ -809,13 +853,15 @@ Open: Ctrl + Shift + P → "Open User Settings (JSON)"
 - **User**: All projects
 - **Workspace**: Only this project (.vscode/settings.json)
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'Write the setting to format code on save.',
                     type: 'code',
                     language: 'natural',
                     expectedOutput: 'editor.formatOnSave',
                     hint: 'Starts with editor.'
                 }
+                ]
             },
             {
                 id: 'vscode-5',
@@ -837,13 +883,15 @@ Open: Ctrl + Shift + P → "Open User Settings (JSON)"
 - Ctrl + \`: Toggle terminal
 - Ctrl + Shift + \`: New terminal
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What shortcut toggles the terminal?',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'Ctrl + `',
                     hint: 'Uses backtick key'
                 }
+                ]
             },
             {
                 id: 'vscode-6',
@@ -865,7 +913,8 @@ Code pauses here during debugging
 - ⏬ Step Into: Go inside function
 - ⏫ Step Out: Exit function
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'How do you pause execution on line 42?',
                     type: 'multiple-choice',
                     options: [
@@ -876,6 +925,7 @@ Code pauses here during debugging
                     ],
                     answer: 1
                 }
+                ]
             },
             {
                 id: 'vscode-7',
@@ -906,13 +956,15 @@ project/
 }
 \`\`\`
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What file specifies recommended extensions for the team?',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'extensions.json',
                     hint: 'Has "extensions" in name'
                 }
+                ]
             },
             {
                 id: 'vscode-8',
@@ -940,13 +992,15 @@ Create: .vscode/tasks.json
 ## Run Tasks:
 - Ctrl + Shift + B: Run build task
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What shortcut runs the default build task?',
                     type: 'code',
                     language: 'natural',
                         expectedOutput: 'Ctrl + Shift + B',
                     hint: 'Ctrl + Shift + B for Build'
                 }
+                ]
             },
             {
                 id: 'vscode-9',
@@ -968,7 +1022,8 @@ Create: .vscode/tasks.json
 - Accept Incoming Change
 - Accept Both Changes
                 `,
-                exercise: {
+                exercises: [
+                    {
                     prompt: 'What does a blue bar in the gutter indicate?',
                     type: 'multiple-choice',
                     options: [
@@ -979,6 +1034,7 @@ Create: .vscode/tasks.json
                     ],
                     answer: 2
                 }
+                ]
             }
         ]
     },

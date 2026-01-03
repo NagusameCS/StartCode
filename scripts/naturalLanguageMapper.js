@@ -151,12 +151,12 @@ export const naturalLanguagePatterns = {
 // Convert code to natural language
 export function codeToNatural(code, language) {
     if (!language || language === 'natural') return code;
-    
+
     const langPatterns = naturalLanguagePatterns[language];
     if (!langPatterns) return code;
 
     let natural = code;
-    
+
     // Apply pattern replacements
     for (const pattern of langPatterns.patterns) {
         natural = natural.replace(pattern.code, pattern.natural);
@@ -168,12 +168,12 @@ export function codeToNatural(code, language) {
 // Convert natural language to code
 export function naturalToCode(natural, language) {
     if (!language || language === 'natural') return natural;
-    
+
     const langPatterns = naturalLanguagePatterns[language];
     if (!langPatterns) return natural;
 
     let code = natural;
-    
+
     // Reverse pattern replacements
     for (const pattern of langPatterns.patterns) {
         // This is a simplified reverse - real implementation would be more sophisticated
@@ -187,19 +187,19 @@ export function naturalToCode(natural, language) {
 export function shouldUseNaturalLanguage(exercise, lessonStage) {
     // Use natural language for early stage lessons (1-2)
     if (lessonStage <= 2) return true;
-    
+
     // Use natural language for specific exercise types
     if (exercise.type === 'code' && exercise.language === 'natural') return true;
-    
+
     // Check if the code is simple enough for natural language
     if (exercise.expectedOutput) {
         const lines = exercise.expectedOutput.split('\n').length;
         const complexity = exercise.expectedOutput.length;
-        
+
         // Simple, short code snippets are good candidates
         if (lines <= 3 && complexity < 100) return true;
     }
-    
+
     return false;
 }
 

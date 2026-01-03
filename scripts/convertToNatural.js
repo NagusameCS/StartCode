@@ -57,7 +57,7 @@ const templates = {
             prompt: `Define a function called "${name}" ${params.length ? `with parameters ${params.join(', ')}` : 'with no parameters'}`,
             type: 'code',
             language: 'natural',
-            hint: params.length 
+            hint: params.length
                 ? `define function ${name} with parameters ${params.join(', ')}\\n    ${body}\\nend function`
                 : `define function ${name} with no parameters\\n    ${body}\\nend function`
         })
@@ -158,7 +158,7 @@ const templates = {
             prompt: `Style ${selector} with multiple properties`,
             type: 'code',
             language: 'natural',
-            hint: `style ${selector}\\n${Object.entries(styles).map(([k,v]) => `    ${k} is "${v}"`).join('\\n')}\\nend style`
+            hint: `style ${selector}\\n${Object.entries(styles).map(([k, v]) => `    ${k} is "${v}"`).join('\\n')}\\nend style`
         })
     },
 
@@ -250,20 +250,20 @@ const templates = {
 function canConvertToNatural(exercise, courseLanguage) {
     // Already natural
     if (exercise.language === 'natural') return false;
-    
+
     // Multiple choice doesn't need conversion
     if (exercise.type === 'multiple-choice') return false;
-    
+
     // Terminal commands stay as-is
     if (exercise.type === 'terminal') return false;
-    
+
     // Code exercises can be converted
     if (exercise.type === 'code') {
         // Check if language is supported
         const supportedLanguages = ['python', 'javascript', 'java', 'html', 'css', 'sql', 'bash', 'ruby', 'php'];
         return supportedLanguages.includes(courseLanguage) || supportedLanguages.includes(exercise.language);
     }
-    
+
     return false;
 }
 
@@ -273,10 +273,10 @@ function canConvertToNatural(exercise, courseLanguage) {
 function convertExercise(exercise, courseLanguage) {
     const lang = exercise.language || courseLanguage;
     const langTemplates = templates[lang] || templates.generic;
-    
+
     // Analyze the prompt to determine what type of exercise it is
     const prompt = exercise.prompt.toLowerCase();
-    
+
     // Display/Print exercises
     if (prompt.includes('display') || prompt.includes('print') || prompt.includes('output') || prompt.includes('show')) {
         // Extract what to display
@@ -286,7 +286,7 @@ function convertExercise(exercise, courseLanguage) {
             return { ...converted, prompt: exercise.prompt };
         }
     }
-    
+
     // Variable exercises
     if (prompt.includes('variable') || prompt.includes('create') || prompt.includes('store')) {
         return {
@@ -295,7 +295,7 @@ function convertExercise(exercise, courseLanguage) {
             hint: exercise.hint || 'Use: create variable name to value'
         };
     }
-    
+
     // Conditional exercises
     if (prompt.includes('if ') || prompt.includes('condition') || prompt.includes('check')) {
         return {
@@ -304,7 +304,7 @@ function convertExercise(exercise, courseLanguage) {
             hint: exercise.hint || 'Use: if condition then ... end if'
         };
     }
-    
+
     // Loop exercises
     if (prompt.includes('loop') || prompt.includes('repeat') || prompt.includes('times') || prompt.includes('iterate')) {
         return {
@@ -313,7 +313,7 @@ function convertExercise(exercise, courseLanguage) {
             hint: exercise.hint || 'Use: repeat N times ... end repeat'
         };
     }
-    
+
     // Function exercises
     if (prompt.includes('function') || prompt.includes('define') || prompt.includes('method')) {
         return {
@@ -322,7 +322,7 @@ function convertExercise(exercise, courseLanguage) {
             hint: exercise.hint || 'Use: define function name with parameters ... end function'
         };
     }
-    
+
     // Default: just add natural language marker
     return {
         ...exercise,
@@ -336,20 +336,20 @@ function convertExercise(exercise, courseLanguage) {
  */
 function processFile(filePath, dryRun = false) {
     console.log(`Processing: ${filePath}`);
-    
+
     let content = fs.readFileSync(filePath, 'utf-8');
     let convertedCount = 0;
     let skippedCount = 0;
-    
+
     // Find all exercises in the file
     // This is a simplified approach - in reality we'd parse the JS properly
-    
+
     // Pattern to find code exercises without language: 'natural'
     const exercisePattern = /(\{[^}]*type:\s*['"]code['"][^}]*\})/g;
-    
+
     const matches = content.match(exercisePattern) || [];
     console.log(`Found ${matches.length} potential code exercises`);
-    
+
     // For each match, check if it already has language: 'natural'
     for (const match of matches) {
         if (!match.includes("language: 'natural'") && !match.includes('language: "natural"')) {
@@ -369,11 +369,11 @@ function processFile(filePath, dryRun = false) {
             skippedCount++;
         }
     }
-    
+
     if (!dryRun && convertedCount > 0) {
         fs.writeFileSync(filePath, content);
     }
-    
+
     console.log(`  Converted: ${convertedCount}, Already natural: ${skippedCount}`);
     return { converted: convertedCount, skipped: skippedCount };
 }

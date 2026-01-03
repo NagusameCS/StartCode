@@ -785,7 +785,7 @@ export const hasNaturalLanguageSupport = (language) => {
 export const generateDisplayExample = (language, text) => {
     const syntax = naturalLanguageSyntax[language];
     if (!syntax || !syntax.display) return null;
-    
+
     return {
         natural: syntax.display.natural.replace('"text"', `"${text}"`),
         real: syntax.display.real.replace('"text"', `"${text}"`)
@@ -798,10 +798,10 @@ export const generateDisplayExample = (language, text) => {
 export const generateVariableExample = (language, name, value) => {
     const syntax = naturalLanguageSyntax[language];
     if (!syntax || !syntax.variable) return null;
-    
+
     const create = syntax.variable.create || syntax.variable.createInt || Object.values(syntax.variable)[0];
     const real = syntax.variable.realCreate || syntax.variable.realCreateInt || Object.values(syntax.variable).find(v => v.includes('='));
-    
+
     return {
         natural: create.replace('name', name).replace('value', value),
         real: real ? real.replace('name', name).replace('value', value) : null
