@@ -412,7 +412,7 @@ export const useAuthStore = create(
 
                     // Get the other account's data from Firestore
                     // The linked provider might have had its own account
-                    const linkedEmail = result.user.providerData.find(p => 
+                    const linkedEmail = result.user.providerData.find(p =>
                         p.providerId === `${providerName}.com`
                     )?.email;
 
@@ -436,16 +436,16 @@ export const useAuthStore = create(
                     const updatedProfile = await getUserProfileSafe(result.user);
                     set({ user: result.user, userProfile: updatedProfile });
 
-                    return { 
-                        success: true, 
-                        message: `${providerName} account linked successfully! Progress will be shared.` 
+                    return {
+                        success: true,
+                        message: `${providerName} account linked successfully! Progress will be shared.`
                     };
                 } catch (error) {
                     if (error.code === 'auth/credential-already-in-use') {
                         // This account exists separately - offer to merge progress
-                        const credential = GoogleAuthProvider.credentialFromError?.(error) || 
-                                          GithubAuthProvider.credentialFromError?.(error);
-                        
+                        const credential = GoogleAuthProvider.credentialFromError?.(error) ||
+                            GithubAuthProvider.credentialFromError?.(error);
+
                         throw new Error(
                             `This ${providerName} account already exists. ` +
                             `To merge, sign out and sign in with the ${providerName} account first, ` +

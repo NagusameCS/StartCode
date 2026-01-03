@@ -695,7 +695,7 @@
     .avatarGrid {
         grid-template-columns: repeat(4, 1fr);
     }
-    
+
     .customAvatarInput {
         flex-direction: column;
     }

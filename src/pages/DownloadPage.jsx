@@ -10,16 +10,19 @@ import {
     FiZap,
     FiShield,
     FiRefreshCw,
-    FiExternalLink
+    FiExternalLink,
+    FiLoader,
+    FiAlertCircle
 } from 'react-icons/fi';
 import { FaWindows, FaApple, FaLinux } from 'react-icons/fa';
 import Logo from '../components/Logo';
 import styles from './DownloadPage.module.css';
 
 const DownloadPage = () => {
-    const [selectedPlatform, setSelectedPlatform] = useState('windows');
     const [releaseInfo, setReleaseInfo] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [downloadingPlatform, setDownloadingPlatform] = useState(null);
 
     // Fetch latest release from GitHub
     useEffect(() => {
@@ -29,9 +32,14 @@ const DownloadPage = () => {
                 if (res.ok) {
                     const data = await res.json();
                     setReleaseInfo(data);
+                } else if (res.status === 404) {
+                    setError('No releases available yet');
+                } else {
+                    setError('Could not fetch release info');
                 }
             } catch (err) {
                 console.warn('Could not fetch release info:', err);
+                setError('Network error');
             } finally {
                 setLoading(false);
             }
@@ -39,30 +47,53 @@ const DownloadPage = () => {
         fetchRelease();
     }, []);
 
-    // Get download URL for platform
-    const getDownloadUrl = (platformId) => {
-        if (!releaseInfo?.assets) return null;
-        const patterns = {
-            windows: /\.exe$/i,
-            mac: /\.dmg$/i,
-            linux: /\.AppImage$/i
-        };
-        const asset = releaseInfo.assets.find(a => patterns[platformId]?.test(a.name));
-        return asset?.browser_download_url || null;
+    // Platform-specific file patterns (order matters - first match wins)
+    const platformPatterns = {
+        windows: [
+            { pattern: /\.exe$/i, label: 'Installer (.exe)' },
+            { pattern: /\.msi$/i, label: 'MSI Installer' },
+            { pattern: /-win.*\.zip$/i, label: 'Portable (.zip)' }
+        ],
+        mac: [
+            { pattern: /\.dmg$/i, label: 'Disk Image (.dmg)' },
+            { pattern: /-mac.*\.zip$/i, label: 'ZIP Archive' },
+            { pattern: /darwin.*\.zip$/i, label: 'ZIP Archive' }
+        ],
+        linux: [
+            { pattern: /\.AppImage$/i, label: 'AppImage' },
+            { pattern: /\.deb$/i, label: 'Debian (.deb)' },
+            { pattern: /\.rpm$/i, label: 'RPM Package' },
+            { pattern: /-linux.*\.tar\.gz$/i, label: 'Tarball' }
+        ]
     };
 
-    // Get file size for platform
-    const getFileSize = (platformId) => {
-        if (!releaseInfo?.assets) return 'Coming soon';
-        const patterns = {
-            windows: /\.exe$/i,
-            mac: /\.dmg$/i,
-            linux: /\.AppImage$/i
-        };
-        const asset = releaseInfo.assets.find(a => patterns[platformId]?.test(a.name));
-        if (!asset) return 'Coming soon';
-        const mb = (asset.size / (1024 * 1024)).toFixed(1);
-        return `${mb} MB`;
+    // Get all download assets for a platform
+    const getPlatformAssets = (platformId) => {
+        if (!releaseInfo?.assets) return [];
+        
+        const patterns = platformPatterns[platformId] || [];
+        const assets = [];
+        
+        for (const { pattern, label } of patterns) {
+            const asset = releaseInfo.assets.find(a => pattern.test(a.name));
+            if (asset) {
+                assets.push({
+                    name: asset.name,
+                    url: asset.browser_download_url,
+                    size: (asset.size / (1024 * 1024)).toFixed(1) + ' MB',
+                    downloadCount: asset.download_count,
+                    label
+                });
+            }
+        }
+        
+        return assets;
+    };
+
+    // Get primary download for platform (first available)
+    const getPrimaryDownload = (platformId) => {
+        const assets = getPlatformAssets(platformId);
+        return assets[0] || null;
     };
 
     const platforms = [
@@ -70,19 +101,22 @@ const DownloadPage = () => {
             id: 'windows',
             name: 'Windows',
             icon: FaWindows,
-            version: '10, 11',
+            version: 'Windows 10, 11',
+            color: '#0078D4'
         },
         {
             id: 'mac',
             name: 'macOS',
             icon: FaApple,
-            version: '11+',
+            version: 'macOS 11+',
+            color: '#555555'
         },
         {
             id: 'linux',
             name: 'Linux',
             icon: FaLinux,
             version: 'Ubuntu, Fedora, etc.',
+            color: '#FCC624'
         }
     ];
 
@@ -114,31 +148,22 @@ const DownloadPage = () => {
         }
     ];
 
-    const selectedPlatformData = platforms.find(p => p.id === selectedPlatform);
-    const downloadUrl = getDownloadUrl(selectedPlatform);
-    const fileSize = getFileSize(selectedPlatform);
-
-    const handleDownload = (platformId) => {
-        const url = getDownloadUrl(platformId || selectedPlatform);
-        if (url) {
-            window.location.href = url;
-        } else {
-            toast?.error?.('Download not available yet') || alert('Download not available yet');
-        }
+    // Handle download click
+    const handleDownload = (url, platformId) => {
+        if (!url) return;
+        setDownloadingPlatform(platformId);
+        
+        // Create a temporary link and click it
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = '';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Reset after a delay
+        setTimeout(() => setDownloadingPlatform(null), 2000);
     };
-
-    // Get all available downloads
-    const getAvailableDownloads = () => {
-        if (!releaseInfo?.assets) return [];
-        return platforms.map(p => ({
-            ...p,
-            url: getDownloadUrl(p.id),
-            size: getFileSize(p.id),
-            available: !!getDownloadUrl(p.id)
-        }));
-    };
-
-    const availableDownloads = getAvailableDownloads();
 
     return (
         <div className={styles.download}>
@@ -157,55 +182,129 @@ const DownloadPage = () => {
                 </p>
             </motion.div>
 
-            {/* Direct Download Buttons */}
+            {/* Download Section */}
             <motion.div
                 className={styles.platformSection}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
             >
-                <h2>Download for your platform</h2>
+                <h2>
+                    <FiDownload /> Download
+                    {releaseInfo && <span className={styles.versionBadge}>{releaseInfo.tag_name}</span>}
+                </h2>
 
-                <div className={styles.downloadButtons}>
-                    {platforms.map(platform => {
-                        const Icon = platform.icon;
-                        const url = getDownloadUrl(platform.id);
-                        const size = getFileSize(platform.id);
-                        const isAvailable = !!url;
+                {loading ? (
+                    <div className={styles.loadingState}>
+                        <FiLoader className={styles.spinner} />
+                        <span>Loading releases...</span>
+                    </div>
+                ) : error ? (
+                    <div className={styles.errorState}>
+                        <FiAlertCircle />
+                        <span>{error}</span>
+                        <a 
+                            href="https://github.com/NagusameCS/StartCode/releases" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="btn btn-secondary"
+                        >
+                            View on GitHub <FiExternalLink />
+                        </a>
+                    </div>
+                ) : (
+                    <div className={styles.downloadGrid}>
+                        {platforms.map(platform => {
+                            const Icon = platform.icon;
+                            const primaryDownload = getPrimaryDownload(platform.id);
+                            const allAssets = getPlatformAssets(platform.id);
+                            const isDownloading = downloadingPlatform === platform.id;
+                            const isAvailable = !!primaryDownload;
 
-                        return (
-                            <button
-                                key={platform.id}
-                                className={`${styles.downloadButton} ${!isAvailable ? styles.unavailable : ''}`}
-                                onClick={() => handleDownload(platform.id)}
-                                disabled={loading || !isAvailable}
-                            >
-                                <Icon className={styles.platformBtnIcon} />
-                                <div className={styles.downloadBtnInfo}>
-                                    <span className={styles.downloadBtnName}>
-                                        {isAvailable ? `Download for ${platform.name}` : `${platform.name} (Coming Soon)`}
-                                    </span>
-                                    <span className={styles.downloadBtnSize}>
-                                        {loading ? 'Loading...' : size}
-                                    </span>
+                            return (
+                                <div 
+                                    key={platform.id} 
+                                    className={`${styles.platformCard} ${!isAvailable ? styles.unavailable : ''}`}
+                                >
+                                    <div className={styles.platformHeader}>
+                                        <Icon className={styles.platformIcon} style={{ color: platform.color }} />
+                                        <div className={styles.platformInfo}>
+                                            <h3>{platform.name}</h3>
+                                            <span className={styles.platformVersion}>{platform.version}</span>
+                                        </div>
+                                    </div>
+
+                                    {isAvailable ? (
+                                        <>
+                                            <button
+                                                className={styles.primaryDownloadBtn}
+                                                onClick={() => handleDownload(primaryDownload.url, platform.id)}
+                                                disabled={isDownloading}
+                                            >
+                                                {isDownloading ? (
+                                                    <>
+                                                        <FiLoader className={styles.spinner} />
+                                                        Starting download...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <FiDownload />
+                                                        Download {primaryDownload.label}
+                                                    </>
+                                                )}
+                                            </button>
+                                            <div className={styles.downloadMeta}>
+                                                <span className={styles.fileSize}>{primaryDownload.size}</span>
+                                                <span className={styles.fileName}>{primaryDownload.name}</span>
+                                            </div>
+
+                                            {allAssets.length > 1 && (
+                                                <div className={styles.altDownloads}>
+                                                    <span>Other formats:</span>
+                                                    {allAssets.slice(1).map(asset => (
+                                                        <a
+                                                            key={asset.name}
+                                                            href={asset.url}
+                                                            className={styles.altDownloadLink}
+                                                            download
+                                                        >
+                                                            {asset.label} ({asset.size})
+                                                        </a>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </>
+                                    ) : (
+                                        <div className={styles.comingSoon}>
+                                            <span>Coming Soon</span>
+                                            <p>This platform build is not yet available</p>
+                                        </div>
+                                    )}
                                 </div>
-                                {isAvailable && <FiDownload className={styles.downloadIcon} />}
-                            </button>
-                        );
-                    })}
-                </div>
+                            );
+                        })}
+                    </div>
+                )}
 
-                <p className={styles.note}>
-                    {releaseInfo ? `Version ${releaseInfo.tag_name}` : 'Latest version'} • 
-                    <a 
-                        href="https://github.com/NagusameCS/StartCode/releases" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className={styles.releasesLink}
-                    >
-                        View all releases
-                    </a>
-                </p>
+                {releaseInfo && (
+                    <div className={styles.releaseInfo}>
+                        <p>
+                            Released {new Date(releaseInfo.published_at).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            })}
+                        </p>
+                        <a 
+                            href={releaseInfo.html_url}
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className={styles.releaseLink}
+                        >
+                            View release notes <FiExternalLink />
+                        </a>
+                    </div>
+                )}
             </motion.div>
 
             {/* Features */}

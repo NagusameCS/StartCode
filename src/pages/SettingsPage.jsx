@@ -312,8 +312,8 @@ const SettingsPage = () => {
                                     <span>{displayName?.[0] || '?'}</span>
                                 )}
                             </div>
-                            <button 
-                                type="button" 
+                            <button
+                                type="button"
                                 className={styles.changeAvatarBtn}
                                 onClick={() => setShowAvatarPicker(!showAvatarPicker)}
                             >
@@ -337,7 +337,7 @@ const SettingsPage = () => {
                                         </button>
                                     ))}
                                 </div>
-                                
+
                                 <div className={styles.customAvatarSection}>
                                     <h4>Or use a custom URL</h4>
                                     <div className={styles.customAvatarInput}>
