@@ -15,7 +15,9 @@ import {
     FiEye,
     FiEyeOff,
     FiZap,
-    FiUsers
+    FiUsers,
+    FiLink,
+    FiAlertTriangle
 } from 'react-icons/fi';
 import { FaGoogle, FaMicrosoft, FaApple } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
@@ -29,7 +31,7 @@ import toast from 'react-hot-toast';
 import styles from './SettingsPage.module.css';
 
 const SettingsPage = () => {
-    const { user, userProfile, logout, updateProfile } = useAuthStore();
+    const { user, userProfile, logout, updateProfile, linkProvider, getLinkedProviders, canMergeAccounts } = useAuthStore();
     const { currentTheme, setTheme } = useThemeStore();
     const { expertMode, toggleExpertMode } = useProgressStore();
     const { isTeacherMode, toggleTeacherMode } = useTeacherStore();
@@ -42,6 +44,11 @@ const SettingsPage = () => {
     );
     const [avatarSource, setAvatarSource] = useState(userProfile?.avatarSource || 'default');
     const [saving, setSaving] = useState(false);
+    const [linking, setLinking] = useState(false);
+    const [showMergeConfirm, setShowMergeConfirm] = useState(null);
+
+    // Get currently linked providers
+    const linkedProviders = getLinkedProviders ? getLinkedProviders() : [];
 
     const themeIcons = {
         light: FiSun,
@@ -90,6 +97,37 @@ const SettingsPage = () => {
             ...prev,
             [provider]: !prev[provider]
         }));
+    };
+
+    // Handle merging/linking accounts
+    const handleMergeAccount = async (providerName) => {
+        if (!linkProvider) {
+            toast.error('Account linking not available');
+            return;
+        }
+
+        // Check if already linked
+        const providerIds = {
+            google: 'google.com',
+            github: 'github.com',
+            email: 'password'
+        };
+
+        if (linkedProviders.includes(providerIds[providerName])) {
+            toast.error(`${providerName} is already linked to this account`);
+            return;
+        }
+
+        setLinking(true);
+        try {
+            const result = await linkProvider(providerName);
+            toast.success(result.message || `${providerName} account linked successfully!`);
+            setShowMergeConfirm(null);
+        } catch (error) {
+            toast.error(error.message || `Failed to link ${providerName} account`);
+        } finally {
+            setLinking(false);
+        }
     };
 
     // Delete account
@@ -286,7 +324,7 @@ const SettingsPage = () => {
                     </button>
                 </motion.section>
 
-                {/* Linked Accounts */}
+                {/* Linked Accounts / Account Merging */}
                 <motion.section
                     className={styles.section}
                     initial={{ opacity: 0, y: 20 }}
@@ -294,8 +332,64 @@ const SettingsPage = () => {
                     transition={{ delay: 0.3 }}
                 >
                     <h2>
-                        <FiLock /> Linked Accounts
+                        <FiLink /> Merge Accounts
                     </h2>
+                    <p>Link multiple sign-in methods to this account. <strong>This is permanent and cannot be undone.</strong></p>
+
+                    <div className={styles.mergeWarning}>
+                        <FiAlertTriangle />
+                        <span>Merging accounts is a permanent action. All linked accounts will share progress and data.</span>
+                    </div>
+
+                    <div className={styles.linkedAccounts}>
+                        {[
+                            { id: 'google', name: 'Google', icon: FaGoogle, providerId: 'google.com' },
+                            { id: 'github', name: 'GitHub', icon: FiGithub, providerId: 'github.com' }
+                        ].map(provider => {
+                            const Icon = provider.icon;
+                            const isLinked = linkedProviders.includes(provider.providerId);
+
+                            return (
+                                <div key={provider.id} className={`${styles.linkedAccount} ${isLinked ? styles.linked : ''}`}>
+                                    <Icon className={styles.providerIcon} />
+                                    <span>{provider.name}</span>
+                                    <div className={styles.linkStatus}>
+                                        {isLinked ? (
+                                            <span className={styles.linkedBadge}>
+                                                <FiCheck /> Linked
+                                            </span>
+                                        ) : showMergeConfirm === provider.id ? (
+                                            <div className={styles.confirmMerge}>
+                                                <span>Are you sure?</span>
+                                                <button
+                                                    className={styles.confirmBtn}
+                                                    onClick={() => handleMergeAccount(provider.id)}
+                                                    disabled={linking}
+                                                >
+                                                    {linking ? 'Linking...' : 'Yes, Link'}
+                                                </button>
+                                                <button
+                                                    className={styles.cancelBtn}
+                                                    onClick={() => setShowMergeConfirm(null)}
+                                                >
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <button
+                                                className={styles.mergeBtn}
+                                                onClick={() => setShowMergeConfirm(provider.id)}
+                                            >
+                                                <FiLink /> Merge
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <h3 className={styles.subHeading}>Account Visibility</h3>
                     <p>Control which linked accounts are visible on your profile</p>
 
                     <div className={styles.linkedAccounts}>

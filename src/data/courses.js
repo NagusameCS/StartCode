@@ -3977,13 +3977,29 @@ display "My favorite number is: " plus 7
 
 JavaScript can run in any web browser!
         `,
-                exercise: {
-                    prompt: 'Display "Welcome to JavaScript!"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Welcome to JavaScript!',
-                    hint: 'Use: display "Welcome to JavaScript!"'
-                }
+                exercises: [
+                    {
+                        prompt: 'Display "Welcome to JavaScript!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Welcome to JavaScript!',
+                        hint: 'Use: display "Welcome to JavaScript!"'
+                    },
+                    {
+                        prompt: 'Display the number 100',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '100',
+                        hint: 'Use: display 100'
+                    },
+                    {
+                        prompt: 'Display "JavaScript is fun!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'JavaScript is fun!',
+                        hint: 'Use: display "JavaScript is fun!"'
+                    }
+                ]
             },
             {
                 id: 'js-2',
@@ -4024,13 +4040,29 @@ Output:
 3
 2
         `,
-                exercise: {
-                    prompt: 'Create variable "game" set to "Chess" and display it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Chess',
-                    hint: 'create variable game to "Chess"\\ndisplay game'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable "game" set to "Chess" and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Chess',
+                        hint: 'create variable game to "Chess"\\ndisplay game'
+                    },
+                    {
+                        prompt: 'Create variable "age" set to 25 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '25',
+                        hint: 'create variable age to 25\\ndisplay age'
+                    },
+                    {
+                        prompt: 'Create variable "city" set to "Paris" and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Paris',
+                        hint: 'create variable city to "Paris"\\ndisplay city'
+                    }
+                ]
             },
             {
                 id: 'js-3',
@@ -4064,13 +4096,29 @@ Output: 10
 - Make code clearer
 - Use ALL_CAPS names by convention
         `,
-                exercise: {
-                    prompt: 'Create constant MAX_SCORE to 1000 and display it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '1000',
-                    hint: 'create constant MAX_SCORE to 1000\\ndisplay MAX_SCORE'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create constant MAX_SCORE to 1000 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '1000',
+                        hint: 'create constant MAX_SCORE to 1000\\ndisplay MAX_SCORE'
+                    },
+                    {
+                        prompt: 'Create constant SPEED_LIMIT to 65 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '65',
+                        hint: 'create constant SPEED_LIMIT to 65\\ndisplay SPEED_LIMIT'
+                    },
+                    {
+                        prompt: 'Create constant APP_NAME to "MyApp" and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'MyApp',
+                        hint: 'create constant APP_NAME to "MyApp"\\ndisplay APP_NAME'
+                    }
+                ]
             },
             {
                 id: 'js-4',
@@ -4108,13 +4156,29 @@ display area
 
 Output: 50
         `,
-                exercise: {
-                    prompt: 'Calculate 12 times 8 and display the result',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '96',
-                    hint: 'Use: display 12 times 8'
-                }
+                exercises: [
+                    {
+                        prompt: 'Calculate 12 times 8 and display the result',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '96',
+                        hint: 'Use: display 12 times 8'
+                    },
+                    {
+                        prompt: 'Calculate 100 divided by 4 and display the result',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '25',
+                        hint: 'Use: display 100 divided by 4'
+                    },
+                    {
+                        prompt: 'Calculate 50 plus 30 and display the result',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '80',
+                        hint: 'Use: display 50 plus 30'
+                    }
+                ]
             },
             {
                 id: 'js-5',
@@ -4156,13 +4220,29 @@ Output: Try again
 - is greater than or equal to
 - is less than or equal to
         `,
-                exercise: {
-                    prompt: 'Create variable points to 100. If points is greater than 50, display "Winner!"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Winner!',
-                    hint: 'if points is greater than 50 then\\n    display "Winner!"\\nend if'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable points to 100. If points is greater than 50, display "Winner!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Winner!',
+                        hint: 'if points is greater than 50 then\\n    display "Winner!"\\nend if'
+                    },
+                    {
+                        prompt: 'Create variable temp to 75. If temp is greater than 70, display "Warm day"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Warm day',
+                        hint: 'if temp is greater than 70 then\\n    display "Warm day"\\nend if'
+                    },
+                    {
+                        prompt: 'Create variable level to 5. If level is greater than or equal to 5, display "Boss fight!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Boss fight!',
+                        hint: 'if level is greater than or equal to 5 then\\n    display "Boss fight!"\\nend if'
+                    }
+                ]
             },
             {
                 id: 'js-6',
@@ -4201,13 +4281,29 @@ Output:
 2
 3
         `,
-                exercise: {
-                    prompt: 'Write a loop that displays "Go!" 3 times',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Go!\nGo!\nGo!',
-                    hint: 'repeat 3 times\\n    display "Go!"\\nend loop'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write a loop that displays "Go!" 3 times',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Go!\nGo!\nGo!',
+                        hint: 'repeat 3 times\\n    display "Go!"\\nend loop'
+                    },
+                    {
+                        prompt: 'Write a loop that displays "Hi!" 4 times',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Hi!\nHi!\nHi!\nHi!',
+                        hint: 'repeat 4 times\\n    display "Hi!"\\nend loop'
+                    },
+                    {
+                        prompt: 'Write a loop that displays "Yes!" 2 times',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Yes!\nYes!',
+                        hint: 'repeat 2 times\\n    display "Yes!"\\nend loop'
+                    }
+                ]
             },
             {
                 id: 'js-7',
@@ -4249,13 +4345,29 @@ Lives: 2
 Lives: 1
 Game Over!
         `,
-                exercise: {
-                    prompt: 'Create countdown from 5 to 1, then display "Blast off!"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '5\n4\n3\n2\n1\nBlast off!',
-                    hint: 'Create variable n to 5, repeat while n > 0, display n, decrease n, after loop display "Blast off!"'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create countdown from 5 to 1, then display "Blast off!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '5\n4\n3\n2\n1\nBlast off!',
+                        hint: 'Create variable n to 5, repeat while n > 0, display n, decrease n, after loop display "Blast off!"'
+                    },
+                    {
+                        prompt: 'Create variable x to 1. Repeat while x is less than 4, display x, then add 1 to x',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '1\n2\n3',
+                        hint: 'repeat while x is less than 4 do\\n    display x\\n    set x to x plus 1\\nend repeat'
+                    },
+                    {
+                        prompt: 'Create countdown from 3 to 1, then display "Done!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '3\n2\n1\nDone!',
+                        hint: 'Create variable n to 3, use while loop, display "Done!" at end'
+                    }
+                ]
             },
             {
                 id: 'js-8',
@@ -4293,13 +4405,29 @@ display get item 0 from fruits end get
 
 Output: apple (lists start at 0!)
         `,
-                exercise: {
-                    prompt: 'Create list of numbers 10, 20, 30 and display each one',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '10\n20\n30',
-                    hint: 'Create list, then: for each num in list numbers do\\n    display num\\nend loop'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create list of numbers 10, 20, 30 and display each one',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '10\n20\n30',
+                        hint: 'Create list, then: for each num in list numbers do\\n    display num\\nend loop'
+                    },
+                    {
+                        prompt: 'Create list with "cat", "dog", "fish" and display each one',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'cat\ndog\nfish',
+                        hint: 'for each pet in list pets do\\n    display pet\\nend loop'
+                    },
+                    {
+                        prompt: 'Create list with 1, 2, 3 and display each number',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '1\n2\n3',
+                        hint: 'for each n in list numbers do\\n    display n\\nend loop'
+                    }
+                ]
             },
             {
                 id: 'js-9',
@@ -4336,13 +4464,29 @@ Output:
 Hello, Alice!
 Hello, Bob!
         `,
-                exercise: {
-                    prompt: 'Define function "shout" that displays "YEAH!" and call it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'YEAH!',
-                    hint: 'define function shout with no parameters\\n    display "YEAH!"\\nend function\\nshout'
-                }
+                exercises: [
+                    {
+                        prompt: 'Define function "shout" that displays "YEAH!" and call it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'YEAH!',
+                        hint: 'define function shout with no parameters\\n    display "YEAH!"\\nend function\\nshout'
+                    },
+                    {
+                        prompt: 'Define function "hello" that displays "Hi there!" and call it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Hi there!',
+                        hint: 'define function hello with no parameters\\n    display "Hi there!"\\nend function\\nhello'
+                    },
+                    {
+                        prompt: 'Define function "cheer" that displays "Hooray!" and call it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Hooray!',
+                        hint: 'define function cheer with no parameters\\n    display "Hooray!"\\nend function\\ncheer'
+                    }
+                ]
             },
             // ============ STAGE 2: Introducing Symbols ============
             {
@@ -4378,13 +4522,29 @@ display 20 - 8
 
 Same result, less typing!
         `,
-                exercise: {
-                    prompt: 'Calculate 25 * 4 - 10 and display it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '90',
-                    hint: 'Use: display 25 * 4 - 10'
-                }
+                exercises: [
+                    {
+                        prompt: 'Calculate 25 * 4 - 10 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '90',
+                        hint: 'Use: display 25 * 4 - 10'
+                    },
+                    {
+                        prompt: 'Calculate 50 / 2 + 5 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '30',
+                        hint: 'Use: display 50 / 2 + 5'
+                    },
+                    {
+                        prompt: 'Calculate 100 - 20 * 3 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '40',
+                        hint: 'Use: display 100 - 20 * 3'
+                    }
+                ]
             },
             {
                 id: 'js-11',
@@ -4418,13 +4578,29 @@ if score >= 100 then
 
 Much shorter!
         `,
-                exercise: {
-                    prompt: 'Create variable x to 50. If x > 25, display "High"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'High',
-                    hint: 'Use: if x > 25 then'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable x to 50. If x > 25, display "High"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'High',
+                        hint: 'Use: if x > 25 then'
+                    },
+                    {
+                        prompt: 'Create variable y to 10. If y < 20, display "Low"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Low',
+                        hint: 'Use: if y < 20 then'
+                    },
+                    {
+                        prompt: 'Create variable z to 100. If z == 100, display "Perfect"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Perfect',
+                        hint: 'Use: if z == 100 then'
+                    }
+                ]
             },
             {
                 id: 'js-12',
@@ -4462,13 +4638,29 @@ Output:
 2
 3
         `,
-                exercise: {
-                    prompt: 'Create variable sum = 100. Subtract 30 from it. Display sum.',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '70',
-                    hint: 'create variable sum = 100\\nset sum = sum - 30\\ndisplay sum'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable sum = 100. Subtract 30 from it. Display sum.',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '70',
+                        hint: 'create variable sum = 100\\nset sum = sum - 30\\ndisplay sum'
+                    },
+                    {
+                        prompt: 'Create variable x = 10. Add 25 to it. Display x.',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '35',
+                        hint: 'create variable x = 10\\nset x = x + 25\\ndisplay x'
+                    },
+                    {
+                        prompt: 'Create variable val = 50. Multiply by 2. Display val.',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '100',
+                        hint: 'create variable val = 50\\nset val = val * 2\\ndisplay val'
+                    }
+                ]
             },
             {
                 id: 'js-13',
@@ -4499,13 +4691,29 @@ end if
 \`\`\`
 Output: Weekend!
         `,
-                exercise: {
-                    prompt: 'Create variable n = 15. If n >= 10 and n <= 20, display "In range"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'In range',
-                    hint: 'Use: if n >= 10 and n <= 20 then'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable n = 15. If n >= 10 and n <= 20, display "In range"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'In range',
+                        hint: 'Use: if n >= 10 and n <= 20 then'
+                    },
+                    {
+                        prompt: 'Create variable a = 5. If a < 3 or a > 4, display "Outside"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Outside',
+                        hint: 'Use: if a < 3 or a > 4 then'
+                    },
+                    {
+                        prompt: 'Create variable b = 0. If b == 0 and true value, display "Zero"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Zero',
+                        hint: 'Use: if b == 0 and true value then'
+                    }
+                ]
             },
             // ============ STAGE 3: Code-Like Structure ============
             {
@@ -4543,13 +4751,29 @@ console.log(name)
 console.log("Hi, " + name)
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Use console.log() to display "Real JavaScript!"',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: 'Real JavaScript!',
-                    hint: 'Use: console.log("Real JavaScript!")'
-                }
+                exercises: [
+                    {
+                        prompt: 'Use console.log() to display "Real JavaScript!"',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Real JavaScript!',
+                        hint: 'Use: console.log("Real JavaScript!")'
+                    },
+                    {
+                        prompt: 'Use console.log() to display the number 42',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '42',
+                        hint: 'Use: console.log(42)'
+                    },
+                    {
+                        prompt: 'Use console.log() to display 10 + 20',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '30',
+                        hint: 'Use: console.log(10 + 20)'
+                    }
+                ]
             },
             {
                 id: 'js-15',
@@ -4585,13 +4809,29 @@ Output:
 - \`let\` - can be changed
 - \`const\` - cannot be changed
         `,
-                exercise: {
-                    prompt: 'Create let message = "Hi" and console.log it',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: 'Hi',
-                    hint: 'let message = "Hi"\\nconsole.log(message)'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create let message = "Hi" and console.log it',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Hi',
+                        hint: 'let message = "Hi"\\nconsole.log(message)'
+                    },
+                    {
+                        prompt: 'Create const PI = 3.14 and console.log it',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '3.14',
+                        hint: 'const PI = 3.14\\nconsole.log(PI)'
+                    },
+                    {
+                        prompt: 'Create let count = 5, add 3 to it, and console.log it',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '8',
+                        hint: 'let count = 5\\ncount = count + 3\\nconsole.log(count)'
+                    }
+                ]
             },
             {
                 id: 'js-16',
@@ -4627,13 +4867,29 @@ Output: Adult
 - Code blocks use braces {}
 - No semicolons after braces
         `,
-                exercise: {
-                    prompt: 'Write JavaScript: let x = 15. If x > 10, log "Big"',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: 'Big',
-                    hint: 'let x = 15\\nif (x > 10) {\\n    console.log("Big")\\n}'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write JavaScript: let x = 15. If x > 10, log "Big"',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Big',
+                        hint: 'let x = 15\\nif (x > 10) {\\n    console.log("Big")\\n}'
+                    },
+                    {
+                        prompt: 'Write JavaScript: let y = 5. If y < 10, log "Small"',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Small',
+                        hint: 'let y = 5\\nif (y < 10) {\\n    console.log("Small")\\n}'
+                    },
+                    {
+                        prompt: 'Write JavaScript: let z = 100. If z == 100, log "Match!"',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Match!',
+                        hint: 'let z = 100\\nif (z == 100) {\\n    console.log("Match!")\\n}'
+                    }
+                ]
             },
             {
                 id: 'js-17',
@@ -4674,13 +4930,29 @@ for (let color of colors) {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Write a for loop that logs 0, 1, 2',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '0\n1\n2',
-                    hint: 'for (let i = 0; i < 3; i++) {\\n    console.log(i)\\n}'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write a for loop that logs 0, 1, 2',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '0\n1\n2',
+                        hint: 'for (let i = 0; i < 3; i++) {\\n    console.log(i)\\n}'
+                    },
+                    {
+                        prompt: 'Write a for loop that logs 1, 2, 3',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '1\n2\n3',
+                        hint: 'for (let i = 1; i <= 3; i++) {\\n    console.log(i)\\n}'
+                    },
+                    {
+                        prompt: 'Write a while loop that logs 5, 4, 3 (countdown)',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '5\n4\n3',
+                        hint: 'let i = 5\\nwhile (i >= 3) {\\n    console.log(i)\\n    i--\\n}'
+                    }
+                ]
             },
             {
                 id: 'js-18',
@@ -4723,13 +4995,29 @@ console.log(add(5, 3))
 
 Output: 8
         `,
-                exercise: {
-                    prompt: 'Write function double(n) that returns n * 2. Log double(7).',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '14',
-                    hint: 'function double(n) {\\n    return n * 2\\n}\\nconsole.log(double(7))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write function double(n) that returns n * 2. Log double(7).',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '14',
+                        hint: 'function double(n) {\\n    return n * 2\\n}\\nconsole.log(double(7))'
+                    },
+                    {
+                        prompt: 'Write function square(n) that returns n * n. Log square(5).',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '25',
+                        hint: 'function square(n) {\\n    return n * n\\n}\\nconsole.log(square(5))'
+                    },
+                    {
+                        prompt: 'Write function add(a, b) that returns a + b. Log add(10, 5).',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '15',
+                        hint: 'function add(a, b) {\\n    return a + b\\n}\\nconsole.log(add(10, 5))'
+                    }
+                ]
             },
             // ============ STAGE 4: Full JavaScript ============
             {
@@ -4772,13 +5060,29 @@ const adults = ages.filter(age => age >= 18)
 console.log(adults)  // [18, 25]
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create array [1, 2, 3], push 4, log the length',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '4',
-                    hint: 'const nums = [1, 2, 3]\\nnums.push(4)\\nconsole.log(nums.length)'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create array [1, 2, 3], push 4, log the length',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '4',
+                        hint: 'const nums = [1, 2, 3]\\nnums.push(4)\\nconsole.log(nums.length)'
+                    },
+                    {
+                        prompt: 'Create array [5, 10, 15], log the first element',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '5',
+                        hint: 'const nums = [5, 10, 15]\\nconsole.log(nums[0])'
+                    },
+                    {
+                        prompt: 'Create array [2, 4, 6], use map to triple each, log result',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '6,12,18',
+                        hint: 'const nums = [2, 4, 6]\\nconst tripled = nums.map(n => n * 3)\\nconsole.log(tripled.join(","))'
+                    }
+                ]
             },
             {
                 id: 'js-20',
@@ -4818,13 +5122,29 @@ for (let key in person) {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create object with name: "Bob" and score: 95. Log the score.',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '95',
-                    hint: 'const player = {name: "Bob", score: 95}\\nconsole.log(player.score)'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create object with name: "Bob" and score: 95. Log the score.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '95',
+                        hint: 'const player = {name: "Bob", score: 95}\\nconsole.log(player.score)'
+                    },
+                    {
+                        prompt: 'Create object with city: "Paris" and pop: 2000000. Log the city.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Paris',
+                        hint: 'const place = {city: "Paris", pop: 2000000}\\nconsole.log(place.city)'
+                    },
+                    {
+                        prompt: 'Create object with x: 10, y: 20. Log x + y.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '30',
+                        hint: 'const point = {x: 10, y: 20}\\nconsole.log(point.x + point.y)'
+                    }
+                ]
             },
             {
                 id: 'js-21',
@@ -4862,13 +5182,29 @@ Line 3\`
 console.log(message)
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create x = 10, y = 5. Log "Result: (x + y)" using template literal.',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: 'Result: 15',
-                    hint: 'const x = 10, y = 5\\nconsole.log(`Result: ${x + y}`)'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create x = 10, y = 5. Log "Result: (x + y)" using template literal.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Result: 15',
+                        hint: 'const x = 10, y = 5\\nconsole.log(`Result: ${x + y}`)'
+                    },
+                    {
+                        prompt: 'Create name = "Sam". Log "Hello, Sam!" using template literal.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Hello, Sam!',
+                        hint: 'const name = "Sam"\\nconsole.log(`Hello, ${name}!`)'
+                    },
+                    {
+                        prompt: 'Create a = 3, b = 4. Log "Product: 12" using template literal.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Product: 12',
+                        hint: 'const a = 3, b = 4\\nconsole.log(`Product: ${a * b}`)'
+                    }
+                ]
             },
             {
                 id: 'js-22',
@@ -4913,13 +5249,27 @@ function divide(a, b) {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Write try/catch: try JSON.parse("bad"), catch and log "Parse error"',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: 'Parse error',
-                    hint: 'try {\\n    JSON.parse("bad")\\n} catch (e) {\\n    console.log("Parse error")\\n}'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write try/catch: try JSON.parse("bad"), catch and log "Parse error"',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Parse error',
+                        hint: 'try {\\n    JSON.parse("bad")\\n} catch (e) {\\n    console.log("Parse error")\\n}'
+                    },
+                    {
+                        prompt: 'Which keyword is used to handle errors in JavaScript?',
+                        type: 'multiple-choice',
+                        options: ['error', 'catch', 'handle', 'except'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What block always executes regardless of errors?',
+                        type: 'multiple-choice',
+                        options: ['catch', 'finally', 'always', 'end'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'js-23',
@@ -4963,13 +5313,29 @@ Total: $7
 
 Keep building projects and exploring! 🎉
         `,
-                exercise: {
-                    prompt: 'Create function isEven(n) that returns true if n % 2 === 0. Log isEven(8).',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: 'true',
-                    hint: 'function isEven(n) {\\n    return n % 2 === 0\\n}\\nconsole.log(isEven(8))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create function isEven(n) that returns true if n % 2 === 0. Log isEven(8).',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'true',
+                        hint: 'function isEven(n) {\\n    return n % 2 === 0\\n}\\nconsole.log(isEven(8))'
+                    },
+                    {
+                        prompt: 'Create function isOdd(n) that returns true if n % 2 !== 0. Log isOdd(7).',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'true',
+                        hint: 'function isOdd(n) {\\n    return n % 2 !== 0\\n}\\nconsole.log(isOdd(7))'
+                    },
+                    {
+                        prompt: 'Create function triple(n) that returns n * 3. Log triple(4).',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '12',
+                        hint: 'function triple(n) {\\n    return n * 3\\n}\\nconsole.log(triple(4))'
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - ES6+ Features ============
             {
@@ -5023,13 +5389,28 @@ const user = { profile: { email: "a@b.com" } }
 const { profile: { email } } = user
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Destructure [10, 20, 30] to get first and second values, log their sum.',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '30',
-                    hint: 'const [first, second] = [10, 20, 30]\\nconsole.log(first + second)'
-                }
+                exercises: [
+                    {
+                        prompt: 'Destructure [10, 20, 30] to get first and second values, log their sum.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '30',
+                        hint: 'const [first, second] = [10, 20, 30]\\nconsole.log(first + second)'
+                    },
+                    {
+                        prompt: 'Destructure {x: 5, y: 10} and log x.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '5',
+                        hint: 'const {x, y} = {x: 5, y: 10}\\nconsole.log(x)'
+                    },
+                    {
+                        prompt: 'Which syntax destructures an array?',
+                        type: 'multiple-choice',
+                        options: ['const {a, b} = arr', 'const [a, b] = arr', 'const a, b = arr', 'const (a, b) = arr'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'js-25',
@@ -5078,13 +5459,28 @@ const { a, ...others } = { a: 1, b: 2, c: 3 }
 console.log(others)  // { b: 2, c: 3 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create function sum that takes any number of args and returns their sum. Test with 1, 2, 3.',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '6',
-                    hint: 'function sum(...nums) { return nums.reduce((a, b) => a + b, 0) }\\nconsole.log(sum(1, 2, 3))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create function sum that takes any number of args and returns their sum. Test with 1, 2, 3.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '6',
+                        hint: 'function sum(...nums) { return nums.reduce((a, b) => a + b, 0) }\\nconsole.log(sum(1, 2, 3))'
+                    },
+                    {
+                        prompt: 'Which operator spreads an array into individual elements?',
+                        type: 'multiple-choice',
+                        options: ['***', '...', ':::', '>>>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Combine [1, 2] and [3, 4] using spread operator and log length.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '4',
+                        hint: 'const combined = [...[1, 2], ...[3, 4]]\\nconsole.log(combined.length)'
+                    }
+                ]
             },
             {
                 id: 'js-26',
@@ -5138,13 +5534,28 @@ function sql(strings, ...values) {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Use template literal to log "5 + 3 = 8" using variables a=5 and b=3.',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '5 + 3 = 8',
-                    hint: 'const a = 5, b = 3\\nconsole.log(\`\${a} + \${b} = \${a + b}\`)'
-                }
+                exercises: [
+                    {
+                        prompt: 'Use template literal to log "5 + 3 = 8" using variables a=5 and b=3.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '5 + 3 = 8',
+                        hint: 'const a = 5, b = 3\\nconsole.log(\`\${a} + \${b} = \${a + b}\`)'
+                    },
+                    {
+                        prompt: 'What character is used for template literals in JavaScript?',
+                        type: 'multiple-choice',
+                        options: ['Single quote', 'Double quote', 'Backtick', 'Forward slash'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Create name="World" and log "Hello, World!" using template literal.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'Hello, World!',
+                        hint: 'const name = "World"\\nconsole.log(\`Hello, \${name}!\`)'
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Promises & Async ============
             {
@@ -5203,12 +5614,26 @@ Promise.race([slowRequest(), fastRequest()])
     .then(result => console.log("First result:", result))
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What method runs multiple promises in parallel?',
-                    type: 'multiple-choice',
-                    options: ['Promise.parallel()', 'Promise.all()', 'Promise.multi()', 'Promise.concurrent()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What method runs multiple promises in parallel?',
+                        type: 'multiple-choice',
+                        options: ['Promise.parallel()', 'Promise.all()', 'Promise.multi()', 'Promise.concurrent()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Which method returns the first promise to complete?',
+                        type: 'multiple-choice',
+                        options: ['Promise.first()', 'Promise.race()', 'Promise.fastest()', 'Promise.any()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method is called when a Promise fails?',
+                        type: 'multiple-choice',
+                        options: ['then()', 'catch()', 'finally()', 'error()'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'js-28',
@@ -5270,12 +5695,26 @@ const fetchData = async () => {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What keyword pauses execution until a promise resolves?',
-                    type: 'multiple-choice',
-                    options: ['wait', 'await', 'pause', 'sync'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What keyword pauses execution until a promise resolves?',
+                        type: 'multiple-choice',
+                        options: ['wait', 'await', 'pause', 'sync'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What keyword must precede a function that uses await?',
+                        type: 'multiple-choice',
+                        options: ['promise', 'async', 'wait', 'defer'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'How do you handle errors in async/await?',
+                        type: 'multiple-choice',
+                        options: ['try/catch', '.catch()', 'onError()', 'error callback'],
+                        answer: 0
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Closures & Scope ============
             {
@@ -5349,13 +5788,27 @@ console.log(double(5))  // 10
 console.log(triple(5))  // 15
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create a counter closure that returns incremented values. Call it twice.',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '1\n2',
-                    hint: 'function makeCounter() { let n = 0; return () => ++n }\\nconst c = makeCounter()\\nconsole.log(c())\\nconsole.log(c())'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a counter closure that returns incremented values. Call it twice.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '1\n2',
+                        hint: 'function makeCounter() { let n = 0; return () => ++n }\\nconst c = makeCounter()\\nconsole.log(c())\\nconsole.log(c())'
+                    },
+                    {
+                        prompt: 'What is a closure?',
+                        type: 'multiple-choice',
+                        options: ['A function that closes the program', 'A function that remembers its outer scope', 'A function without parameters', 'A function that runs once'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Why are closures useful?',
+                        type: 'multiple-choice',
+                        options: ['They make code run faster', 'They create private data', 'They reduce file size', 'They prevent all errors'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'js-30',
@@ -5418,12 +5871,26 @@ greet.call({ name: "Bob" })   // Hello, Bob
 greet.apply({ name: "Charlie" })  // Hello, Charlie
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What method permanently binds a function to a specific "this" value?',
-                    type: 'multiple-choice',
-                    options: ['call()', 'apply()', 'bind()', 'this()'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What method permanently binds a function to a specific "this" value?',
+                        type: 'multiple-choice',
+                        options: ['call()', 'apply()', 'bind()', 'this()'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Which function type automatically inherits "this" from its parent scope?',
+                        type: 'multiple-choice',
+                        options: ['Regular function', 'Arrow function', 'Constructor function', 'Generator function'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does "this" refer to in a method called on an object?',
+                        type: 'multiple-choice',
+                        options: ['The global object', 'The function itself', 'The object the method belongs to', 'undefined'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Classes ============
             {
@@ -5498,12 +5965,26 @@ console.log(counter.value)  // 1
 console.log(counter.#count) // Error! Private
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What prefix makes a class field private?',
-                    type: 'multiple-choice',
-                    options: ['_', '#', 'private', '@'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What prefix makes a class field private?',
+                        type: 'multiple-choice',
+                        options: ['_', '#', 'private', '@'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What keyword creates a class in JavaScript?',
+                        type: 'multiple-choice',
+                        options: ['class', 'Class', 'object', 'new'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What method is called when creating a new instance?',
+                        type: 'multiple-choice',
+                        options: ['init()', 'new()', 'constructor()', 'create()'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'js-32',
@@ -5569,12 +6050,26 @@ console.log(rex instanceof Animal)  // true
 console.log(rex instanceof Cat)     // false
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What keyword calls the parent class constructor?',
-                    type: 'multiple-choice',
-                    options: ['parent()', 'super()', 'base()', 'this()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What keyword calls the parent class constructor?',
+                        type: 'multiple-choice',
+                        options: ['parent()', 'super()', 'base()', 'this()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What keyword extends one class from another?',
+                        type: 'multiple-choice',
+                        options: ['inherits', 'extends', 'from', 'derives'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What operator checks if an object is an instance of a class?',
+                        type: 'multiple-choice',
+                        options: ['typeof', 'instanceof', 'istype', 'classof'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Array Methods ============
             {
@@ -5636,13 +6131,28 @@ console.log(nums.every(n => n % 2 === 0))  // true (all even)
 console.log(nums.some(n => n > 5))  // true (at least one > 5)
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Use reduce to find the product of [2, 3, 4].',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '24',
-                    hint: 'const nums = [2, 3, 4]\\nconsole.log(nums.reduce((a, b) => a * b))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Use reduce to find the product of [2, 3, 4].',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '24',
+                        hint: 'const nums = [2, 3, 4]\\nconsole.log(nums.reduce((a, b) => a * b))'
+                    },
+                    {
+                        prompt: 'Which method accumulates array values into a single result?',
+                        type: 'multiple-choice',
+                        options: ['map()', 'filter()', 'reduce()', 'forEach()'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Use reduce to sum [5, 10, 15].',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '30',
+                        hint: 'console.log([5, 10, 15].reduce((a, b) => a + b, 0))'
+                    }
+                ]
             },
             {
                 id: 'js-34',
@@ -5701,13 +6211,28 @@ const nums = Array.from({ length: 5 }, (_, i) => i * 2)
 console.log(nums)  // [0, 2, 4, 6, 8]
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Find the first number greater than 10 in [5, 8, 12, 3, 15].',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '12',
-                    hint: 'console.log([5, 8, 12, 3, 15].find(n => n > 10))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Find the first number greater than 10 in [5, 8, 12, 3, 15].',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '12',
+                        hint: 'console.log([5, 8, 12, 3, 15].find(n => n > 10))'
+                    },
+                    {
+                        prompt: 'Which method returns the first matching element?',
+                        type: 'multiple-choice',
+                        options: ['filter()', 'find()', 'search()', 'get()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Check if [1, 2, 3] includes 2.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: 'true',
+                        hint: 'console.log([1, 2, 3].includes(2))'
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Map and Set ============
             {
@@ -5780,12 +6305,26 @@ let obj = { data: "secret" }
 weakMap.set(obj, "private info")
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What data structure allows any type as keys?',
-                    type: 'multiple-choice',
-                    options: ['Object', 'Map', 'Array', 'Set'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What data structure allows any type as keys?',
+                        type: 'multiple-choice',
+                        options: ['Object', 'Map', 'Array', 'Set'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method adds a key-value pair to a Map?',
+                        type: 'multiple-choice',
+                        options: ['add()', 'put()', 'set()', 'insert()'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What property gives the number of entries in a Map?',
+                        type: 'multiple-choice',
+                        options: ['length', 'size', 'count', 'entries'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'js-36',
@@ -5852,13 +6391,27 @@ const dedupe = arr => [...new Set(arr)]
 console.log(dedupe([1, 1, 2, 2, 3]))  // [1, 2, 3]
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Remove duplicates from [1, 2, 2, 3, 3, 3] using Set.',
-                    type: 'code',
-                    language: 'javascript',
-                    expectedOutput: '[ 1, 2, 3 ]',
-                    hint: 'console.log([...new Set([1, 2, 2, 3, 3, 3])])'
-                }
+                exercises: [
+                    {
+                        prompt: 'Remove duplicates from [1, 2, 2, 3, 3, 3] using Set.',
+                        type: 'code',
+                        language: 'javascript',
+                        expectedOutput: '[ 1, 2, 3 ]',
+                        hint: 'console.log([...new Set([1, 2, 2, 3, 3, 3])])'
+                    },
+                    {
+                        prompt: 'What method adds an element to a Set?',
+                        type: 'multiple-choice',
+                        options: ['push()', 'add()', 'set()', 'insert()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Can a Set contain duplicate values?',
+                        type: 'multiple-choice',
+                        options: ['Yes', 'No', 'Only numbers', 'Only strings'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Modules ============
             {
@@ -5931,12 +6484,26 @@ export { format } from './format.js'
 export { validate } from './validate.js'
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What keyword imports a default export?',
-                    type: 'multiple-choice',
-                    options: ['import { default }', 'import default', 'import name', 'require'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What keyword imports a default export?',
+                        type: 'multiple-choice',
+                        options: ['import { default }', 'import default', 'import name', 'require'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What keyword exports a function from a module?',
+                        type: 'multiple-choice',
+                        options: ['module', 'export', 'send', 'share'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'How many default exports can a module have?',
+                        type: 'multiple-choice',
+                        options: ['Unlimited', 'Two', 'One', 'Zero'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Error Handling ============
             {
@@ -6011,12 +6578,26 @@ async function getData() {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What block always runs, regardless of errors?',
-                    type: 'multiple-choice',
-                    options: ['catch', 'finally', 'then', 'always'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What block always runs, regardless of errors?',
+                        type: 'multiple-choice',
+                        options: ['catch', 'finally', 'then', 'always'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'How do you create a custom error class?',
+                        type: 'multiple-choice',
+                        options: ['function CustomError()', 'class CustomError extends Error', 'new Error.create()', 'Error.define()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What keyword throws an error?',
+                        type: 'multiple-choice',
+                        options: ['error', 'throw', 'raise', 'fail'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Generators ============
             {
@@ -6087,12 +6668,26 @@ function* combined() {
 console.log([...combined()])  // [1, 2, 3, 4, 5, 6]
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What keyword pauses a generator and returns a value?',
-                    type: 'multiple-choice',
-                    options: ['return', 'yield', 'pause', 'emit'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What keyword pauses a generator and returns a value?',
+                        type: 'multiple-choice',
+                        options: ['return', 'yield', 'pause', 'emit'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What character marks a generator function?',
+                        type: 'multiple-choice',
+                        options: ['*', '#', '@', '^'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What method gets the next value from a generator?',
+                        type: 'multiple-choice',
+                        options: ['get()', 'next()', 'yield()', 'value()'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Proxy and Reflect ============
             {
@@ -6163,12 +6758,26 @@ console.log(data.x)  // 10
 console.log(data.y)  // "Not found"
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What does a Proxy allow you to do?',
-                    type: 'multiple-choice',
-                    options: ['Speed up code', 'Intercept object operations', 'Create copies', 'Compress data'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What does a Proxy allow you to do?',
+                        type: 'multiple-choice',
+                        options: ['Speed up code', 'Intercept object operations', 'Create copies', 'Compress data'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is the second argument when creating a Proxy?',
+                        type: 'multiple-choice',
+                        options: ['target', 'handler', 'options', 'config'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Which handler trap intercepts property access?',
+                        type: 'multiple-choice',
+                        options: ['access()', 'get()', 'read()', 'prop()'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Symbols ============
             {
@@ -6233,12 +6842,26 @@ const iterable = {
 console.log([...iterable])  // [1, 2, 3]
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Are two Symbols with the same description equal?',
-                    type: 'multiple-choice',
-                    options: ['Yes', 'No', 'Sometimes', 'Only in strict mode'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'Are two Symbols with the same description equal?',
+                        type: 'multiple-choice',
+                        options: ['Yes', 'No', 'Sometimes', 'Only in strict mode'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'How do you create a Symbol?',
+                        type: 'multiple-choice',
+                        options: ['new Symbol()', 'Symbol()', 'Symbol.create()', 'createSymbol()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method creates a shared global Symbol?',
+                        type: 'multiple-choice',
+                        options: ['Symbol()', 'Symbol.global()', 'Symbol.for()', 'Symbol.shared()'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Regular Expressions ============
             {
@@ -6303,12 +6926,26 @@ const { groups } = dateStr.match(namedRegex)
 console.log(groups.year)  // "2024"
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What method tests if a pattern matches a string?',
-                    type: 'multiple-choice',
-                    options: ['match()', 'test()', 'find()', 'exec()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What method tests if a pattern matches a string?',
+                        type: 'multiple-choice',
+                        options: ['match()', 'test()', 'find()', 'exec()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What flag makes a regex case-insensitive?',
+                        type: 'multiple-choice',
+                        options: ['c', 'i', 'g', 's'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What flag finds all matches, not just the first?',
+                        type: 'multiple-choice',
+                        options: ['a', 'm', 'g', 'f'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - JSON ============
             {
@@ -6381,12 +7018,26 @@ const data = JSON.parse(json, (key, value) => {
 console.log(data.date instanceof Date)  // true
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What does JSON.stringify() do?',
-                    type: 'multiple-choice',
-                    options: ['Parse JSON', 'Convert to JSON string', 'Validate JSON', 'Format JSON'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What does JSON.stringify() do?',
+                        type: 'multiple-choice',
+                        options: ['Parse JSON', 'Convert to JSON string', 'Validate JSON', 'Format JSON'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does JSON.parse() do?',
+                        type: 'multiple-choice',
+                        options: ['Convert to JSON string', 'Parse JSON to object', 'Validate JSON', 'Create JSON'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does JSON stand for?',
+                        type: 'multiple-choice',
+                        options: ['Java Script Object Notation', 'JavaScript Object Notation', 'Java Serialized Object Network', 'JavaScript Ordered Nodes'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED JAVASCRIPT - Storage ============
             {
@@ -6452,12 +7103,26 @@ storage.set("preferences", { theme: "dark" })
 const prefs = storage.get("preferences")
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What is the difference between localStorage and sessionStorage?',
-                    type: 'multiple-choice',
-                    options: ['Size limit', 'Session clears on tab close', 'Speed', 'Security'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What is the difference between localStorage and sessionStorage?',
+                        type: 'multiple-choice',
+                        options: ['Size limit', 'Session clears on tab close', 'Speed', 'Security'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method retrieves an item from localStorage?',
+                        type: 'multiple-choice',
+                        options: ['get()', 'getItem()', 'retrieve()', 'read()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method removes all items from localStorage?',
+                        type: 'multiple-choice',
+                        options: ['removeAll()', 'deleteAll()', 'clear()', 'empty()'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ DOM MANIPULATION ============
             {
@@ -6521,12 +7186,26 @@ const header = $("#header")
 const buttons = $$(".btn")
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What method selects the first matching element?',
-                    type: 'multiple-choice',
-                    options: ['getElementById', 'querySelector', 'querySelectorAll', 'getElementsByTagName'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What method selects the first matching element?',
+                        type: 'multiple-choice',
+                        options: ['getElementById', 'querySelector', 'querySelectorAll', 'getElementsByTagName'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method selects ALL matching elements?',
+                        type: 'multiple-choice',
+                        options: ['querySelector', 'querySelectorAll', 'getElements', 'selectAll'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property gets an element\'s parent?',
+                        type: 'multiple-choice',
+                        options: ['parent', 'parentElement', 'parentNode', 'container'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'js-46',
@@ -6592,12 +7271,26 @@ element.style.backgroundColor = "blue"
 element.style.cssText = "color: red; font-size: 16px"
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What method toggles a class on/off?',
-                    type: 'multiple-choice',
-                    options: ['classList.add', 'classList.toggle', 'classList.switch', 'classList.flip'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What method toggles a class on/off?',
+                        type: 'multiple-choice',
+                        options: ['classList.add', 'classList.toggle', 'classList.switch', 'classList.flip'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method creates a new HTML element?',
+                        type: 'multiple-choice',
+                        options: ['document.new()', 'document.createElement()', 'document.create()', 'document.make()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method removes an element from the DOM?',
+                        type: 'multiple-choice',
+                        options: ['delete()', 'remove()', 'destroy()', 'erase()'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ EVENT HANDLING ============
             {
@@ -6659,12 +7352,26 @@ element.addEventListener("click", (e) => {
 })
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What method prevents the default action of an event?',
-                    type: 'multiple-choice',
-                    options: ['stopPropagation()', 'preventDefault()', 'stopDefault()', 'cancel()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What method prevents the default action of an event?',
+                        type: 'multiple-choice',
+                        options: ['stopPropagation()', 'preventDefault()', 'stopDefault()', 'cancel()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method adds an event listener?',
+                        type: 'multiple-choice',
+                        options: ['onEvent()', 'addEventListener()', 'addEvent()', 'listen()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property gives the element that triggered an event?',
+                        type: 'multiple-choice',
+                        options: ['event.source', 'event.element', 'event.target', 'event.trigger'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'js-48',
@@ -6722,12 +7429,26 @@ todoList.addEventListener("click", (e) => {
 - Works with dynamic content
 - Cleaner code organization
         `,
-                exercise: {
-                    prompt: 'What is event delegation?',
-                    type: 'multiple-choice',
-                    options: ['Adding many listeners', 'One listener on parent', 'Removing listeners', 'Async events'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What is event delegation?',
+                        type: 'multiple-choice',
+                        options: ['Adding many listeners', 'One listener on parent', 'Removing listeners', 'Async events'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is the main benefit of event delegation?',
+                        type: 'multiple-choice',
+                        options: ['Faster animations', 'Works with dynamic content', 'Smaller file size', 'Better colors'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method checks if an element matches a selector?',
+                        type: 'multiple-choice',
+                        options: ['equals()', 'matches()', 'is()', 'selector()'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ FETCH API ============
             {
@@ -6800,12 +7521,26 @@ if (!response.ok) {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What method converts a fetch response to JSON?',
-                    type: 'multiple-choice',
-                    options: ['.json()', '.parse()', '.toJSON()', '.data()'],
-                    answer: 0
-                }
+                exercises: [
+                    {
+                        prompt: 'What method converts a fetch response to JSON?',
+                        type: 'multiple-choice',
+                        options: ['.json()', '.parse()', '.toJSON()', '.data()'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What is the default HTTP method for fetch?',
+                        type: 'multiple-choice',
+                        options: ['POST', 'GET', 'PUT', 'DELETE'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property checks if a fetch was successful?',
+                        type: 'multiple-choice',
+                        options: ['response.success', 'response.ok', 'response.valid', 'response.good'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ FINAL PROJECT ============
             {
@@ -6884,12 +7619,26 @@ const app = new TodoApp()
 
 Congratulations! You've mastered JavaScript! 🎉
         `,
-                exercise: {
-                    prompt: 'What method adds an item to the end of an array?',
-                    type: 'multiple-choice',
-                    options: ['add()', 'append()', 'push()', 'insert()'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What method adds an item to the end of an array?',
+                        type: 'multiple-choice',
+                        options: ['add()', 'append()', 'push()', 'insert()'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What method removes items that don\'t match a condition?',
+                        type: 'multiple-choice',
+                        options: ['remove()', 'filter()', 'delete()', 'exclude()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method finds one item in an array?',
+                        type: 'multiple-choice',
+                        options: ['search()', 'locate()', 'find()', 'get()'],
+                        answer: 2
+                    }
+                ]
             }
         ]
     },
@@ -6933,12 +7682,26 @@ paragraph: "HTML is amazing!"
 
 This tells the browser WHAT to display, not HOW it looks (that's CSS!).
         `,
-                exercise: {
-                    prompt: 'What does HTML define for a web page?',
-                    type: 'multiple-choice',
-                    options: ['Colors and fonts', 'Structure and content', 'Animations', 'Server data'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What does HTML define for a web page?',
+                        type: 'multiple-choice',
+                        options: ['Colors and fonts', 'Structure and content', 'Animations', 'Server data'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'HTML stands for?',
+                        type: 'multiple-choice',
+                        options: ['Hyper Text Markup Language', 'High Tech Modern Language', 'Home Tool Markup Language', 'Hyperlinks and Text Markup Language'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What language is used to style HTML pages?',
+                        type: 'multiple-choice',
+                        options: ['JavaScript', 'Python', 'CSS', 'Java'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'html-2',
@@ -6972,12 +7735,26 @@ heading level 2 "Today's Post"
 heading level 3 "Introduction"
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What heading level should be used for the main page title?',
-                    type: 'multiple-choice',
-                    options: ['Level 6', 'Level 3', 'Level 1', 'Level 2'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What heading level should be used for the main page title?',
+                        type: 'multiple-choice',
+                        options: ['Level 6', 'Level 3', 'Level 1', 'Level 2'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'How many heading levels are there in HTML?',
+                        type: 'multiple-choice',
+                        options: ['3', '4', '6', '10'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Which heading is the smallest?',
+                        type: 'multiple-choice',
+                        options: ['Level 1', 'Level 3', 'Level 6', 'Level 2'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'html-3',
@@ -7005,12 +7782,26 @@ paragraph "I can't wait to build websites."
 
 Each paragraph automatically gets space below it.
         `,
-                exercise: {
-                    prompt: 'How do you create a paragraph in natural language?',
-                    type: 'multiple-choice',
-                    options: ['text "Hello"', 'paragraph "Hello"', 'write "Hello"', 'content "Hello"'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'How do you create a paragraph in natural language?',
+                        type: 'multiple-choice',
+                        options: ['text "Hello"', 'paragraph "Hello"', 'write "Hello"', 'content "Hello"'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What gets added automatically below each paragraph?',
+                        type: 'multiple-choice',
+                        options: ['A line', 'Space', 'A border', 'Nothing'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Can a page have multiple paragraphs?',
+                        type: 'multiple-choice',
+                        options: ['No, only one', 'Yes, as many as needed', 'Only three', 'Only if using CSS'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-4',
@@ -7040,12 +7831,26 @@ link to "https://github.com" with text "GitHub"
 link to "https://mdn.mozilla.org" with text "MDN Web Docs"
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What two parts does a link need?',
-                    type: 'multiple-choice',
-                    options: ['Color and size', 'URL and display text', 'Font and style', 'Name and ID'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What two parts does a link need?',
+                        type: 'multiple-choice',
+                        options: ['Color and size', 'URL and display text', 'Font and style', 'Name and ID'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What can a link point to?',
+                        type: 'multiple-choice',
+                        options: ['Only external websites', 'Only images', 'Both external sites and local pages', 'Only email addresses'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What happens when you click a link?',
+                        type: 'multiple-choice',
+                        options: ['It downloads a file', 'It navigates to the URL', 'It changes colors', 'It refreshes the page'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-5',
@@ -7079,12 +7884,26 @@ image from "beach.jpg" with description "Sandy beach at sunset"
 paragraph "I took this last summer!"
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Why do images need descriptions?',
-                    type: 'multiple-choice',
-                    options: ['For decoration', 'For accessibility and SEO', 'To make them load faster', 'To change their color'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'Why do images need descriptions?',
+                        type: 'multiple-choice',
+                        options: ['For decoration', 'For accessibility and SEO', 'To make them load faster', 'To change their color'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is shown if an image doesn\'t load?',
+                        type: 'multiple-choice',
+                        options: ['Nothing', 'The description text', 'A blank space', 'An error message'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What reads image descriptions aloud for visually impaired users?',
+                        type: 'multiple-choice',
+                        options: ['Search engines', 'Screen readers', 'Browsers', 'CSS'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-6',
@@ -7128,12 +7947,26 @@ Result:
 - **Bulleted**: Order doesn't matter (ingredients, features)
 - **Numbered**: Order matters (steps, rankings)
         `,
-                exercise: {
-                    prompt: 'When should you use a numbered list?',
-                    type: 'multiple-choice',
-                    options: ['For random items', 'When order matters', 'For short text', 'For images'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'When should you use a numbered list?',
+                        type: 'multiple-choice',
+                        options: ['For random items', 'When order matters', 'For short text', 'For images'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What type of list uses bullet points?',
+                        type: 'multiple-choice',
+                        options: ['Numbered list', 'Bulleted list', 'Definition list', 'Menu list'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'A recipe with steps 1, 2, 3 should use what type of list?',
+                        type: 'multiple-choice',
+                        options: ['Bulleted list', 'Numbered list', 'Image list', 'Link list'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ STAGE 2: Introducing Symbols ============
             {
@@ -7165,12 +7998,26 @@ Real HTML uses angle brackets!
 ## Why Tags?
 Browsers need a standard format to understand!
         `,
-                exercise: {
-                    prompt: 'What symbols wrap HTML tags?',
-                    type: 'multiple-choice',
-                    options: ['{ }', '( )', '< >', '[ ]'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What symbols wrap HTML tags?',
+                        type: 'multiple-choice',
+                        options: ['{ }', '( )', '< >', '[ ]'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What is the difference between <tag> and </tag>?',
+                        type: 'multiple-choice',
+                        options: ['Size', 'Opening vs closing tag', 'Color', 'Speed'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What character indicates a closing tag?',
+                        type: 'multiple-choice',
+                        options: ['*', '/', '-', '+'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-8',
@@ -7204,12 +8051,26 @@ Tags are abbreviations!
 </ul>
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What tag is used for paragraphs?',
-                    type: 'multiple-choice',
-                    options: ['<paragraph>', '<text>', '<p>', '<pg>'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What tag is used for paragraphs?',
+                        type: 'multiple-choice',
+                        options: ['<paragraph>', '<text>', '<p>', '<pg>'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What does "ul" stand for?',
+                        type: 'multiple-choice',
+                        options: ['Upper List', 'Unordered List', 'Underlined List', 'Universal List'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What tag is used for list items?',
+                        type: 'multiple-choice',
+                        options: ['<item>', '<li>', '<list>', '<it>'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-9',
@@ -7241,12 +8102,26 @@ HTML: \`<img src="cat.jpg" alt="A cat">\`
 - \`id\` = unique identifier
 - \`class\` = styling group
         `,
-                exercise: {
-                    prompt: 'What attribute holds a link\'s destination?',
-                    type: 'multiple-choice',
-                    options: ['src', 'href', 'link', 'url'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What attribute holds a link\'s destination?',
+                        type: 'multiple-choice',
+                        options: ['src', 'href', 'link', 'url'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute holds an image\'s source file?',
+                        type: 'multiple-choice',
+                        options: ['href', 'source', 'src', 'img'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What does the "alt" attribute provide?',
+                        type: 'multiple-choice',
+                        options: ['Alternative link', 'Alternative text description', 'Alternative color', 'Alternative size'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ STAGE 3: Code-Like Structure ============
             {
@@ -7281,13 +8156,29 @@ Let's write real HTML!
 
 Notice how the structure creates an outline!
         `,
-                exercise: {
-                    prompt: 'Write an h1 tag with "Hello World"',
-                    type: 'code',
-                    language: 'html',
-                    expectedOutput: '<h1>Hello World</h1>',
-                    hint: 'Use: <h1>Hello World</h1>'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write an h1 tag with "Hello World"',
+                        type: 'code',
+                        language: 'html',
+                        expectedOutput: '<h1>Hello World</h1>',
+                        hint: 'Use: <h1>Hello World</h1>'
+                    },
+                    {
+                        prompt: 'Write an h2 tag with "About Me"',
+                        type: 'code',
+                        language: 'html',
+                        expectedOutput: '<h2>About Me</h2>',
+                        hint: 'Use: <h2>About Me</h2>'
+                    },
+                    {
+                        prompt: 'Write an h3 tag with "Contact"',
+                        type: 'code',
+                        language: 'html',
+                        expectedOutput: '<h3>Contact</h3>',
+                        hint: 'Use: <h3>Contact</h3>'
+                    }
+                ]
             },
             {
                 id: 'html-11',
@@ -7319,13 +8210,28 @@ Notice how the structure creates an outline!
 <a href="https://github.com" target="_blank">GitHub</a>
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Write a link to "https://example.com" with text "Example"',
-                    type: 'code',
-                    language: 'html',
-                    expectedOutput: '<a href="https://example.com">Example</a>',
-                    hint: 'Use: <a href="url">text</a>'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write a link to "https://example.com" with text "Example"',
+                        type: 'code',
+                        language: 'html',
+                        expectedOutput: '<a href="https://example.com">Example</a>',
+                        hint: 'Use: <a href="url">text</a>'
+                    },
+                    {
+                        prompt: 'Write a p tag with "Hello there"',
+                        type: 'code',
+                        language: 'html',
+                        expectedOutput: '<p>Hello there</p>',
+                        hint: 'Use: <p>text</p>'
+                    },
+                    {
+                        prompt: 'What attribute opens a link in a new tab?',
+                        type: 'multiple-choice',
+                        options: ['new="tab"', 'target="_blank"', 'open="new"', 'tab="true"'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-12',
@@ -7360,13 +8266,27 @@ Images are self-closing (no end tag needed)!
 <img src="mountain.jpg" alt="Mountain view">
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Write an img tag for "cat.png" with alt "Cute cat"',
-                    type: 'code',
-                    language: 'html',
-                    expectedOutput: '<img src="cat.png" alt="Cute cat">',
-                    hint: 'Use: <img src="file" alt="description">'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write an img tag for "cat.png" with alt "Cute cat"',
+                        type: 'code',
+                        language: 'html',
+                        expectedOutput: '<img src="cat.png" alt="Cute cat">',
+                        hint: 'Use: <img src="file" alt="description">'
+                    },
+                    {
+                        prompt: 'Does the img tag need a closing tag?',
+                        type: 'multiple-choice',
+                        options: ['Yes, always', 'No, it is self-closing', 'Only for PNGs', 'Only with alt text'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute sets an image\'s width?',
+                        type: 'multiple-choice',
+                        options: ['size', 'width', 'w', 'pixels'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-13',
@@ -7407,13 +8327,27 @@ Images are self-closing (no end tag needed)!
 </ul>
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Write ul with two li items: "Red" and "Blue"',
-                    type: 'code',
-                    language: 'html',
-                    expectedOutput: '<ul><li>Red</li><li>Blue</li></ul>',
-                    hint: 'Use: <ul><li>item</li></ul>'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write ul with two li items: "Red" and "Blue"',
+                        type: 'code',
+                        language: 'html',
+                        expectedOutput: '<ul><li>Red</li><li>Blue</li></ul>',
+                        hint: 'Use: <ul><li>item</li></ul>'
+                    },
+                    {
+                        prompt: 'What tag creates a numbered list?',
+                        type: 'multiple-choice',
+                        options: ['<ul>', '<nl>', '<ol>', '<numbered>'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Can lists be nested inside other lists?',
+                        type: 'multiple-choice',
+                        options: ['No, never', 'Yes, any level deep', 'Only once', 'Only ul inside ol'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ STAGE 4: Full HTML ============
             {
@@ -7449,12 +8383,26 @@ Every HTML page needs this structure!
 - \`<title>\` - Browser tab text
 - \`<body>\` - Visible content
         `,
-                exercise: {
-                    prompt: 'What tag contains the visible content?',
-                    type: 'multiple-choice',
-                    options: ['<head>', '<html>', '<body>', '<title>'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What tag contains the visible content?',
+                        type: 'multiple-choice',
+                        options: ['<head>', '<html>', '<body>', '<title>'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What goes in the <title> tag?',
+                        type: 'multiple-choice',
+                        options: ['Page heading', 'Browser tab text', 'Navigation', 'Footer'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does <!DOCTYPE html> tell the browser?',
+                        type: 'multiple-choice',
+                        options: ['The author name', 'It is HTML5', 'The page title', 'The encoding'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-15',
@@ -7504,12 +8452,26 @@ Use tags that describe their purpose!
 - Better SEO
 - Easier to maintain
         `,
-                exercise: {
-                    prompt: 'Which tag should contain navigation links?',
-                    type: 'multiple-choice',
-                    options: ['<div>', '<nav>', '<menu>', '<links>'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'Which tag should contain navigation links?',
+                        type: 'multiple-choice',
+                        options: ['<div>', '<nav>', '<menu>', '<links>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What tag represents the main content of a page?',
+                        type: 'multiple-choice',
+                        options: ['<content>', '<main>', '<body>', '<article>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What tag is used for a site footer?',
+                        type: 'multiple-choice',
+                        options: ['<bottom>', '<footer>', '<end>', '<foot>'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-16',
@@ -7549,12 +8511,26 @@ Forms collect user input!
 </textarea>
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What input type hides the text?',
-                    type: 'multiple-choice',
-                    options: ['hidden', 'secret', 'password', 'private'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What input type hides the text?',
+                        type: 'multiple-choice',
+                        options: ['hidden', 'secret', 'password', 'private'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What tag creates a multi-line text input?',
+                        type: 'multiple-choice',
+                        options: ['<input type="multiline">', '<textarea>', '<textbox>', '<multiline>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute links a label to an input?',
+                        type: 'multiple-choice',
+                        options: ['link', 'for', 'connect', 'target'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-17',
@@ -7610,12 +8586,26 @@ You can now build full web pages!
 
 Keep building and practicing! 🎉
         `,
-                exercise: {
-                    prompt: 'What are the three main parts of an HTML document?',
-                    type: 'multiple-choice',
-                    options: ['header, main, footer', 'DOCTYPE, head, body', 'html, css, js', 'top, middle, bottom'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What are the three main parts of an HTML document?',
+                        type: 'multiple-choice',
+                        options: ['header, main, footer', 'DOCTYPE, head, body', 'html, css, js', 'top, middle, bottom'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What tag wraps around the entire HTML document?',
+                        type: 'multiple-choice',
+                        options: ['<body>', '<html>', '<document>', '<page>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Where does the <title> tag go?',
+                        type: 'multiple-choice',
+                        options: ['In <body>', 'In <head>', 'In <footer>', 'After </html>'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED HTML - Tables ============
             {
@@ -7676,12 +8666,26 @@ Display data in rows and columns!
 <td rowspan="3">Tall Cell</td>
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What element creates a table header cell?',
-                    type: 'multiple-choice',
-                    options: ['<td>', '<th>', '<thead>', '<tr>'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What element creates a table header cell?',
+                        type: 'multiple-choice',
+                        options: ['<td>', '<th>', '<thead>', '<tr>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What element creates a table row?',
+                        type: 'multiple-choice',
+                        options: ['<row>', '<tr>', '<line>', '<trow>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute merges columns?',
+                        type: 'multiple-choice',
+                        options: ['merge', 'colspan', 'span', 'combine'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-19',
@@ -7751,12 +8755,26 @@ Make tables accessible and meaningful!
 - \`colgroup\` - Header for column group
 - \`rowgroup\` - Header for row group
         `,
-                exercise: {
-                    prompt: 'What attribute identifies a header cell\'s scope?',
-                    type: 'multiple-choice',
-                    options: ['for', 'scope', 'role', 'type'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What attribute identifies a header cell\'s scope?',
+                        type: 'multiple-choice',
+                        options: ['for', 'scope', 'role', 'type'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What element adds a caption to a table?',
+                        type: 'multiple-choice',
+                        options: ['<title>', '<caption>', '<header>', '<label>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Where should <caption> appear in a table?',
+                        type: 'multiple-choice',
+                        options: ['After </table>', 'First child of <table>', 'Inside <thead>', 'Inside <tfoot>'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED HTML - Forms Deep Dive ============
             {
@@ -7808,12 +8826,26 @@ Modern input types with built-in validation!
 <input type="hidden" name="csrf_token" value="abc123">
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What input type provides a date picker?',
-                    type: 'multiple-choice',
-                    options: ['calendar', 'date', 'datetime', 'picker'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What input type provides a date picker?',
+                        type: 'multiple-choice',
+                        options: ['calendar', 'date', 'datetime', 'picker'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What input type shows a color picker?',
+                        type: 'multiple-choice',
+                        options: ['color', 'picker', 'hex', 'rgb'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What input type allows file uploads?',
+                        type: 'multiple-choice',
+                        options: ['upload', 'file', 'document', 'attach'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-21',
@@ -7874,12 +8906,26 @@ Validate input without JavaScript!
 <button formnovalidate>Save Draft</button>
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What attribute makes a field mandatory?',
-                    type: 'multiple-choice',
-                    options: ['mandatory', 'required', 'needed', 'must'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What attribute makes a field mandatory?',
+                        type: 'multiple-choice',
+                        options: ['mandatory', 'required', 'needed', 'must'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute defines a regex pattern for validation?',
+                        type: 'multiple-choice',
+                        options: ['regex', 'pattern', 'validate', 'match'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute sets maximum text length?',
+                        type: 'multiple-choice',
+                        options: ['max', 'maxlength', 'limit', 'length'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-22',
@@ -7938,12 +8984,26 @@ Users can type OR select from suggestions!
 - \`cc-name\`, \`cc-number\`, \`cc-exp\`
 - \`username\`, \`new-password\`, \`current-password\`
         `,
-                exercise: {
-                    prompt: 'What element provides suggestion options for an input?',
-                    type: 'multiple-choice',
-                    options: ['<select>', '<datalist>', '<options>', '<suggest>'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What element provides suggestion options for an input?',
+                        type: 'multiple-choice',
+                        options: ['<select>', '<datalist>', '<options>', '<suggest>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute links an input to a datalist?',
+                        type: 'multiple-choice',
+                        options: ['datalist', 'list', 'options', 'suggestions'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute enables browser autofill?',
+                        type: 'multiple-choice',
+                        options: ['autofill', 'autocomplete', 'complete', 'prefill'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED HTML - Semantic Elements ============
             {
@@ -8012,12 +9072,26 @@ Use meaningful elements!
 <time datetime="PT2H30M">2 hours 30 minutes</time>
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What element represents standalone, reusable content?',
-                    type: 'multiple-choice',
-                    options: ['<section>', '<article>', '<aside>', '<div>'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What element represents standalone, reusable content?',
+                        type: 'multiple-choice',
+                        options: ['<section>', '<article>', '<aside>', '<div>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What element is used for image captions?',
+                        type: 'multiple-choice',
+                        options: ['<caption>', '<figcaption>', '<label>', '<desc>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What element marks up dates and times?',
+                        type: 'multiple-choice',
+                        options: ['<date>', '<time>', '<datetime>', '<when>'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-24',
@@ -8091,12 +9165,26 @@ details[open] summary {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What element creates a native toggle/accordion?',
-                    type: 'multiple-choice',
-                    options: ['<accordion>', '<toggle>', '<details>', '<expandable>'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What element creates a native toggle/accordion?',
+                        type: 'multiple-choice',
+                        options: ['<accordion>', '<toggle>', '<details>', '<expandable>'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What element provides the clickable header in details?',
+                        type: 'multiple-choice',
+                        options: ['<header>', '<summary>', '<title>', '<label>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute makes details start expanded?',
+                        type: 'multiple-choice',
+                        options: ['expanded', 'open', 'show', 'visible'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-25',
@@ -8169,12 +9257,26 @@ dialog::backdrop {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What method opens a dialog as a modal?',
-                    type: 'multiple-choice',
-                    options: ['open()', 'show()', 'showModal()', 'display()'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What method opens a dialog as a modal?',
+                        type: 'multiple-choice',
+                        options: ['open()', 'show()', 'showModal()', 'display()'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What pseudo-element styles a dialog\'s backdrop?',
+                        type: 'multiple-choice',
+                        options: ['::overlay', '::backdrop', '::background', '::shadow'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method closes a dialog?',
+                        type: 'multiple-choice',
+                        options: ['hide()', 'close()', 'dismiss()', 'exit()'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED HTML - Media ============
             {
@@ -8244,12 +9346,26 @@ Embed multimedia content!
 - \`descriptions\` - For accessibility
 - \`chapters\` - Chapter navigation
         `,
-                exercise: {
-                    prompt: 'What attribute shows a thumbnail before video plays?',
-                    type: 'multiple-choice',
-                    options: ['thumbnail', 'poster', 'preview', 'image'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What attribute shows a thumbnail before video plays?',
+                        type: 'multiple-choice',
+                        options: ['thumbnail', 'poster', 'preview', 'image'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What element adds subtitles to a video?',
+                        type: 'multiple-choice',
+                        options: ['<subtitle>', '<track>', '<caption>', '<text>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute makes a video play automatically?',
+                        type: 'multiple-choice',
+                        options: ['play', 'autoplay', 'autostart', 'start'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'html-27',
@@ -8309,12 +9425,26 @@ Serve different images for different situations!
 - Modern format support with fallbacks
 - Different crops for different screens
         `,
-                exercise: {
-                    prompt: 'What element provides multiple image sources for responsiveness?',
-                    type: 'multiple-choice',
-                    options: ['<responsive>', '<picture>', '<images>', '<multi-img>'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What element provides multiple image sources for responsiveness?',
+                        type: 'multiple-choice',
+                        options: ['<responsive>', '<picture>', '<images>', '<multi-img>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What attribute specifies multiple image sizes?',
+                        type: 'multiple-choice',
+                        options: ['sizes', 'srcset', 'widths', 'dimensions'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is the main benefit of responsive images?',
+                        type: 'multiple-choice',
+                        options: ['Better colors', 'Faster loading on mobile', 'Easier coding', 'More animations'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED HTML - Accessibility ============
             {
@@ -8378,12 +9508,26 @@ Make your pages accessible!
 ## Best Practice:
 Use semantic HTML first! ARIA is for when native elements aren't enough.
         `,
-                exercise: {
-                    prompt: 'What attribute provides a text alternative for screen readers?',
-                    type: 'multiple-choice',
-                    options: ['title', 'alt', 'aria-label', 'name'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What attribute provides a text alternative for screen readers?',
+                        type: 'multiple-choice',
+                        options: ['title', 'alt', 'aria-label', 'name'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What aria attribute announces dynamic content changes?',
+                        type: 'multiple-choice',
+                        options: ['aria-announce', 'aria-live', 'aria-update', 'aria-dynamic'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does ARIA stand for?',
+                        type: 'multiple-choice',
+                        options: ['Accessible Rich Internet Applications', 'Advanced Rendering Interface API', 'Automatic Reader Integration Assistance', 'Accessible Reader Input Access'],
+                        answer: 0
+                    }
+                ]
             },
             {
                 id: 'html-29',
@@ -8450,12 +9594,26 @@ Make forms usable for everyone!
 </form>
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What element groups related form fields together?',
-                    type: 'multiple-choice',
-                    options: ['<group>', '<fieldset>', '<section>', '<container>'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What element groups related form fields together?',
+                        type: 'multiple-choice',
+                        options: ['<group>', '<fieldset>', '<section>', '<container>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What element provides a title for a fieldset?',
+                        type: 'multiple-choice',
+                        options: ['<title>', '<caption>', '<legend>', '<header>'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What attribute links a description to an input?',
+                        type: 'multiple-choice',
+                        options: ['aria-description', 'aria-describedby', 'aria-text', 'aria-info'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED HTML - Meta Tags ============
             {
@@ -8512,12 +9670,26 @@ Provide metadata about your page!
 <meta name="robots" content="index, follow">
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What meta property is used for social media sharing?',
-                    type: 'multiple-choice',
-                    options: ['meta name="social"', 'meta property="og:..."', 'meta name="share"', 'meta type="facebook"'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What meta property is used for social media sharing?',
+                        type: 'multiple-choice',
+                        options: ['meta name="social"', 'meta property="og:..."', 'meta name="share"', 'meta type="facebook"'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What meta tag sets the page description for search engines?',
+                        type: 'multiple-choice',
+                        options: ['<meta name="description">', '<meta name="summary">', '<meta name="seo">', '<meta name="info">'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What meta tag is essential for responsive design?',
+                        type: 'multiple-choice',
+                        options: ['charset', 'viewport', 'description', 'author'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED HTML - SVG ============
             {
@@ -8588,12 +9760,26 @@ Create scalable graphics that never pixelate!
 - CSS and JavaScript control
 - Accessible
         `,
-                exercise: {
-                    prompt: 'What element creates a circle in SVG?',
-                    type: 'multiple-choice',
-                    options: ['<round>', '<circle>', '<oval>', '<sphere>'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What element creates a circle in SVG?',
+                        type: 'multiple-choice',
+                        options: ['<round>', '<circle>', '<oval>', '<sphere>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does SVG stand for?',
+                        type: 'multiple-choice',
+                        options: ['Scalable Vector Graphics', 'Simple Visual Graphics', 'Standard Vector Graphics', 'Styled Visual Graphics'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What is an advantage of SVG over PNG?',
+                        type: 'multiple-choice',
+                        options: ['Smaller file size always', 'Scales without pixelation', 'Better for photos', 'Faster rendering'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED HTML - Template ============
             {
@@ -8666,12 +9852,26 @@ items.forEach(item => {
 </template>
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What method creates a copy of template content?',
-                    type: 'multiple-choice',
-                    options: ['copy()', 'clone()', 'cloneNode(true)', 'duplicate()'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'What method creates a copy of template content?',
+                        type: 'multiple-choice',
+                        options: ['copy()', 'clone()', 'cloneNode(true)', 'duplicate()'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Is template content rendered when the page loads?',
+                        type: 'multiple-choice',
+                        options: ['Yes, immediately', 'No, it is hidden', 'Only with JavaScript', 'Only in some browsers'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property accesses the content inside a template?',
+                        type: 'multiple-choice',
+                        options: ['innerHTML', 'content', 'children', 'value'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ FINAL HTML PROJECT ============
             {
@@ -8758,12 +9958,26 @@ You've learned comprehensive HTML! Here's a complete example:
 
 Congratulations! You've mastered HTML! 🎉
         `,
-                exercise: {
-                    prompt: 'What semantic element represents the main navigation?',
-                    type: 'multiple-choice',
-                    options: ['<menu>', '<nav>', '<links>', '<navigation>'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What semantic element represents the main navigation?',
+                        type: 'multiple-choice',
+                        options: ['<menu>', '<nav>', '<links>', '<navigation>'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What element wraps contact information?',
+                        type: 'multiple-choice',
+                        options: ['<contact>', '<info>', '<address>', '<details>'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What is the root element of every HTML page?',
+                        type: 'multiple-choice',
+                        options: ['<body>', '<head>', '<html>', '<document>'],
+                        answer: 2
+                    }
+                ]
             }
         ]
     },
@@ -8812,12 +10026,26 @@ for headings:
 
 This says "make all headings blue and 32 pixels big!"
         `,
-                exercise: {
-                    prompt: 'What does CSS control?',
-                    type: 'multiple-choice',
-                    options: ['Page content', 'Visual appearance', 'Data storage', 'User accounts'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What does CSS control?',
+                        type: 'multiple-choice',
+                        options: ['Page content', 'Visual appearance', 'Data storage', 'User accounts'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does HTML control?',
+                        type: 'multiple-choice',
+                        options: ['Colors and fonts', 'Page structure', 'Animations', 'Data validation'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does CSS stand for?',
+                        type: 'multiple-choice',
+                        options: ['Cascading Style Sheets', 'Computer Style System', 'Creative Style Syntax', 'Custom Style Sheets'],
+                        answer: 0
+                    }
+                ]
             },
             {
                 id: 'css-2',
@@ -8852,12 +10080,26 @@ for id "header":
 - Classes: .button, .card, .menu
 - IDs: #header, #footer, #main
         `,
-                exercise: {
-                    prompt: 'What selector type is for a group of similar elements?',
-                    type: 'multiple-choice',
-                    options: ['Tag', 'Class', 'ID', 'Universal'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What selector type is for a group of similar elements?',
+                        type: 'multiple-choice',
+                        options: ['Tag', 'Class', 'ID', 'Universal'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What selector targets a unique element?',
+                        type: 'multiple-choice',
+                        options: ['Tag', 'Class', 'ID', 'Universal'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What selector targets elements by their HTML element name?',
+                        type: 'multiple-choice',
+                        options: ['Tag', 'Class', 'ID', 'Attribute'],
+                        answer: 0
+                    }
+                ]
             },
             {
                 id: 'css-3',
@@ -8891,12 +10133,26 @@ for headings:
     background color is lightyellow
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Which property changes the text color?',
-                    type: 'multiple-choice',
-                    options: ['background color', 'text color', 'font color', 'fill color'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'Which property changes the text color?',
+                        type: 'multiple-choice',
+                        options: ['background color', 'text color', 'font color', 'fill color'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Which is a valid color format?',
+                        type: 'multiple-choice',
+                        options: ['#gg0000', '#ff0000', '#ff00', 'hex(255,0,0)'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What color does rgb(0, 255, 0) represent?',
+                        type: 'multiple-choice',
+                        options: ['Red', 'Green', 'Blue', 'Yellow'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'css-4',
@@ -8938,12 +10194,26 @@ for body:
     text color is black
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What property makes text bold?',
-                    type: 'multiple-choice',
-                    options: ['font-style', 'font-weight', 'text-bold', 'font-bold'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What property makes text bold?',
+                        type: 'multiple-choice',
+                        options: ['font-style', 'font-weight', 'text-bold', 'font-bold'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property changes the text alignment?',
+                        type: 'multiple-choice',
+                        options: ['font-align', 'text-position', 'text-align', 'align'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What property sets the font family?',
+                        type: 'multiple-choice',
+                        options: ['font-name', 'font-family', 'text-font', 'typeface'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'css-5',
@@ -8979,12 +10249,26 @@ for class "special":
     margin left is 15 pixels
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Which adds space INSIDE an element?',
-                    type: 'multiple-choice',
-                    options: ['Margin', 'Padding', 'Border', 'Gap'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'Which adds space INSIDE an element?',
+                        type: 'multiple-choice',
+                        options: ['Margin', 'Padding', 'Border', 'Gap'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Which adds space OUTSIDE an element?',
+                        type: 'multiple-choice',
+                        options: ['Margin', 'Padding', 'Border', 'Width'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What property sets spacing on all sides at once?',
+                        type: 'multiple-choice',
+                        options: ['spacing', 'margin or padding', 'space', 'gap'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'css-6',
@@ -9020,12 +10304,26 @@ for class "avatar":
     border radius is 50 percent
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What creates rounded corners?',
-                    type: 'multiple-choice',
-                    options: ['border-curve', 'border-radius', 'corner-round', 'border-round'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What creates rounded corners?',
+                        type: 'multiple-choice',
+                        options: ['border-curve', 'border-radius', 'corner-round', 'border-round'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What are the three parts of a border?',
+                        type: 'multiple-choice',
+                        options: ['width, color, style', 'size, type, color', 'thick, thin, color', 'width, style, color'],
+                        answer: 3
+                    },
+                    {
+                        prompt: 'What border-radius value makes a circle?',
+                        type: 'multiple-choice',
+                        options: ['100px', '50%', '100%', 'circle'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ STAGE 2: Introducing Symbols ============
             {
@@ -9063,12 +10361,26 @@ p {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What symbol selects a class?',
-                    type: 'multiple-choice',
-                    options: ['#', '.', '@', '*'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What symbol selects a class?',
+                        type: 'multiple-choice',
+                        options: ['#', '.', '@', '*'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What symbol selects an ID?',
+                        type: 'multiple-choice',
+                        options: ['#', '.', '@', '*'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'How do you select all paragraph elements?',
+                        type: 'multiple-choice',
+                        options: ['.p', '#p', 'p', '*p'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'css-8',
@@ -9105,12 +10417,26 @@ p {
 - Use \`;\` after each value
 - Wrap in \`{ }\` braces
         `,
-                exercise: {
-                    prompt: 'What punctuation ends each CSS property?',
-                    type: 'multiple-choice',
-                    options: ['.', ',', ':', ';'],
-                    answer: 3
-                }
+                exercises: [
+                    {
+                        prompt: 'What punctuation ends each CSS property?',
+                        type: 'multiple-choice',
+                        options: ['.', ',', ':', ';'],
+                        answer: 3
+                    },
+                    {
+                        prompt: 'What punctuation separates property from value?',
+                        type: 'multiple-choice',
+                        options: ['.', ',', ':', ';'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What surrounds CSS declarations?',
+                        type: 'multiple-choice',
+                        options: ['( )', '[ ]', '{ }', '< >'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'css-9',
@@ -9153,12 +10479,26 @@ font-size: 1.2rem;
 - %: Responsive layouts
 - rem: Font sizes
         `,
-                exercise: {
-                    prompt: 'Which unit is best for responsive layouts?',
-                    type: 'multiple-choice',
-                    options: ['px', 'pt', '%', 'cm'],
-                    answer: 2
-                }
+                exercises: [
+                    {
+                        prompt: 'Which unit is best for responsive layouts?',
+                        type: 'multiple-choice',
+                        options: ['px', 'pt', '%', 'cm'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What does rem stand for?',
+                        type: 'multiple-choice',
+                        options: ['Relative element measure', 'Root em', 'Responsive em', 'Render em'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Which unit creates a fixed size that does not change?',
+                        type: 'multiple-choice',
+                        options: ['%', 'em', 'rem', 'px'],
+                        answer: 3
+                    }
+                ]
             },
             // ============ STAGE 3: Code-Like Structure ============
             {
@@ -9202,13 +10542,28 @@ h1 {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Write CSS: make h1 color blue',
-                    type: 'code',
-                    language: 'css',
-                    expectedOutput: 'h1 { color: blue; }',
-                    hint: 'Use: h1 { color: blue; }'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write CSS: make h1 color blue',
+                        type: 'code',
+                        language: 'css',
+                        expectedOutput: 'h1 { color: blue; }',
+                        hint: 'Use: h1 { color: blue; }'
+                    },
+                    {
+                        prompt: 'Write CSS: make paragraphs font-size 18px',
+                        type: 'code',
+                        language: 'css',
+                        expectedOutput: 'p { font-size: 18px; }',
+                        hint: 'Use: p { font-size: 18px; }'
+                    },
+                    {
+                        prompt: 'What color value is #ffffff?',
+                        type: 'multiple-choice',
+                        options: ['Black', 'White', 'Red', 'Gray'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'css-11',
@@ -9244,13 +10599,27 @@ Every element is a box!
 \`\`\`
 This makes width include padding and border!
         `,
-                exercise: {
-                    prompt: 'Write CSS: box with padding 15px and border 2px solid black',
-                    type: 'code',
-                    language: 'css',
-                    expectedOutput: '.box { padding: 15px; border: 2px solid black; }',
-                    hint: 'Use: .box { padding: 15px; border: 2px solid black; }'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write CSS: box with padding 15px and border 2px solid black',
+                        type: 'code',
+                        language: 'css',
+                        expectedOutput: '.box { padding: 15px; border: 2px solid black; }',
+                        hint: 'Use: .box { padding: 15px; border: 2px solid black; }'
+                    },
+                    {
+                        prompt: 'What are the four layers of the box model (outside to inside)?',
+                        type: 'multiple-choice',
+                        options: ['Content, Padding, Border, Margin', 'Margin, Border, Padding, Content', 'Border, Margin, Content, Padding', 'Padding, Content, Margin, Border'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What box-sizing value includes padding in width?',
+                        type: 'multiple-choice',
+                        options: ['content-box', 'border-box', 'padding-box', 'include-box'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'css-12',
@@ -9291,13 +10660,27 @@ The easiest way to arrange items!
 - flex-start, flex-end, center
 - space-between, space-around
         `,
-                exercise: {
-                    prompt: 'Write CSS to center items with flexbox',
-                    type: 'code',
-                    language: 'css',
-                    expectedOutput: '.center { display: flex; justify-content: center; align-items: center; }',
-                    hint: 'Use display: flex with justify-content and align-items'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write CSS to center items with flexbox',
+                        type: 'code',
+                        language: 'css',
+                        expectedOutput: '.center { display: flex; justify-content: center; align-items: center; }',
+                        hint: 'Use display: flex with justify-content and align-items'
+                    },
+                    {
+                        prompt: 'What property enables flexbox?',
+                        type: 'multiple-choice',
+                        options: ['flex: true', 'layout: flex', 'display: flex', 'mode: flex'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What property aligns items on the cross axis?',
+                        type: 'multiple-choice',
+                        options: ['justify-content', 'align-items', 'cross-align', 'flex-align'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ STAGE 4: Full CSS ============
             {
@@ -9342,13 +10725,27 @@ grid-template-columns: repeat(3, 1fr);
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create a 3-column grid using CSS Grid',
-                    type: 'code',
-                    language: 'css',
-                    expectedOutput: '.grid { display: grid; grid-template-columns: 1fr 1fr 1fr; }',
-                    hint: 'Use display: grid and grid-template-columns'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a 3-column grid using CSS Grid',
+                        type: 'code',
+                        language: 'css',
+                        expectedOutput: '.grid { display: grid; grid-template-columns: 1fr 1fr 1fr; }',
+                        hint: 'Use display: grid and grid-template-columns'
+                    },
+                    {
+                        prompt: 'What property defines grid columns?',
+                        type: 'multiple-choice',
+                        options: ['grid-columns', 'grid-template-columns', 'columns', 'display-columns'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What unit is flexible and takes available space?',
+                        type: 'multiple-choice',
+                        options: ['px', 'em', 'fr', '%'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'css-14',
@@ -9393,12 +10790,26 @@ Make elements interactive!
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What property creates smooth animations between states?',
-                    type: 'multiple-choice',
-                    options: ['animation', 'transition', 'transform', 'keyframes'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What property creates smooth animations between states?',
+                        type: 'multiple-choice',
+                        options: ['animation', 'transition', 'transform', 'keyframes'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What pseudo-class applies styles on mouse over?',
+                        type: 'multiple-choice',
+                        options: [':active', ':focus', ':hover', ':visited'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What is a typical transition duration?',
+                        type: 'multiple-choice',
+                        options: ['0.3s', '3s', '30s', '0.003s'],
+                        answer: 0
+                    }
+                ]
             },
             {
                 id: 'css-15',
@@ -9440,12 +10851,26 @@ Make your site work on all devices!
 - 1024px - Laptops
 - 1200px - Desktops
         `,
-                exercise: {
-                    prompt: 'What CSS feature handles different screen sizes?',
-                    type: 'multiple-choice',
-                    options: ['@screen', '@media', '@responsive', '@size'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What CSS feature handles different screen sizes?',
+                        type: 'multiple-choice',
+                        options: ['@screen', '@media', '@responsive', '@size'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is a mobile-first approach?',
+                        type: 'multiple-choice',
+                        options: ['Design for mobile last', 'Start with mobile styles, then add for larger screens', 'Only support mobile', 'Use mobile-only CSS'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Which breakpoint typically targets tablets?',
+                        type: 'multiple-choice',
+                        options: ['320px', '480px', '768px', '1440px'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'css-16',
@@ -9485,12 +10910,26 @@ Store and reuse values!
 - Easy theming
 - Cleaner, more maintainable code
         `,
-                exercise: {
-                    prompt: 'How do you use a CSS variable named --main-color?',
-                    type: 'multiple-choice',
-                    options: ['$main-color', 'var(--main-color)', '@main-color', '#{main-color}'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'How do you use a CSS variable named --main-color?',
+                        type: 'multiple-choice',
+                        options: ['$main-color', 'var(--main-color)', '@main-color', '#{main-color}'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Where are CSS variables typically defined?',
+                        type: 'multiple-choice',
+                        options: [':root', 'body', 'html', '@variables'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What prefix do CSS variable names require?',
+                        type: 'multiple-choice',
+                        options: ['$', '@', '--', '##'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'css-17',
@@ -9541,12 +10980,26 @@ You can now fully style web pages!
 
 Keep experimenting and building! 🎉
         `,
-                exercise: {
-                    prompt: 'What are the three main layout systems in CSS?',
-                    type: 'multiple-choice',
-                    options: ['Inline, Block, Flex', 'Block, Flexbox, Grid', 'Position, Float, Grid', 'Static, Relative, Fixed'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What are the three main layout systems in CSS?',
+                        type: 'multiple-choice',
+                        options: ['Inline, Block, Flex', 'Block, Flexbox, Grid', 'Position, Float, Grid', 'Static, Relative, Fixed'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Which property creates a shadow effect?',
+                        type: 'multiple-choice',
+                        options: ['shadow', 'text-shadow or box-shadow', 'drop-shadow', 'element-shadow'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What does the transform property do?',
+                        type: 'multiple-choice',
+                        options: ['Changes color', 'Moves, rotates, or scales elements', 'Adds animations', 'Changes fonts'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED CSS - Animations ============
             {
@@ -9628,12 +11081,26 @@ Create complex, multi-step animations!
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What at-rule defines animation keyframes?',
-                    type: 'multiple-choice',
-                    options: ['@animate', '@keyframes', '@animation', '@frames'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What at-rule defines animation keyframes?',
+                        type: 'multiple-choice',
+                        options: ['@animate', '@keyframes', '@animation', '@frames'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What value makes an animation repeat forever?',
+                        type: 'multiple-choice',
+                        options: ['loop', 'forever', 'infinite', 'repeat'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What property controls animation speed curve?',
+                        type: 'multiple-choice',
+                        options: ['animation-speed', 'animation-timing-function', 'animation-curve', 'animation-easing'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'css-19',
@@ -9714,12 +11181,26 @@ Transform elements in 2D and 3D!
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What transform function rotates an element?',
-                    type: 'multiple-choice',
-                    options: ['spin()', 'rotate()', 'turn()', 'angle()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What transform function rotates an element?',
+                        type: 'multiple-choice',
+                        options: ['spin()', 'rotate()', 'turn()', 'angle()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What transform function changes element size?',
+                        type: 'multiple-choice',
+                        options: ['size()', 'resize()', 'scale()', 'zoom()'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What transform function moves an element?',
+                        type: 'multiple-choice',
+                        options: ['move()', 'position()', 'translate()', 'shift()'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED CSS - Grid Deep Dive ============
             {
@@ -9807,12 +11288,26 @@ Master powerful grid techniques!
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What function creates responsive columns without media queries?',
-                    type: 'multiple-choice',
-                    options: ['flex()', 'repeat(auto-fill, ...)', 'responsive()', 'auto()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What function creates responsive columns without media queries?',
+                        type: 'multiple-choice',
+                        options: ['flex()', 'repeat(auto-fill, ...)', 'responsive()', 'auto()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property defines named grid areas?',
+                        type: 'multiple-choice',
+                        options: ['grid-areas', 'grid-template-areas', 'grid-names', 'grid-layout'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What function sets a minimum and maximum size?',
+                        type: 'multiple-choice',
+                        options: ['range()', 'limit()', 'minmax()', 'between()'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'css-21',
@@ -9904,12 +11399,26 @@ Powerful flexbox patterns!
 .main { flex: 1; }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What property controls how much an item grows?',
-                    type: 'multiple-choice',
-                    options: ['flex-basis', 'flex-grow', 'flex-expand', 'flex-size'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What property controls how much an item grows?',
+                        type: 'multiple-choice',
+                        options: ['flex-basis', 'flex-grow', 'flex-expand', 'flex-size'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property controls how much an item shrinks?',
+                        type: 'multiple-choice',
+                        options: ['flex-shrink', 'flex-reduce', 'flex-compress', 'flex-min'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What justify-content value distributes items with equal space between?',
+                        type: 'multiple-choice',
+                        options: ['center', 'space-around', 'space-between', 'space-evenly'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED CSS - Responsive Design ============
             {
@@ -10003,12 +11512,26 @@ Adapt to any screen size!
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What media feature detects dark mode preference?',
-                    type: 'multiple-choice',
-                    options: ['color-mode', 'prefers-color-scheme', 'theme-mode', 'dark-mode'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What media feature detects dark mode preference?',
+                        type: 'multiple-choice',
+                        options: ['color-mode', 'prefers-color-scheme', 'theme-mode', 'dark-mode'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What media feature respects reduced motion preferences?',
+                        type: 'multiple-choice',
+                        options: ['motion-safe', 'prefers-reduced-motion', 'animation-preference', 'reduce-motion'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is a container query?',
+                        type: 'multiple-choice',
+                        options: ['Query based on viewport', 'Query based on element container size', 'Query for mobile', 'Query for tablets'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'css-23',
@@ -10077,12 +11600,26 @@ p {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What function sets min, preferred, and max font sizes?',
-                    type: 'multiple-choice',
-                    options: ['minmax()', 'clamp()', 'scale()', 'fluid()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What function sets min, preferred, and max font sizes?',
+                        type: 'multiple-choice',
+                        options: ['minmax()', 'clamp()', 'scale()', 'fluid()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What unit is based on viewport width?',
+                        type: 'multiple-choice',
+                        options: ['px', 'em', 'vw', 'rem'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What is a good maximum line length for readability?',
+                        type: 'multiple-choice',
+                        options: ['30ch', '65ch', '100ch', '200ch'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED CSS - Pseudo-Elements ============
             {
@@ -10171,12 +11708,26 @@ input::placeholder {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What property is required for ::before and ::after?',
-                    type: 'multiple-choice',
-                    options: ['display', 'content', 'text', 'value'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What property is required for ::before and ::after?',
+                        type: 'multiple-choice',
+                        options: ['display', 'content', 'text', 'value'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What pseudo-element styles the first letter?',
+                        type: 'multiple-choice',
+                        options: ['::initial', '::first-letter', '::start', '::letter'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What pseudo-element styles selected text?',
+                        type: 'multiple-choice',
+                        options: ['::highlight', '::selected', '::selection', '::marked'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'css-25',
@@ -10241,12 +11792,26 @@ input:not([type="submit"]) { }
 :where(header, footer) a { } /* Zero specificity */
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What pseudo-class selects based on child content?',
-                    type: 'multiple-choice',
-                    options: [':contains()', ':has()', ':with()', ':includes()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What pseudo-class selects based on child content?',
+                        type: 'multiple-choice',
+                        options: [':contains()', ':has()', ':with()', ':includes()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What pseudo-class selects every third item?',
+                        type: 'multiple-choice',
+                        options: [':every(3)', ':nth-child(3n)', ':count(3)', ':third-child'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What pseudo-class applies when an input is valid?',
+                        type: 'multiple-choice',
+                        options: [':correct', ':valid', ':success', ':pass'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED CSS - Filters and Effects ============
             {
@@ -10324,12 +11889,26 @@ Apply visual effects!
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What filter creates a glass-like blur effect on backgrounds?',
-                    type: 'multiple-choice',
-                    options: ['filter: blur()', 'backdrop-filter', 'background-filter', 'glass-filter'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What filter creates a glass-like blur effect on backgrounds?',
+                        type: 'multiple-choice',
+                        options: ['filter: blur()', 'backdrop-filter', 'background-filter', 'glass-filter'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What filter converts an image to grayscale?',
+                        type: 'multiple-choice',
+                        options: ['gray()', 'grayscale()', 'black-white()', 'mono()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What filter adjusts image brightness?',
+                        type: 'multiple-choice',
+                        options: ['light()', 'brightness()', 'bright()', 'lighten()'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'css-27',
@@ -10405,12 +11984,26 @@ mix-blend-mode: luminosity;
 - Creative photo effects
 - Color tinting
         `,
-                exercise: {
-                    prompt: 'What property blends element with elements behind it?',
-                    type: 'multiple-choice',
-                    options: ['background-blend-mode', 'mix-blend-mode', 'layer-blend', 'color-blend'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What property blends element with elements behind it?',
+                        type: 'multiple-choice',
+                        options: ['background-blend-mode', 'mix-blend-mode', 'layer-blend', 'color-blend'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property blends multiple backgrounds together?',
+                        type: 'multiple-choice',
+                        options: ['mix-blend-mode', 'background-blend-mode', 'image-blend', 'layer-mix'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What blend mode multiplies colors together?',
+                        type: 'multiple-choice',
+                        options: ['overlay', 'screen', 'multiply', 'darken'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED CSS - Scroll Effects ============
             {
@@ -10501,12 +12094,26 @@ html {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What property defines snap behavior strength?',
-                    type: 'multiple-choice',
-                    options: ['scroll-snap-align', 'scroll-snap-type', 'scroll-snap-force', 'scroll-snap-mode'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What property defines snap behavior strength?',
+                        type: 'multiple-choice',
+                        options: ['scroll-snap-align', 'scroll-snap-type', 'scroll-snap-force', 'scroll-snap-mode'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property defines where items snap to?',
+                        type: 'multiple-choice',
+                        options: ['scroll-snap-type', 'scroll-snap-align', 'scroll-snap-position', 'scroll-snap-point'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property enables smooth scrolling?',
+                        type: 'multiple-choice',
+                        options: ['scroll-type', 'scroll-behavior', 'scroll-smooth', 'scroll-style'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED CSS - Functions ============
             {
@@ -10589,12 +12196,26 @@ h1 {
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What function allows mixing different units?',
-                    type: 'multiple-choice',
-                    options: ['mix()', 'calc()', 'combine()', 'math()'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What function allows mixing different units?',
+                        type: 'multiple-choice',
+                        options: ['mix()', 'calc()', 'combine()', 'math()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What function returns the smaller of two values?',
+                        type: 'multiple-choice',
+                        options: ['smaller()', 'min()', 'least()', 'lower()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What function provides a fallback for CSS variables?',
+                        type: 'multiple-choice',
+                        options: ['fallback()', 'default()', 'var()', 'backup()'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ ADVANCED CSS - Shapes ============
             {
@@ -10668,12 +12289,26 @@ clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%)
 }
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What property clips an element to a shape?',
-                    type: 'multiple-choice',
-                    options: ['shape', 'clip-path', 'mask-shape', 'cut-path'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What property clips an element to a shape?',
+                        type: 'multiple-choice',
+                        options: ['shape', 'clip-path', 'mask-shape', 'cut-path'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What function creates a circular clip?',
+                        type: 'multiple-choice',
+                        options: ['round()', 'circle()', 'oval()', 'ring()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What property makes text wrap around a shape?',
+                        type: 'multiple-choice',
+                        options: ['text-wrap', 'shape-outside', 'wrap-shape', 'flow-around'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ ADVANCED CSS - Aspect Ratio & Containment ============
             {
@@ -10752,12 +12387,26 @@ img {
 /* Browser skips rendering off-screen content */
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'What property maintains width-to-height ratio?',
-                    type: 'multiple-choice',
-                    options: ['ratio', 'aspect-ratio', 'size-ratio', 'proportion'],
-                    answer: 1
-                }
+                exercises: [
+                    {
+                        prompt: 'What property maintains width-to-height ratio?',
+                        type: 'multiple-choice',
+                        options: ['ratio', 'aspect-ratio', 'size-ratio', 'proportion'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What object-fit value fills area while maintaining ratio?',
+                        type: 'multiple-choice',
+                        options: ['fill', 'contain', 'cover', 'scale'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What property adds space between flex/grid items?',
+                        type: 'multiple-choice',
+                        options: ['margin', 'spacing', 'gap', 'space'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ CSS Final Project ============
             {
@@ -10857,12 +12506,26 @@ You've mastered CSS! Here's a complete example:
 
 Congratulations! You've mastered CSS! 🎉
         `,
-                exercise: {
-                    prompt: 'What CSS function is best for responsive sizing with min/max bounds?',
-                    type: 'multiple-choice',
-                    options: ['min()', 'max()', 'calc()', 'clamp()'],
-                    answer: 3
-                }
+                exercises: [
+                    {
+                        prompt: 'What CSS function is best for responsive sizing with min/max bounds?',
+                        type: 'multiple-choice',
+                        options: ['min()', 'max()', 'calc()', 'clamp()'],
+                        answer: 3
+                    },
+                    {
+                        prompt: 'What approach respects user preferences for reduced motion?',
+                        type: 'multiple-choice',
+                        options: ['Using @media (prefers-reduced-motion)', 'Disabling all animations', 'Using only transitions', 'Limiting animation duration'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'What is a CSS custom property?',
+                        type: 'multiple-choice',
+                        options: ['A new CSS rule', 'A CSS variable defined with --', 'A browser feature', 'A JavaScript property'],
+                        answer: 1
+                    }
+                ]
             }
         ]
     },
@@ -10909,13 +12572,28 @@ display 42
 - Very reliable and secure
 - Used by millions of developers
         `,
-                exercise: {
-                    prompt: 'Display "I love Java!"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'I love Java!',
-                    hint: 'Use: display "I love Java!"'
-                }
+                exercises: [
+                    {
+                        prompt: 'Display "I love Java!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'I love Java!',
+                        hint: 'Use: display "I love Java!"'
+                    },
+                    {
+                        prompt: 'What makes Java special for running on different computers?',
+                        type: 'multiple-choice',
+                        options: ['Fast compilation', 'Write once, run anywhere', 'Small file size', 'Simple syntax'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Display the number 100',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '100',
+                        hint: 'Use: display 100'
+                    }
+                ]
             },
             {
                 id: 'java-2',
@@ -11010,13 +12688,28 @@ Output: 3 (not 3.5!)
 
 Use decimals to get decimal results.
         `,
-                exercise: {
-                    prompt: 'Calculate 8 times 9 and display it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '72',
-                    hint: 'Use: display 8 times 9'
-                }
+                exercises: [
+                    {
+                        prompt: 'Calculate 8 times 9 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '72',
+                        hint: 'Use: display 8 times 9'
+                    },
+                    {
+                        prompt: 'What is 7 divided by 2 in Java integer division?',
+                        type: 'multiple-choice',
+                        options: ['3.5', '3', '4', '7/2'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Calculate 15 modulo 4 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '3',
+                        hint: 'Use: display 15 modulo 4'
+                    }
+                ]
             },
             {
                 id: 'java-4',
@@ -11068,7 +12761,28 @@ Output: B
                     language: 'natural',
                     expectedOutput: 'Winner!',
                     hint: 'if points is greater than or equal to 60 then\\n    display "Winner!"\\nend if'
-                }
+                },
+                exercises: [
+                    {
+                        prompt: 'Create number variable points to 75. If points >= 60, display "Winner!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Winner!',
+                        hint: 'if points is greater than or equal to 60 then\\n    display "Winner!"\\nend if'
+                    },
+                    {
+                        prompt: 'What keyword handles the "else" case?',
+                        type: 'multiple-choice',
+                        options: ['else', 'otherwise', 'other', 'default'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What ends a conditional block?',
+                        type: 'multiple-choice',
+                        options: ['end', 'end if', 'endif', 'close'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'java-5',
@@ -11125,7 +12839,28 @@ Output:
                     language: 'natural',
                     expectedOutput: 'Code!\nCode!\nCode!',
                     hint: 'repeat 3 times\\n    display "Code!"\\nend loop'
-                }
+                },
+                exercises: [
+                    {
+                        prompt: 'Write a loop that displays "Code!" 3 times',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Code!\nCode!\nCode!',
+                        hint: 'repeat 3 times\\n    display "Code!"\\nend loop'
+                    },
+                    {
+                        prompt: 'What kind of loop repeats while a condition is true?',
+                        type: 'multiple-choice',
+                        options: ['for loop', 'while loop', 'repeat loop', 'count loop'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'How do you end a loop block?',
+                        type: 'multiple-choice',
+                        options: ['end', 'end loop', 'stop', 'break'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'java-6',
@@ -11179,7 +12914,28 @@ Output: 8
                     language: 'natural',
                     expectedOutput: 'Hooray!',
                     hint: 'define function cheer with no parameters\\n    display "Hooray!"\\nend function\\ncheer'
-                }
+                },
+                exercises: [
+                    {
+                        prompt: 'Define function "cheer" that displays "Hooray!" and call it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Hooray!',
+                        hint: 'define function cheer with no parameters\\n    display "Hooray!"\\nend function\\ncheer'
+                    },
+                    {
+                        prompt: 'What keyword returns a value from a function?',
+                        type: 'multiple-choice',
+                        options: ['give', 'output', 'return', 'send'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What are methods called in Java?',
+                        type: 'multiple-choice',
+                        options: ['functions', 'procedures', 'methods', 'routines'],
+                        answer: 2
+                    }
+                ]
             },
             // ============ STAGE 2: Introducing Symbols ============
             {
@@ -21457,12 +23213,12 @@ JSON (JavaScript Object Notation) stores data in a readable format.
                                                                                                                     answer: 1
                                                                                                                 }
                                                                                                             },
-{
-    id: 'json-3',
-    title: 'Data Types',
-    description: 'All JSON value types',
-    stage: 2,
-    content: `
+                                                                                                            {
+                                                                                                                id: 'json-3',
+                                                                                                                title: 'Data Types',
+                                                                                                                description: 'All JSON value types',
+                                                                                                                stage: 2,
+                                                                                                                content: `
 # JSON Data Types
 
 ## String:
@@ -21495,19 +23251,19 @@ JSON (JavaScript Object Notation) stores data in a readable format.
 { "address": { "city": "NYC", "zip": "10001" } }
 \`\`\`
     `,
-    exercise: {
-        prompt: 'How do you represent "no value" in JSON?',
-        type: 'multiple-choice',
-        options: ['undefined', 'null', 'none', 'empty'],
-        answer: 1
-    }
-},
-{
-    id: 'json-4',
-    title: 'Nested Structures',
-    description: 'Complex JSON documents',
-    stage: 3,
-    content: `
+                                                                                                                exercise: {
+                                                                                                                    prompt: 'How do you represent "no value" in JSON?',
+                                                                                                                    type: 'multiple-choice',
+                                                                                                                    options: ['undefined', 'null', 'none', 'empty'],
+                                                                                                                    answer: 1
+                                                                                                                }
+                                                                                                            },
+                                                                                                            {
+                                                                                                                id: 'json-4',
+                                                                                                                title: 'Nested Structures',
+                                                                                                                description: 'Complex JSON documents',
+                                                                                                                stage: 3,
+                                                                                                                content: `
 # Nested Structures
 
 ## Objects in Objects:
@@ -21549,19 +23305,19 @@ JSON (JavaScript Object Notation) stores data in a readable format.
 }
 \`\`\`
     `,
-    exercise: {
-        prompt: 'Can objects contain arrays?',
-        type: 'multiple-choice',
-        options: ['No', 'Yes', 'Only strings', 'Only numbers'],
-        answer: 1
-    }
-},
-{
-    id: 'json-5',
-    title: 'Parsing JSON',
-    description: 'Converting to/from strings',
-    stage: 3,
-    content: `
+                                                                                                                exercise: {
+                                                                                                                    prompt: 'Can objects contain arrays?',
+                                                                                                                    type: 'multiple-choice',
+                                                                                                                    options: ['No', 'Yes', 'Only strings', 'Only numbers'],
+                                                                                                                    answer: 1
+                                                                                                                }
+                                                                                                            },
+                                                                                                            {
+                                                                                                                id: 'json-5',
+                                                                                                                title: 'Parsing JSON',
+                                                                                                                description: 'Converting to/from strings',
+                                                                                                                stage: 3,
+                                                                                                                content: `
 # Parsing JSON
 
 ## Parse (String → Object):
@@ -21593,19 +23349,19 @@ try {
 }
 \`\`\`
     `,
-    exercise: {
-        prompt: 'What converts a string to an object?',
-        type: 'multiple-choice',
-        options: ['JSON.stringify()', 'JSON.parse()', 'JSON.convert()', 'JSON.decode()'],
-        answer: 1
-    }
-},
-{
-    id: 'json-6',
-    title: 'JSON Schema',
-    description: 'Validating JSON structure',
-    stage: 4,
-    content: `
+                                                                                                                exercise: {
+                                                                                                                    prompt: 'What converts a string to an object?',
+                                                                                                                    type: 'multiple-choice',
+                                                                                                                    options: ['JSON.stringify()', 'JSON.parse()', 'JSON.convert()', 'JSON.decode()'],
+                                                                                                                    answer: 1
+                                                                                                                }
+                                                                                                            },
+                                                                                                            {
+                                                                                                                id: 'json-6',
+                                                                                                                title: 'JSON Schema',
+                                                                                                                description: 'Validating JSON structure',
+                                                                                                                stage: 4,
+                                                                                                                content: `
 # JSON Schema
 
 Define the structure of your JSON!
@@ -21636,32 +23392,32 @@ Define the structure of your JSON!
 
 Congratulations! You've learned JSON! 🎉
     `,
-    exercise: {
-        prompt: 'What does JSON Schema validate?',
-        type: 'multiple-choice',
-        options: ['JSON syntax', 'JSON structure', 'JSON speed', 'JSON size'],
-        answer: 1
-    }
-}
+                                                                                                                exercise: {
+                                                                                                                    prompt: 'What does JSON Schema validate?',
+                                                                                                                    type: 'multiple-choice',
+                                                                                                                    options: ['JSON syntax', 'JSON structure', 'JSON speed', 'JSON size'],
+                                                                                                                    answer: 1
+                                                                                                                }
+                                                                                                            }
 
                                                                                                     // Markdown Course
                                                                                                     'markdown': {
-                                                                                                        id: 'markdown',
-                                                                                                        name: 'Markdown',
-                                                                                                        description: 'Write formatted documents with simple syntax.',
-                                                                                                        category: COURSE_CATEGORIES.DATA,
-                                                                                                        icon: '📝',
-                                                                                                        color: '#083FA1',
-                                                                                                        language: 'markdown',
-                                                                                                        prerequisites: [],
-                                                                                                        estimatedHours: 1,
-                                                                                                        lessons: [
-                                                                                                            {
-                                                                                                                id: 'md-1',
-                                                                                                                title: 'What is Markdown?',
-                                                                                                                description: 'Simple text formatting',
-                                                                                                                stage: 1,
-                                                                                                                content: `
+                                                                                                                id: 'markdown',
+                                                                                                                name: 'Markdown',
+                                                                                                                description: 'Write formatted documents with simple syntax.',
+                                                                                                                category: COURSE_CATEGORIES.DATA,
+                                                                                                                icon: '📝',
+                                                                                                                color: '#083FA1',
+                                                                                                                language: 'markdown',
+                                                                                                                prerequisites: [],
+                                                                                                                estimatedHours: 1,
+                                                                                                                lessons: [
+                                                                                                                    {
+                                                                                                                        id: 'md-1',
+                                                                                                                        title: 'What is Markdown?',
+                                                                                                                        description: 'Simple text formatting',
+                                                                                                                        stage: 1,
+                                                                                                                        content: `
 # What is Markdown?
 
 Markdown is a simple way to format text.
@@ -21677,19 +23433,19 @@ Markdown is a simple way to format text.
 - *italic*
 - [links](url)
                 `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'What symbol creates a heading in Markdown?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['*', '#', '@', '!'],
-                                                                                                                    answer: 1
-                                                                                                                }
-                                                                                                            },
-                                                                                                            {
-                                                                                                                id: 'md-2',
-                                                                                                                title: 'Formatting Text',
-                                                                                                                description: 'Bold, italic, and lists',
-                                                                                                                stage: 2,
-                                                                                                                content: `
+                                                                                                                        exercise: {
+                                                                                                                            prompt: 'What symbol creates a heading in Markdown?',
+                                                                                                                            type: 'multiple-choice',
+                                                                                                                            options: ['*', '#', '@', '!'],
+                                                                                                                            answer: 1
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        id: 'md-2',
+                                                                                                                        title: 'Formatting Text',
+                                                                                                                        description: 'Bold, italic, and lists',
+                                                                                                                        stage: 2,
+                                                                                                                        content: `
 # Formatting Text
 
 ## Bold and Italic:
@@ -21707,19 +23463,19 @@ Markdown is a simple way to format text.
 2. Second
 \`\`\`
                 `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'How do you make text bold in Markdown?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['<b>text</b>', '**text**', '!!text!!', '##text##'],
-                                                                                                                    answer: 1
-                                                                                                                }
-                                                                                                            },
-{
-    id: 'md-3',
-    title: 'Links and Images',
-    description: 'Adding hyperlinks and media',
-    stage: 2,
-    content: `
+                                                                                                                        exercise: {
+                                                                                                                            prompt: 'How do you make text bold in Markdown?',
+                                                                                                                            type: 'multiple-choice',
+                                                                                                                            options: ['<b>text</b>', '**text**', '!!text!!', '##text##'],
+                                                                                                                            answer: 1
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        id: 'md-3',
+                                                                                                                        title: 'Links and Images',
+                                                                                                                        description: 'Adding hyperlinks and media',
+                                                                                                                        stage: 2,
+                                                                                                                        content: `
 # Links and Images
 
 ## Links:
@@ -21746,19 +23502,19 @@ Markdown is a simple way to format text.
 [![Alt](image.png)](https://example.com)
 \`\`\`
     `,
-    exercise: {
-        prompt: 'What makes an image different from a link?',
-        type: 'multiple-choice',
-        options: ['Different brackets', 'Starts with !', 'Uses { }', 'Uses < >'],
-        answer: 1
-    }
-},
-{
-    id: 'md-4',
-    title: 'Code and Quotes',
-    description: 'Code blocks and blockquotes',
-    stage: 3,
-    content: `
+                                                                                                                        exercise: {
+                                                                                                                            prompt: 'What makes an image different from a link?',
+                                                                                                                            type: 'multiple-choice',
+                                                                                                                            options: ['Different brackets', 'Starts with !', 'Uses { }', 'Uses < >'],
+                                                                                                                            answer: 1
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        id: 'md-4',
+                                                                                                                        title: 'Code and Quotes',
+                                                                                                                        description: 'Code blocks and blockquotes',
+                                                                                                                        stage: 3,
+                                                                                                                        content: `
 # Code and Quotes
 
 ## Inline Code:
@@ -21790,19 +23546,19 @@ or
 ***
 \`\`\`
     `,
-    exercise: {
-        prompt: 'What wraps inline code?',
-        type: 'multiple-choice',
-        options: ['Single quotes', 'Backticks', 'Double quotes', 'Parentheses'],
-        answer: 1
-    }
-},
-{
-    id: 'md-5',
-    title: 'Tables',
-    description: 'Creating data tables',
-    stage: 3,
-    content: `
+                                                                                                                        exercise: {
+                                                                                                                            prompt: 'What wraps inline code?',
+                                                                                                                            type: 'multiple-choice',
+                                                                                                                            options: ['Single quotes', 'Backticks', 'Double quotes', 'Parentheses'],
+                                                                                                                            answer: 1
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        id: 'md-5',
+                                                                                                                        title: 'Tables',
+                                                                                                                        description: 'Creating data tables',
+                                                                                                                        stage: 3,
+                                                                                                                        content: `
 # Tables
 
 ## Basic Table:
@@ -21827,19 +23583,19 @@ or
 | Alice   | 25  | NYC     |
 | Bob     | 30  | LA      |
     `,
-    exercise: {
-        prompt: 'What symbol separates columns?',
-        type: 'multiple-choice',
-        options: [',', '|', ';', ':'],
-        answer: 1
-    }
-},
-{
-    id: 'md-6',
-    title: 'Task Lists',
-    description: 'Checkboxes and tasks',
-    stage: 3,
-    content: `
+                                                                                                                        exercise: {
+                                                                                                                            prompt: 'What symbol separates columns?',
+                                                                                                                            type: 'multiple-choice',
+                                                                                                                            options: [',', '|', ';', ':'],
+                                                                                                                            answer: 1
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        id: 'md-6',
+                                                                                                                        title: 'Task Lists',
+                                                                                                                        description: 'Checkboxes and tasks',
+                                                                                                                        stage: 3,
+                                                                                                                        content: `
 # Task Lists
 
 ## Checkbox Lists:
@@ -21866,19 +23622,19 @@ Great for:
 - Project tracking
 - Bug checklists
     `,
-    exercise: {
-        prompt: 'What marks a task as complete?',
-        type: 'multiple-choice',
-        options: ['[*]', '[x]', '[+]', '[✓]'],
-        answer: 1
-    }
-},
-{
-    id: 'md-7',
-    title: 'Advanced Features',
-    description: 'Extended markdown syntax',
-    stage: 4,
-    content: `
+                                                                                                                        exercise: {
+                                                                                                                            prompt: 'What marks a task as complete?',
+                                                                                                                            type: 'multiple-choice',
+                                                                                                                            options: ['[*]', '[x]', '[+]', '[✓]'],
+                                                                                                                            answer: 1
+                                                                                                                        }
+                                                                                                                    },
+                                                                                                                    {
+                                                                                                                        id: 'md-7',
+                                                                                                                        title: 'Advanced Features',
+                                                                                                                        description: 'Extended markdown syntax',
+                                                                                                                        stage: 4,
+                                                                                                                        content: `
 # Advanced Features
 
 ## Footnotes:
@@ -21914,32 +23670,32 @@ Hidden content here!
 
 Congratulations! You've learned Markdown! 🎉
     `,
-    exercise: {
-        prompt: 'Can you use HTML in Markdown?',
-        type: 'multiple-choice',
-        options: ['Never', 'Sometimes', 'Yes, in most parsers', 'Only images'],
-        answer: 2
-    }
-}
+                                                                                                                        exercise: {
+                                                                                                                            prompt: 'Can you use HTML in Markdown?',
+                                                                                                                            type: 'multiple-choice',
+                                                                                                                            options: ['Never', 'Sometimes', 'Yes, in most parsers', 'Only images'],
+                                                                                                                            answer: 2
+                                                                                                                        }
+                                                                                                                    }
 
                                                                                                     // APIs Course
                                                                                                     'apis': {
-                                                                                                        id: 'apis',
-                                                                                                        name: 'Working with APIs',
-                                                                                                        description: 'Connect your apps to external services.',
-                                                                                                        category: COURSE_CATEGORIES.EXTENSIONS,
-                                                                                                        icon: '🔌',
-                                                                                                        color: '#FF6B6B',
-                                                                                                        language: 'javascript',
-                                                                                                        prerequisites: ['javascript', 'json'],
-                                                                                                        estimatedHours: 6,
-                                                                                                        lessons: [
-                                                                                                            {
-                                                                                                                id: 'api-1',
-                                                                                                                title: 'What is an API?',
-                                                                                                                description: 'Application Programming Interface',
-                                                                                                                stage: 1,
-                                                                                                                content: `
+                                                                                                                        id: 'apis',
+                                                                                                                        name: 'Working with APIs',
+                                                                                                                        description: 'Connect your apps to external services.',
+                                                                                                                        category: COURSE_CATEGORIES.EXTENSIONS,
+                                                                                                                        icon: '🔌',
+                                                                                                                        color: '#FF6B6B',
+                                                                                                                        language: 'javascript',
+                                                                                                                        prerequisites: ['javascript', 'json'],
+                                                                                                                        estimatedHours: 6,
+                                                                                                                        lessons: [
+                                                                                                                            {
+                                                                                                                                id: 'api-1',
+                                                                                                                                title: 'What is an API?',
+                                                                                                                                description: 'Application Programming Interface',
+                                                                                                                                stage: 1,
+                                                                                                                                content: `
 # What is an API?
 
 API = Application Programming Interface
@@ -21956,19 +23712,19 @@ It's how programs talk to each other.
 2. Server processes it
 3. Server sends response
                 `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'What does API stand for?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['Automated Program Interface', 'Application Programming Interface', 'Applied Programming Integration', 'Automatic Process Integration'],
-                                                                                                                    answer: 1
-                                                                                                                }
-                                                                                                            },
-                                                                                                            {
-                                                                                                                id: 'api-2',
-                                                                                                                title: 'Making Requests',
-                                                                                                                description: 'Fetching data from APIs',
-                                                                                                                stage: 2,
-                                                                                                                content: `
+                                                                                                                                exercise: {
+                                                                                                                                    prompt: 'What does API stand for?',
+                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                    options: ['Automated Program Interface', 'Application Programming Interface', 'Applied Programming Integration', 'Automatic Process Integration'],
+                                                                                                                                    answer: 1
+                                                                                                                                }
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                id: 'api-2',
+                                                                                                                                title: 'Making Requests',
+                                                                                                                                description: 'Fetching data from APIs',
+                                                                                                                                stage: 2,
+                                                                                                                                content: `
 # Making Requests
 
 ## Natural Language:
@@ -21983,19 +23739,19 @@ fetch("https://api.example.com/users")
   .then(data => console.log(data));
 \`\`\`
                 `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'Write: fetch data from "https://api.weather.com"',
-                                                                                                                    type: 'code',
-                                                                                                                    expectedOutput: 'fetch data from "https://api.weather.com"',
-                                                                                                                    hint: 'Use fetch data from with the URL'
-                                                                                                                }
-                                                                                                            },
-                                                                                                            {
-                                                                                                                id: 'api-3',
-                                                                                                                title: 'HTTP Methods',
-                                                                                                                description: 'GET, POST, PUT, DELETE',
-                                                                                                                stage: 2,
-                                                                                                                content: `
+                                                                                                                                exercise: {
+                                                                                                                                    prompt: 'Write: fetch data from "https://api.weather.com"',
+                                                                                                                                    type: 'code',
+                                                                                                                                    expectedOutput: 'fetch data from "https://api.weather.com"',
+                                                                                                                                    hint: 'Use fetch data from with the URL'
+                                                                                                                                }
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                id: 'api-3',
+                                                                                                                                title: 'HTTP Methods',
+                                                                                                                                description: 'GET, POST, PUT, DELETE',
+                                                                                                                                stage: 2,
+                                                                                                                                content: `
 # HTTP Methods
 
 ## GET - Retrieve Data:
@@ -22028,19 +23784,19 @@ fetch('/api/users/1', {
 })
 \`\`\`
     `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'What method creates new data?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['GET', 'POST', 'PUT', 'PATCH'],
-                                                                                                                    answer: 1
-                                                                                                                }
-                                                                                                            },
-                                                                                                            {
-                                                                                                                id: 'api-4',
-                                                                                                                title: 'Status Codes',
-                                                                                                                description: 'Understanding responses',
-                                                                                                                stage: 2,
-                                                                                                                content: `
+                                                                                                                                exercise: {
+                                                                                                                                    prompt: 'What method creates new data?',
+                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                    options: ['GET', 'POST', 'PUT', 'PATCH'],
+                                                                                                                                    answer: 1
+                                                                                                                                }
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                id: 'api-4',
+                                                                                                                                title: 'Status Codes',
+                                                                                                                                description: 'Understanding responses',
+                                                                                                                                stage: 2,
+                                                                                                                                content: `
 # HTTP Status Codes
 
 ## 2xx - Success:
@@ -22065,19 +23821,19 @@ fetch('/api/users/1', {
 - 502 Bad Gateway
 - 503 Service Unavailable
     `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'What does 404 mean?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['Success', 'Unauthorized', 'Not Found', 'Server Error'],
-                                                                                                                    answer: 2
-                                                                                                                }
-                                                                                                            },
-                                                                                                            {
-                                                                                                                id: 'api-5',
-                                                                                                                title: 'Async/Await',
-                                                                                                                description: 'Modern API calls',
-                                                                                                                stage: 3,
-                                                                                                                content: `
+                                                                                                                                exercise: {
+                                                                                                                                    prompt: 'What does 404 mean?',
+                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                    options: ['Success', 'Unauthorized', 'Not Found', 'Server Error'],
+                                                                                                                                    answer: 2
+                                                                                                                                }
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                id: 'api-5',
+                                                                                                                                title: 'Async/Await',
+                                                                                                                                description: 'Modern API calls',
+                                                                                                                                stage: 3,
+                                                                                                                                content: `
 # Async/Await
 
 Modern way to handle APIs!
@@ -22116,19 +23872,19 @@ async function getData() {
 }
 \`\`\`
     `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'What keyword pauses until promise resolves?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['pause', 'wait', 'await', 'hold'],
-                                                                                                                    answer: 2
-                                                                                                                }
-                                                                                                            },
-                                                                                                            {
-                                                                                                                id: 'api-6',
-                                                                                                                title: 'Query Parameters',
-                                                                                                                description: 'Filtering and pagination',
-                                                                                                                stage: 3,
-                                                                                                                content: `
+                                                                                                                                exercise: {
+                                                                                                                                    prompt: 'What keyword pauses until promise resolves?',
+                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                    options: ['pause', 'wait', 'await', 'hold'],
+                                                                                                                                    answer: 2
+                                                                                                                                }
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                id: 'api-6',
+                                                                                                                                title: 'Query Parameters',
+                                                                                                                                description: 'Filtering and pagination',
+                                                                                                                                stage: 3,
+                                                                                                                                content: `
 # Query Parameters
 
 ## Adding Parameters:
@@ -22163,19 +23919,19 @@ async function searchUsers(query, page = 1) {
 }
 \`\`\`
     `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'What separates query params from the URL?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['&', '#', '?', '/'],
-                                                                                                                    answer: 2
-                                                                                                                }
-                                                                                                            },
-                                                                                                            {
-                                                                                                                id: 'api-7',
-                                                                                                                title: 'Headers',
-                                                                                                                description: 'Authentication and content types',
-                                                                                                                stage: 3,
-                                                                                                                content: `
+                                                                                                                                exercise: {
+                                                                                                                                    prompt: 'What separates query params from the URL?',
+                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                    options: ['&', '#', '?', '/'],
+                                                                                                                                    answer: 2
+                                                                                                                                }
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                id: 'api-7',
+                                                                                                                                title: 'Headers',
+                                                                                                                                description: 'Authentication and content types',
+                                                                                                                                stage: 3,
+                                                                                                                                content: `
 # Headers
 
 ## Common Headers:
@@ -22209,19 +23965,19 @@ fetch('/api/data', {
 ## CORS Headers:
 APIs use these to control who can access them.
     `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'What header sends a token?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['Token', 'Authorization', 'Auth', 'Bearer'],
-                                                                                                                    answer: 1
-                                                                                                                }
-                                                                                                            },
-                                                                                                            {
-                                                                                                                id: 'api-8',
-                                                                                                                title: 'REST Principles',
-                                                                                                                description: 'Designing good APIs',
-                                                                                                                stage: 4,
-                                                                                                                content: `
+                                                                                                                                exercise: {
+                                                                                                                                    prompt: 'What header sends a token?',
+                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                    options: ['Token', 'Authorization', 'Auth', 'Bearer'],
+                                                                                                                                    answer: 1
+                                                                                                                                }
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                id: 'api-8',
+                                                                                                                                title: 'REST Principles',
+                                                                                                                                description: 'Designing good APIs',
+                                                                                                                                stage: 4,
+                                                                                                                                content: `
 # REST Principles
 
 ## Resources:
@@ -22252,19 +24008,19 @@ POST /users/1/comments - Add comment
 - Return updated resource on PUT/PATCH
 - Return 204 No Content on DELETE
     `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'What should resource names use?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['Verbs', 'Nouns', 'Actions', 'Descriptions'],
-                                                                                                                    answer: 1
-                                                                                                                }
-                                                                                                            },
-                                                                                                            {
-                                                                                                                id: 'api-9',
-                                                                                                                title: 'Error Handling',
-                                                                                                                description: 'Graceful failures',
-                                                                                                                stage: 4,
-                                                                                                                content: `
+                                                                                                                                exercise: {
+                                                                                                                                    prompt: 'What should resource names use?',
+                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                    options: ['Verbs', 'Nouns', 'Actions', 'Descriptions'],
+                                                                                                                                    answer: 1
+                                                                                                                                }
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                id: 'api-9',
+                                                                                                                                title: 'Error Handling',
+                                                                                                                                description: 'Graceful failures',
+                                                                                                                                stage: 4,
+                                                                                                                                content: `
 # Error Handling
 
 ## Check Response Status:
@@ -22310,32 +24066,32 @@ async function fetchWithRetry(url, retries = 3) {
 
 Congratulations! You've learned APIs! 🎉
     `,
-                                                                                                                exercise: {
-                                                                                                                    prompt: 'How do you check if a response succeeded?',
-                                                                                                                    type: 'multiple-choice',
-                                                                                                                    options: ['response.success', 'response.ok', 'response.valid', 'response.status === 200'],
-                                                                                                                    answer: 1
-                                                                                                                }
-                                                                                                            }
+                                                                                                                                exercise: {
+                                                                                                                                    prompt: 'How do you check if a response succeeded?',
+                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                    options: ['response.success', 'response.ok', 'response.valid', 'response.status === 200'],
+                                                                                                                                    answer: 1
+                                                                                                                                }
+                                                                                                                            }
 
 // Swift Course
 'swift': {
-                                                                                                                id: 'swift',
-                                                                                                                name: 'Swift',
-                                                                                                                description: 'Build iOS and macOS apps with Apple\'s modern language.',
-                                                                                                                category: COURSE_CATEGORIES.LANGUAGE,
-                                                                                                                icon: '🍎',
-                                                                                                                color: '#F05138',
-                                                                                                                language: 'swift',
-                                                                                                                prerequisites: ['intro-logic'],
-                                                                                                                estimatedHours: 12,
-                                                                                                                lessons: [
-                                                                                                                    {
-                                                                                                                        id: 'swift-1',
-                                                                                                                        title: 'Hello Swift',
-                                                                                                                        description: 'Your first Swift program',
-                                                                                                                        stage: 1,
-                                                                                                                        content: `
+                                                                                                                                id: 'swift',
+                                                                                                                                name: 'Swift',
+                                                                                                                                description: 'Build iOS and macOS apps with Apple\'s modern language.',
+                                                                                                                                category: COURSE_CATEGORIES.LANGUAGE,
+                                                                                                                                icon: '🍎',
+                                                                                                                                color: '#F05138',
+                                                                                                                                language: 'swift',
+                                                                                                                                prerequisites: ['intro-logic'],
+                                                                                                                                estimatedHours: 12,
+                                                                                                                                lessons: [
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-1',
+                                                                                                                                        title: 'Hello Swift',
+                                                                                                                                        description: 'Your first Swift program',
+                                                                                                                                        stage: 1,
+                                                                                                                                        content: `
 # Hello Swift
 
 Swift is Apple's language for iOS and macOS apps.
@@ -22350,19 +24106,19 @@ display "Hello, Swift!" end display
 print("Hello, Swift!")
 \`\`\`
                 `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What platforms use Swift?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['Windows', 'iOS and macOS', 'Android', 'Linux only'],
-                                                                                                                            answer: 1
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-2',
-                                                                                                                        title: 'Variables in Swift',
-                                                                                                                        description: 'let and var',
-                                                                                                                        stage: 2,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What platforms use Swift?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['Windows', 'iOS and macOS', 'Android', 'Linux only'],
+                                                                                                                                            answer: 1
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-2',
+                                                                                                                                        title: 'Variables in Swift',
+                                                                                                                                        description: 'let and var',
+                                                                                                                                        stage: 2,
+                                                                                                                                        content: `
 # Variables in Swift
 
 ## Constants (can't change):
@@ -22376,19 +24132,19 @@ var score = 0
 score = 10
 \`\`\`
                 `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'Which keyword creates a constant in Swift?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['var', 'let', 'const', 'final'],
-                                                                                                                            answer: 1
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-3',
-                                                                                                                        title: 'Data Types',
-                                                                                                                        description: 'Swift type system',
-                                                                                                                        stage: 2,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'Which keyword creates a constant in Swift?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['var', 'let', 'const', 'final'],
+                                                                                                                                            answer: 1
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-3',
+                                                                                                                                        title: 'Data Types',
+                                                                                                                                        description: 'Swift type system',
+                                                                                                                                        stage: 2,
+                                                                                                                                        content: `
 # Data Types
 
 ## Basic Types:
@@ -22418,19 +24174,19 @@ let name = "Alice"
 let greeting = "Hello, \\(name)!"
 \`\`\`
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'How do you embed variables in strings?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['${name}', '\\(name)', '{name}', '#{name}'],
-                                                                                                                            answer: 1
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-4',
-                                                                                                                        title: 'Control Flow',
-                                                                                                                        description: 'if, switch, loops',
-                                                                                                                        stage: 2,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'How do you embed variables in strings?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['${name}', '\\(name)', '{name}', '#{name}'],
+                                                                                                                                            answer: 1
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-4',
+                                                                                                                                        title: 'Control Flow',
+                                                                                                                                        description: 'if, switch, loops',
+                                                                                                                                        stage: 2,
+                                                                                                                                        content: `
 # Control Flow
 
 ## if Statement:
@@ -22476,19 +24232,19 @@ while count < 10 {
 }
 \`\`\`
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What is 1...5 in Swift?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['Array', 'Range', 'Tuple', 'Set'],
-                                                                                                                            answer: 1
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-5',
-                                                                                                                        title: 'Optionals',
-                                                                                                                        description: 'Handling nil values',
-                                                                                                                        stage: 3,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What is 1...5 in Swift?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['Array', 'Range', 'Tuple', 'Set'],
+                                                                                                                                            answer: 1
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-5',
+                                                                                                                                        title: 'Optionals',
+                                                                                                                                        description: 'Handling nil values',
+                                                                                                                                        stage: 3,
+                                                                                                                                        content: `
 # Optionals
 
 Values that might be nil!
@@ -22525,19 +24281,19 @@ let displayName = name ?? "Anonymous"
 let length = name?.count
 \`\`\`
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What operator provides a default value?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['||', '??', '?:', '&&'],
-                                                                                                                            answer: 1
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-6',
-                                                                                                                        title: 'Functions',
-                                                                                                                        description: 'Defining functions',
-                                                                                                                        stage: 3,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What operator provides a default value?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['||', '??', '?:', '&&'],
+                                                                                                                                            answer: 1
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-6',
+                                                                                                                                        title: 'Functions',
+                                                                                                                                        description: 'Defining functions',
+                                                                                                                                        stage: 3,
+                                                                                                                                        content: `
 # Functions
 
 ## Basic Function:
@@ -22578,19 +24334,19 @@ func minMax(array: [Int]) -> (min: Int, max: Int) {
 }
 \`\`\`
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What symbol indicates return type?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: [':', '=>', '->', '::'],
-                                                                                                                            answer: 2
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-7',
-                                                                                                                        title: 'Collections',
-                                                                                                                        description: 'Arrays, Sets, Dictionaries',
-                                                                                                                        stage: 3,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What symbol indicates return type?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: [':', '=>', '->', '::'],
+                                                                                                                                            answer: 2
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-7',
+                                                                                                                                        title: 'Collections',
+                                                                                                                                        description: 'Arrays, Sets, Dictionaries',
+                                                                                                                                        stage: 3,
+                                                                                                                                        content: `
 # Collections
 
 ## Arrays:
@@ -22621,19 +24377,19 @@ for number in numbers { }
 for (name, age) in ages { }
 \`\`\`
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What collection has unique values?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['Array', 'Set', 'Dictionary', 'Tuple'],
-                                                                                                                            answer: 1
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-8',
-                                                                                                                        title: 'Structs',
-                                                                                                                        description: 'Value types',
-                                                                                                                        stage: 3,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What collection has unique values?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['Array', 'Set', 'Dictionary', 'Tuple'],
+                                                                                                                                            answer: 1
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-8',
+                                                                                                                                        title: 'Structs',
+                                                                                                                                        description: 'Value types',
+                                                                                                                                        stage: 3,
+                                                                                                                                        content: `
 # Structs
 
 ## Defining Structs:
@@ -22674,19 +24430,19 @@ struct Rectangle {
 }
 \`\`\`
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What keyword allows struct methods to modify properties?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['mutable', 'mutating', 'var', 'modify'],
-                                                                                                                            answer: 1
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-9',
-                                                                                                                        title: 'Classes',
-                                                                                                                        description: 'Reference types',
-                                                                                                                        stage: 4,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What keyword allows struct methods to modify properties?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['mutable', 'mutating', 'var', 'modify'],
+                                                                                                                                            answer: 1
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-9',
+                                                                                                                                        title: 'Classes',
+                                                                                                                                        description: 'Reference types',
+                                                                                                                                        stage: 4,
+                                                                                                                                        content: `
 # Classes
 
 ## Defining Classes:
@@ -22720,19 +24476,19 @@ var b = a  // Struct: b is copy
            // Class: b is same object
 \`\`\`
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What keyword overrides a parent method?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['super', 'override', 'extends', 'virtual'],
-                                                                                                                            answer: 1
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-10',
-                                                                                                                        title: 'Enums',
-                                                                                                                        description: 'Custom types with cases',
-                                                                                                                        stage: 4,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What keyword overrides a parent method?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['super', 'override', 'extends', 'virtual'],
+                                                                                                                                            answer: 1
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-10',
+                                                                                                                                        title: 'Enums',
+                                                                                                                                        description: 'Custom types with cases',
+                                                                                                                                        stage: 4,
+                                                                                                                                        content: `
 # Enums
 
 ## Basic Enum:
@@ -22778,19 +24534,19 @@ case .qr(let code):
 }
 \`\`\`
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What can enum cases store?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['Only strings', 'Only numbers', 'Associated values', 'Nothing'],
-                                                                                                                            answer: 2
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-11',
-                                                                                                                        title: 'Closures',
-                                                                                                                        description: 'Anonymous functions',
-                                                                                                                        stage: 4,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What can enum cases store?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['Only strings', 'Only numbers', 'Associated values', 'Nothing'],
+                                                                                                                                            answer: 2
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-11',
+                                                                                                                                        title: 'Closures',
+                                                                                                                                        description: 'Anonymous functions',
+                                                                                                                                        stage: 4,
+                                                                                                                                        content: `
 # Closures
 
 ## Closure Syntax:
@@ -22828,19 +24584,19 @@ func makeCounter() -> () -> Int {
 }
 \`\`\`
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What is $0 in a closure?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['Zero', 'First parameter', 'Return value', 'Self'],
-                                                                                                                            answer: 1
-                                                                                                                        }
-                                                                                                                    },
-                                                                                                                    {
-                                                                                                                        id: 'swift-12',
-                                                                                                                        title: 'Protocols',
-                                                                                                                        description: 'Defining contracts',
-                                                                                                                        stage: 4,
-                                                                                                                        content: `
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What is $0 in a closure?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['Zero', 'First parameter', 'Return value', 'Self'],
+                                                                                                                                            answer: 1
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        id: 'swift-12',
+                                                                                                                                        title: 'Protocols',
+                                                                                                                                        description: 'Defining contracts',
+                                                                                                                                        stage: 4,
+                                                                                                                                        content: `
 # Protocols
 
 Like interfaces!
@@ -22881,32 +24637,32 @@ func process(item: Drawable & Codable) {
 
 Congratulations! You've learned Swift! 🎉
     `,
-                                                                                                                        exercise: {
-                                                                                                                            prompt: 'What are protocols similar to?',
-                                                                                                                            type: 'multiple-choice',
-                                                                                                                            options: ['Classes', 'Structs', 'Interfaces', 'Enums'],
-                                                                                                                            answer: 2
-                                                                                                                        }
-                                                                                                                    }
+                                                                                                                                        exercise: {
+                                                                                                                                            prompt: 'What are protocols similar to?',
+                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                            options: ['Classes', 'Structs', 'Interfaces', 'Enums'],
+                                                                                                                                            answer: 2
+                                                                                                                                        }
+                                                                                                                                    }
 
 // C# Course
 'csharp': {
-                                                                                                                        id: 'csharp',
-                                                                                                                        name: 'C#',
-                                                                                                                        description: 'Microsoft\'s powerful language for games and apps.',
-                                                                                                                        category: COURSE_CATEGORIES.LANGUAGE,
-                                                                                                                        icon: '🎮',
-                                                                                                                        color: '#239120',
-                                                                                                                        language: 'csharp',
-                                                                                                                        prerequisites: ['intro-logic'],
-                                                                                                                        estimatedHours: 14,
-                                                                                                                        lessons: [
-                                                                                                                            {
-                                                                                                                                id: 'cs-1',
-                                                                                                                                title: 'Hello C#',
-                                                                                                                                description: 'Your first C# program',
-                                                                                                                                stage: 1,
-                                                                                                                                content: `
+                                                                                                                                        id: 'csharp',
+                                                                                                                                        name: 'C#',
+                                                                                                                                        description: 'Microsoft\'s powerful language for games and apps.',
+                                                                                                                                        category: COURSE_CATEGORIES.LANGUAGE,
+                                                                                                                                        icon: '🎮',
+                                                                                                                                        color: '#239120',
+                                                                                                                                        language: 'csharp',
+                                                                                                                                        prerequisites: ['intro-logic'],
+                                                                                                                                        estimatedHours: 14,
+                                                                                                                                        lessons: [
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-1',
+                                                                                                                                                title: 'Hello C#',
+                                                                                                                                                description: 'Your first C# program',
+                                                                                                                                                stage: 1,
+                                                                                                                                                content: `
 # Hello C#
 
 C# is used for games (Unity), Windows apps, and web services.
@@ -22921,19 +24677,19 @@ display "Hello, C#!" end display
 Console.WriteLine("Hello, C#!");
 \`\`\`
                 `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What game engine uses C#?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['Unreal', 'Unity', 'Godot', 'GameMaker'],
-                                                                                                                                    answer: 1
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-2',
-                                                                                                                                title: 'Variables in C#',
-                                                                                                                                description: 'Typed variables',
-                                                                                                                                stage: 2,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What game engine uses C#?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['Unreal', 'Unity', 'Godot', 'GameMaker'],
+                                                                                                                                                    answer: 1
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-2',
+                                                                                                                                                title: 'Variables in C#',
+                                                                                                                                                description: 'Typed variables',
+                                                                                                                                                stage: 2,
+                                                                                                                                                content: `
 # Variables in C#
 
 C# requires type declarations.
@@ -22950,19 +24706,19 @@ string name = "Alice";
 int age = 25;
 \`\`\`
                 `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'Write: create text greeting = "Hi"',
-                                                                                                                                    type: 'code',
-                                                                                                                                    expectedOutput: 'create text greeting = "Hi"',
-                                                                                                                                    hint: 'Declare a text variable'
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-3',
-                                                                                                                                title: 'Type Inference',
-                                                                                                                                description: 'var keyword',
-                                                                                                                                stage: 2,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'Write: create text greeting = "Hi"',
+                                                                                                                                                    type: 'code',
+                                                                                                                                                    expectedOutput: 'create text greeting = "Hi"',
+                                                                                                                                                    hint: 'Declare a text variable'
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-3',
+                                                                                                                                                title: 'Type Inference',
+                                                                                                                                                description: 'var keyword',
+                                                                                                                                                stage: 2,
+                                                                                                                                                content: `
 # Type Inference
 
 ## Using var:
@@ -22989,19 +24745,19 @@ if (nullableInt.HasValue)
 }
 \`\`\`
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What lets the compiler infer the type?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['auto', 'var', 'let', 'infer'],
-                                                                                                                                    answer: 1
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-4',
-                                                                                                                                title: 'Control Flow',
-                                                                                                                                description: 'if, switch, loops',
-                                                                                                                                stage: 2,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What lets the compiler infer the type?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['auto', 'var', 'let', 'infer'],
+                                                                                                                                                    answer: 1
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-4',
+                                                                                                                                                title: 'Control Flow',
+                                                                                                                                                description: 'if, switch, loops',
+                                                                                                                                                stage: 2,
+                                                                                                                                                content: `
 # Control Flow
 
 ## if Statement:
@@ -23045,19 +24801,19 @@ while (condition) { }
 do { } while (condition);
 \`\`\`
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What iterates over collections easily?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['for', 'foreach', 'while', 'iterate'],
-                                                                                                                                    answer: 1
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-5',
-                                                                                                                                title: 'Methods',
-                                                                                                                                description: 'Functions in C#',
-                                                                                                                                stage: 3,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What iterates over collections easily?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['for', 'foreach', 'while', 'iterate'],
+                                                                                                                                                    answer: 1
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-5',
+                                                                                                                                                title: 'Methods',
+                                                                                                                                                description: 'Functions in C#',
+                                                                                                                                                stage: 3,
+                                                                                                                                                content: `
 # Methods
 
 ## Defining Methods:
@@ -23095,19 +24851,19 @@ public void GetValues(out int x, ref int y)
 }
 \`\`\`
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What means no return value?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['null', 'void', 'none', 'empty'],
-                                                                                                                                    answer: 1
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-6',
-                                                                                                                                title: 'Arrays and Lists',
-                                                                                                                                description: 'Collections in C#',
-                                                                                                                                stage: 3,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What means no return value?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['null', 'void', 'none', 'empty'],
+                                                                                                                                                    answer: 1
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-6',
+                                                                                                                                                title: 'Arrays and Lists',
+                                                                                                                                                description: 'Collections in C#',
+                                                                                                                                                stage: 3,
+                                                                                                                                                content: `
 # Arrays and Lists
 
 ## Arrays (fixed size):
@@ -23142,19 +24898,19 @@ var doubled = numbers.Select(n => n * 2);
 var sum = numbers.Sum();
 \`\`\`
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What collection grows dynamically?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['Array', 'List', 'Dictionary', 'Set'],
-                                                                                                                                    answer: 1
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-7',
-                                                                                                                                title: 'Classes',
-                                                                                                                                description: 'Object-oriented C#',
-                                                                                                                                stage: 3,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What collection grows dynamically?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['Array', 'List', 'Dictionary', 'Set'],
+                                                                                                                                                    answer: 1
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-7',
+                                                                                                                                                title: 'Classes',
+                                                                                                                                                description: 'Object-oriented C#',
+                                                                                                                                                stage: 3,
+                                                                                                                                                content: `
 # Classes
 
 ## Defining Classes:
@@ -23195,19 +24951,19 @@ var person = new Person("Alice", 25);
 Console.WriteLine(person.Greet());
 \`\`\`
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What is { get; set; }?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['Method', 'Auto-property', 'Field', 'Constructor'],
-                                                                                                                                    answer: 1
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-8',
-                                                                                                                                title: 'Inheritance',
-                                                                                                                                description: 'Extending classes',
-                                                                                                                                stage: 4,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What is { get; set; }?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['Method', 'Auto-property', 'Field', 'Constructor'],
+                                                                                                                                                    answer: 1
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-8',
+                                                                                                                                                title: 'Inheritance',
+                                                                                                                                                description: 'Extending classes',
+                                                                                                                                                stage: 4,
+                                                                                                                                                content: `
 # Inheritance
 
 ## Base and Derived:
@@ -23249,19 +25005,19 @@ public abstract class Shape
 public sealed class FinalClass { }
 \`\`\`
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What keyword overrides a virtual method?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['virtual', 'override', 'new', 'base'],
-                                                                                                                                    answer: 1
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-9',
-                                                                                                                                title: 'Interfaces',
-                                                                                                                                description: 'Defining contracts',
-                                                                                                                                stage: 4,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What keyword overrides a virtual method?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['virtual', 'override', 'new', 'base'],
+                                                                                                                                                    answer: 1
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-9',
+                                                                                                                                                title: 'Interfaces',
+                                                                                                                                                description: 'Defining contracts',
+                                                                                                                                                stage: 4,
+                                                                                                                                                content: `
 # Interfaces
 
 ## Defining Interfaces:
@@ -23301,19 +25057,19 @@ public interface ILogger
 }
 \`\`\`
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What prefix is convention for interfaces?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['Int', 'I', 'If', 'Interface'],
-                                                                                                                                    answer: 1
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-10',
-                                                                                                                                title: 'Generics',
-                                                                                                                                description: 'Type parameters',
-                                                                                                                                stage: 4,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What prefix is convention for interfaces?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['Int', 'I', 'If', 'Interface'],
+                                                                                                                                                    answer: 1
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-10',
+                                                                                                                                                title: 'Generics',
+                                                                                                                                                description: 'Type parameters',
+                                                                                                                                                stage: 4,
+                                                                                                                                                content: `
 # Generics
 
 ## Generic Classes:
@@ -23348,19 +25104,19 @@ where T : new()      // Has parameterless constructor
 where T : IDisposable  // Implements interface
 \`\`\`
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What restricts generic type parameters?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['where', 'limit', 'constraint', 'restrict'],
-                                                                                                                                    answer: 0
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-11',
-                                                                                                                                title: 'Async/Await',
-                                                                                                                                description: 'Asynchronous programming',
-                                                                                                                                stage: 4,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What restricts generic type parameters?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['where', 'limit', 'constraint', 'restrict'],
+                                                                                                                                                    answer: 0
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-11',
+                                                                                                                                                title: 'Async/Await',
+                                                                                                                                                description: 'Asynchronous programming',
+                                                                                                                                                stage: 4,
+                                                                                                                                                content: `
 # Async/Await
 
 ## Basic Async:
@@ -23393,19 +25149,19 @@ var posts = task2.Result;
 - \`Task<T>\` - Returns T
 - \`ValueTask<T>\` - Performance optimization
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What type wraps an async return value?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['Async<T>', 'Task<T>', 'Future<T>', 'Promise<T>'],
-                                                                                                                                    answer: 1
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                                id: 'cs-12',
-                                                                                                                                title: 'Exception Handling',
-                                                                                                                                description: 'Error handling',
-                                                                                                                                stage: 4,
-                                                                                                                                content: `
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What type wraps an async return value?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['Async<T>', 'Task<T>', 'Future<T>', 'Promise<T>'],
+                                                                                                                                                    answer: 1
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                                id: 'cs-12',
+                                                                                                                                                title: 'Exception Handling',
+                                                                                                                                                description: 'Error handling',
+                                                                                                                                                stage: 4,
+                                                                                                                                                content: `
 # Exception Handling
 
 ## try-catch-finally:
@@ -23446,32 +25202,32 @@ public class ValidationException : Exception
 
 Congratulations! You've learned C#! 🎉
     `,
-                                                                                                                                exercise: {
-                                                                                                                                    prompt: 'What block always runs?',
-                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                    options: ['try', 'catch', 'finally', 'throw'],
-                                                                                                                                    answer: 2
-                                                                                                                                }
-                                                                                                                            }
+                                                                                                                                                exercise: {
+                                                                                                                                                    prompt: 'What block always runs?',
+                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                    options: ['try', 'catch', 'finally', 'throw'],
+                                                                                                                                                    answer: 2
+                                                                                                                                                }
+                                                                                                                                            }
 
 // Git Course
 'git': {
-                                                                                                                                id: 'git',
-                                                                                                                                name: 'Git Version Control',
-                                                                                                                                description: 'Track changes and collaborate with Git.',
-                                                                                                                                category: COURSE_CATEGORIES.TOOLS,
-                                                                                                                                icon: '🔀',
-                                                                                                                                color: '#F05032',
-                                                                                                                                language: 'bash',
-                                                                                                                                prerequisites: ['terminal'],
-                                                                                                                                estimatedHours: 5,
-                                                                                                                                lessons: [
-                                                                                                                                    {
-                                                                                                                                        id: 'git-1',
-                                                                                                                                        title: 'What is Git?',
-                                                                                                                                        description: 'Version control basics',
-                                                                                                                                        stage: 1,
-                                                                                                                                        content: `
+                                                                                                                                                id: 'git',
+                                                                                                                                                name: 'Git Version Control',
+                                                                                                                                                description: 'Track changes and collaborate with Git.',
+                                                                                                                                                category: COURSE_CATEGORIES.TOOLS,
+                                                                                                                                                icon: '🔀',
+                                                                                                                                                color: '#F05032',
+                                                                                                                                                language: 'bash',
+                                                                                                                                                prerequisites: ['terminal'],
+                                                                                                                                                estimatedHours: 5,
+                                                                                                                                                lessons: [
+                                                                                                                                                    {
+                                                                                                                                                        id: 'git-1',
+                                                                                                                                                        title: 'What is Git?',
+                                                                                                                                                        description: 'Version control basics',
+                                                                                                                                                        stage: 1,
+                                                                                                                                                        content: `
 # What is Git?
 
 Git tracks changes to your code over time.
@@ -23487,19 +25243,19 @@ Git tracks changes to your code over time.
 - Commit (save point)
 - Branch (parallel version)
                 `,
-                                                                                                                                        exercise: {
-                                                                                                                                            prompt: 'What does Git track?',
-                                                                                                                                            type: 'multiple-choice',
-                                                                                                                                            options: ['Time spent coding', 'Changes to code', 'Computer memory', 'Internet speed'],
-                                                                                                                                            answer: 1
-                                                                                                                                        }
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        id: 'git-2',
-                                                                                                                                        title: 'Basic Commands',
-                                                                                                                                        description: 'init, add, commit',
-                                                                                                                                        stage: 2,
-                                                                                                                                        content: `
+                                                                                                                                                        exercise: {
+                                                                                                                                                            prompt: 'What does Git track?',
+                                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                                            options: ['Time spent coding', 'Changes to code', 'Computer memory', 'Internet speed'],
+                                                                                                                                                            answer: 1
+                                                                                                                                                        }
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                        id: 'git-2',
+                                                                                                                                                        title: 'Basic Commands',
+                                                                                                                                                        description: 'init, add, commit',
+                                                                                                                                                        stage: 2,
+                                                                                                                                                        content: `
 # Basic Git Commands
 
 ## Starting:
@@ -23514,19 +25270,19 @@ git add .                    # Stage all changes
 git commit -m "message"      # Save with message
 \`\`\`
                 `,
-                                                                                                                                        exercise: {
-                                                                                                                                            prompt: 'Write: git add .',
-                                                                                                                                            type: 'code',
-                                                                                                                                            expectedOutput: 'git add .',
-                                                                                                                                            hint: 'Stage all changes'
-                                                                                                                                        }
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        id: 'git-3',
-                                                                                                                                        title: 'Status and Diff',
-                                                                                                                                        description: 'Checking changes',
-                                                                                                                                        stage: 2,
-                                                                                                                                        content: `
+                                                                                                                                                        exercise: {
+                                                                                                                                                            prompt: 'Write: git add .',
+                                                                                                                                                            type: 'code',
+                                                                                                                                                            expectedOutput: 'git add .',
+                                                                                                                                                            hint: 'Stage all changes'
+                                                                                                                                                        }
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                        id: 'git-3',
+                                                                                                                                                        title: 'Status and Diff',
+                                                                                                                                                        description: 'Checking changes',
+                                                                                                                                                        stage: 2,
+                                                                                                                                                        content: `
 # Status and Diff
 
 ## Checking Status:
@@ -23554,19 +25310,19 @@ git log --graph       # Visual branches
 git log -p            # With diffs
 \`\`\`
     `,
-                                                                                                                                        exercise: {
-                                                                                                                                            prompt: 'What shows staged changes?',
-                                                                                                                                            type: 'multiple-choice',
-                                                                                                                                            options: ['git diff', 'git diff --staged', 'git status', 'git show'],
-                                                                                                                                            answer: 1
-                                                                                                                                        }
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        id: 'git-4',
-                                                                                                                                        title: 'Branches',
-                                                                                                                                        description: 'Parallel development',
-                                                                                                                                        stage: 3,
-                                                                                                                                        content: `
+                                                                                                                                                        exercise: {
+                                                                                                                                                            prompt: 'What shows staged changes?',
+                                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                                            options: ['git diff', 'git diff --staged', 'git status', 'git show'],
+                                                                                                                                                            answer: 1
+                                                                                                                                                        }
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                        id: 'git-4',
+                                                                                                                                                        title: 'Branches',
+                                                                                                                                                        description: 'Parallel development',
+                                                                                                                                                        stage: 3,
+                                                                                                                                                        content: `
 # Branches
 
 ## Creating Branches:
@@ -23595,19 +25351,19 @@ git branch -D feature   # Force delete
 - Easy to experiment
 - Enables code review
     `,
-                                                                                                                                        exercise: {
-                                                                                                                                            prompt: 'What creates and switches to a branch?',
-                                                                                                                                            type: 'multiple-choice',
-                                                                                                                                            options: ['git branch -b', 'git checkout -b', 'git create', 'git new'],
-                                                                                                                                            answer: 1
-                                                                                                                                        }
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        id: 'git-5',
-                                                                                                                                        title: 'Merging',
-                                                                                                                                        description: 'Combining branches',
-                                                                                                                                        stage: 3,
-                                                                                                                                        content: `
+                                                                                                                                                        exercise: {
+                                                                                                                                                            prompt: 'What creates and switches to a branch?',
+                                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                                            options: ['git branch -b', 'git checkout -b', 'git create', 'git new'],
+                                                                                                                                                            answer: 1
+                                                                                                                                                        }
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                        id: 'git-5',
+                                                                                                                                                        title: 'Merging',
+                                                                                                                                                        description: 'Combining branches',
+                                                                                                                                                        stage: 3,
+                                                                                                                                                        content: `
 # Merging
 
 ## Basic Merge:
@@ -23638,19 +25394,19 @@ Their changes
 git merge --abort
 \`\`\`
     `,
-                                                                                                                                        exercise: {
-                                                                                                                                            prompt: 'What happens if both branches change the same line?',
-                                                                                                                                            type: 'multiple-choice',
-                                                                                                                                            options: ['Auto-merged', 'Conflict', 'Error', 'Ignored'],
-                                                                                                                                            answer: 1
-                                                                                                                                        }
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        id: 'git-6',
-                                                                                                                                        title: 'Remote Repositories',
-                                                                                                                                        description: 'Working with GitHub',
-                                                                                                                                        stage: 3,
-                                                                                                                                        content: `
+                                                                                                                                                        exercise: {
+                                                                                                                                                            prompt: 'What happens if both branches change the same line?',
+                                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                                            options: ['Auto-merged', 'Conflict', 'Error', 'Ignored'],
+                                                                                                                                                            answer: 1
+                                                                                                                                                        }
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                        id: 'git-6',
+                                                                                                                                                        title: 'Remote Repositories',
+                                                                                                                                                        description: 'Working with GitHub',
+                                                                                                                                                        stage: 3,
+                                                                                                                                                        content: `
 # Remote Repositories
 
 ## Adding Remote:
@@ -23678,19 +25434,19 @@ git push -u origin main
 git branch --set-upstream-to=origin/main main
 \`\`\`
     `,
-                                                                                                                                        exercise: {
-                                                                                                                                            prompt: 'What uploads commits to GitHub?',
-                                                                                                                                            type: 'multiple-choice',
-                                                                                                                                            options: ['git upload', 'git push', 'git send', 'git sync'],
-                                                                                                                                            answer: 1
-                                                                                                                                        }
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        id: 'git-7',
-                                                                                                                                        title: 'Undoing Changes',
-                                                                                                                                        description: 'Reset, revert, restore',
-                                                                                                                                        stage: 4,
-                                                                                                                                        content: `
+                                                                                                                                                        exercise: {
+                                                                                                                                                            prompt: 'What uploads commits to GitHub?',
+                                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                                            options: ['git upload', 'git push', 'git send', 'git sync'],
+                                                                                                                                                            answer: 1
+                                                                                                                                                        }
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                        id: 'git-7',
+                                                                                                                                                        title: 'Undoing Changes',
+                                                                                                                                                        description: 'Reset, revert, restore',
+                                                                                                                                                        stage: 4,
+                                                                                                                                                        content: `
 # Undoing Changes
 
 ## Unstage Files:
@@ -23719,19 +25475,19 @@ git revert abc123         # Revert specific commit
 
 ⚠️ Use revert for shared branches!
     `,
-                                                                                                                                        exercise: {
-                                                                                                                                            prompt: 'What safely undoes a public commit?',
-                                                                                                                                            type: 'multiple-choice',
-                                                                                                                                            options: ['reset', 'revert', 'restore', 'undo'],
-                                                                                                                                            answer: 1
-                                                                                                                                        }
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        id: 'git-8',
-                                                                                                                                        title: 'Stashing',
-                                                                                                                                        description: 'Temporary storage',
-                                                                                                                                        stage: 4,
-                                                                                                                                        content: `
+                                                                                                                                                        exercise: {
+                                                                                                                                                            prompt: 'What safely undoes a public commit?',
+                                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                                            options: ['reset', 'revert', 'restore', 'undo'],
+                                                                                                                                                            answer: 1
+                                                                                                                                                        }
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                        id: 'git-8',
+                                                                                                                                                        title: 'Stashing',
+                                                                                                                                                        description: 'Temporary storage',
+                                                                                                                                                        stage: 4,
+                                                                                                                                                        content: `
 # Stashing
 
 Save work temporarily!
@@ -23766,19 +25522,19 @@ git stash apply stash@{2}
 - Want to save incomplete work
 - Pulling when you have local changes
     `,
-                                                                                                                                        exercise: {
-                                                                                                                                            prompt: 'What applies and removes a stash?',
-                                                                                                                                            type: 'multiple-choice',
-                                                                                                                                            options: ['stash apply', 'stash pop', 'stash get', 'stash use'],
-                                                                                                                                            answer: 1
-                                                                                                                                        }
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        id: 'git-9',
-                                                                                                                                        title: 'Rebasing',
-                                                                                                                                        description: 'Rewriting history',
-                                                                                                                                        stage: 4,
-                                                                                                                                        content: `
+                                                                                                                                                        exercise: {
+                                                                                                                                                            prompt: 'What applies and removes a stash?',
+                                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                                            options: ['stash apply', 'stash pop', 'stash get', 'stash use'],
+                                                                                                                                                            answer: 1
+                                                                                                                                                        }
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                        id: 'git-9',
+                                                                                                                                                        title: 'Rebasing',
+                                                                                                                                                        description: 'Rewriting history',
+                                                                                                                                                        stage: 4,
+                                                                                                                                                        content: `
 # Rebasing
 
 ## Basic Rebase:
@@ -23808,32 +25564,32 @@ git rebase -i HEAD~3
 
 Congratulations! You've learned Git! 🎉
     `,
-                                                                                                                                        exercise: {
-                                                                                                                                            prompt: 'When should you NOT rebase?',
-                                                                                                                                            type: 'multiple-choice',
-                                                                                                                                            options: ['Feature branches', 'Shared branches', 'Before merge', 'Local commits'],
-                                                                                                                                            answer: 1
-                                                                                                                                        }
-                                                                                                                                    }
+                                                                                                                                                        exercise: {
+                                                                                                                                                            prompt: 'When should you NOT rebase?',
+                                                                                                                                                            type: 'multiple-choice',
+                                                                                                                                                            options: ['Feature branches', 'Shared branches', 'Before merge', 'Local commits'],
+                                                                                                                                                            answer: 1
+                                                                                                                                                        }
+                                                                                                                                                    }
 
 // Authentication Course
 'authentication': {
-                                                                                                                                        id: 'authentication',
-                                                                                                                                        name: 'Authentication',
-                                                                                                                                        description: 'Secure your apps with user login systems.',
-                                                                                                                                        category: COURSE_CATEGORIES.EXTENSIONS,
-                                                                                                                                        icon: '🔐',
-                                                                                                                                        color: '#6366F1',
-                                                                                                                                        language: 'javascript',
-                                                                                                                                        prerequisites: ['javascript', 'apis'],
-                                                                                                                                        estimatedHours: 8,
-                                                                                                                                        lessons: [
-                                                                                                                                            {
-                                                                                                                                                id: 'auth-1',
-                                                                                                                                                title: 'What is Authentication?',
-                                                                                                                                                description: 'Verifying user identity',
-                                                                                                                                                stage: 1,
-                                                                                                                                                content: `
+                                                                                                                                                        id: 'authentication',
+                                                                                                                                                        name: 'Authentication',
+                                                                                                                                                        description: 'Secure your apps with user login systems.',
+                                                                                                                                                        category: COURSE_CATEGORIES.EXTENSIONS,
+                                                                                                                                                        icon: '🔐',
+                                                                                                                                                        color: '#6366F1',
+                                                                                                                                                        language: 'javascript',
+                                                                                                                                                        prerequisites: ['javascript', 'apis'],
+                                                                                                                                                        estimatedHours: 8,
+                                                                                                                                                        lessons: [
+                                                                                                                                                            {
+                                                                                                                                                                id: 'auth-1',
+                                                                                                                                                                title: 'What is Authentication?',
+                                                                                                                                                                description: 'Verifying user identity',
+                                                                                                                                                                stage: 1,
+                                                                                                                                                                content: `
 # What is Authentication?
 
 Authentication = Proving who you are
@@ -23848,19 +25604,19 @@ Authentication = Proving who you are
 - Authentication: Who are you?
 - Authorization: What can you do?
                 `,
-                                                                                                                                                exercise: {
-                                                                                                                                                    prompt: 'What is the difference between authentication and authorization?',
-                                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                                    options: ['They are the same', 'Auth = who, Author = what', 'Auth = what, Author = who', 'Neither relates to security'],
-                                                                                                                                                    answer: 1
-                                                                                                                                                }
-                                                                                                                                            },
-                                                                                                                                            {
-                                                                                                                                                id: 'auth-2',
-                                                                                                                                                title: 'OAuth Basics',
-                                                                                                                                                description: 'Login with third parties',
-                                                                                                                                                stage: 2,
-                                                                                                                                                content: `
+                                                                                                                                                                exercise: {
+                                                                                                                                                                    prompt: 'What is the difference between authentication and authorization?',
+                                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                                    options: ['They are the same', 'Auth = who, Author = what', 'Auth = what, Author = who', 'Neither relates to security'],
+                                                                                                                                                                    answer: 1
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                id: 'auth-2',
+                                                                                                                                                                title: 'OAuth Basics',
+                                                                                                                                                                description: 'Login with third parties',
+                                                                                                                                                                stage: 2,
+                                                                                                                                                                content: `
 # OAuth Basics
 
 OAuth lets users login with existing accounts.
@@ -23877,19 +25633,19 @@ OAuth lets users login with existing accounts.
 - Users trust Google/GitHub
 - Less friction for users
                 `,
-                                                                                                                                                exercise: {
-                                                                                                                                                    prompt: 'What does OAuth let users do?',
-                                                                                                                                                    type: 'multiple-choice',
-                                                                                                                                                    options: ['Create new passwords', 'Login with existing accounts', 'Delete accounts', 'Encrypt files'],
-                                                                                                                                                    answer: 1
-                                                                                                                                                }
-                                                                                                                                            },
-{
-    id: 'auth-3',
-    title: 'Password Security',
-    description: 'Hashing and salting',
-    stage: 2,
-    content: `
+                                                                                                                                                                exercise: {
+                                                                                                                                                                    prompt: 'What does OAuth let users do?',
+                                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                                    options: ['Create new passwords', 'Login with existing accounts', 'Delete accounts', 'Encrypt files'],
+                                                                                                                                                                    answer: 1
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                id: 'auth-3',
+                                                                                                                                                                title: 'Password Security',
+                                                                                                                                                                description: 'Hashing and salting',
+                                                                                                                                                                stage: 2,
+                                                                                                                                                                content: `
 # Password Security
 
 Never store plain text passwords!
@@ -23923,19 +25679,19 @@ const hash = await bcrypt.hash(password, 10);
 const match = await bcrypt.compare(password, hash);
 \`\`\`
     `,
-    exercise: {
-        prompt: 'What prevents rainbow table attacks?',
-        type: 'multiple-choice',
-        options: ['Encryption', 'Salting', 'Compression', 'Encoding'],
-        answer: 1
-    }
-},
-{
-    id: 'auth-4',
-    title: 'Sessions',
-    description: 'Stateful authentication',
-    stage: 3,
-    content: `
+                                                                                                                                                                exercise: {
+                                                                                                                                                                    prompt: 'What prevents rainbow table attacks?',
+                                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                                    options: ['Encryption', 'Salting', 'Compression', 'Encoding'],
+                                                                                                                                                                    answer: 1
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                id: 'auth-4',
+                                                                                                                                                                title: 'Sessions',
+                                                                                                                                                                description: 'Stateful authentication',
+                                                                                                                                                                stage: 3,
+                                                                                                                                                                content: `
 # Sessions
 
 Server remembers who you are!
@@ -23974,19 +25730,19 @@ delete sessions[sessionId];
 // Clear cookie too
 \`\`\`
     `,
-    exercise: {
-        prompt: 'Where is session ID typically stored?',
-        type: 'multiple-choice',
-        options: ['URL', 'Cookie', 'Header', 'Body'],
-        answer: 1
-    }
-},
-{
-    id: 'auth-5',
-    title: 'JWT Tokens',
-    description: 'Stateless authentication',
-    stage: 3,
-    content: `
+                                                                                                                                                                exercise: {
+                                                                                                                                                                    prompt: 'Where is session ID typically stored?',
+                                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                                    options: ['URL', 'Cookie', 'Header', 'Body'],
+                                                                                                                                                                    answer: 1
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                id: 'auth-5',
+                                                                                                                                                                title: 'JWT Tokens',
+                                                                                                                                                                description: 'Stateless authentication',
+                                                                                                                                                                stage: 3,
+                                                                                                                                                                content: `
 # JWT Tokens
 
 JSON Web Tokens - stateless auth!
@@ -24026,19 +25782,19 @@ const decoded = jwt.verify(token, process.env.JWT_SECRET);
 console.log(decoded.userId);
 \`\`\`
     `,
-    exercise: {
-        prompt: 'How many parts does a JWT have?',
-        type: 'multiple-choice',
-        options: ['1', '2', '3', '4'],
-        answer: 2
-    }
-},
-{
-    id: 'auth-6',
-    title: 'JWT vs Sessions',
-    description: 'Choosing the right approach',
-    stage: 3,
-    content: `
+                                                                                                                                                                exercise: {
+                                                                                                                                                                    prompt: 'How many parts does a JWT have?',
+                                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                                    options: ['1', '2', '3', '4'],
+                                                                                                                                                                    answer: 2
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                id: 'auth-6',
+                                                                                                                                                                title: 'JWT vs Sessions',
+                                                                                                                                                                description: 'Choosing the right approach',
+                                                                                                                                                                stage: 3,
+                                                                                                                                                                content: `
 # JWT vs Sessions
 
 ## Sessions:
@@ -24071,19 +25827,19 @@ console.log(decoded.userId);
 ## Hybrid Approach:
 Short-lived JWT + Refresh tokens
     `,
-    exercise: {
-        prompt: 'Which is easier to scale?',
-        type: 'multiple-choice',
-        options: ['Sessions', 'JWT', 'Both equal', 'Neither'],
-        answer: 1
-    }
-},
-{
-    id: 'auth-7',
-    title: 'Refresh Tokens',
-    description: 'Secure token renewal',
-    stage: 4,
-    content: `
+                                                                                                                                                                exercise: {
+                                                                                                                                                                    prompt: 'Which is easier to scale?',
+                                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                                    options: ['Sessions', 'JWT', 'Both equal', 'Neither'],
+                                                                                                                                                                    answer: 1
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                id: 'auth-7',
+                                                                                                                                                                title: 'Refresh Tokens',
+                                                                                                                                                                description: 'Secure token renewal',
+                                                                                                                                                                stage: 4,
+                                                                                                                                                                content: `
 # Refresh Tokens
 
 Keep users logged in securely!
@@ -24122,19 +25878,19 @@ app.post('/refresh', async (req, res) => {
 });
 \`\`\`
     `,
-    exercise: {
-        prompt: 'Which token lasts longer?',
-        type: 'multiple-choice',
-        options: ['Access token', 'Refresh token', 'Both same', 'Neither'],
-        answer: 1
-    }
-},
-{
-    id: 'auth-8',
-    title: 'Middleware Protection',
-    description: 'Protecting routes',
-    stage: 4,
-    content: `
+                                                                                                                                                                exercise: {
+                                                                                                                                                                    prompt: 'Which token lasts longer?',
+                                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                                    options: ['Access token', 'Refresh token', 'Both same', 'Neither'],
+                                                                                                                                                                    answer: 1
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                id: 'auth-8',
+                                                                                                                                                                title: 'Middleware Protection',
+                                                                                                                                                                description: 'Protecting routes',
+                                                                                                                                                                stage: 4,
+                                                                                                                                                                content: `
 # Middleware Protection
 
 Protect routes with middleware!
@@ -24179,19 +25935,19 @@ const adminOnly = (req, res, next) => {
 };
 \`\`\`
     `,
-    exercise: {
-        prompt: 'What status code for "no permission"?',
-        type: 'multiple-choice',
-        options: ['401', '403', '404', '500'],
-        answer: 1
-    }
-},
-{
-    id: 'auth-9',
-    title: 'Security Best Practices',
-    description: 'Protecting your auth system',
-    stage: 4,
-    content: `
+                                                                                                                                                                exercise: {
+                                                                                                                                                                    prompt: 'What status code for "no permission"?',
+                                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                                    options: ['401', '403', '404', '500'],
+                                                                                                                                                                    answer: 1
+                                                                                                                                                                }
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                                id: 'auth-9',
+                                                                                                                                                                title: 'Security Best Practices',
+                                                                                                                                                                description: 'Protecting your auth system',
+                                                                                                                                                                stage: 4,
+                                                                                                                                                                content: `
 # Security Best Practices
 
 ## Rate Limiting:
@@ -24233,50 +25989,50 @@ res.cookie('token', token, {
 
 Congratulations! You've learned Authentication! 🎉
     `,
-    exercise: {
-        prompt: 'What cookie flag prevents JavaScript access?',
-        type: 'multiple-choice',
-        options: ['secure', 'httpOnly', 'sameSite', 'noScript'],
-        answer: 1
-    }
-}
+                                                                                                                                                                exercise: {
+                                                                                                                                                                    prompt: 'What cookie flag prevents JavaScript access?',
+                                                                                                                                                                    type: 'multiple-choice',
+                                                                                                                                                                    options: ['secure', 'httpOnly', 'sameSite', 'noScript'],
+                                                                                                                                                                    answer: 1
+                                                                                                                                                                }
+                                                                                                                                                            }
 
 // Get all courses
 export const getAllCourses = () => Object.values(courses);
 
-                                                                                                                        // Get course by ID
-                                                                                                                        export const getCourse = (courseId) => courses[courseId];
+                                                                                                                                                        // Get course by ID
+                                                                                                                                                        export const getCourse = (courseId) => courses[courseId];
 
-                                                                                                                        // Get lessons for a course
-                                                                                                                        export const getLessons = (courseId) => {
-                                                                                                                            const course = courses[courseId];
-                                                                                                                            return course ? course.lessons : [];
-                                                                                                                        };
+                                                                                                                                                        // Get lessons for a course
+                                                                                                                                                        export const getLessons = (courseId) => {
+                                                                                                                                                            const course = courses[courseId];
+                                                                                                                                                            return course ? course.lessons : [];
+                                                                                                                                                        };
 
-                                                                                                                        // Get a specific lesson
-                                                                                                                        export const getLesson = (courseId, lessonId) => {
-                                                                                                                            const course = courses[courseId];
-                                                                                                                            if (!course) return null;
-                                                                                                                            return course.lessons.find(l => l.id === lessonId);
-                                                                                                                        };
+                                                                                                                                                        // Get a specific lesson
+                                                                                                                                                        export const getLesson = (courseId, lessonId) => {
+                                                                                                                                                            const course = courses[courseId];
+                                                                                                                                                            if (!course) return null;
+                                                                                                                                                            return course.lessons.find(l => l.id === lessonId);
+                                                                                                                                                        };
 
-                                                                                                                        // Get next lesson in course
-                                                                                                                        export const getNextLesson = (courseId, currentLessonId) => {
-                                                                                                                            const lessons = getLessons(courseId);
-                                                                                                                            const currentIndex = lessons.findIndex(l => l.id === currentLessonId);
-                                                                                                                            if (currentIndex === -1 || currentIndex === lessons.length - 1) return null;
-                                                                                                                            return lessons[currentIndex + 1];
-                                                                                                                        };
+                                                                                                                                                        // Get next lesson in course
+                                                                                                                                                        export const getNextLesson = (courseId, currentLessonId) => {
+                                                                                                                                                            const lessons = getLessons(courseId);
+                                                                                                                                                            const currentIndex = lessons.findIndex(l => l.id === currentLessonId);
+                                                                                                                                                            if (currentIndex === -1 || currentIndex === lessons.length - 1) return null;
+                                                                                                                                                            return lessons[currentIndex + 1];
+                                                                                                                                                        };
 
-                                                                                                                        // Get courses by category
-                                                                                                                        export const getCoursesByCategory = (category) => {
-                                                                                                                            return getAllCourses().filter(c => c.category === category);
-                                                                                                                        };
+                                                                                                                                                        // Get courses by category
+                                                                                                                                                        export const getCoursesByCategory = (category) => {
+                                                                                                                                                            return getAllCourses().filter(c => c.category === category);
+                                                                                                                                                        };
 
-                                                                                                                        // Check if course is completed
-                                                                                                                        export const isCourseCompleted = (courseId, completedLessons) => {
-                                                                                                                            const lessons = getLessons(courseId);
-                                                                                                                            return lessons.every(l => completedLessons.includes(l.id));
-                                                                                                                        };
+                                                                                                                                                        // Check if course is completed
+                                                                                                                                                        export const isCourseCompleted = (courseId, completedLessons) => {
+                                                                                                                                                            const lessons = getLessons(courseId);
+                                                                                                                                                            return lessons.every(l => completedLessons.includes(l.id));
+                                                                                                                                                        };
 
-                                                                                                                        export default courses;
+                                                                                                                                                        export default courses;

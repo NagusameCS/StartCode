@@ -131,7 +131,15 @@
 
 .content h1 {
     font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.lessonDescription {
+    color: var(--color-textSecondary);
+    font-size: 0.95rem;
     margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .markdown {
@@ -539,6 +547,116 @@
         display: flex;
         grid-column: 1;
     }
+}
+
+/* Terminal Simulation Styles */
+.terminalWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+}
+
+.terminalHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: #16162a;
+    color: #888;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+}
+
+.terminalHeader svg {
+    color: #4ade80;
+}
+
+.terminalDots {
+    margin-left: auto;
+    display: flex;
+    gap: 6px;
+}
+
+.terminalDots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff5f56;
+}
+
+.terminalDots span:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.terminalDots span:nth-child(3) {
+    background: #27ca40;
+}
+
+.terminal {
+    flex: 1;
+    padding: var(--spacing-md);
+    overflow-y: auto;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    min-height: 250px;
+    max-height: 400px;
+}
+
+.terminalWelcome {
+    color: #6b7280;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid #2a2a4a;
+}
+
+.terminalEntry {
+    margin-bottom: var(--spacing-sm);
+}
+
+.terminalCommand {
+    display: flex;
+    gap: var(--spacing-sm);
+    color: #e5e7eb;
+}
+
+.terminalPrompt {
+    color: #4ade80;
+    user-select: none;
+}
+
+.terminalOutput {
+    color: #9ca3af;
+    margin: var(--spacing-xs) 0 0 0;
+    padding-left: 0;
+    white-space: pre-wrap;
+    font-family: inherit;
+}
+
+.terminalInputLine {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.terminalInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #e5e7eb;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    outline: none;
+    caret-color: #4ade80;
+}
+
+.terminalInput::placeholder {
+    color: #4b5563;
 }
 
 @media (max-width: 768px) {

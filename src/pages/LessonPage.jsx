@@ -1,5 +1,5 @@
 // Lesson Page - Interactive learning with code editor
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -9,8 +9,8 @@ import {
     FiCheck,
     FiX,
     FiHelpCircle,
-    FiBook,
-    FiClock
+    FiClock,
+    FiTerminal
 } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import CodeMirror from '@uiw/react-codemirror';
@@ -43,6 +43,14 @@ const LessonPage = () => {
     const [exerciseResult, setExerciseResult] = useState(null);
     const [multipleChoiceAnswer, setMultipleChoiceAnswer] = useState(null);
     const [showHistory, setShowHistory] = useState(false);
+
+    // Terminal simulation state
+    const [terminalHistory, setTerminalHistory] = useState([]);
+    const [terminalInput, setTerminalInput] = useState('');
+    const terminalRef = useRef(null);
+
+    // Check if this is a terminal/bash course
+    const isTerminalCourse = course?.language === 'bash' || course?.language === 'shell' || courseId === 'terminal';
 
     // Initialize transpiler
     const transpiler = lesson?.language
@@ -93,9 +101,10 @@ const LessonPage = () => {
         setExerciseResult(null);
 
         try {
-            // For pure logic exercises with no language, run natural language interpreter
-            if (!course?.language) {
-                // Execute the natural language code
+            // For pure logic exercises OR stage 1 natural language lessons
+            const isNaturalLanguageStage = lesson?.stage === 1 || lesson?.exercise?.language === 'natural';
+            if (!course?.language || isNaturalLanguageStage) {
+                // Execute the natural language code using natural interpreter
                 const result = await executeCode(code, null);
 
                 if (result.success) {
@@ -187,6 +196,87 @@ const LessonPage = () => {
         }
     };
 
+    // Handle terminal command
+    const handleTerminalCommand = useCallback((e) => {
+        if (e.key !== 'Enter' || !terminalInput.trim()) return;
+
+        const command = terminalInput.trim();
+
+        // Simulate command output
+        const simulateCommand = (cmd) => {
+            const parts = cmd.split(' ');
+            const baseCmd = parts[0];
+            const args = parts.slice(1);
+
+            // Simple command simulations
+            const simulations = {
+                'pwd': '/home/user/projects',
+                'whoami': 'user',
+                'date': new Date().toString(),
+                'echo': args.join(' '),
+                'ls': 'Documents  Downloads  Pictures  projects  README.md',
+                'ls -la': 'total 20\ndrwxr-xr-x  5 user user 4096 Jan  3 10:00 .\ndrwxr-xr-x  3 user user 4096 Jan  1 09:00 ..\n-rw-r--r--  1 user user  220 Jan  1 09:00 .bashrc\ndrwxr-xr-x  2 user user 4096 Jan  2 14:00 Documents\ndrwxr-xr-x  2 user user 4096 Jan  2 14:00 projects',
+                'cd': '',
+                'mkdir': '',
+                'touch': '',
+                'rm': '',
+                'cp': '',
+                'mv': '',
+                'cat': args[0] ? `Contents of ${args[0]}...` : 'cat: missing operand',
+                'clear': '__CLEAR__',
+                'help': 'Available commands: ls, cd, pwd, mkdir, touch, rm, cp, mv, cat, echo, clear, help',
+                'man': `Manual page for ${args[0] || 'command'}:\n  Usage: ${args[0] || 'command'} [options] [arguments]\n  Try '${args[0] || 'command'} --help' for more information.`
+            };
+
+            if (baseCmd in simulations) {
+                const output = typeof simulations[baseCmd] === 'function'
+                    ? simulations[baseCmd]()
+                    : simulations[baseCmd];
+                return output === '__CLEAR__' ? '__CLEAR__' : output || `${baseCmd}: command executed`;
+            }
+
+            return `${baseCmd}: command not found`;
+        };
+
+        const output = simulateCommand(command);
+
+        if (output === '__CLEAR__') {
+            setTerminalHistory([]);
+        } else {
+            setTerminalHistory(prev => [...prev, { command, output }]);
+        }
+
+        setTerminalInput('');
+        setCode(command); // Store for checking
+
+        // Check if command matches expected
+        if (lesson?.exercise?.expectedOutput) {
+            const normalize = (s) => s?.trim().toLowerCase() || '';
+            const isCorrect = normalize(command) === normalize(lesson.exercise.expectedOutput);
+            setExerciseResult(isCorrect ? 'correct' : 'incorrect');
+
+            if (isCorrect) {
+                toast.success('Correct command!');
+                saveCodeToHistory(lessonId, command, 'correct');
+            } else {
+                saveCodeToHistory(lessonId, command, 'incorrect');
+            }
+        }
+
+        // Scroll terminal to bottom
+        setTimeout(() => {
+            if (terminalRef.current) {
+                terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+            }
+        }, 0);
+    }, [terminalInput, lesson, lessonId, saveCodeToHistory]);
+
+    // Reset terminal on lesson change
+    useEffect(() => {
+        setTerminalHistory([]);
+        setTerminalInput('');
+    }, [lessonId]);
+
     // Complete lesson and go to next
     const handleComplete = async () => {
         await completeLesson(lessonId, courseId);
@@ -270,16 +360,13 @@ const LessonPage = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                 >
-                    <div className={styles.panelHeader}>
-                        <h2><FiBook /> Lesson</h2>
-                    </div>
-
                     <motion.div
                         className={styles.content}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                     >
                         <h1>{lesson.title}</h1>
+                        <p className={styles.lessonDescription}>{lesson.description}</p>
                         <div
                             className={styles.markdown}
                             dangerouslySetInnerHTML={{
@@ -404,6 +491,51 @@ const LessonPage = () => {
                                 </button>
                             ))}
                         </div>
+                    ) : isTerminalCourse ? (
+                        <>
+                            {/* Terminal Simulation */}
+                            <div className={styles.terminalWrapper}>
+                                <div className={styles.terminalHeader}>
+                                    <FiTerminal />
+                                    <span>Terminal</span>
+                                    <div className={styles.terminalDots}>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div className={styles.terminal} ref={terminalRef}>
+                                    <div className={styles.terminalWelcome}>
+                                        Welcome to StartCode Terminal Simulator
+                                        <br />
+                                        Type commands and press Enter to execute.
+                                    </div>
+                                    {terminalHistory.map((entry, idx) => (
+                                        <div key={idx} className={styles.terminalEntry}>
+                                            <div className={styles.terminalCommand}>
+                                                <span className={styles.terminalPrompt}>user@startcode:~$</span>
+                                                <span>{entry.command}</span>
+                                            </div>
+                                            {entry.output && (
+                                                <pre className={styles.terminalOutput}>{entry.output}</pre>
+                                            )}
+                                        </div>
+                                    ))}
+                                    <div className={styles.terminalInputLine}>
+                                        <span className={styles.terminalPrompt}>user@startcode:~$</span>
+                                        <input
+                                            type="text"
+                                            value={terminalInput}
+                                            onChange={(e) => setTerminalInput(e.target.value)}
+                                            onKeyDown={handleTerminalCommand}
+                                            className={styles.terminalInput}
+                                            placeholder="Type a command..."
+                                            autoFocus
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </>
                     ) : (
                         <>
                             {/* Code editor */}

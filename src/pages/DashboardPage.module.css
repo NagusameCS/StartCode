@@ -89,6 +89,8 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0;
+    padding: var(--spacing-sm) 0;
+    letter-spacing: 0.02em;
 }
 
 .viewAll {

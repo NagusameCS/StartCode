@@ -8,9 +8,13 @@ import {
     sendPasswordResetEmail,
     signOut as firebaseSignOut,
     onAuthStateChanged,
-    updateProfile
+    updateProfile,
+    linkWithPopup,
+    unlink,
+    EmailAuthProvider,
+    linkWithCredential
 } from 'firebase/auth';
-import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, setDoc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import {
     auth,
     db,
@@ -300,6 +304,86 @@ export const useAuthStore = create(
                     console.warn('Could not update profile:', error.message);
                     set({ error: error.message });
                 }
+            },
+
+            // Update local profile state (without Firestore)
+            updateProfile: (updates) => {
+                const { userProfile } = get();
+                set({
+                    userProfile: {
+                        ...userProfile,
+                        ...updates
+                    }
+                });
+            },
+
+            // Get linked providers for current user
+            getLinkedProviders: () => {
+                const { user } = get();
+                if (!user) return [];
+                return user.providerData.map(p => p.providerId);
+            },
+
+            // Link a new provider to the current account (merge accounts)
+            linkProvider: async (providerName) => {
+                const { user } = get();
+                if (!user) throw new Error('Not logged in');
+
+                let provider;
+                switch (providerName) {
+                    case 'google':
+                        provider = googleProvider;
+                        break;
+                    case 'github':
+                        provider = githubProvider;
+                        break;
+                    default:
+                        throw new Error('Invalid provider');
+                }
+
+                try {
+                    const result = await linkWithPopup(user, provider);
+
+                    // Update Firestore with linked provider info
+                    const userRef = doc(db, 'users', user.uid);
+                    const linkedProviders = result.user.providerData.map(p => ({
+                        providerId: p.providerId,
+                        email: p.email,
+                        displayName: p.displayName,
+                        photoURL: p.photoURL,
+                        linkedAt: new Date().toISOString()
+                    }));
+
+                    await updateFirestoreSafe(userRef, {
+                        linkedProviders,
+                        [`${providerName}Linked`]: true,
+                        [`${providerName}Email`]: result.user.providerData.find(p =>
+                            p.providerId === `${providerName}.com`
+                        )?.email
+                    });
+
+                    // Refresh user profile
+                    const userProfile = await getUserProfileSafe(result.user);
+                    set({ user: result.user, userProfile });
+
+                    return { success: true, message: `${providerName} account linked successfully!` };
+                } catch (error) {
+                    if (error.code === 'auth/credential-already-in-use') {
+                        throw new Error(`This ${providerName} account is already linked to another user.`);
+                    }
+                    if (error.code === 'auth/provider-already-linked') {
+                        throw new Error(`A ${providerName} account is already linked.`);
+                    }
+                    throw error;
+                }
+            },
+
+            // Check if accounts can be merged (for displaying merge option)
+            canMergeAccounts: () => {
+                const { user } = get();
+                if (!user) return false;
+                // Can merge if user has less than 3 providers linked
+                return user.providerData.length < 3;
             }
         }),
         {
