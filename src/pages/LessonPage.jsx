@@ -196,46 +196,332 @@ const LessonPage = () => {
         }
     };
 
+    // Virtual file system state for terminal
+    const [virtualFS, setVirtualFS] = useState({
+        '/': { type: 'dir', children: ['home'] },
+        '/home': { type: 'dir', children: ['user'] },
+        '/home/user': { type: 'dir', children: ['Documents', 'Downloads', 'Pictures', 'projects', '.bashrc', 'README.md'] },
+        '/home/user/Documents': { type: 'dir', children: ['notes.txt', 'report.pdf'] },
+        '/home/user/Downloads': { type: 'dir', children: [] },
+        '/home/user/Pictures': { type: 'dir', children: ['photo.jpg'] },
+        '/home/user/projects': { type: 'dir', children: ['app.js', 'index.html', 'styles.css'] },
+        '/home/user/.bashrc': { type: 'file', content: '# ~/.bashrc\nexport PATH=$HOME/bin:$PATH\nalias ll="ls -la"' },
+        '/home/user/README.md': { type: 'file', content: '# My Projects\n\nWelcome to my projects folder!' },
+        '/home/user/Documents/notes.txt': { type: 'file', content: 'Remember to practice terminal commands!' },
+        '/home/user/Documents/report.pdf': { type: 'file', content: '[Binary PDF content]' },
+        '/home/user/Pictures/photo.jpg': { type: 'file', content: '[Binary image content]' },
+        '/home/user/projects/app.js': { type: 'file', content: 'console.log("Hello World!");' },
+        '/home/user/projects/index.html': { type: 'file', content: '<!DOCTYPE html>\n<html>\n<head><title>My App</title></head>\n<body><h1>Hello!</h1></body>\n</html>' },
+        '/home/user/projects/styles.css': { type: 'file', content: 'body { font-family: Arial; }' }
+    });
+    const [currentDir, setCurrentDir] = useState('/home/user');
+
     // Handle terminal command
     const handleTerminalCommand = useCallback((e) => {
         if (e.key !== 'Enter' || !terminalInput.trim()) return;
 
         const command = terminalInput.trim();
 
-        // Simulate command output
+        // Advanced terminal simulation with virtual file system
         const simulateCommand = (cmd) => {
-            const parts = cmd.split(' ');
+            const parts = cmd.match(/(?:[^\s"]+|"[^"]*")+/g) || [];
             const baseCmd = parts[0];
-            const args = parts.slice(1);
+            const args = parts.slice(1).map(a => a.replace(/^"|"$/g, ''));
 
-            // Simple command simulations
-            const simulations = {
-                'pwd': '/home/user/projects',
-                'whoami': 'user',
-                'date': new Date().toString(),
-                'echo': args.join(' '),
-                'ls': 'Documents  Downloads  Pictures  projects  README.md',
-                'ls -la': 'total 20\ndrwxr-xr-x  5 user user 4096 Jan  3 10:00 .\ndrwxr-xr-x  3 user user 4096 Jan  1 09:00 ..\n-rw-r--r--  1 user user  220 Jan  1 09:00 .bashrc\ndrwxr-xr-x  2 user user 4096 Jan  2 14:00 Documents\ndrwxr-xr-x  2 user user 4096 Jan  2 14:00 projects',
-                'cd': '',
-                'mkdir': '',
-                'touch': '',
-                'rm': '',
-                'cp': '',
-                'mv': '',
-                'cat': args[0] ? `Contents of ${args[0]}...` : 'cat: missing operand',
-                'clear': '__CLEAR__',
-                'help': 'Available commands: ls, cd, pwd, mkdir, touch, rm, cp, mv, cat, echo, clear, help',
-                'man': `Manual page for ${args[0] || 'command'}:\n  Usage: ${args[0] || 'command'} [options] [arguments]\n  Try '${args[0] || 'command'} --help' for more information.`
+            const resolvePath = (path) => {
+                if (!path) return currentDir;
+                if (path.startsWith('/')) return path;
+                if (path === '..') {
+                    const parts = currentDir.split('/').filter(Boolean);
+                    parts.pop();
+                    return '/' + parts.join('/') || '/';
+                }
+                if (path === '.') return currentDir;
+                if (path === '~') return '/home/user';
+                if (path.startsWith('~/')) return '/home/user/' + path.slice(2);
+                return currentDir === '/' ? '/' + path : currentDir + '/' + path;
             };
 
-            if (baseCmd in simulations) {
-                const output = typeof simulations[baseCmd] === 'function'
-                    ? simulations[baseCmd]()
-                    : simulations[baseCmd];
-                return output === '__CLEAR__' ? '__CLEAR__' : output || `${baseCmd}: command executed`;
+            switch (baseCmd) {
+                case 'pwd':
+                    return currentDir;
+                
+                case 'whoami':
+                    return 'user';
+                
+                case 'hostname':
+                    return 'startcode-terminal';
+                
+                case 'date':
+                    return new Date().toString();
+                
+                case 'echo':
+                    return args.map(a => {
+                        if (a.startsWith('$')) {
+                            const varName = a.slice(1);
+                            const envVars = { HOME: '/home/user', USER: 'user', PATH: '/usr/bin:/bin', SHELL: '/bin/bash' };
+                            return envVars[varName] || '';
+                        }
+                        return a;
+                    }).join(' ');
+                
+                case 'ls': {
+                    const showHidden = args.includes('-a') || args.includes('-la') || args.includes('-al');
+                    const longFormat = args.includes('-l') || args.includes('-la') || args.includes('-al');
+                    const targetPath = args.find(a => !a.startsWith('-')) || currentDir;
+                    const resolved = resolvePath(targetPath);
+                    const node = virtualFS[resolved];
+                    
+                    if (!node) return `ls: cannot access '${targetPath}': No such file or directory`;
+                    if (node.type !== 'dir') return targetPath;
+                    
+                    let items = node.children.filter(c => showHidden || !c.startsWith('.'));
+                    if (showHidden) items = ['.', '..', ...items];
+                    
+                    if (longFormat) {
+                        return items.map(item => {
+                            if (item === '.' || item === '..') return `drwxr-xr-x  user user  4096 Jan  3 10:00 ${item}`;
+                            const itemPath = resolved === '/' ? '/' + item : resolved + '/' + item;
+                            const itemNode = virtualFS[itemPath];
+                            if (!itemNode) return `?????????? ${item}`;
+                            const type = itemNode.type === 'dir' ? 'd' : '-';
+                            const perms = itemNode.type === 'dir' ? 'rwxr-xr-x' : 'rw-r--r--';
+                            const size = itemNode.content?.length || 4096;
+                            return `${type}${perms}  user user  ${String(size).padStart(5)} Jan  3 10:00 ${item}`;
+                        }).join('\n');
+                    }
+                    return items.join('  ');
+                }
+                
+                case 'cd': {
+                    const target = args[0] || '/home/user';
+                    const resolved = resolvePath(target);
+                    const node = virtualFS[resolved];
+                    
+                    if (!node) return `cd: ${target}: No such file or directory`;
+                    if (node.type !== 'dir') return `cd: ${target}: Not a directory`;
+                    
+                    setCurrentDir(resolved);
+                    return '';
+                }
+                
+                case 'cat': {
+                    if (!args[0]) return 'cat: missing operand';
+                    const resolved = resolvePath(args[0]);
+                    const node = virtualFS[resolved];
+                    
+                    if (!node) return `cat: ${args[0]}: No such file or directory`;
+                    if (node.type === 'dir') return `cat: ${args[0]}: Is a directory`;
+                    
+                    return node.content;
+                }
+                
+                case 'head': {
+                    if (!args[0] && !args.includes('-n')) return 'head: missing operand';
+                    const nIndex = args.indexOf('-n');
+                    let lines = 10;
+                    let file = args[0];
+                    if (nIndex !== -1 && args[nIndex + 1]) {
+                        lines = parseInt(args[nIndex + 1]) || 10;
+                        file = args.find((a, i) => i !== nIndex && i !== nIndex + 1 && !a.startsWith('-'));
+                    }
+                    const resolved = resolvePath(file);
+                    const node = virtualFS[resolved];
+                    if (!node) return `head: ${file}: No such file or directory`;
+                    return node.content.split('\n').slice(0, lines).join('\n');
+                }
+                
+                case 'tail': {
+                    if (!args[0]) return 'tail: missing operand';
+                    const resolved = resolvePath(args[0]);
+                    const node = virtualFS[resolved];
+                    if (!node) return `tail: ${args[0]}: No such file or directory`;
+                    return node.content.split('\n').slice(-10).join('\n');
+                }
+                
+                case 'mkdir': {
+                    if (!args[0]) return 'mkdir: missing operand';
+                    const resolved = resolvePath(args[0]);
+                    const parentPath = resolved.substring(0, resolved.lastIndexOf('/')) || '/';
+                    const dirName = resolved.substring(resolved.lastIndexOf('/') + 1);
+                    
+                    if (virtualFS[resolved]) return `mkdir: cannot create directory '${args[0]}': File exists`;
+                    
+                    setVirtualFS(prev => ({
+                        ...prev,
+                        [resolved]: { type: 'dir', children: [] },
+                        [parentPath]: { ...prev[parentPath], children: [...prev[parentPath].children, dirName] }
+                    }));
+                    return '';
+                }
+                
+                case 'touch': {
+                    if (!args[0]) return 'touch: missing operand';
+                    const resolved = resolvePath(args[0]);
+                    const parentPath = resolved.substring(0, resolved.lastIndexOf('/')) || '/';
+                    const fileName = resolved.substring(resolved.lastIndexOf('/') + 1);
+                    
+                    if (!virtualFS[resolved]) {
+                        setVirtualFS(prev => ({
+                            ...prev,
+                            [resolved]: { type: 'file', content: '' },
+                            [parentPath]: { ...prev[parentPath], children: [...(prev[parentPath]?.children || []), fileName] }
+                        }));
+                    }
+                    return '';
+                }
+                
+                case 'rm': {
+                    if (!args[0]) return 'rm: missing operand';
+                    const resolved = resolvePath(args.find(a => !a.startsWith('-')) || '');
+                    const node = virtualFS[resolved];
+                    
+                    if (!node) return `rm: cannot remove '${args[0]}': No such file or directory`;
+                    if (node.type === 'dir' && !args.includes('-r') && !args.includes('-rf')) {
+                        return `rm: cannot remove '${args[0]}': Is a directory`;
+                    }
+                    
+                    const parentPath = resolved.substring(0, resolved.lastIndexOf('/')) || '/';
+                    const name = resolved.substring(resolved.lastIndexOf('/') + 1);
+                    
+                    setVirtualFS(prev => {
+                        const newFS = { ...prev };
+                        delete newFS[resolved];
+                        if (newFS[parentPath]) {
+                            newFS[parentPath] = {
+                                ...newFS[parentPath],
+                                children: newFS[parentPath].children.filter(c => c !== name)
+                            };
+                        }
+                        return newFS;
+                    });
+                    return '';
+                }
+                
+                case 'cp': {
+                    if (args.length < 2) return 'cp: missing operand';
+                    const srcResolved = resolvePath(args[0]);
+                    const destResolved = resolvePath(args[1]);
+                    const srcNode = virtualFS[srcResolved];
+                    
+                    if (!srcNode) return `cp: cannot stat '${args[0]}': No such file or directory`;
+                    
+                    const destName = destResolved.substring(destResolved.lastIndexOf('/') + 1);
+                    const destParent = destResolved.substring(0, destResolved.lastIndexOf('/')) || '/';
+                    
+                    setVirtualFS(prev => ({
+                        ...prev,
+                        [destResolved]: { ...srcNode },
+                        [destParent]: { ...prev[destParent], children: [...(prev[destParent]?.children || []), destName] }
+                    }));
+                    return '';
+                }
+                
+                case 'mv': {
+                    if (args.length < 2) return 'mv: missing operand';
+                    const srcResolved = resolvePath(args[0]);
+                    const destResolved = resolvePath(args[1]);
+                    const srcNode = virtualFS[srcResolved];
+                    
+                    if (!srcNode) return `mv: cannot stat '${args[0]}': No such file or directory`;
+                    
+                    const srcName = srcResolved.substring(srcResolved.lastIndexOf('/') + 1);
+                    const srcParent = srcResolved.substring(0, srcResolved.lastIndexOf('/')) || '/';
+                    const destName = destResolved.substring(destResolved.lastIndexOf('/') + 1);
+                    const destParent = destResolved.substring(0, destResolved.lastIndexOf('/')) || '/';
+                    
+                    setVirtualFS(prev => {
+                        const newFS = { ...prev };
+                        delete newFS[srcResolved];
+                        newFS[destResolved] = { ...srcNode };
+                        newFS[srcParent] = { ...newFS[srcParent], children: newFS[srcParent].children.filter(c => c !== srcName) };
+                        if (newFS[destParent]) {
+                            newFS[destParent] = { ...newFS[destParent], children: [...newFS[destParent].children, destName] };
+                        }
+                        return newFS;
+                    });
+                    return '';
+                }
+                
+                case 'grep': {
+                    if (args.length < 2) return 'grep: missing operand';
+                    const pattern = args[0];
+                    const resolved = resolvePath(args[1]);
+                    const node = virtualFS[resolved];
+                    
+                    if (!node) return `grep: ${args[1]}: No such file or directory`;
+                    if (node.type === 'dir') return `grep: ${args[1]}: Is a directory`;
+                    
+                    const lines = node.content.split('\n').filter(line => line.includes(pattern));
+                    return lines.length > 0 ? lines.join('\n') : '';
+                }
+                
+                case 'wc': {
+                    if (!args[0] && !args.includes('-l')) return 'wc: missing operand';
+                    const file = args.find(a => !a.startsWith('-'));
+                    if (!file) return 'wc: missing operand';
+                    const resolved = resolvePath(file);
+                    const node = virtualFS[resolved];
+                    
+                    if (!node) return `wc: ${file}: No such file or directory`;
+                    
+                    const lines = node.content.split('\n').length;
+                    const words = node.content.split(/\s+/).filter(Boolean).length;
+                    const chars = node.content.length;
+                    
+                    if (args.includes('-l')) return `${lines} ${file}`;
+                    return `${lines} ${words} ${chars} ${file}`;
+                }
+                
+                case 'find': {
+                    const results = [];
+                    const nameArg = args.indexOf('-name');
+                    const pattern = nameArg !== -1 ? args[nameArg + 1]?.replace(/\*/g, '.*') : null;
+                    
+                    Object.keys(virtualFS).forEach(path => {
+                        const name = path.substring(path.lastIndexOf('/') + 1);
+                        if (!pattern || new RegExp(pattern).test(name)) {
+                            results.push(path);
+                        }
+                    });
+                    return results.join('\n');
+                }
+                
+                case 'chmod':
+                case 'chown':
+                    return ''; // Simulated as success
+                
+                case 'clear':
+                    return '__CLEAR__';
+                
+                case 'history':
+                    return terminalHistory.map((h, i) => `${i + 1}  ${h.command}`).join('\n');
+                
+                case 'help':
+                    return `Available commands:
+  ls [options] [path]   - List directory contents (-l, -a, -la)
+  cd [path]             - Change directory
+  pwd                   - Print working directory
+  cat [file]            - Display file contents
+  head/tail [file]      - Show first/last lines
+  mkdir [dir]           - Create directory
+  touch [file]          - Create empty file
+  rm [-r] [file/dir]    - Remove file or directory
+  cp [src] [dest]       - Copy file
+  mv [src] [dest]       - Move/rename file
+  grep [pattern] [file] - Search in file
+  wc [-l] [file]        - Count lines/words/chars
+  find [-name pattern]  - Find files
+  echo [text]           - Print text
+  clear                 - Clear terminal
+  help                  - Show this help`;
+                
+                case 'man':
+                    return `${args[0] || 'command'} - Manual page\n\nUsage: ${args[0] || 'command'} [options] [arguments]\n\nTry 'help' to see available commands.`;
+                
+                default:
+                    return `${baseCmd}: command not found. Type 'help' for available commands.`;
             }
-
-            return `${baseCmd}: command not found`;
         };
 
         const output = simulateCommand(command);
@@ -243,7 +529,7 @@ const LessonPage = () => {
         if (output === '__CLEAR__') {
             setTerminalHistory([]);
         } else {
-            setTerminalHistory(prev => [...prev, { command, output }]);
+            setTerminalHistory(prev => [...prev, { command, output, dir: currentDir }]);
         }
 
         setTerminalInput('');
@@ -508,12 +794,12 @@ const LessonPage = () => {
                                     <div className={styles.terminalWelcome}>
                                         Welcome to StartCode Terminal Simulator
                                         <br />
-                                        Type commands and press Enter to execute.
+                                        Type commands and press Enter to execute. Type 'help' for a list of commands.
                                     </div>
                                     {terminalHistory.map((entry, idx) => (
                                         <div key={idx} className={styles.terminalEntry}>
                                             <div className={styles.terminalCommand}>
-                                                <span className={styles.terminalPrompt}>user@startcode:~$</span>
+                                                <span className={styles.terminalPrompt}>user@startcode:{entry.dir === '/home/user' ? '~' : entry.dir}$</span>
                                                 <span>{entry.command}</span>
                                             </div>
                                             {entry.output && (
@@ -522,7 +808,7 @@ const LessonPage = () => {
                                         </div>
                                     ))}
                                     <div className={styles.terminalInputLine}>
-                                        <span className={styles.terminalPrompt}>user@startcode:~$</span>
+                                        <span className={styles.terminalPrompt}>user@startcode:{currentDir === '/home/user' ? '~' : currentDir}$</span>
                                         <input
                                             type="text"
                                             value={terminalInput}
