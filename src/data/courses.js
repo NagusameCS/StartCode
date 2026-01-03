@@ -17872,11 +17872,22 @@ You type a command, press Enter, and the computer responds.
                 `,
                 exercises: [
                     {
-                    prompt: 'What is another name for the terminal?',
-                    type: 'multiple-choice',
-                    options: ['Command Line', 'Desktop', 'Browser', 'Editor'],
-                    answer: 0
-                }
+                        prompt: 'What is another name for the terminal?',
+                        type: 'multiple-choice',
+                        options: ['Command Line', 'Desktop', 'Browser', 'Editor'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'The terminal is also known as the ___',
+                        type: 'fill-blank',
+                        answer: 'shell'
+                    },
+                    {
+                        prompt: 'Which of the following can you do in a terminal?',
+                        type: 'multiple-choice',
+                        options: ['All of these', 'Create files', 'Run programs', 'Navigate folders'],
+                        answer: 0
+                    }
                 ]
             },
             {
@@ -17902,11 +17913,32 @@ cd ..         # Go up one level
                 `,
                 exercises: [
                     {
-                    prompt: 'Which command shows your current directory?',
-                    type: 'multiple-choice',
-                    options: ['ls', 'cd', 'pwd', 'dir'],
-                    answer: 2
-                }
+                        prompt: 'Which command shows your current directory?',
+                        type: 'multiple-choice',
+                        options: ['ls', 'cd', 'pwd', 'dir'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Type the command to print your current directory',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'pwd',
+                        hint: 'This command prints the working directory'
+                    },
+                    {
+                        prompt: 'Type the command to list files in the current directory',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'ls',
+                        hint: 'Two letters that list files'
+                    },
+                    {
+                        prompt: 'Type the command to go up one directory level',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'cd ..',
+                        hint: 'Use cd with two dots'
+                    }
                 ]
             },
             {
@@ -17935,12 +17967,32 @@ rm old_file.txt
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: mkdir projects',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'mkdir projects',
-                    hint: 'Type the command exactly as shown'
-                }
+                        prompt: 'Type the command to create a directory called projects',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'mkdir projects',
+                        hint: 'Use mkdir followed by the folder name'
+                    },
+                    {
+                        prompt: 'Type the command to create an empty file called notes.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'touch notes.txt',
+                        hint: 'Use touch to create a file'
+                    },
+                    {
+                        prompt: 'Type the command to remove a file called old.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'rm old.txt',
+                        hint: 'Use rm to remove files'
+                    },
+                    {
+                        prompt: 'What command removes a folder and all its contents?',
+                        type: 'multiple-choice',
+                        options: ['rm folder', 'rmdir folder', 'rm -r folder', 'delete folder'],
+                        answer: 2
+                    }
                 ]
             },
             {
@@ -17972,11 +18024,32 @@ mv image*.png images/         # Files starting with 'image'
     `,
                 exercises: [
                     {
-                    prompt: 'What command moves a file?',
-                    type: 'multiple-choice',
-                    options: ['cp', 'mv', 'rm', 'move'],
-                    answer: 1
-                }
+                        prompt: 'What command moves a file?',
+                        type: 'multiple-choice',
+                        options: ['cp', 'mv', 'rm', 'move'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to copy file.txt to backup.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'cp file.txt backup.txt',
+                        hint: 'Use cp source destination'
+                    },
+                    {
+                        prompt: 'Type the command to rename data.txt to info.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'mv data.txt info.txt',
+                        hint: 'Use mv to rename files'
+                    },
+                    {
+                        prompt: 'Type the command to move report.txt into the docs folder',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'mv report.txt docs/',
+                        hint: 'Use mv file destination/'
+                    }
                 ]
             },
             {
@@ -18005,11 +18078,32 @@ wc -l file.txt        # Lines only
     `,
                 exercises: [
                     {
-                    prompt: 'What command shows the last lines of a file?',
-                    type: 'multiple-choice',
-                    options: ['head', 'tail', 'cat', 'less'],
-                    answer: 1
-                }
+                        prompt: 'What command shows the last lines of a file?',
+                        type: 'multiple-choice',
+                        options: ['head', 'tail', 'cat', 'less'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to display the entire contents of readme.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'cat readme.txt',
+                        hint: 'Use cat to print file contents'
+                    },
+                    {
+                        prompt: 'Type the command to show the first 10 lines of log.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'head log.txt',
+                        hint: 'Use head to see the beginning of a file'
+                    },
+                    {
+                        prompt: 'Type the command to count lines in data.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'wc -l data.txt',
+                        hint: 'Use wc with the -l flag'
+                    }
                 ]
             },
             {
@@ -18043,11 +18137,32 @@ find . -name "*.js" | xargs grep "function"
     `,
                 exercises: [
                     {
-                    prompt: 'What command searches file contents?',
-                    type: 'multiple-choice',
-                    options: ['find', 'search', 'grep', 'look'],
-                    answer: 2
-                }
+                        prompt: 'What command searches file contents?',
+                        type: 'multiple-choice',
+                        options: ['find', 'search', 'grep', 'look'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Type the command to search for "error" in log.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'grep "error" log.txt',
+                        hint: 'Use grep pattern filename'
+                    },
+                    {
+                        prompt: 'Type the command to find all .js files in current directory',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'find . -name "*.js"',
+                        hint: 'Use find with -name and a wildcard'
+                    },
+                    {
+                        prompt: 'Type the command to search for "TODO" recursively in all files',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'grep -r "TODO" .',
+                        hint: 'Use grep with -r for recursive search'
+                    }
                 ]
             },
             {
@@ -18086,11 +18201,32 @@ command &> all.txt             # Both output and errors
     `,
                 exercises: [
                     {
-                    prompt: 'What symbol pipes output to another command?',
-                    type: 'multiple-choice',
-                    options: ['>', '<', '|', '&'],
-                    answer: 2
-                }
+                        prompt: 'What symbol pipes output to another command?',
+                        type: 'multiple-choice',
+                        options: ['>', '<', '|', '&'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Type a command to save "Hello" to greeting.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'echo "Hello" > greeting.txt',
+                        hint: 'Use echo with > to redirect output'
+                    },
+                    {
+                        prompt: 'Type a command to append "World" to greeting.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'echo "World" >> greeting.txt',
+                        hint: 'Use >> to append instead of overwrite'
+                    },
+                    {
+                        prompt: 'Type a command to pipe ls output through grep to find txt files',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'ls | grep txt',
+                        hint: 'Use | to connect commands'
+                    }
                 ]
             },
             {
@@ -18127,11 +18263,28 @@ chown user:group file.txt
     `,
                 exercises: [
                     {
-                    prompt: 'What command changes permissions?',
-                    type: 'multiple-choice',
-                    options: ['perm', 'chmod', 'chown', 'access'],
-                    answer: 1
-                }
+                        prompt: 'What command changes permissions?',
+                        type: 'multiple-choice',
+                        options: ['perm', 'chmod', 'chown', 'access'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to make script.sh executable',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'chmod +x script.sh',
+                        hint: 'Use chmod +x to add execute permission'
+                    },
+                    {
+                        prompt: 'What does "r" represent in file permissions?',
+                        type: 'fill-blank',
+                        answer: 'read'
+                    },
+                    {
+                        prompt: 'What does "w" represent in file permissions?',
+                        type: 'fill-blank',
+                        answer: 'write'
+                    }
                 ]
             },
             {
@@ -18169,11 +18322,30 @@ pkill pattern                  # Kill matching pattern
     `,
                 exercises: [
                     {
-                    prompt: 'What command shows running processes live?',
-                    type: 'multiple-choice',
-                    options: ['ps', 'top', 'jobs', 'run'],
-                    answer: 1
-                }
+                        prompt: 'What command shows running processes live?',
+                        type: 'multiple-choice',
+                        options: ['ps', 'top', 'jobs', 'run'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to list your current processes',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'ps',
+                        hint: 'A two-letter command for process status'
+                    },
+                    {
+                        prompt: 'Type the command to terminate a process with PID 1234',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'kill 1234',
+                        hint: 'Use kill followed by the process ID'
+                    },
+                    {
+                        prompt: 'What keyboard shortcut cancels a running command?',
+                        type: 'fill-blank',
+                        answer: 'Ctrl+C'
+                    }
                 ]
             },
             {
@@ -18212,11 +18384,32 @@ Then: \`source ~/.bashrc\`
     `,
                 exercises: [
                     {
-                    prompt: 'What variable contains your home directory?',
-                    type: 'multiple-choice',
-                    options: ['$USER', '$HOME', '$PATH', '$DIR'],
-                    answer: 1
-                }
+                        prompt: 'What variable contains your home directory?',
+                        type: 'multiple-choice',
+                        options: ['$USER', '$HOME', '$PATH', '$DIR'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to display your home directory',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'echo $HOME',
+                        hint: 'Use echo to print a variable'
+                    },
+                    {
+                        prompt: 'Type the command to set a variable called NAME to "Alice"',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'export NAME="Alice"',
+                        hint: 'Use export to set environment variables'
+                    },
+                    {
+                        prompt: 'Type the command to view all environment variables',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'printenv',
+                        hint: 'This command prints the environment'
+                    }
                 ]
             },
             {
@@ -18256,11 +18449,31 @@ dig example.com
     `,
                 exercises: [
                     {
-                    prompt: 'What command downloads files from URLs?',
-                    type: 'multiple-choice',
-                    options: ['download', 'wget', 'get', 'fetch'],
-                    answer: 1
-                }
+                        prompt: 'What command downloads files from URLs?',
+                        type: 'multiple-choice',
+                        options: ['download', 'wget', 'get', 'fetch'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to ping google.com 5 times',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'ping -c 5 google.com',
+                        hint: 'Use ping with -c to limit count'
+                    },
+                    {
+                        prompt: 'Type the command to download a file from https://example.com/file.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'wget https://example.com/file.txt',
+                        hint: 'Use wget followed by the URL'
+                    },
+                    {
+                        prompt: 'What command displays network interface information?',
+                        type: 'multiple-choice',
+                        options: ['network', 'ifconfig', 'netinfo', 'ipshow'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -18308,11 +18521,30 @@ Now: \`ssh myserver\`
     `,
                 exercises: [
                     {
-                    prompt: 'What command generates SSH keys?',
-                    type: 'multiple-choice',
-                    options: ['ssh-gen', 'ssh-keygen', 'keygen', 'genkey'],
-                    answer: 1
-                }
+                        prompt: 'What command generates SSH keys?',
+                        type: 'multiple-choice',
+                        options: ['ssh-gen', 'ssh-keygen', 'keygen', 'genkey'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to connect to server as user "admin"',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'ssh admin@server',
+                        hint: 'Use ssh user@hostname'
+                    },
+                    {
+                        prompt: 'Type the command to copy file.txt to remote server /home/user/',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'scp file.txt user@server:/home/user/',
+                        hint: 'Use scp local user@host:path'
+                    },
+                    {
+                        prompt: 'What file stores SSH configuration?',
+                        type: 'fill-blank',
+                        answer: '~/.ssh/config'
+                    }
                 ]
             },
             {
@@ -18353,11 +18585,32 @@ cut -d',' -f1,3 data.csv           # Fields 1 and 3
     `,
                 exercises: [
                     {
-                    prompt: 'What command replaces text in streams?',
-                    type: 'multiple-choice',
-                    options: ['awk', 'sed', 'cut', 'replace'],
-                    answer: 1
-                }
+                        prompt: 'What command replaces text in streams?',
+                        type: 'multiple-choice',
+                        options: ['awk', 'sed', 'cut', 'replace'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to replace "old" with "new" in file.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'sed \'s/old/new/g\' file.txt',
+                        hint: 'Use sed with s/pattern/replacement/g'
+                    },
+                    {
+                        prompt: 'Type the command to sort lines in data.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'sort data.txt',
+                        hint: 'Use sort followed by the filename'
+                    },
+                    {
+                        prompt: 'Type the command to remove duplicate lines from sorted.txt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'uniq sorted.txt',
+                        hint: 'Use uniq to remove duplicates'
+                    }
                 ]
             },
             {
@@ -18400,11 +18653,32 @@ gunzip file.txt.gz             # Decompress
     `,
                 exercises: [
                     {
-                    prompt: 'What creates a .tar.gz archive?',
-                    type: 'multiple-choice',
-                    options: ['tar -xzvf', 'tar -czvf', 'zip -r', 'gzip'],
-                    answer: 1
-                }
+                        prompt: 'What creates a .tar.gz archive?',
+                        type: 'multiple-choice',
+                        options: ['tar -xzvf', 'tar -czvf', 'zip -r', 'gzip'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to create a compressed archive of the src folder',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'tar -czvf src.tar.gz src/',
+                        hint: 'Use tar -czvf archive.tar.gz folder/'
+                    },
+                    {
+                        prompt: 'Type the command to extract archive.tar.gz',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'tar -xzvf archive.tar.gz',
+                        hint: 'Use tar -xzvf to extract'
+                    },
+                    {
+                        prompt: 'Type the command to create a zip file of the docs folder',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'zip -r docs.zip docs/',
+                        hint: 'Use zip -r to recursively zip a folder'
+                    }
                 ]
             },
             {
@@ -18447,11 +18721,30 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
     `,
                 exercises: [
                     {
-                    prompt: 'Where do you save permanent aliases?',
-                    type: 'multiple-choice',
-                    options: ['/etc/aliases', '~/.bashrc', '/bin/alias', '~/.alias'],
-                    answer: 1
-                }
+                        prompt: 'Where do you save permanent aliases?',
+                        type: 'multiple-choice',
+                        options: ['/etc/aliases', '~/.bashrc', '/bin/alias', '~/.alias'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type an alias to make "ll" run "ls -la"',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'alias ll="ls -la"',
+                        hint: 'Use alias name="command"'
+                    },
+                    {
+                        prompt: 'Type the command to reload your bashrc file',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'source ~/.bashrc',
+                        hint: 'Use source to reload config files'
+                    },
+                    {
+                        prompt: 'What shell configuration file is used for zsh?',
+                        type: 'fill-blank',
+                        answer: '~/.zshrc'
+                    }
                 ]
             },
             {
@@ -18496,11 +18789,36 @@ Congratulations! You've mastered the terminal! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What shortcut searches command history?',
-                    type: 'multiple-choice',
-                    options: ['Ctrl+H', 'Ctrl+R', 'Ctrl+S', 'Ctrl+F'],
-                    answer: 1
-                }
+                        prompt: 'What shortcut searches command history?',
+                        type: 'multiple-choice',
+                        options: ['Ctrl+H', 'Ctrl+R', 'Ctrl+S', 'Ctrl+F'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Type the command to view your command history',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'history',
+                        hint: 'Simply type history'
+                    },
+                    {
+                        prompt: 'What symbol repeats the last command?',
+                        type: 'fill-blank',
+                        answer: '!!'
+                    },
+                    {
+                        prompt: 'What shortcut moves cursor to start of line?',
+                        type: 'multiple-choice',
+                        options: ['Ctrl+A', 'Ctrl+E', 'Ctrl+B', 'Ctrl+H'],
+                        answer: 0
+                    },
+                    {
+                        prompt: 'Type a command that runs cmd2 only if cmd1 succeeds',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'cmd1 && cmd2',
+                        hint: 'Use && to chain commands conditionally'
+                    }
                 ]
             }
         ]
@@ -23188,11 +23506,30 @@ echo "Hello from bash!"
                 `,
                 exercises: [
                     {
-                    prompt: 'What does a bash script automate?',
-                    type: 'multiple-choice',
-                    options: ['Web pages', 'Terminal commands', 'Database queries', 'CSS styles'],
-                    answer: 1
-                }
+                        prompt: 'What does a bash script automate?',
+                        type: 'multiple-choice',
+                        options: ['Web pages', 'Terminal commands', 'Database queries', 'CSS styles'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is the first line of a bash script called?',
+                        type: 'fill-blank',
+                        answer: 'shebang'
+                    },
+                    {
+                        prompt: 'Write a shebang line for bash',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: '#!/bin/bash',
+                        hint: 'Start with #! followed by the bash path'
+                    },
+                    {
+                        prompt: 'Write a command to print "Hello World"',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'echo "Hello World"',
+                        hint: 'Use echo to print text'
+                    }
                 ]
             },
             {
@@ -23219,12 +23556,32 @@ Note: No spaces around the =!
                 `,
                 exercises: [
                     {
-                    prompt: 'Write: NAME="Bob"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'NAME="Bob"',
-                    hint: 'No spaces around the equals sign'
-                }
+                        prompt: 'Write a variable assignment: NAME="Bob"',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'NAME="Bob"',
+                        hint: 'No spaces around the equals sign'
+                    },
+                    {
+                        prompt: 'Write a command to print the NAME variable',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'echo $NAME',
+                        hint: 'Use $ to reference variables'
+                    },
+                    {
+                        prompt: 'Create a variable AGE with value 25',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'AGE=25',
+                        hint: 'Numbers dont need quotes'
+                    },
+                    {
+                        prompt: 'Which is correct variable assignment?',
+                        type: 'multiple-choice',
+                        options: ['NAME = "Bob"', 'NAME="Bob"', 'set NAME="Bob"', 'var NAME="Bob"'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -23264,11 +23621,27 @@ done
     `,
                 exercises: [
                     {
-                    prompt: 'What is $1?',
-                    type: 'multiple-choice',
-                    options: ['Script name', 'First argument', 'Last argument', 'All arguments'],
-                    answer: 1
-                }
+                        prompt: 'What is $1?',
+                        type: 'multiple-choice',
+                        options: ['Script name', 'First argument', 'Last argument', 'All arguments'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What variable holds the script name?',
+                        type: 'fill-blank',
+                        answer: '$0'
+                    },
+                    {
+                        prompt: 'What variable holds the number of arguments?',
+                        type: 'fill-blank',
+                        answer: '$#'
+                    },
+                    {
+                        prompt: 'What variable holds all arguments?',
+                        type: 'multiple-choice',
+                        options: ['$*', '$@', '$all', '$args'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -23318,11 +23691,27 @@ fi
     `,
                 exercises: [
                     {
-                    prompt: 'What ends an if statement?',
-                    type: 'multiple-choice',
-                    options: ['end', 'fi', 'endif', 'done'],
-                    answer: 1
-                }
+                        prompt: 'What ends an if statement?',
+                        type: 'multiple-choice',
+                        options: ['end', 'fi', 'endif', 'done'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What operator means "greater than"?',
+                        type: 'fill-blank',
+                        answer: '-gt'
+                    },
+                    {
+                        prompt: 'What operator means "less than"?',
+                        type: 'fill-blank',
+                        answer: '-lt'
+                    },
+                    {
+                        prompt: 'What operator checks if a file exists?',
+                        type: 'multiple-choice',
+                        options: ['-e', '-f', '-exists', '-file'],
+                        answer: 1
+                    }
                 ]
             },
             {
@@ -23378,11 +23767,28 @@ done
     `,
                 exercises: [
                     {
-                    prompt: 'What keyword ends a loop?',
-                    type: 'multiple-choice',
-                    options: ['end', 'done', 'loop', 'finish'],
-                    answer: 1
-                }
+                        prompt: 'What keyword ends a loop?',
+                        type: 'multiple-choice',
+                        options: ['end', 'done', 'loop', 'finish'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Write a range from 1 to 5 using brace expansion',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: '{1..5}',
+                        hint: 'Use {start..end} syntax'
+                    },
+                    {
+                        prompt: 'What keyword starts the loop body?',
+                        type: 'fill-blank',
+                        answer: 'do'
+                    },
+                    {
+                        prompt: 'What keyword skips to the next iteration?',
+                        type: 'fill-blank',
+                        answer: 'continue'
+                    }
                 ]
             },
             {
@@ -23437,11 +23843,29 @@ fi
     `,
                 exercises: [
                     {
-                    prompt: 'How do you access function arguments?',
-                    type: 'multiple-choice',
-                    options: ['$args', '$1, $2, etc.', 'args[0]', 'argv'],
-                    answer: 1
-                }
+                        prompt: 'How do you access function arguments?',
+                        type: 'multiple-choice',
+                        options: ['$args', '$1, $2, etc.', 'args[0]', 'argv'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What keyword makes a variable function-local?',
+                        type: 'fill-blank',
+                        answer: 'local'
+                    },
+                    {
+                        prompt: 'What return value means success in bash?',
+                        type: 'multiple-choice',
+                        options: ['1', '0', 'true', '-1'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Write a function definition named greet',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'greet() {',
+                        hint: 'function_name() {'
+                    }
                 ]
             },
             {
@@ -23484,11 +23908,31 @@ EOF
     `,
                 exercises: [
                     {
-                    prompt: 'What appends to a file?',
-                    type: 'multiple-choice',
-                    options: ['>', '>>', '<', '|'],
-                    answer: 1
-                }
+                        prompt: 'What appends to a file?',
+                        type: 'multiple-choice',
+                        options: ['>', '>>', '<', '|'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Write a command to read input into variable NAME',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'read NAME',
+                        hint: 'Use read followed by variable name'
+                    },
+                    {
+                        prompt: 'Write a command to read input with a prompt',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'read -p "Enter name: " NAME',
+                        hint: 'Use read -p "prompt" variable'
+                    },
+                    {
+                        prompt: 'What redirects stderr to a file?',
+                        type: 'multiple-choice',
+                        options: ['2>', '>&2', 'err>', 'e>'],
+                        answer: 0
+                    }
                 ]
             },
             {
@@ -23529,11 +23973,30 @@ cut -c1-5 file.txt            # Characters 1-5
     `,
                 exercises: [
                     {
-                    prompt: 'What command searches for patterns?',
-                    type: 'multiple-choice',
-                    options: ['find', 'grep', 'search', 'locate'],
-                    answer: 1
-                }
+                        prompt: 'What command searches for patterns?',
+                        type: 'multiple-choice',
+                        options: ['find', 'grep', 'search', 'locate'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Write a sed command to replace "foo" with "bar" globally',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'sed \'s/foo/bar/g\'',
+                        hint: 'Use sed with s/old/new/g'
+                    },
+                    {
+                        prompt: 'Write an awk command to print the first column',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'awk \'{print $1}\'',
+                        hint: 'Use awk with {print $1}'
+                    },
+                    {
+                        prompt: 'What flag makes grep case-insensitive?',
+                        type: 'fill-blank',
+                        answer: '-i'
+                    }
                 ]
             },
             {
@@ -23584,11 +24047,30 @@ Congratulations! You've learned Bash! 🎉
     `,
                 exercises: [
                     {
-                    prompt: 'What makes a script executable?',
-                    type: 'multiple-choice',
-                    options: ['run script.sh', 'chmod +x script.sh', 'exec script.sh', 'enable script.sh'],
-                    answer: 1
-                }
+                        prompt: 'What makes a script executable?',
+                        type: 'multiple-choice',
+                        options: ['run script.sh', 'chmod +x script.sh', 'exec script.sh', 'enable script.sh'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Write a command to get the current date in YYYYMMDD format',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'date +%Y%m%d',
+                        hint: 'Use date with format specifiers'
+                    },
+                    {
+                        prompt: 'Write a command to find files older than 7 days',
+                        type: 'code',
+                        language: 'bash',
+                        expectedOutput: 'find . -mtime +7',
+                        hint: 'Use find with -mtime'
+                    },
+                    {
+                        prompt: 'What command shows system hostname?',
+                        type: 'fill-blank',
+                        answer: 'hostname'
+                    }
                 ]
             }
         ]
