@@ -617,13 +617,28 @@ display 42
 
 Try it yourself!
         `,
-                exercise: {
-                    prompt: 'Display the message "I am learning Python!"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'I am learning Python!',
-                    hint: 'Use: display "I am learning Python!"'
-                }
+                exercises: [
+                    {
+                        prompt: 'Display the message "I am learning Python!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'I am learning Python!',
+                        hint: 'Use: display "I am learning Python!"'
+                    },
+                    {
+                        prompt: 'What keyword do we use to show text on the screen?',
+                        type: 'multiple-choice',
+                        options: ['show', 'display', 'print', 'output'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Display the number 100',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '100',
+                        hint: 'Use: display 100'
+                    }
+                ]
             },
             {
                 id: 'py-2',
@@ -666,13 +681,28 @@ Output:
 0
 100
         `,
-                exercise: {
-                    prompt: 'Create a variable called "city" set to "Tokyo" and display it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Tokyo',
-                    hint: 'First: create variable city to "Tokyo"\\nThen: display city'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a variable called "city" set to "Tokyo" and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Tokyo',
+                        hint: 'First: create variable city to "Tokyo"\\nThen: display city'
+                    },
+                    {
+                        prompt: 'What is a variable in programming?',
+                        type: 'multiple-choice',
+                        options: ['A type of loop', 'A labeled box that stores information', 'A function', 'A math operation'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Create a variable "score" set to 50, then change it to 100 and display it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '100',
+                        hint: 'Use: create variable score to 50\\nset score to 100\\ndisplay score'
+                    }
+                ]
             },
             {
                 id: 'py-3',
@@ -713,13 +743,28 @@ Output: 150
 display 10 plus 5 times 2
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Calculate 8 times 7 and display the result',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '56',
-                    hint: 'Use: display 8 times 7'
-                }
+                exercises: [
+                    {
+                        prompt: 'Calculate 8 times 7 and display the result',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '56',
+                        hint: 'Use: display 8 times 7'
+                    },
+                    {
+                        prompt: 'What is 100 divided by 4?',
+                        type: 'multiple-choice',
+                        options: ['20', '25', '30', '40'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Create variable x to 10, create variable y to 5, display x plus y',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '15',
+                        hint: 'Create both variables, then display x plus y'
+                    }
+                ]
             },
             {
                 id: 'py-4',
@@ -752,13 +797,28 @@ display first plus " " plus last
 \`\`\`
 Output: John Doe
         `,
-                exercise: {
-                    prompt: 'Create a variable "animal" set to "cat" and display "I have a " plus the animal',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'I have a cat',
-                    hint: 'First create the variable, then: display "I have a " plus animal'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a variable "animal" set to "cat" and display "I have a " plus the animal',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'I have a cat',
+                        hint: 'First create the variable, then: display "I have a " plus animal'
+                    },
+                    {
+                        prompt: 'What operator joins text together?',
+                        type: 'multiple-choice',
+                        options: ['minus', 'plus', 'times', 'divided by'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Display "Hello" plus " " plus "World"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Hello World',
+                        hint: 'Use: display "Hello" plus " " plus "World"'
+                    }
+                ]
             },
             {
                 id: 'py-5',
@@ -798,13 +858,27 @@ Output: Hot day!
 - is greater than or equal to
 - is less than or equal to
         `,
-                exercise: {
-                    prompt: 'Create variable score to 85. If score is greater than or equal to 60, display "Pass!"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Pass!',
-                    hint: 'Use: if score is greater than or equal to 60 then\\n    display "Pass!"\\nend if'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable score to 85. If score is greater than or equal to 60, display "Pass!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Pass!',
+                        hint: 'Use: if score is greater than or equal to 60 then\\n    display "Pass!"\\nend if'
+                    },
+                    {
+                        prompt: 'What keyword handles the "else" case in natural language?',
+                        type: 'multiple-choice',
+                        options: ['else', 'otherwise', 'other', 'or'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'If x is 5, what will display?\nif x is equal to 10 then\n    display "Ten"\notherwise\n    display "Not ten"\nend if',
+                        type: 'multiple-choice',
+                        options: ['Ten', 'Not ten', 'Nothing', 'Error'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-6',
@@ -843,13 +917,28 @@ Output:
 3
 4
         `,
-                exercise: {
-                    prompt: 'Write a loop that displays "Python" 5 times',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Python\nPython\nPython\nPython\nPython',
-                    hint: 'Use: repeat 5 times\\n    display "Python"\\nend loop'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write a loop that displays "Python" 5 times',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Python\nPython\nPython\nPython\nPython',
+                        hint: 'Use: repeat 5 times\\n    display "Python"\\nend loop'
+                    },
+                    {
+                        prompt: 'How many times will this loop display "Hi"?\nrepeat 3 times\n    display "Hi"\nend loop',
+                        type: 'multiple-choice',
+                        options: ['1', '2', '3', '4'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Display the numbers 1, 2, 3 using a loop with a counter variable',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '1\n2\n3',
+                        hint: 'Create a count variable, repeat 3 times, display count, increment count'
+                    }
+                ]
             },
             {
                 id: 'py-7',
@@ -893,13 +982,27 @@ Output:
 1
 Liftoff!
         `,
-                exercise: {
-                    prompt: 'Create a countdown from 3 to 1, then display "Go!"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '3\n2\n1\nGo!',
-                    hint: 'Create variable n to 3, repeat while n is greater than 0, display n, decrease n, end repeat, display "Go!"'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a countdown from 3 to 1, then display "Go!"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '3\n2\n1\nGo!',
+                        hint: 'Create variable n to 3, repeat while n is greater than 0, display n, decrease n, end repeat, display "Go!"'
+                    },
+                    {
+                        prompt: 'What type of loop repeats while a condition stays true?',
+                        type: 'multiple-choice',
+                        options: ['repeat N times', 'while loop', 'for each loop', 'if statement'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'How many times will this run?\ncount = 0\nrepeat while count < 2 do\n    display count\nend repeat',
+                        type: 'multiple-choice',
+                        options: ['0 times', '1 time', '2 times', 'Forever (infinite)'],
+                        answer: 3
+                    }
+                ]
             },
             {
                 id: 'py-8',
@@ -939,13 +1042,27 @@ Output: 10
 
 Note: Lists start counting at 0!
         `,
-                exercise: {
-                    prompt: 'Create a list of animals with "cat", "dog", "bird" and display each one',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'cat\ndog\nbird',
-                    hint: 'Create the list, then: for each animal in list animals do\\n    display animal\\nend loop'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a list of animals with "cat", "dog", "bird" and display each one',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'cat\ndog\nbird',
+                        hint: 'Create the list, then: for each animal in list animals do\\n    display animal\\nend loop'
+                    },
+                    {
+                        prompt: 'What index is the first item in a list?',
+                        type: 'multiple-choice',
+                        options: ['1', '0', '-1', 'first'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'If nums = [10, 20, 30], what is get item 2 from nums?',
+                        type: 'multiple-choice',
+                        options: ['10', '20', '30', 'Error'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'py-9',
@@ -982,13 +1099,28 @@ Output:
 Hello, Alice
 Hello, Bob
         `,
-                exercise: {
-                    prompt: 'Define a function called "cheer" that displays "Hooray!" and call it',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Hooray!',
-                    hint: 'define function cheer with no parameters\\n    display "Hooray!"\\nend function\\ncheer'
-                }
+                exercises: [
+                    {
+                        prompt: 'Define a function called "cheer" that displays "Hooray!" and call it',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Hooray!',
+                        hint: 'define function cheer with no parameters\\n    display "Hooray!"\\nend function\\ncheer'
+                    },
+                    {
+                        prompt: 'What is a function in programming?',
+                        type: 'multiple-choice',
+                        options: ['A type of variable', 'A reusable block of code', 'A loop structure', 'A comparison'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Define a function "double" with parameter x that displays x * 2, then call it with 5',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '10',
+                        hint: 'define function double with parameters x\\n    display x * 2\\nend function\\ndouble 5'
+                    }
+                ]
             },
             // ============ STAGE 2: Introducing Symbols ============
             {
@@ -1025,13 +1157,27 @@ display 6 * 7
 
 Same output, shorter code!
         `,
-                exercise: {
-                    prompt: 'Calculate 15 * 4 + 10 and display the result',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '70',
-                    hint: 'Use: display 15 * 4 + 10'
-                }
+                exercises: [
+                    {
+                        prompt: 'Calculate 15 * 4 + 10 and display the result',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '70',
+                        hint: 'Use: display 15 * 4 + 10'
+                    },
+                    {
+                        prompt: 'What symbol represents "times" (multiplication)?',
+                        type: 'multiple-choice',
+                        options: ['x', '*', 'X', '^'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What symbol represents "divided by"?',
+                        type: 'multiple-choice',
+                        options: ['\\\\', '/', ':', '%'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-11',
@@ -1065,13 +1211,27 @@ if age >= 18 then
 
 Much shorter!
         `,
-                exercise: {
-                    prompt: 'Create variable x to 25. If x > 20, display "Big number"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Big number',
-                    hint: 'Use: if x > 20 then\\n    display "Big number"\\nend if'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable x to 25. If x > 20, display "Big number"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Big number',
+                        hint: 'Use: if x > 20 then\\n    display "Big number"\\nend if'
+                    },
+                    {
+                        prompt: 'What symbol means "is equal to"?',
+                        type: 'multiple-choice',
+                        options: ['=', '==', '===', ':='],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What symbol means "is not equal to"?',
+                        type: 'multiple-choice',
+                        options: ['<>', '!=', '/=', '~='],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-12',
@@ -1102,13 +1262,27 @@ end if
 \`\`\`
 Output: Weekend!
         `,
-                exercise: {
-                    prompt: 'Create variable temp to 25. If temp >= 20 and temp <= 30, display "Perfect weather"',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: 'Perfect weather',
-                    hint: 'Use: if temp >= 20 and temp <= 30 then'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable temp to 25. If temp >= 20 and temp <= 30, display "Perfect weather"',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: 'Perfect weather',
+                        hint: 'Use: if temp >= 20 and temp <= 30 then'
+                    },
+                    {
+                        prompt: 'If A is true and B is false, what is "A and B"?',
+                        type: 'multiple-choice',
+                        options: ['true', 'false'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'If A is true and B is false, what is "A or B"?',
+                        type: 'multiple-choice',
+                        options: ['true', 'false'],
+                        answer: 0
+                    }
+                ]
             },
             {
                 id: 'py-13',
@@ -1140,13 +1314,27 @@ set count = count + 1
 
 Coming in Stage 3: count += 1 (even shorter!)
         `,
-                exercise: {
-                    prompt: 'Create variable total = 50. Add 25 to it (set total = total + 25). Display total.',
-                    type: 'code',
-                    language: 'natural',
-                    expectedOutput: '75',
-                    hint: 'create variable total = 50\\nset total = total + 25\\ndisplay total'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable total = 50. Add 25 to it (set total = total + 25). Display total.',
+                        type: 'code',
+                        language: 'natural',
+                        expectedOutput: '75',
+                        hint: 'create variable total = 50\\nset total = total + 25\\ndisplay total'
+                    },
+                    {
+                        prompt: 'What symbol is used for assignment in Python?',
+                        type: 'multiple-choice',
+                        options: [':', '==', '=', '<-'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'If x = 10, what is x after: set x = x * 2?',
+                        type: 'multiple-choice',
+                        options: ['10', '20', '12', 'x * 2'],
+                        answer: 1
+                    }
+                ]
             },
             // ============ STAGE 3: Code-Like Structure ============
             {
@@ -1185,13 +1373,28 @@ print(name)
 print("Hello, " + name)
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Use print() to display "Real Python!"',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: 'Real Python!',
-                    hint: 'Use: print("Real Python!")'
-                }
+                exercises: [
+                    {
+                        prompt: 'Use print() to display "Real Python!"',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: 'Real Python!',
+                        hint: 'Use: print("Real Python!")'
+                    },
+                    {
+                        prompt: 'What is the Python function to display output?',
+                        type: 'multiple-choice',
+                        options: ['display()', 'print()', 'show()', 'output()'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Use print() to display the number 42',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '42',
+                        hint: 'Use: print(42)'
+                    }
+                ]
             },
             {
                 id: 'py-15',
@@ -1227,13 +1430,28 @@ print(score)
 
 Output: 110
         `,
-                exercise: {
-                    prompt: 'Create variable greeting as "Hello" (Python style), then print it',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: 'Hello',
-                    hint: 'Use: greeting = "Hello"\\nprint(greeting)'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create variable greeting as "Hello" (Python style), then print it',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: 'Hello',
+                        hint: 'Use: greeting = "Hello"\\nprint(greeting)'
+                    },
+                    {
+                        prompt: 'In Python, how do you create a variable x with value 5?',
+                        type: 'multiple-choice',
+                        options: ['var x = 5', 'let x = 5', 'x = 5', 'create x = 5'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Create two variables a = 10 and b = 20, then print their sum',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '30',
+                        hint: 'a = 10\\nb = 20\\nprint(a + b)'
+                    }
+                ]
             },
             {
                 id: 'py-16',
@@ -1267,13 +1485,27 @@ else:
 - \`otherwise\` becomes \`else:\`
 - \`end if\` disappears (indentation handles it!)
         `,
-                exercise: {
-                    prompt: 'Write Python: x = 10. If x > 5, print "Yes", else print "No"',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: 'Yes',
-                    hint: 'x = 10\\nif x > 5:\\n    print("Yes")\\nelse:\\n    print("No")'
-                }
+                exercises: [
+                    {
+                        prompt: 'Write Python: x = 10. If x > 5, print "Yes", else print "No"',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: 'Yes',
+                        hint: 'x = 10\\nif x > 5:\\n    print("Yes")\\nelse:\\n    print("No")'
+                    },
+                    {
+                        prompt: 'What replaces "then" in Python if statements?',
+                        type: 'multiple-choice',
+                        options: ['then', 'do', ':', '{'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'How does Python know where an if block ends?',
+                        type: 'multiple-choice',
+                        options: ['end if keyword', 'closing brace }', 'indentation level', 'semicolon'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'py-17',
@@ -1313,13 +1545,28 @@ Output:
 - range(1, 4) → 1, 2, 3
 - range(0, 10, 2) → 0, 2, 4, 6, 8
         `,
-                exercise: {
-                    prompt: 'Use a for loop with range(4) to print numbers 0 through 3',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: '0\n1\n2\n3',
-                    hint: 'for i in range(4):\\n    print(i)'
-                }
+                exercises: [
+                    {
+                        prompt: 'Use a for loop with range(4) to print numbers 0 through 3',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '0\n1\n2\n3',
+                        hint: 'for i in range(4):\\n    print(i)'
+                    },
+                    {
+                        prompt: 'What does range(3) produce?',
+                        type: 'multiple-choice',
+                        options: ['1, 2, 3', '0, 1, 2', '0, 1, 2, 3', '1, 2'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'Loop through fruits = ["a", "b", "c"] and print each',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: 'a\nb\nc',
+                        hint: 'fruits = ["a", "b", "c"]\\nfor f in fruits:\\n    print(f)'
+                    }
+                ]
             },
             {
                 id: 'py-18',
@@ -1368,13 +1615,28 @@ print(result)
 
 Output: 8
         `,
-                exercise: {
-                    prompt: 'Define a function "double" that takes n and returns n * 2. Call it with 7 and print the result.',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: '14',
-                    hint: 'def double(n):\\n    return n * 2\\nprint(double(7))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Define a function "double" that takes n and returns n * 2. Call it with 7 and print the result.',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '14',
+                        hint: 'def double(n):\\n    return n * 2\\nprint(double(7))'
+                    },
+                    {
+                        prompt: 'What keyword defines a function in Python?',
+                        type: 'multiple-choice',
+                        options: ['function', 'func', 'def', 'define'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'Define a function "add" that takes a and b and returns a + b. Print add(3, 5)',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '8',
+                        hint: 'def add(a, b):\\n    return a + b\\nprint(add(3, 5))'
+                    }
+                ]
             },
             // ============ STAGE 4: Full Python ============
             {
@@ -1416,13 +1678,27 @@ squares = [x * x for x in range(5)]
 print(squares)  # [0, 1, 4, 9, 16]
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create a list [1, 2, 3], append 4, then print the length',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: '4',
-                    hint: 'nums = [1, 2, 3]\\nnums.append(4)\\nprint(len(nums))'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a list [1, 2, 3], append 4, then print the length',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '4',
+                        hint: 'nums = [1, 2, 3]\\nnums.append(4)\\nprint(len(nums))'
+                    },
+                    {
+                        prompt: 'What method adds an item to the end of a list?',
+                        type: 'multiple-choice',
+                        options: ['add()', 'push()', 'append()', 'insert()'],
+                        answer: 2
+                    },
+                    {
+                        prompt: 'What is fruits[-1] if fruits = ["a", "b", "c"]?',
+                        type: 'multiple-choice',
+                        options: ['a', 'b', 'c', 'Error'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'py-20',
@@ -1462,13 +1738,27 @@ joined = "-".join(words)
 print(joined)  # apple-banana-orange
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create name = "python". Print name.upper()',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: 'PYTHON',
-                    hint: 'name = "python"\\nprint(name.upper())'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create name = "python". Print name.upper()',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: 'PYTHON',
+                        hint: 'name = "python"\\nprint(name.upper())'
+                    },
+                    {
+                        prompt: 'What does .lower() do to a string?',
+                        type: 'multiple-choice',
+                        options: ['Makes it uppercase', 'Makes it lowercase', 'Reverses it', 'Trims spaces'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What is the syntax for f-strings?',
+                        type: 'multiple-choice',
+                        options: ['"Hello {name}"', 'f"Hello {name}"', '"Hello" + name', '"Hello $name"'],
+                        answer: 1
+                    }
+                ]
             },
             {
                 id: 'py-21',
@@ -1507,13 +1797,27 @@ for key, value in person.items():
     print(f"{key}: {value}")
 \`\`\`
         `,
-                exercise: {
-                    prompt: 'Create a dictionary with "name": "Bob" and "score": 100. Print the score.',
-                    type: 'code',
-                    language: 'python',
-                    expectedOutput: '100',
-                    hint: 'data = {"name": "Bob", "score": 100}\\nprint(data["score"])'
-                }
+                exercises: [
+                    {
+                        prompt: 'Create a dictionary with "name": "Bob" and "score": 100. Print the score.',
+                        type: 'code',
+                        language: 'python',
+                        expectedOutput: '100',
+                        hint: 'data = {"name": "Bob", "score": 100}\\nprint(data["score"])'
+                    },
+                    {
+                        prompt: 'How do you access a value in a dictionary?',
+                        type: 'multiple-choice',
+                        options: ['dict.key', 'dict[key]', 'dict(key)', 'dict->key'],
+                        answer: 1
+                    },
+                    {
+                        prompt: 'What method returns both keys and values when looping?',
+                        type: 'multiple-choice',
+                        options: ['.keys()', '.values()', '.items()', '.pairs()'],
+                        answer: 2
+                    }
+                ]
             },
             {
                 id: 'py-22',
