@@ -19,6 +19,7 @@ import TestPage from './pages/TestPage';
 import CertificatePage from './pages/CertificatePage';
 import CanvasPage from './pages/CanvasPage';
 import ChallengePage from './pages/ChallengePage';
+import ChallengesPage from './pages/ChallengesPage';
 
 // Components
 import Layout from './components/Layout';
@@ -105,6 +106,7 @@ function App() {
             <Route path="/download" element={<DownloadPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/canvas" element={<CanvasPage />} />
+            <Route path="/challenges" element={<ChallengesPage />} />
             <Route path="/challenge/:challengeId" element={<ChallengePage />} />
             <Route path="/certificate/:certId" element={<CertificatePage />} />
           </Route>

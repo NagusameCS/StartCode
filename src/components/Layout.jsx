@@ -14,7 +14,8 @@ import {
     FiX,
     FiChevronDown,
     FiAward,
-    FiCode
+    FiCode,
+    FiZap
 } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useTeacherStore } from '../store/teacherStore';
@@ -31,7 +32,7 @@ const Layout = () => {
     const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-    
+
     // Check if we're on a full-width page (Canvas or Challenge)
     const isFullWidthPage = location.pathname === '/canvas' || location.pathname.startsWith('/challenge');
 
@@ -43,6 +44,7 @@ const Layout = () => {
     const navItems = [
         { to: '/dashboard', icon: FiHome, label: 'Dashboard' },
         { to: '/courses', icon: FiBook, label: 'Courses' },
+        { to: '/challenges', icon: FiZap, label: 'Challenges' },
         ...(experiments?.canvas ? [{ to: '/canvas', icon: FiCode, label: 'Canvas' }] : []),
         { to: '/users', icon: FiUsers, label: 'Users' },
         ...(isTeacherMode ? [{ to: '/teacher', icon: FiAward, label: 'Classes' }] : []),

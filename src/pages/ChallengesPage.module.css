@@ -1,0 +1,454 @@
+/* Challenges Browser Page */
+
+.challengesPage {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+.header {
+    margin-bottom: 2rem;
+}
+
+.headerContent {
+    margin-bottom: 1.5rem;
+}
+
+.headerContent h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 2rem;
+    color: var(--color-text);
+    margin: 0 0 0.5rem;
+}
+
+.headerContent p {
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* Stats Row */
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.statCard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--color-backgroundSecondary);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.statIcon {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.statInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.statLabel {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--color-backgroundSecondary);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    margin-bottom: 2rem;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.searchBox svg {
+    color: var(--color-text-muted);
+}
+
+.searchBox input {
+    flex: 1;
+    border: none;
+    background: none;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    outline: none;
+}
+
+.filterGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filterGroup label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+}
+
+.filterGroup select {
+    padding: 0.5rem 1rem;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    cursor: pointer;
+}
+
+.checkboxLabel input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Progress Section */
+.progressSection {
+    margin-bottom: 2rem;
+}
+
+.progressSection h2 {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin: 0 0 1rem;
+}
+
+.progressBars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.progressItem {
+    padding: 1rem;
+    background: var(--color-backgroundSecondary);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.progressLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text);
+}
+
+.progressBar {
+    height: 8px;
+    background: var(--color-backgroundTertiary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Category Section */
+.categorySection {
+    margin-bottom: 2rem;
+}
+
+.categorySection h2 {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin: 0 0 1rem;
+}
+
+.categoryGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+.categoryCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--color-backgroundSecondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.categoryCard:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.categoryCard.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.categoryCard.active .categoryName,
+.categoryCard.active .categoryProgress {
+    color: white;
+}
+
+.categoryIcon {
+    font-size: 1.5rem;
+}
+
+.categoryName {
+    font-size: 0.875rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.categoryProgress {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+/* Challenges Section */
+.challengesSection {
+    margin-bottom: 2rem;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.sectionHeader h2 {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* Challenges Grid */
+.challengesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.challengeCard {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    background: var(--color-backgroundSecondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.challengeCard:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.challengeCard.completed {
+    border-color: #22c55e40;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.difficultyBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+}
+
+.completedBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    background: #22c55e20;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #22c55e;
+}
+
+.cardTitle {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.cardDesc {
+    flex: 1;
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.categoryTag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.cardMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.bestTime {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--color-primary);
+}
+
+.points {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+/* Empty State */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem;
+    text-align: center;
+    color: var(--color-text-muted);
+}
+
+.emptyState svg {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+.emptyState button {
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .statsRow {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .progressBars {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .challengesPage {
+        padding: 1rem;
+    }
+    
+    .statsRow {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .progressBars {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filterGroup {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filterGroup select {
+        width: 100%;
+    }
+    
+    .categoryGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .challengesGrid {
+        grid-template-columns: 1fr;
+    }
+}

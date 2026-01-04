@@ -29,6 +29,18 @@ export const useProgressStore = create(
             // Activity log for contribution tracker
             activityLog: {},
 
+            // Completed challenges
+            completedChallenges: [],
+
+            // Challenge statistics
+            challengeStats: {
+                totalAttempts: 0,
+                totalCompleted: 0,
+                bestTimes: {}, // { challengeId: timeInSeconds }
+                completedByCategory: {}, // { category: count }
+                completedByDifficulty: {} // { difficulty: count }
+            },
+
             // Expert mode - skip prerequisite blocking
             expertMode: false,
 
@@ -51,6 +63,82 @@ export const useProgressStore = create(
             // Toggle expert mode
             toggleExpertMode: () => {
                 set((state) => ({ expertMode: !state.expertMode }));
+            },
+
+            // Complete a challenge
+            completeChallenge: async (challengeId, category, difficulty, timeInSeconds) => {
+                const { completedChallenges, challengeStats, activityLog } = get();
+                const today = new Date().toISOString().split('T')[0];
+
+                // Check if already completed
+                const alreadyCompleted = completedChallenges.includes(challengeId);
+
+                // Update best time if better
+                const currentBest = challengeStats.bestTimes[challengeId];
+                const newBestTime = (!currentBest || timeInSeconds < currentBest) ? timeInSeconds : currentBest;
+
+                const newCompletedChallenges = alreadyCompleted 
+                    ? completedChallenges 
+                    : [...completedChallenges, challengeId];
+
+                const newStats = {
+                    totalAttempts: challengeStats.totalAttempts + 1,
+                    totalCompleted: alreadyCompleted ? challengeStats.totalCompleted : challengeStats.totalCompleted + 1,
+                    bestTimes: {
+                        ...challengeStats.bestTimes,
+                        [challengeId]: newBestTime
+                    },
+                    completedByCategory: {
+                        ...challengeStats.completedByCategory,
+                        [category]: (challengeStats.completedByCategory[category] || 0) + (alreadyCompleted ? 0 : 1)
+                    },
+                    completedByDifficulty: {
+                        ...challengeStats.completedByDifficulty,
+                        [difficulty]: (challengeStats.completedByDifficulty[difficulty] || 0) + (alreadyCompleted ? 0 : 1)
+                    }
+                };
+
+                // Update activity log
+                const todayCount = (activityLog[today] || 0) + (alreadyCompleted ? 0 : 1);
+
+                set({
+                    completedChallenges: newCompletedChallenges,
+                    challengeStats: newStats,
+                    activityLog: {
+                        ...activityLog,
+                        [today]: todayCount
+                    }
+                });
+
+                // Sync to Firebase
+                const authState = useAuthStore.getState();
+                if (authState.user) {
+                    try {
+                        const userRef = doc(db, 'users', authState.user.uid);
+                        await setDoc(userRef, {
+                            completedChallenges: newCompletedChallenges,
+                            challengeStats: newStats,
+                            activityLog: {
+                                ...activityLog,
+                                [today]: todayCount
+                            }
+                        }, { merge: true });
+                    } catch (error) {
+                        console.error('Failed to sync challenge progress:', error);
+                    }
+                }
+
+                return !alreadyCompleted; // Returns true if this was a new completion
+            },
+
+            // Check if challenge is completed
+            isChallengeCompleted: (challengeId) => {
+                return get().completedChallenges.includes(challengeId);
+            },
+
+            // Get challenge best time
+            getChallengeBestTime: (challengeId) => {
+                return get().challengeStats.bestTimes[challengeId] || null;
             },
 
             // Save code for a specific lesson
@@ -221,7 +309,15 @@ export const useProgressStore = create(
                                 completedLessons: data.completedLessons || [],
                                 testScores: data.testScores || {},
                                 certificates: data.certificates || [],
-                                activityLog: data.activityLog || {}
+                                activityLog: data.activityLog || {},
+                                completedChallenges: data.completedChallenges || [],
+                                challengeStats: data.challengeStats || {
+                                    totalAttempts: 0,
+                                    totalCompleted: 0,
+                                    bestTimes: {},
+                                    completedByCategory: {},
+                                    completedByDifficulty: {}
+                                }
                             });
                         }
                     } catch (error) {
@@ -238,7 +334,15 @@ export const useProgressStore = create(
                     courseProgress: {},
                     testScores: {},
                     certificates: [],
-                    activityLog: {}
+                    activityLog: {},
+                    completedChallenges: [],
+                    challengeStats: {
+                        totalAttempts: 0,
+                        totalCompleted: 0,
+                        bestTimes: {},
+                        completedByCategory: {},
+                        completedByDifficulty: {}
+                    }
                 });
             }
         }),

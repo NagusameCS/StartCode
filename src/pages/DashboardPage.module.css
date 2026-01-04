@@ -86,11 +86,24 @@
 }
 
 .sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0;
     padding: var(--spacing-sm) 0;
     letter-spacing: 0.02em;
+}
+
+.completedCount {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    background: var(--color-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    margin-left: 0.5rem;
 }
 
 .viewAll {
@@ -100,6 +113,7 @@
     color: var(--color-primary);
     font-size: 0.9rem;
     font-weight: 500;
+    text-decoration: none;
 }
 
 .viewAll:hover {
@@ -319,11 +333,18 @@
     padding: 1.25rem;
     transition: all var(--transition-fast);
     border-left: 4px solid var(--challenge-color);
+    display: flex;
+    flex-direction: column;
 }
 
 .challengeCard:hover {
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
+}
+
+.challengeCard.completed {
+    border-left-color: #22c55e;
+    opacity: 0.85;
 }
 
 .challengeHeader {
@@ -344,6 +365,18 @@
     border-radius: var(--radius-sm);
 }
 
+.completedBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.15);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
 .challengeNumber {
     font-size: 0.75rem;
     color: var(--color-text-muted);
@@ -356,15 +389,35 @@
 }
 
 .challengeDesc {
-    margin: 0 0 1rem;
+    margin: 0 0 0.75rem;
     font-size: 0.875rem;
     color: var(--color-text-secondary);
     line-height: 1.5;
+    flex: 1;
+}
+
+.challengeMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.points {
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.challengeFooter {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .challengeActions {
     display: flex;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.75rem;
 }
 
 .hintBtn {
