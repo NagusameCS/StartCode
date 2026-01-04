@@ -15,12 +15,12 @@ class ErrorBoundary extends Component {
 
     componentDidCatch(error, errorInfo) {
         this.setState({ errorInfo });
-        
+
         // Log to console in development
         if (import.meta.env.DEV) {
             console.error('Error caught by boundary:', error, errorInfo);
         }
-        
+
         // In production, you could send this to an error tracking service
         // e.g., Sentry, LogRocket, etc.
     }
@@ -41,7 +41,7 @@ class ErrorBoundary extends Component {
                         <FiAlertTriangle className={styles.errorIcon} />
                         <h1>Something went wrong</h1>
                         <p>We're sorry, but something unexpected happened. Please try refreshing the page.</p>
-                        
+
                         {import.meta.env.DEV && this.state.error && (
                             <details className={styles.errorDetails}>
                                 <summary>Error Details (Development Only)</summary>

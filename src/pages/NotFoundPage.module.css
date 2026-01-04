@@ -43,8 +43,15 @@
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 .content h1 {
@@ -53,7 +60,7 @@
     margin: 0 0 0.75rem;
 }
 
-.content > p {
+.content>p {
     color: var(--color-text-muted);
     margin: 0 0 2rem;
     line-height: 1.6;

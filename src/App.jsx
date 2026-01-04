@@ -38,15 +38,15 @@ import './styles/globals.css';
 
 // Lazy loading fallback
 const PageLoader = () => (
-    <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '50vh',
-        color: 'var(--color-text-muted)'
-    }}>
-        Loading...
-    </div>
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '50vh',
+    color: 'var(--color-text-muted)'
+  }}>
+    Loading...
+  </div>
 );
 
 function App() {

@@ -66,7 +66,7 @@ const EditChallengePage = () => {
 
             try {
                 const data = await getUserChallenge(challengeId);
-                
+
                 if (!data) {
                     setNotFound(true);
                     setPageLoading(false);
@@ -81,7 +81,7 @@ const EditChallengePage = () => {
                 }
 
                 setChallenge(data);
-                
+
                 // Populate form
                 setTitle(data.title || '');
                 setDescription(data.description || '');
@@ -89,13 +89,13 @@ const EditChallengePage = () => {
                 setDifficulty(data.difficulty || 'beginner');
                 setStarterCode(data.starterCode || '');
                 setConstraints(data.constraints || {});
-                
+
                 // Convert tests to editable format
                 if (data.tests && data.tests.length > 0) {
                     setTestCases(data.tests.map(t => ({
                         input: typeof t.input === 'string' ? t.input : JSON.stringify(t.input).slice(1, -1),
-                        expected: typeof t.expected === 'string' && !t.expected.startsWith('"') 
-                            ? t.expected 
+                        expected: typeof t.expected === 'string' && !t.expected.startsWith('"')
+                            ? t.expected
                             : JSON.stringify(t.expected),
                         description: t.description || ''
                     })));
@@ -107,7 +107,7 @@ const EditChallengePage = () => {
                         description: t.description || ''
                     })));
                 }
-                
+
                 // Hints
                 if (data.hints && data.hints.length > 0) {
                     setHints(data.hints);
@@ -299,7 +299,7 @@ const EditChallengePage = () => {
     // Delete challenge
     const handleDelete = async () => {
         const result = await deleteChallenge(challengeId);
-        
+
         if (result.success) {
             toast.success('Challenge deleted');
             navigate('/challenges/community');
@@ -402,13 +402,13 @@ const EditChallengePage = () => {
                         <h2>Delete Challenge?</h2>
                         <p>This action cannot be undone. All stats and likes will be lost.</p>
                         <div className={styles.confirmActions}>
-                            <button 
+                            <button
                                 className={styles.cancelBtn}
                                 onClick={() => setConfirmDelete(false)}
                             >
                                 Cancel
                             </button>
-                            <button 
+                            <button
                                 className={styles.confirmDeleteBtn}
                                 onClick={handleDelete}
                             >
