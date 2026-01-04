@@ -411,7 +411,7 @@ const DownloadPage = () => {
 
                     <div className={styles.instructionCard}>
                         <div className={styles.instructionHeader}>
-                            <FaLinux style={{ color: 'var(--color-text)' }} /> Linux
+                            <FaLinux style={{ color: '#ffffff' }} /> Linux
                         </div>
                         <ol className={styles.instructionSteps}>
                             <li>Download the <code>.AppImage</code> file</li>
