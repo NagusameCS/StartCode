@@ -67,10 +67,12 @@ end repeat
     // Workspace files
     const [files] = useState([
         { name: 'main.sc', type: 'file' },
-        { name: 'examples', type: 'folder', expanded: false, children: [
-            { name: 'hello.sc', type: 'file' },
-            { name: 'loops.sc', type: 'file' },
-        ]},
+        {
+            name: 'examples', type: 'folder', expanded: false, children: [
+                { name: 'hello.sc', type: 'file' },
+                { name: 'loops.sc', type: 'file' },
+            ]
+        },
     ]);
 
     // Transpiler
@@ -89,7 +91,7 @@ end repeat
         try {
             const result = await executeCode(code);
             setOutput(result.output || 'Code executed successfully (no output)');
-            
+
             if (showTranspiled && transpiler) {
                 setTranspiledCode(transpiler.toCode(code));
             }
@@ -128,7 +130,7 @@ end repeat
             );
         }
         return (
-            <button 
+            <button
                 key={file.name}
                 className={`${styles.fileItem} ${activeTab === file.name ? styles.activeFile : ''}`}
                 style={{ paddingLeft: `${12 + depth * 12}px` }}
@@ -143,29 +145,29 @@ end repeat
         <div className={styles.ide} onKeyDown={handleKeyDown}>
             {/* Activity Bar */}
             <div className={styles.activityBar}>
-                <button 
+                <button
                     className={`${styles.activityItem} ${activeActivity === 'explorer' && showSidebar ? styles.active : ''}`}
-                    onClick={() => { 
-                        setActiveActivity('explorer'); 
-                        setShowSidebar(!showSidebar || activeActivity !== 'explorer'); 
-                        setShowDocs(false); 
+                    onClick={() => {
+                        setActiveActivity('explorer');
+                        setShowSidebar(!showSidebar || activeActivity !== 'explorer');
+                        setShowDocs(false);
                     }}
                     title="Explorer"
                 >
                     <FiFile />
                 </button>
-                <button 
+                <button
                     className={`${styles.activityItem} ${activeActivity === 'docs' && showDocs ? styles.active : ''}`}
-                    onClick={() => { 
-                        setActiveActivity('docs'); 
-                        setShowDocs(!showDocs || activeActivity !== 'docs'); 
-                        setShowSidebar(false); 
+                    onClick={() => {
+                        setActiveActivity('docs');
+                        setShowDocs(!showDocs || activeActivity !== 'docs');
+                        setShowSidebar(false);
                     }}
                     title="Documentation"
                 >
                     <FiBook />
                 </button>
-                <button 
+                <button
                     className={`${styles.activityItem} ${showTranspiled ? styles.active : ''}`}
                     onClick={() => {
                         setShowTranspiled(!showTranspiled);
@@ -186,7 +188,7 @@ end repeat
             {/* Sidebar - Explorer */}
             <AnimatePresence>
                 {showSidebar && activeActivity === 'explorer' && (
-                    <motion.div 
+                    <motion.div
                         className={styles.sidebar}
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: 200, opacity: 1 }}
@@ -213,7 +215,7 @@ end repeat
             {/* Sidebar - Documentation */}
             <AnimatePresence>
                 {showDocs && activeActivity === 'docs' && (
-                    <motion.div 
+                    <motion.div
                         className={styles.sidebar}
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: 260, opacity: 1 }}
@@ -286,7 +288,7 @@ end repeat
                     {/* Transpiled Code Panel */}
                     <AnimatePresence>
                         {showTranspiled && (
-                            <motion.div 
+                            <motion.div
                                 className={styles.transpiledPane}
                                 initial={{ width: 0, opacity: 0 }}
                                 animate={{ width: '50%', opacity: 1 }}
@@ -296,8 +298,8 @@ end repeat
                                     <span className={styles.editorPath}>
                                         Transpiled • {selectedLanguage === 'javascript' ? 'JavaScript' : 'Python'}
                                     </span>
-                                    <select 
-                                        value={selectedLanguage} 
+                                    <select
+                                        value={selectedLanguage}
                                         onChange={(e) => {
                                             setSelectedLanguage(e.target.value);
                                             const newTranspiler = createTranspiler(e.target.value, STAGES.NATURAL);

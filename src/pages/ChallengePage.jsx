@@ -315,8 +315,8 @@ Examples:
 
 // Language configurations
 const LANGUAGES = {
-    javascript: { 
-        name: 'JavaScript', 
+    javascript: {
+        name: 'JavaScript',
         extension: javascript,
         runner: (code, fn, args) => {
             try {
@@ -327,13 +327,13 @@ const LANGUAGES = {
             }
         }
     },
-    python: { 
-        name: 'Python', 
+    python: {
+        name: 'Python',
         extension: python,
         runner: null // Would need pyodide or server
     },
-    java: { 
-        name: 'Java', 
+    java: {
+        name: 'Java',
         extension: java,
         runner: null // Would need server
     }
@@ -343,10 +343,10 @@ const ChallengePage = () => {
     const { challengeId } = useParams();
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
-    
+
     // Get challenge from URL or use default
     const challenge = CHALLENGES[challengeId] || CHALLENGES['sum-two-numbers'];
-    
+
     // State
     const [language, setLanguage] = useState(searchParams.get('lang') || 'javascript');
     const [code, setCode] = useState('');
@@ -393,14 +393,14 @@ const ChallengePage = () => {
 
         setIsRunning(true);
         setOutput('Running tests...');
-        
+
         const allTests = [...challenge.tests.visible, ...challenge.tests.hidden];
         const results = { visible: [], hidden: [], passed: 0, total: allTests.length };
 
         for (let i = 0; i < allTests.length; i++) {
             const test = allTests[i];
             const isHidden = i >= challenge.tests.visible.length;
-            
+
             try {
                 // Extract function name from code
                 const fnMatch = code.match(/function\s+(\w+)/);
@@ -510,7 +510,7 @@ const ChallengePage = () => {
                 <div className={styles.instructions}>
                     <div className={styles.instructionsHeader}>
                         <h2>Instructions</h2>
-                        <button 
+                        <button
                             className={styles.hintBtn}
                             onClick={() => setShowHint(!showHint)}
                         >
@@ -521,10 +521,10 @@ const ChallengePage = () => {
                     <div className={styles.instructionsContent}>
                         <p className={styles.description}>{challenge.description}</p>
                         <pre className={styles.instructionsText}>{challenge.instructions}</pre>
-                        
+
                         <AnimatePresence>
                             {showHint && challenge.solution && (
-                                <motion.div 
+                                <motion.div
                                     className={styles.hint}
                                     initial={{ opacity: 0, height: 0 }}
                                     animate={{ opacity: 1, height: 'auto' }}
@@ -554,12 +554,12 @@ const ChallengePage = () => {
                             <button onClick={runCode} className={styles.runBtn}>
                                 <FiPlay /> Run
                             </button>
-                            <button 
-                                onClick={runTests} 
+                            <button
+                                onClick={runTests}
                                 className={styles.submitBtn}
                                 disabled={isRunning}
                             >
-                                <FiCheckCircle /> 
+                                <FiCheckCircle />
                                 {isRunning ? 'Testing...' : 'Submit'}
                             </button>
                         </div>
@@ -605,7 +605,7 @@ const ChallengePage = () => {
                                             {testResults.passed}/{testResults.total}
                                         </span>
                                     </div>
-                                    <button 
+                                    <button
                                         className={styles.toggleHidden}
                                         onClick={() => setShowHiddenTests(!showHiddenTests)}
                                     >

@@ -243,6 +243,12 @@
     padding: var(--spacing-xl);
 }
 
+/* Full-width mode for Canvas/Challenge pages */
+.mainFullWidth {
+    padding: 0;
+    overflow: hidden;
+}
+
 /* Mobile Header */
 .mobileHeader {
     display: none;

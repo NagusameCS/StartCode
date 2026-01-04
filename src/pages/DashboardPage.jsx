@@ -89,11 +89,11 @@ const generateChallenges = (difficulty, count = 3) => {
 
     // Shuffle and pick unique challenges
     const shuffled = [...allTemplates].sort(() => Math.random() - 0.5);
-    
+
     for (const template of shuffled) {
         if (challenges.length >= count) break;
         if (usedChallengeIds.has(template.challengeId)) continue;
-        
+
         usedChallengeIds.add(template.challengeId);
         challenges.push({
             id: `${difficulty}-${template.challengeId}-${Date.now()}-${challenges.length}`,

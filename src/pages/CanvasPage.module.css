@@ -2,7 +2,8 @@
 
 .ide {
     display: flex;
-    height: calc(100vh - 60px);
+    height: 100vh;
+    width: 100%;
     background: #1e1e1e;
     color: #cccccc;
     overflow: hidden;
@@ -511,17 +512,17 @@
     .activityBar {
         width: 40px;
     }
-    
+
     .activityItem {
         width: 40px;
         height: 40px;
     }
-    
+
     .activityItem svg {
         width: 20px;
         height: 20px;
     }
-    
+
     .sidebar {
         position: absolute;
         left: 40px;

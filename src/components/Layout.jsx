@@ -1,5 +1,5 @@
 // Main Layout Component with Navigation
-import { Outlet, NavLink, useNavigate } from 'react-router-dom';
+import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import {
@@ -30,6 +30,10 @@ const Layout = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+    
+    // Check if we're on a full-width page (Canvas or Challenge)
+    const isFullWidthPage = location.pathname === '/canvas' || location.pathname.startsWith('/challenge');
 
     const handleSignOut = async () => {
         await signOut();
@@ -206,7 +210,7 @@ const Layout = () => {
             </AnimatePresence>
 
             {/* Main Content */}
-            <main className={styles.main}>
+            <main className={`${styles.main} ${isFullWidthPage ? styles.mainFullWidth : ''}`}>
                 <Outlet />
             </main>
         </div>

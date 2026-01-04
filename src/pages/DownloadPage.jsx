@@ -374,7 +374,7 @@ const DownloadPage = () => {
                     Since StartCode is not yet code-signed, your operating system may show security warnings.
                     This is normal for open-source software. Here's how to install:
                 </p>
-                
+
                 <div className={styles.installInstructions}>
                     <div className={styles.instructionCard}>
                         <div className={styles.instructionHeader}>

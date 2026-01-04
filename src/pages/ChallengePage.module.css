@@ -3,7 +3,8 @@
 .challenge {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px);
+    height: 100vh;
+    width: 100%;
     background: #1e1e1e;
     color: #cccccc;
 }
@@ -61,10 +62,25 @@
     text-transform: capitalize;
 }
 
-.difficulty.beginner { background: #22c55e20; color: #22c55e; }
-.difficulty.intermediate { background: #f59e0b20; color: #f59e0b; }
-.difficulty.advanced { background: #ef444420; color: #ef4444; }
-.difficulty.expert { background: #8b5cf620; color: #8b5cf6; }
+.difficulty.beginner {
+    background: #22c55e20;
+    color: #22c55e;
+}
+
+.difficulty.intermediate {
+    background: #f59e0b20;
+    color: #f59e0b;
+}
+
+.difficulty.advanced {
+    background: #ef444420;
+    color: #ef4444;
+}
+
+.difficulty.expert {
+    background: #8b5cf620;
+    color: #8b5cf6;
+}
 
 .category {
     padding: 0.125rem 0.5rem;
