@@ -248,10 +248,197 @@
     color: var(--color-textMuted);
 }
 
+/* Coding Challenges */
+.refreshBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.refreshBtn:hover {
+    background: var(--color-primary-bg);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.refreshBtn svg {
+    transition: transform 0.3s;
+}
+
+.refreshBtn:hover svg {
+    transform: rotate(180deg);
+}
+
+.difficultyTabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.difficultyTab {
+    padding: 0.5rem 1rem;
+    background: var(--color-bg);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.difficultyTab:hover {
+    border-color: var(--tab-color);
+    color: var(--tab-color);
+}
+
+.difficultyTab.active {
+    background: var(--color-bg);
+    color: var(--tab-color);
+    font-weight: 600;
+}
+
+.challengesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.challengeCard {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    transition: all var(--transition-fast);
+    border-left: 4px solid var(--challenge-color);
+}
+
+.challengeCard:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.challengeHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.challengeType {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--challenge-color);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.challengeNumber {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.challengeTitle {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.challengeDesc {
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.challengeActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.hintBtn {
+    flex: 1;
+    padding: 0.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.hintBtn:hover {
+    background: var(--color-bg-secondary);
+}
+
+.tryBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    flex: 1;
+    padding: 0.5rem;
+    background: var(--challenge-color);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: white;
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.tryBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.challengeHint {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--color-border);
+}
+
+.challengeHint svg {
+    color: var(--challenge-color);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.challengeHint pre {
+    margin: 0;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--color-text);
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .statsGrid {
         grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .challengesGrid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -271,6 +458,20 @@
 
     .recommendedGrid {
         grid-template-columns: 1fr;
+    }
+    
+    .challengesGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .difficultyTabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.5rem;
+    }
+    
+    .difficultyTab {
+        white-space: nowrap;
     }
 }
 

@@ -1,18 +1,27 @@
-// Canvas Page - Interactive Natural Language Code Editor
-// Users can write and execute natural language code freely
+// Canvas Page - Natural Language Programming Environment
+// A professional documentation-style IDE for natural language code
 
-import { useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useCallback, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     FiPlay,
     FiTrash2,
-    FiSave,
     FiCopy,
-    FiInfo,
     FiCode,
     FiBook,
-    FiChevronDown,
-    FiChevronUp
+    FiChevronRight,
+    FiSearch,
+    FiTerminal,
+    FiZap,
+    FiHash,
+    FiType,
+    FiList,
+    FiRepeat,
+    FiGitBranch,
+    FiBox,
+    FiCheck,
+    FiX,
+    FiCpu
 } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import CodeMirror from '@uiw/react-codemirror';
@@ -20,180 +29,467 @@ import { executeCode } from '../engine/executor';
 import { createTranspiler, STAGES } from '../engine/transpiler';
 import styles from './CanvasPage.module.css';
 
-// Example code snippets for quick start
-const EXAMPLES = {
-    hello: {
-        name: 'Hello World',
-        code: `display "Hello, World!"`
+// Complete Language Documentation (Java-docs style)
+const DOCUMENTATION = {
+    overview: {
+        title: 'Overview',
+        icon: FiBook,
+        content: `StartCode Natural Language is a beginner-friendly programming language that uses plain English syntax. 
+        
+It's designed to help beginners understand programming concepts without getting stuck on syntax. The code you write is automatically translated to JavaScript for execution.
+
+**Key Features:**
+- Write code in plain English
+- No semicolons, brackets, or special characters needed
+- Automatic variable typing
+- Built-in error messages in plain English`
+    },
+    output: {
+        title: 'Output',
+        icon: FiTerminal,
+        description: 'Display values to the console',
+        syntax: [
+            {
+                signature: 'display <value>',
+                description: 'Outputs a value to the console. Can display strings, numbers, variables, or expressions.',
+                examples: [
+                    { code: 'display "Hello, World!"', output: 'Hello, World!' },
+                    { code: 'display 42', output: '42' },
+                    { code: 'display "Sum: " plus 5 plus 3', output: 'Sum: 8' }
+                ],
+                parameters: [
+                    { name: 'value', type: 'any', description: 'The value to display (string, number, variable, or expression)' }
+                ]
+            }
+        ]
     },
     variables: {
-        name: 'Variables',
-        code: `create variable name to "Alice"
-create variable age to 25
-display "Name: " plus name
-display "Age: " plus age`
+        title: 'Variables',
+        icon: FiBox,
+        description: 'Store and manipulate data',
+        syntax: [
+            {
+                signature: 'create variable <name> to <value>',
+                description: 'Creates a new variable with the specified name and initial value. Variables can store strings, numbers, booleans, or lists.',
+                examples: [
+                    { code: 'create variable age to 25', output: '// Creates variable age = 25' },
+                    { code: 'create variable name to "Alice"', output: '// Creates variable name = "Alice"' },
+                    { code: 'create variable isStudent to true value', output: '// Creates variable isStudent = true' }
+                ],
+                parameters: [
+                    { name: 'name', type: 'identifier', description: 'The name of the variable (no spaces, start with letter)' },
+                    { name: 'value', type: 'any', description: 'The initial value' }
+                ]
+            },
+            {
+                signature: 'set <name> to <value>',
+                description: 'Updates an existing variable with a new value.',
+                examples: [
+                    { code: 'set age to 26', output: '// Updates age to 26' },
+                    { code: 'set count to count plus 1', output: '// Increments count by 1' }
+                ],
+                parameters: [
+                    { name: 'name', type: 'identifier', description: 'The variable to update' },
+                    { name: 'value', type: 'any', description: 'The new value' }
+                ]
+            },
+            {
+                signature: 'create constant <name> to <value>',
+                description: 'Creates an immutable constant that cannot be changed after creation.',
+                examples: [
+                    { code: 'create constant PI to 3.14159', output: '// Creates constant PI = 3.14159' },
+                    { code: 'create constant MAX_SIZE to 100', output: '// Creates constant MAX_SIZE = 100' }
+                ],
+                parameters: [
+                    { name: 'name', type: 'identifier', description: 'The constant name (conventionally UPPERCASE)' },
+                    { name: 'value', type: 'any', description: 'The immutable value' }
+                ]
+            }
+        ]
     },
-    math: {
-        name: 'Math Operations',
-        code: `create variable a to 10
-create variable b to 5
-display "Addition: " plus a plus b
-display "Product: " plus a times b`
+    operators: {
+        title: 'Operators',
+        icon: FiHash,
+        description: 'Mathematical and logical operations',
+        syntax: [
+            {
+                signature: '<a> plus <b>',
+                description: 'Adds two numbers or concatenates strings.',
+                examples: [
+                    { code: '5 plus 3', output: '8' },
+                    { code: '"Hello " plus "World"', output: 'Hello World' }
+                ]
+            },
+            {
+                signature: '<a> minus <b>',
+                description: 'Subtracts the second number from the first.',
+                examples: [
+                    { code: '10 minus 4', output: '6' }
+                ]
+            },
+            {
+                signature: '<a> times <b>',
+                description: 'Multiplies two numbers.',
+                examples: [
+                    { code: '6 times 7', output: '42' }
+                ]
+            },
+            {
+                signature: '<a> divided by <b>',
+                description: 'Divides the first number by the second.',
+                examples: [
+                    { code: '20 divided by 4', output: '5' }
+                ]
+            },
+            {
+                signature: '<a> modulo <b>',
+                description: 'Returns the remainder after division.',
+                examples: [
+                    { code: '17 modulo 5', output: '2' }
+                ]
+            }
+        ]
     },
-    conditions: {
-        name: 'If Statements',
-        code: `create variable score to 85
-
-if score is greater than or equal to 90 then
-    display "Grade: A"
-otherwise if score is greater than or equal to 80 then
-    display "Grade: B"
-otherwise if score is greater than or equal to 70 then
-    display "Grade: C"
+    comparisons: {
+        title: 'Comparisons',
+        icon: FiGitBranch,
+        description: 'Compare values and create conditions',
+        syntax: [
+            {
+                signature: '<a> is equal to <b>',
+                description: 'Returns true if both values are equal.',
+                examples: [
+                    { code: '5 is equal to 5', output: 'true' },
+                    { code: '"hello" is equal to "hello"', output: 'true' }
+                ]
+            },
+            {
+                signature: '<a> is not equal to <b>',
+                description: 'Returns true if values are different.',
+                examples: [
+                    { code: '5 is not equal to 3', output: 'true' }
+                ]
+            },
+            {
+                signature: '<a> is greater than <b>',
+                description: 'Returns true if a is larger than b.',
+                examples: [
+                    { code: '10 is greater than 5', output: 'true' }
+                ]
+            },
+            {
+                signature: '<a> is less than <b>',
+                description: 'Returns true if a is smaller than b.',
+                examples: [
+                    { code: '3 is less than 8', output: 'true' }
+                ]
+            },
+            {
+                signature: '<a> is greater than or equal to <b>',
+                description: 'Returns true if a is larger than or equal to b.',
+                examples: [
+                    { code: '5 is greater than or equal to 5', output: 'true' }
+                ]
+            },
+            {
+                signature: '<a> is less than or equal to <b>',
+                description: 'Returns true if a is smaller than or equal to b.',
+                examples: [
+                    { code: '3 is less than or equal to 5', output: 'true' }
+                ]
+            }
+        ]
+    },
+    conditionals: {
+        title: 'Conditionals',
+        icon: FiGitBranch,
+        description: 'Control flow with if/else statements',
+        syntax: [
+            {
+                signature: 'if <condition> then\\n    <statements>\\nend if',
+                description: 'Executes statements only if the condition is true.',
+                examples: [
+                    {
+                        code: `if age is greater than 18 then
+    display "Adult"
+end if`,
+                        output: '// Displays "Adult" if age > 18'
+                    }
+                ],
+                parameters: [
+                    { name: 'condition', type: 'boolean', description: 'A comparison or boolean expression' },
+                    { name: 'statements', type: 'code block', description: 'Code to execute if condition is true' }
+                ]
+            },
+            {
+                signature: 'if <condition> then\\n    <statements>\\notherwise\\n    <statements>\\nend if',
+                description: 'Executes one block if condition is true, another if false.',
+                examples: [
+                    {
+                        code: `if score is greater than or equal to 60 then
+    display "Pass"
 otherwise
-    display "Grade: F"
-end if`
+    display "Fail"
+end if`,
+                        output: '// Displays "Pass" or "Fail" based on score'
+                    }
+                ]
+            },
+            {
+                signature: 'otherwise if <condition> then',
+                description: 'Adds additional conditions to check.',
+                examples: [
+                    {
+                        code: `if grade is equal to "A" then
+    display "Excellent"
+otherwise if grade is equal to "B" then
+    display "Good"
+otherwise
+    display "Keep trying"
+end if`,
+                        output: '// Multi-branch conditional'
+                    }
+                ]
+            },
+            {
+                signature: '<condition> and <condition>',
+                description: 'Both conditions must be true.',
+                examples: [
+                    { code: 'age is greater than 18 and hasLicense is equal to true value', output: '// Both must be true' }
+                ]
+            },
+            {
+                signature: '<condition> or <condition>',
+                description: 'At least one condition must be true.',
+                examples: [
+                    { code: 'isAdmin is equal to true value or isModerator is equal to true value', output: '// Either can be true' }
+                ]
+            }
+        ]
     },
     loops: {
-        name: 'Loops',
-        code: `display "Counting to 5:"
-repeat 5 times
-    display "Count!"
-end loop
-
-display "---"
-display "While loop:"
-create variable i to 1
-repeat while i is less than or equal to 3 do
-    display "Number: " plus i
-    set i to i plus 1
-end repeat`
-    },
-    lists: {
-        name: 'Lists',
-        code: `create variable colors to create list with "red", "green", "blue" end list
-
-display "My favorite colors:"
+        title: 'Loops',
+        icon: FiRepeat,
+        description: 'Repeat code multiple times',
+        syntax: [
+            {
+                signature: 'repeat <n> times\\n    <statements>\\nend loop',
+                description: 'Executes the statements a fixed number of times.',
+                examples: [
+                    {
+                        code: `repeat 5 times
+    display "Hello!"
+end loop`,
+                        output: 'Hello!\\nHello!\\nHello!\\nHello!\\nHello!'
+                    }
+                ],
+                parameters: [
+                    { name: 'n', type: 'number', description: 'Number of iterations' }
+                ]
+            },
+            {
+                signature: 'repeat while <condition> do\\n    <statements>\\nend repeat',
+                description: 'Continues executing while the condition remains true.',
+                examples: [
+                    {
+                        code: `create variable count to 1
+repeat while count is less than or equal to 3 do
+    display count
+    set count to count plus 1
+end repeat`,
+                        output: '1\\n2\\n3'
+                    }
+                ],
+                parameters: [
+                    { name: 'condition', type: 'boolean', description: 'Loop continues while this is true' }
+                ]
+            },
+            {
+                signature: 'for each <item> in list <listName> do\\n    <statements>\\nend loop',
+                description: 'Iterates over each element in a list.',
+                examples: [
+                    {
+                        code: `create variable colors to create list with "red", "green", "blue" end list
 for each color in list colors do
     display color
-end loop`
+end loop`,
+                        output: 'red\\ngreen\\nblue'
+                    }
+                ],
+                parameters: [
+                    { name: 'item', type: 'identifier', description: 'Variable to hold current element' },
+                    { name: 'listName', type: 'identifier', description: 'The list to iterate over' }
+                ]
+            }
+        ]
+    },
+    lists: {
+        title: 'Lists',
+        icon: FiList,
+        description: 'Store collections of values',
+        syntax: [
+            {
+                signature: 'create list with <items> end list',
+                description: 'Creates a new list with the specified items.',
+                examples: [
+                    { code: 'create list with 1, 2, 3, 4, 5 end list', output: '[1, 2, 3, 4, 5]' },
+                    { code: 'create list with "apple", "banana", "cherry" end list', output: '["apple", "banana", "cherry"]' }
+                ],
+                parameters: [
+                    { name: 'items', type: 'comma-separated values', description: 'The elements to include' }
+                ]
+            },
+            {
+                signature: 'get item <index> from <list> end get',
+                description: 'Retrieves an item at a specific position (0-indexed).',
+                examples: [
+                    {
+                        code: `create variable fruits to create list with "apple", "banana" end list
+display get item 0 from fruits end get`,
+                        output: 'apple'
+                    }
+                ],
+                parameters: [
+                    { name: 'index', type: 'number', description: 'Position (starting from 0)' },
+                    { name: 'list', type: 'list variable', description: 'The list to access' }
+                ]
+            }
+        ]
     },
     functions: {
-        name: 'Functions',
-        code: `define function greet with parameters name
+        title: 'Functions',
+        icon: FiZap,
+        description: 'Reusable blocks of code',
+        syntax: [
+            {
+                signature: 'define function <name> with no parameters\\n    <statements>\\nend function',
+                description: 'Creates a function that takes no arguments.',
+                examples: [
+                    {
+                        code: `define function sayHello with no parameters
+    display "Hello, World!"
+end function
+
+sayHello`,
+                        output: 'Hello, World!'
+                    }
+                ]
+            },
+            {
+                signature: 'define function <name> with parameters <params>\\n    <statements>\\nend function',
+                description: 'Creates a function that accepts parameters.',
+                examples: [
+                    {
+                        code: `define function greet with parameters name
     display "Hello, " plus name plus "!"
 end function
 
-greet "Alice"
-greet "Bob"
-greet "Charlie"`
+greet "Alice"`,
+                        output: 'Hello, Alice!'
+                    },
+                    {
+                        code: `define function add with parameters a, b
+    return a plus b
+end function
+
+display add 5, 3`,
+                        output: '8'
+                    }
+                ],
+                parameters: [
+                    { name: 'name', type: 'identifier', description: 'The function name' },
+                    { name: 'params', type: 'comma-separated identifiers', description: 'Parameter names' }
+                ]
+            },
+            {
+                signature: 'return <value>',
+                description: 'Returns a value from a function.',
+                examples: [
+                    {
+                        code: `define function square with parameters n
+    return n times n
+end function
+
+display square 4`,
+                        output: '16'
+                    }
+                ]
+            }
+        ]
     },
-    countdown: {
-        name: 'Countdown',
-        code: `create variable count to 5
-
-repeat while count is greater than 0 do
-    display count
-    set count to count minus 1
-end repeat
-
-display "Blast off! 🚀"`
+    types: {
+        title: 'Data Types',
+        icon: FiType,
+        description: 'Types of values in the language',
+        syntax: [
+            {
+                signature: 'Strings',
+                description: 'Text values enclosed in double quotes.',
+                examples: [
+                    { code: '"Hello, World!"', output: 'A string value' },
+                    { code: '"Line 1" plus "Line 2"', output: 'String concatenation' }
+                ]
+            },
+            {
+                signature: 'Numbers',
+                description: 'Integer or decimal numeric values.',
+                examples: [
+                    { code: '42', output: 'An integer' },
+                    { code: '3.14159', output: 'A decimal number' }
+                ]
+            },
+            {
+                signature: 'Booleans',
+                description: 'True or false values.',
+                examples: [
+                    { code: 'true value', output: 'Boolean true' },
+                    { code: 'false value', output: 'Boolean false' }
+                ]
+            },
+            {
+                signature: 'Lists',
+                description: 'Ordered collections of values.',
+                examples: [
+                    { code: 'create list with 1, 2, 3 end list', output: 'A list of numbers' }
+                ]
+            }
+        ]
     }
 };
 
-// Syntax reference content
-const SYNTAX_REFERENCE = [
-    {
-        category: 'Output',
-        items: [
-            { syntax: 'display "text"', description: 'Show text on screen' },
-            { syntax: 'display variable', description: 'Show variable value' },
-            { syntax: 'display a plus b', description: 'Show combined values' }
-        ]
-    },
-    {
-        category: 'Variables',
-        items: [
-            { syntax: 'create variable x to 10', description: 'Create a variable' },
-            { syntax: 'set x to 20', description: 'Change a variable' },
-            { syntax: 'create constant PI to 3.14', description: 'Create unchangeable value' }
-        ]
-    },
-    {
-        category: 'Math',
-        items: [
-            { syntax: 'a plus b', description: 'Addition' },
-            { syntax: 'a minus b', description: 'Subtraction' },
-            { syntax: 'a times b', description: 'Multiplication' },
-            { syntax: 'a divided by b', description: 'Division' },
-            { syntax: 'a modulo b', description: 'Remainder' }
-        ]
-    },
-    {
-        category: 'Comparisons',
-        items: [
-            { syntax: 'a is equal to b', description: 'Equals (==)' },
-            { syntax: 'a is not equal to b', description: 'Not equals (!=)' },
-            { syntax: 'a is greater than b', description: 'Greater than (>)' },
-            { syntax: 'a is less than b', description: 'Less than (<)' },
-            { syntax: 'a is greater than or equal to b', description: 'Greater/equal (>=)' },
-            { syntax: 'a is less than or equal to b', description: 'Less/equal (<=)' }
-        ]
-    },
-    {
-        category: 'Conditions',
-        items: [
-            { syntax: 'if condition then\\n    ...\\nend if', description: 'Basic if' },
-            { syntax: 'if condition then\\n    ...\\notherwise\\n    ...\\nend if', description: 'If/else' },
-            { syntax: 'condition and condition', description: 'Both must be true' },
-            { syntax: 'condition or condition', description: 'At least one true' }
-        ]
-    },
-    {
-        category: 'Loops',
-        items: [
-            { syntax: 'repeat N times\\n    ...\\nend loop', description: 'Repeat N times' },
-            { syntax: 'repeat while condition do\\n    ...\\nend repeat', description: 'While loop' },
-            { syntax: 'for each item in list items do\\n    ...\\nend loop', description: 'For each loop' }
-        ]
-    },
-    {
-        category: 'Lists',
-        items: [
-            { syntax: 'create list with "a", "b", "c" end list', description: 'Create a list' },
-            { syntax: 'get item 0 from list end get', description: 'Get item by index' }
-        ]
-    },
-    {
-        category: 'Functions',
-        items: [
-            { syntax: 'define function name with no parameters\\n    ...\\nend function', description: 'Simple function' },
-            { syntax: 'define function name with parameters a, b\\n    ...\\nend function', description: 'Function with params' },
-            { syntax: 'return value', description: 'Return a value' }
-        ]
-    },
-    {
-        category: 'Boolean Values',
-        items: [
-            { syntax: 'true value', description: 'True' },
-            { syntax: 'false value', description: 'False' }
-        ]
-    }
-];
+const DOC_ORDER = ['overview', 'output', 'variables', 'types', 'operators', 'comparisons', 'conditionals', 'loops', 'lists', 'functions'];
 
 const CanvasPage = () => {
-    const [code, setCode] = useState(EXAMPLES.hello.code);
+    const [code, setCode] = useState('display "Hello, World!"');
     const [output, setOutput] = useState('');
     const [isRunning, setIsRunning] = useState(false);
-    const [showReference, setShowReference] = useState(false);
+    const [activeDoc, setActiveDoc] = useState('overview');
+    const [searchQuery, setSearchQuery] = useState('');
     const [showTranspiled, setShowTranspiled] = useState(false);
     const [transpiledCode, setTranspiledCode] = useState('');
     const [selectedLanguage, setSelectedLanguage] = useState('javascript');
 
-    // Create transpiler for showing real code
     const transpiler = createTranspiler(selectedLanguage, STAGES.NATURAL);
 
-    // Run the natural language code
+    // Filter documentation based on search
+    const filteredDocs = useMemo(() => {
+        if (!searchQuery.trim()) return DOC_ORDER;
+        const query = searchQuery.toLowerCase();
+        return DOC_ORDER.filter(key => {
+            const doc = DOCUMENTATION[key];
+            if (doc.title.toLowerCase().includes(query)) return true;
+            if (doc.description?.toLowerCase().includes(query)) return true;
+            if (doc.syntax) {
+                return doc.syntax.some(s => 
+                    s.signature.toLowerCase().includes(query) ||
+                    s.description.toLowerCase().includes(query)
+                );
+            }
+            return false;
+        });
+    }, [searchQuery]);
+
+    // Run code
     const handleRun = useCallback(async () => {
         if (!code.trim()) {
             toast.error('Write some code first!');
@@ -204,13 +500,10 @@ const CanvasPage = () => {
         setOutput('');
 
         try {
-            // Execute directly as natural language
             const result = await executeCode(code, null);
 
             if (result.success) {
-                setOutput(result.output || '(No output - try using display)');
-
-                // Also update transpiled code
+                setOutput(result.output || '(No output - use display to show values)');
                 if (transpiler) {
                     setTranspiledCode(transpiler.toCode(code));
                 }
@@ -224,11 +517,10 @@ const CanvasPage = () => {
         setIsRunning(false);
     }, [code, transpiler]);
 
-    // Clear code
-    const handleClear = () => {
-        setCode('');
-        setOutput('');
-        setTranspiledCode('');
+    // Insert code example into editor
+    const insertExample = (exampleCode) => {
+        setCode(exampleCode);
+        toast.success('Example loaded!');
     };
 
     // Copy code
@@ -237,90 +529,175 @@ const CanvasPage = () => {
         toast.success('Code copied!');
     };
 
-    // Load example
-    const loadExample = (key) => {
-        setCode(EXAMPLES[key].code);
-        setOutput('');
-        setTranspiledCode('');
-        toast.success(`Loaded: ${EXAMPLES[key].name}`);
-    };
+    // Render documentation section
+    const renderDocSection = () => {
+        const doc = DOCUMENTATION[activeDoc];
+        if (!doc) return null;
 
-    // Update transpiled view when code or language changes
-    const handleShowTranspiled = () => {
-        if (!showTranspiled && transpiler) {
-            setTranspiledCode(transpiler.toCode(code));
-        }
-        setShowTranspiled(!showTranspiled);
+        const Icon = doc.icon || FiBook;
+
+        return (
+            <div className={styles.docContent}>
+                <div className={styles.docHeader}>
+                    <Icon className={styles.docIcon} />
+                    <h2>{doc.title}</h2>
+                </div>
+
+                {doc.content && (
+                    <div className={styles.docOverview}>
+                        {doc.content.split('\n').map((line, i) => (
+                            <p key={i}>{line}</p>
+                        ))}
+                    </div>
+                )}
+
+                {doc.description && (
+                    <p className={styles.docDescription}>{doc.description}</p>
+                )}
+
+                {doc.syntax && (
+                    <div className={styles.syntaxList}>
+                        {doc.syntax.map((item, idx) => (
+                            <div key={idx} className={styles.syntaxItem}>
+                                <div className={styles.signature}>
+                                    <code>{item.signature.replace(/\\n/g, '\n')}</code>
+                                </div>
+                                
+                                <p className={styles.syntaxDescription}>{item.description}</p>
+
+                                {item.parameters && item.parameters.length > 0 && (
+                                    <div className={styles.parameters}>
+                                        <h4>Parameters</h4>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Type</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {item.parameters.map((param, pIdx) => (
+                                                    <tr key={pIdx}>
+                                                        <td><code>{param.name}</code></td>
+                                                        <td><span className={styles.typeTag}>{param.type}</span></td>
+                                                        <td>{param.description}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                )}
+
+                                {item.examples && item.examples.length > 0 && (
+                                    <div className={styles.examples}>
+                                        <h4>Examples</h4>
+                                        {item.examples.map((ex, eIdx) => (
+                                            <div key={eIdx} className={styles.exampleBlock}>
+                                                <div className={styles.exampleCode}>
+                                                    <pre>{ex.code}</pre>
+                                                    <button
+                                                        className={styles.tryButton}
+                                                        onClick={() => insertExample(ex.code)}
+                                                        title="Try this example"
+                                                    >
+                                                        <FiPlay /> Try
+                                                    </button>
+                                                </div>
+                                                {ex.output && (
+                                                    <div className={styles.exampleOutput}>
+                                                        <span>Output:</span>
+                                                        <code>{ex.output}</code>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        );
     };
 
     return (
-        <div className={styles.container}>
-            {/* Header */}
-            <div className={styles.header}>
-                <div className={styles.title}>
-                    <FiCode className={styles.titleIcon} />
-                    <h1>Natural Language Canvas</h1>
+        <div className={styles.canvas}>
+            {/* Left Panel - Documentation */}
+            <div className={styles.docPanel}>
+                <div className={styles.docSearch}>
+                    <FiSearch />
+                    <input
+                        type="text"
+                        placeholder="Search documentation..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    {searchQuery && (
+                        <button onClick={() => setSearchQuery('')}>
+                            <FiX />
+                        </button>
+                    )}
                 </div>
-                <p className={styles.subtitle}>
-                    Write and run code in natural language - no syntax to memorize!
-                </p>
+
+                <nav className={styles.docNav}>
+                    <div className={styles.navHeader}>Documentation</div>
+                    {filteredDocs.map(key => {
+                        const doc = DOCUMENTATION[key];
+                        const Icon = doc.icon || FiBook;
+                        return (
+                            <button
+                                key={key}
+                                className={`${styles.navItem} ${activeDoc === key ? styles.active : ''}`}
+                                onClick={() => setActiveDoc(key)}
+                            >
+                                <Icon />
+                                <span>{doc.title}</span>
+                                <FiChevronRight className={styles.navArrow} />
+                            </button>
+                        );
+                    })}
+                </nav>
+
+                <div className={styles.docBody}>
+                    {renderDocSection()}
+                </div>
             </div>
 
-            <div className={styles.mainContent}>
-                {/* Left Panel - Editor */}
-                <div className={styles.editorPanel}>
-                    {/* Examples Bar */}
-                    <div className={styles.examplesBar}>
-                        <span className={styles.examplesLabel}>Examples:</span>
-                        <div className={styles.examplesButtons}>
-                            {Object.entries(EXAMPLES).map(([key, example]) => (
-                                <button
-                                    key={key}
-                                    className={styles.exampleButton}
-                                    onClick={() => loadExample(key)}
-                                >
-                                    {example.name}
-                                </button>
-                            ))}
-                        </div>
+            {/* Right Panel - Editor */}
+            <div className={styles.editorPanel}>
+                <div className={styles.editorHeader}>
+                    <div className={styles.editorTitle}>
+                        <FiCpu />
+                        <span>Playground</span>
                     </div>
-
-                    {/* Code Editor */}
-                    <div className={styles.editorWrapper}>
-                        <div className={styles.editorHeader}>
-                            <span>Natural Language Code</span>
-                            <div className={styles.editorActions}>
-                                <button
-                                    className={styles.iconButton}
-                                    onClick={handleCopy}
-                                    title="Copy code"
-                                >
-                                    <FiCopy />
-                                </button>
-                                <button
-                                    className={styles.iconButton}
-                                    onClick={handleClear}
-                                    title="Clear code"
-                                >
-                                    <FiTrash2 />
-                                </button>
-                            </div>
-                        </div>
-                        <CodeMirror
-                            value={code}
-                            onChange={setCode}
-                            height="300px"
-                            className={styles.editor}
-                            placeholder="Write your natural language code here..."
-                            basicSetup={{
-                                lineNumbers: true,
-                                highlightActiveLineGutter: true,
-                                highlightActiveLine: true,
-                            }}
-                        />
+                    <div className={styles.editorActions}>
+                        <button onClick={handleCopy} title="Copy code">
+                            <FiCopy />
+                        </button>
+                        <button onClick={() => { setCode(''); setOutput(''); }} title="Clear">
+                            <FiTrash2 />
+                        </button>
                     </div>
+                </div>
 
-                    {/* Run Button */}
+                <div className={styles.editorWrapper}>
+                    <CodeMirror
+                        value={code}
+                        onChange={setCode}
+                        height="250px"
+                        className={styles.editor}
+                        placeholder="Write your natural language code here..."
+                        basicSetup={{
+                            lineNumbers: true,
+                            highlightActiveLineGutter: true,
+                            highlightActiveLine: true,
+                        }}
+                    />
+                </div>
+
+                <div className={styles.runBar}>
                     <motion.button
                         className={styles.runButton}
                         onClick={handleRun}
@@ -328,107 +705,77 @@ const CanvasPage = () => {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                     >
-                        <FiPlay />
-                        {isRunning ? 'Running...' : 'Run Code'}
+                        {isRunning ? (
+                            <>Running...</>
+                        ) : (
+                            <><FiPlay /> Run Code</>
+                        )}
                     </motion.button>
 
-                    {/* Output */}
-                    <div className={styles.outputWrapper}>
-                        <div className={styles.outputHeader}>
-                            <span>Output</span>
-                        </div>
-                        <pre className={styles.output}>
-                            {output || 'Output will appear here...'}
-                        </pre>
-                    </div>
-
-                    {/* Transpiled Code Toggle */}
-                    <div className={styles.transpiledSection}>
-                        <button
-                            className={styles.transpiledToggle}
-                            onClick={handleShowTranspiled}
-                        >
-                            <FiCode />
-                            See as {selectedLanguage.charAt(0).toUpperCase() + selectedLanguage.slice(1)} Code
-                            {showTranspiled ? <FiChevronUp /> : <FiChevronDown />}
-                        </button>
-
-                        {showTranspiled && (
-                            <motion.div
-                                className={styles.transpiledWrapper}
-                                initial={{ opacity: 0, height: 0 }}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: 0 }}
-                            >
-                                <div className={styles.languageSelector}>
-                                    <label>Language:</label>
-                                    <select
-                                        value={selectedLanguage}
-                                        onChange={(e) => {
-                                            setSelectedLanguage(e.target.value);
-                                            const newTranspiler = createTranspiler(e.target.value, STAGES.NATURAL);
-                                            if (newTranspiler) {
-                                                setTranspiledCode(newTranspiler.toCode(code));
-                                            }
-                                        }}
-                                    >
-                                        <option value="javascript">JavaScript</option>
-                                        <option value="python">Python</option>
-                                    </select>
-                                </div>
-                                <pre className={styles.transpiledCode}>
-                                    {transpiledCode || 'Transpiled code will appear here...'}
-                                </pre>
-                            </motion.div>
-                        )}
-                    </div>
-                </div>
-
-                {/* Right Panel - Reference */}
-                <div className={styles.referencePanel}>
                     <button
-                        className={styles.referenceToggle}
-                        onClick={() => setShowReference(!showReference)}
+                        className={`${styles.transpileToggle} ${showTranspiled ? styles.active : ''}`}
+                        onClick={() => {
+                            if (!showTranspiled && transpiler) {
+                                setTranspiledCode(transpiler.toCode(code));
+                            }
+                            setShowTranspiled(!showTranspiled);
+                        }}
                     >
-                        <FiBook />
-                        Syntax Reference
-                        {showReference ? <FiChevronUp /> : <FiChevronDown />}
+                        <FiCode />
+                        See as {selectedLanguage === 'javascript' ? 'JS' : 'Python'}
                     </button>
 
-                    {showReference && (
-                        <motion.div
-                            className={styles.referenceContent}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
+                    {showTranspiled && (
+                        <select
+                            value={selectedLanguage}
+                            onChange={(e) => {
+                                setSelectedLanguage(e.target.value);
+                                const newTranspiler = createTranspiler(e.target.value, STAGES.NATURAL);
+                                if (newTranspiler) {
+                                    setTranspiledCode(newTranspiler.toCode(code));
+                                }
+                            }}
+                            className={styles.langSelect}
                         >
-                            {SYNTAX_REFERENCE.map((section) => (
-                                <div key={section.category} className={styles.referenceSection}>
-                                    <h3>{section.category}</h3>
-                                    <div className={styles.referenceItems}>
-                                        {section.items.map((item, idx) => (
-                                            <div key={idx} className={styles.referenceItem}>
-                                                <code>{item.syntax}</code>
-                                                <span>{item.description}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            ))}
+                            <option value="javascript">JavaScript</option>
+                            <option value="python">Python</option>
+                        </select>
+                    )}
+                </div>
+
+                <div className={styles.outputSection}>
+                    <div className={styles.outputHeader}>
+                        <FiTerminal />
+                        <span>Output</span>
+                        {output && (
+                            <span className={`${styles.outputStatus} ${output.startsWith('Error') ? styles.error : styles.success}`}>
+                                {output.startsWith('Error') ? <FiX /> : <FiCheck />}
+                            </span>
+                        )}
+                    </div>
+                    <pre className={styles.outputContent}>
+                        {output || 'Run your code to see output...'}
+                    </pre>
+                </div>
+
+                <AnimatePresence>
+                    {showTranspiled && (
+                        <motion.div
+                            className={styles.transpiledSection}
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                        >
+                            <div className={styles.transpiledHeader}>
+                                <FiCode />
+                                <span>Transpiled {selectedLanguage === 'javascript' ? 'JavaScript' : 'Python'}</span>
+                            </div>
+                            <pre className={styles.transpiledCode}>
+                                {transpiledCode || '// Transpiled code will appear here'}
+                            </pre>
                         </motion.div>
                     )}
-
-                    {/* Quick Tips */}
-                    <div className={styles.tips}>
-                        <h3><FiInfo /> Quick Tips</h3>
-                        <ul>
-                            <li>Use <code>display</code> to show output</li>
-                            <li>Variables are created with <code>create variable</code></li>
-                            <li>Use words like <code>plus</code>, <code>times</code> for math</li>
-                            <li>End blocks with <code>end if</code>, <code>end loop</code>, etc.</li>
-                            <li>Strings need quotes: <code>"text"</code></li>
-                        </ul>
-                    </div>
-                </div>
+                </AnimatePresence>
             </div>
         </div>
     );

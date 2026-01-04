@@ -116,7 +116,7 @@ const DownloadPage = () => {
             name: 'Linux',
             icon: FaLinux,
             version: 'Ubuntu, Fedora, etc.',
-            color: '#FCC624'
+            color: '#333333'
         }
     ];
 

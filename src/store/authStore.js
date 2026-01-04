@@ -532,6 +532,101 @@ export const useAuthStore = create(
                     console.error('Failed to update profile picture:', error);
                     throw error;
                 }
+            },
+
+            // Merge an existing account (sign into it, get data, merge with current, delete old)
+            mergeExistingAccount: async (providerName) => {
+                const { user: currentUser, userProfile: currentProfile } = get();
+                if (!currentUser) throw new Error('Not logged in');
+
+                let provider;
+                switch (providerName) {
+                    case 'google':
+                        provider = new GoogleAuthProvider();
+                        break;
+                    case 'github':
+                        provider = new GithubAuthProvider();
+                        break;
+                    default:
+                        throw new Error('Invalid provider');
+                }
+
+                try {
+                    // Step 1: Open popup to sign into the other account
+                    const otherResult = await signInWithPopup(auth, provider);
+                    const otherUser = otherResult.user;
+                    const otherUserId = otherUser.uid;
+
+                    // Check if it's the same account
+                    if (otherUserId === currentUser.uid) {
+                        throw new Error('Cannot merge an account with itself');
+                    }
+
+                    // Step 2: Get the other account's data
+                    let otherData = null;
+                    try {
+                        const otherRef = doc(db, 'users', otherUserId);
+                        const otherSnap = await getDoc(otherRef);
+                        if (otherSnap.exists()) {
+                            otherData = otherSnap.data();
+                        }
+                    } catch (e) {
+                        console.warn('Could not fetch other account data:', e);
+                    }
+
+                    // Step 3: Sign out from the other account
+                    await firebaseSignOut(auth);
+
+                    // Step 4: Sign back into the current/original account
+                    // We need the user to sign in again to their original account
+                    // For now, return the data and let the UI handle re-authentication
+                    
+                    return {
+                        success: true,
+                        otherAccountData: otherData,
+                        otherAccountId: otherUserId,
+                        message: `Found account data from ${providerName}. Please sign back into your main account to complete the merge.`,
+                        requiresReauth: true
+                    };
+                } catch (error) {
+                    if (error.code === 'auth/popup-closed-by-user') {
+                        throw new Error('Sign-in cancelled');
+                    }
+                    throw error;
+                }
+            },
+
+            // Complete the merge after user re-authenticates
+            completeMerge: async (otherAccountData, otherAccountId) => {
+                const { user } = get();
+                if (!user) throw new Error('Not logged in');
+
+                try {
+                    // Merge the progress data
+                    const result = await get().mergeProgressData(otherAccountData, user.uid);
+
+                    // Optionally delete the other account's Firestore data
+                    try {
+                        const otherRef = doc(db, 'users', otherAccountId);
+                        await deleteDoc(otherRef);
+                    } catch (e) {
+                        console.warn('Could not delete other account data:', e);
+                    }
+
+                    // Refresh current user profile
+                    const updatedProfile = await getUserProfileSafe(user);
+                    set({ userProfile: updatedProfile });
+
+                    return {
+                        success: true,
+                        lessonsAdded: result?.lessonsAdded || 0,
+                        certsAdded: result?.certsAdded || 0,
+                        message: 'Accounts merged successfully!'
+                    };
+                } catch (error) {
+                    console.error('Failed to complete merge:', error);
+                    throw error;
+                }
             }
         }),
         {

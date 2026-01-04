@@ -23,6 +23,7 @@ import { useProgressStore } from '../store/progressStore';
 import { getCourse, getLesson, getNextLesson, getLessons } from '../data/courses';
 import { createTranspiler, STAGES } from '../engine/transpiler';
 import { executeCode } from '../engine/executor';
+import Discussion from '../components/Discussion';
 import styles from './LessonPage.module.css';
 
 const LessonPage = () => {
@@ -899,6 +900,9 @@ const LessonPage = () => {
                             </motion.div>
                         )}
                     </AnimatePresence>
+
+                    {/* Discussion Forum */}
+                    <Discussion lessonId={lessonId} courseId={courseId} />
 
                     {/* Navigation */}
                     <div className={styles.navigation}>

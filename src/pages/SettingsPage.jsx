@@ -49,7 +49,7 @@ const AVATAR_PRESETS = [
 ];
 
 const SettingsPage = () => {
-    const { user, userProfile, logout, updateProfile, updateProfilePicture, linkProvider, getLinkedProviders, canMergeAccounts } = useAuthStore();
+    const { user, userProfile, logout, updateProfile, updateProfilePicture, linkProvider, getLinkedProviders, canMergeAccounts, mergeExistingAccount, completeMerge } = useAuthStore();
     const { currentTheme, setTheme } = useThemeStore();
     const { expertMode, toggleExpertMode } = useProgressStore();
     const { isTeacherMode, toggleTeacherMode } = useTeacherStore();
@@ -67,6 +67,7 @@ const SettingsPage = () => {
     const [saving, setSaving] = useState(false);
     const [linking, setLinking] = useState(false);
     const [showMergeConfirm, setShowMergeConfirm] = useState(null);
+    const [pendingMerge, setPendingMerge] = useState(null);
 
     // Get currently linked providers
     const linkedProviders = getLinkedProviders ? getLinkedProviders() : [];
@@ -131,11 +132,6 @@ const SettingsPage = () => {
 
     // Handle merging/linking accounts
     const handleMergeAccount = async (providerName) => {
-        if (!linkProvider) {
-            toast.error('Account linking not available');
-            return;
-        }
-
         // Check if already linked
         const providerIds = {
             google: 'google.com',
@@ -150,11 +146,53 @@ const SettingsPage = () => {
 
         setLinking(true);
         try {
-            const result = await linkProvider(providerName);
-            toast.success(result.message || `${providerName} account linked successfully!`);
-            setShowMergeConfirm(null);
+            // First try the standard link (for fresh provider connections)
+            if (linkProvider) {
+                const result = await linkProvider(providerName);
+                toast.success(result.message || `${providerName} account linked successfully!`);
+                setShowMergeConfirm(null);
+            }
         } catch (error) {
-            toast.error(error.message || `Failed to link ${providerName} account`);
+            // If the account already exists, try the merge flow
+            if (error.message.includes('already exists') || error.code === 'auth/credential-already-in-use') {
+                try {
+                    if (mergeExistingAccount) {
+                        const result = await mergeExistingAccount(providerName);
+                        if (result.requiresReauth) {
+                            // Store the merge data and prompt re-authentication
+                            setPendingMerge({
+                                data: result.otherAccountData,
+                                accountId: result.otherAccountId,
+                                provider: providerName
+                            });
+                            toast.success('Account found! Please sign back in to complete the merge.');
+                        } else {
+                            toast.success(result.message);
+                        }
+                    }
+                } catch (mergeError) {
+                    toast.error(mergeError.message || `Failed to merge ${providerName} account`);
+                }
+            } else {
+                toast.error(error.message || `Failed to link ${providerName} account`);
+            }
+        } finally {
+            setLinking(false);
+            setShowMergeConfirm(null);
+        }
+    };
+
+    // Complete pending merge after re-authentication
+    const handleCompleteMerge = async () => {
+        if (!pendingMerge || !completeMerge) return;
+
+        setLinking(true);
+        try {
+            const result = await completeMerge(pendingMerge.data, pendingMerge.accountId);
+            toast.success(`Merge complete! Added ${result.lessonsAdded} lessons and ${result.certsAdded} certificates.`);
+            setPendingMerge(null);
+        } catch (error) {
+            toast.error(error.message || 'Failed to complete merge');
         } finally {
             setLinking(false);
         }
@@ -420,6 +458,31 @@ const SettingsPage = () => {
                         <FiAlertTriangle />
                         <span>Merging accounts is a permanent action. All linked accounts will share progress and data.</span>
                     </div>
+
+                    {pendingMerge && (
+                        <div className={styles.pendingMerge}>
+                            <h4>Complete Account Merge</h4>
+                            <p>
+                                Found progress data from your {pendingMerge.provider} account. 
+                                Click below to merge this progress with your current account.
+                            </p>
+                            <div className={styles.pendingMergeActions}>
+                                <button
+                                    className="btn btn-primary"
+                                    onClick={handleCompleteMerge}
+                                    disabled={linking}
+                                >
+                                    {linking ? 'Merging...' : 'Complete Merge'}
+                                </button>
+                                <button
+                                    className="btn btn-secondary"
+                                    onClick={() => setPendingMerge(null)}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    )}
 
                     <div className={styles.linkedAccounts}>
                         {[
