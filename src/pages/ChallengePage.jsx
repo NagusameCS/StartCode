@@ -94,8 +94,8 @@ const ChallengePage = () => {
     }, [isUserChallenge, userChallengeId, getUserChallenge, recordPlay]);
 
     // Get challenge from data or user challenge
-    const challenge = isUserChallenge 
-        ? userChallenge 
+    const challenge = isUserChallenge
+        ? userChallenge
         : (getChallenge(challengeId) || getChallenge('hello-world'));
 
     const isCompleted = challenge ? isChallengeCompleted(challenge.id) : false;
@@ -117,12 +117,12 @@ const ChallengePage = () => {
     // Initialize code with starter code
     useEffect(() => {
         if (!challenge) return;
-        
+
         // For user challenges, starterCode is a string; for built-in, it's an object
-        const starter = isUserChallenge 
-            ? (challenge.starterCode || '') 
+        const starter = isUserChallenge
+            ? (challenge.starterCode || '')
             : (challenge.starterCode?.[language] || '');
-        
+
         const commentChar = language === 'python' ? '#' : '//';
         const header = `${commentChar} Challenge: ${challenge.title}\n${commentChar} ${challenge.description}\n\n`;
         setCode(header + starter);
@@ -154,16 +154,16 @@ const ChallengePage = () => {
     // Check constraints
     const checkConstraints = useCallback((codeToCheck) => {
         if (!challenge?.constraints) return [];
-        
+
         const violations = [];
         const constraints = challenge.constraints;
-        
+
         // Strip comments for analysis
         const codeWithoutComments = codeToCheck
             .replace(/\/\/.*$/gm, '')
             .replace(/\/\*[\s\S]*?\*\//g, '')
             .replace(/#.*$/gm, '');
-        
+
         // Max line count
         if (constraints.maxLineCount) {
             const lines = codeWithoutComments.split('\n').filter(l => l.trim()).length;
@@ -171,7 +171,7 @@ const ChallengePage = () => {
                 violations.push(`Line count: ${lines}/${constraints.maxLineCount} (exceeded)`);
             }
         }
-        
+
         // Max char count
         if (constraints.maxCharCount) {
             const chars = codeWithoutComments.replace(/\s/g, '').length;
@@ -179,14 +179,14 @@ const ChallengePage = () => {
                 violations.push(`Character count: ${chars}/${constraints.maxCharCount} (exceeded)`);
             }
         }
-        
+
         // No loops
         if (constraints.noLoops) {
             if (/\b(for|while|do)\s*\(/.test(codeWithoutComments)) {
                 violations.push('No loops allowed (for, while, do-while detected)');
             }
         }
-        
+
         // No recursion (basic check - function calls itself)
         if (constraints.noRecursion) {
             const fnMatch = codeWithoutComments.match(/function\s+(\w+)/);
@@ -198,7 +198,7 @@ const ChallengePage = () => {
                 }
             }
         }
-        
+
         // Must use recursion
         if (constraints.mustUseRecursion) {
             const fnMatch = codeWithoutComments.match(/function\s+(\w+)/);
@@ -210,7 +210,7 @@ const ChallengePage = () => {
                 }
             }
         }
-        
+
         // No built-ins
         if (constraints.noBuiltIns) {
             const builtIns = ['map', 'filter', 'reduce', 'sort', 'reverse', 'find', 'findIndex', 'some', 'every', 'includes', 'indexOf', 'join', 'split', 'slice', 'splice'];
@@ -221,7 +221,7 @@ const ChallengePage = () => {
                 }
             }
         }
-        
+
         // Single expression
         if (constraints.singleExpression) {
             const fnBody = codeWithoutComments.match(/function[^{]*\{([\s\S]*)\}/);
@@ -233,21 +233,21 @@ const ChallengePage = () => {
                 }
             }
         }
-        
+
         // No extra variables
         if (constraints.noVariables) {
             if (/\b(const|let|var)\s+/.test(codeWithoutComments)) {
                 violations.push('No variable declarations allowed (const, let, var detected)');
             }
         }
-        
+
         return violations;
     }, [challenge?.constraints]);
 
     // Run tests
     const runTests = useCallback(async () => {
         if (!challenge) return;
-        
+
         if (language !== 'javascript') {
             toast.error(`${LANGUAGES[language].name} execution requires a server. Try JavaScript for now.`);
             return;
@@ -255,11 +255,11 @@ const ChallengePage = () => {
 
         setIsRunning(true);
         setOutput('Running tests...');
-        
+
         // Check constraints first
         const violations = checkConstraints(code);
         setConstraintViolations(violations);
-        
+
         if (violations.length > 0) {
             setOutput(`Constraint violations:\n${violations.join('\n')}`);
             setIsRunning(false);
@@ -268,10 +268,10 @@ const ChallengePage = () => {
         }
 
         // Get tests - user challenges have a flat array, built-in have visible/hidden
-        const allTests = isUserChallenge 
+        const allTests = isUserChallenge
             ? (challenge.tests || [])
             : [...(challenge.tests?.visible || []), ...(challenge.tests?.hidden || [])];
-        
+
         const results = { visible: [], hidden: [], passed: 0, total: allTests.length };
 
         for (let i = 0; i < allTests.length; i++) {
@@ -285,7 +285,7 @@ const ChallengePage = () => {
                 }
 
                 const langConfig = LANGUAGES[language];
-                
+
                 // For user challenges, parse input string
                 let testInput;
                 if (isUserChallenge && typeof test.input === 'string') {
@@ -297,7 +297,7 @@ const ChallengePage = () => {
                 } else {
                     testInput = test.input || [];
                 }
-                
+
                 // Parse expected for user challenges
                 let expectedValue;
                 if (isUserChallenge && typeof test.expected === 'string') {
@@ -309,7 +309,7 @@ const ChallengePage = () => {
                 } else {
                     expectedValue = test.expected;
                 }
-                
+
                 const { result, error } = langConfig.runner(code, fnName, testInput);
 
                 if (error) {
@@ -340,12 +340,12 @@ const ChallengePage = () => {
 
         if (results.passed === results.total && results.total > 0) {
             setTimerActive(false);
-            
+
             // Record completion for user challenges
             if (isUserChallenge) {
                 await recordCompletion(userChallengeId);
             }
-            
+
             const isNewCompletion = await completeChallenge(challenge.id, challenge.category, challenge.difficulty, timer);
             const points = DIFFICULTIES[challenge.difficulty]?.points || challenge.points || 10;
 
@@ -382,9 +382,9 @@ const ChallengePage = () => {
     // Reset code
     const resetCode = useCallback(() => {
         if (!challenge) return;
-        
-        const starter = isUserChallenge 
-            ? (challenge.starterCode || '') 
+
+        const starter = isUserChallenge
+            ? (challenge.starterCode || '')
             : (challenge.starterCode?.[language] || '');
         const commentChar = language === 'python' ? '#' : '//';
         const header = `${commentChar} Challenge: ${challenge.title}\n${commentChar} ${challenge.description}\n\n`;

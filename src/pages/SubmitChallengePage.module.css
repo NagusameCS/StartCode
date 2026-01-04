@@ -438,11 +438,11 @@
     border-radius: 50%;
 }
 
-.toggle input:checked + .toggleSlider {
+.toggle input:checked+.toggleSlider {
     background: var(--color-primary);
 }
 
-.toggle input:checked + .toggleSlider:before {
+.toggle input:checked+.toggleSlider:before {
     transform: translateX(22px);
 }
 

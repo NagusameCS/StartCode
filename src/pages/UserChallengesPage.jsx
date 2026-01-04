@@ -14,11 +14,15 @@ import {
     FiStar,
     FiUsers,
     FiAward,
-    FiZap
+    FiZap,
+    FiDownload
 } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useChallengeStore, CHALLENGE_CONSTRAINTS } from '../store/challengeStore';
+import { useTeacherStore } from '../store/teacherStore';
 import { CATEGORIES, DIFFICULTIES } from '../data/challenges';
+import { importChallengesFromRepo } from '../data/import404Challenges';
+import toast from 'react-hot-toast';
 import styles from './UserChallengesPage.module.css';
 
 const SORT_OPTIONS = {
@@ -31,6 +35,7 @@ const SORT_OPTIONS = {
 const UserChallengesPage = () => {
     const { user } = useAuthStore();
     const { userChallenges, loading, fetchUserChallenges, toggleLike } = useChallengeStore();
+    const { isTeacherMode } = useTeacherStore();
 
     // Filters
     const [searchQuery, setSearchQuery] = useState('');
@@ -38,6 +43,7 @@ const UserChallengesPage = () => {
     const [selectedDifficulty, setSelectedDifficulty] = useState('all');
     const [sortBy, setSortBy] = useState('newest');
     const [showFilters, setShowFilters] = useState(false);
+    const [importing, setImporting] = useState(false);
 
     // Load challenges on mount
     useEffect(() => {
@@ -104,6 +110,31 @@ const UserChallengesPage = () => {
         }
     };
 
+    // Handle importing challenges from 404 repo (teacher only)
+    const handleImportChallenges = async () => {
+        if (!isTeacherMode) return;
+        
+        setImporting(true);
+        try {
+            const results = await importChallengesFromRepo();
+            if (results.success.length > 0) {
+                toast.success(`Imported ${results.success.length} challenges!`);
+            }
+            if (results.skipped.length > 0) {
+                toast(`Skipped ${results.skipped.length} (already exist)`, { icon: 'ℹ️' });
+            }
+            if (results.errors.length > 0) {
+                toast.error(`Failed to import ${results.errors.length} challenges`);
+            }
+            // Refresh the list
+            await fetchUserChallenges();
+        } catch (error) {
+            console.error('Import error:', error);
+            toast.error('Failed to import challenges');
+        }
+        setImporting(false);
+    };
+
     // Format date
     const formatDate = (date) => {
         const d = new Date(date);
@@ -126,9 +157,20 @@ const UserChallengesPage = () => {
                     <h1><FiUsers /> Community Challenges</h1>
                     <p>Challenges created by the StartCode community</p>
                 </div>
-                <Link to="/challenges/submit" className={styles.createBtn}>
-                    <FiPlus /> Create Challenge
-                </Link>
+                <div className={styles.headerActions}>
+                    {isTeacherMode && (
+                        <button 
+                            className={styles.importBtn}
+                            onClick={handleImportChallenges}
+                            disabled={importing}
+                        >
+                            <FiDownload /> {importing ? 'Importing...' : 'Import 404 Repo'}
+                        </button>
+                    )}
+                    <Link to="/challenges/submit" className={styles.createBtn}>
+                        <FiPlus /> Create Challenge
+                    </Link>
+                </div>
             </header>
 
             {/* Stats */}
