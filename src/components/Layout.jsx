@@ -18,6 +18,7 @@ import {
 } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useTeacherStore } from '../store/teacherStore';
+import { useProgressStore } from '../store/progressStore';
 import Logo from './Logo';
 import WaveBackground from './WaveBackground';
 import styles from './Layout.module.css';
@@ -25,6 +26,7 @@ import styles from './Layout.module.css';
 const Layout = () => {
     const { user, userProfile, signOut } = useAuthStore();
     const { isTeacherMode } = useTeacherStore();
+    const { experiments } = useProgressStore();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
     const navigate = useNavigate();
@@ -37,7 +39,7 @@ const Layout = () => {
     const navItems = [
         { to: '/dashboard', icon: FiHome, label: 'Dashboard' },
         { to: '/courses', icon: FiBook, label: 'Courses' },
-        { to: '/canvas', icon: FiCode, label: 'Canvas' },
+        ...(experiments?.canvas ? [{ to: '/canvas', icon: FiCode, label: 'Canvas' }] : []),
         { to: '/users', icon: FiUsers, label: 'Users' },
         ...(isTeacherMode ? [{ to: '/teacher', icon: FiAward, label: 'Classes' }] : []),
         { to: '/download', icon: FiDownload, label: 'Download' },

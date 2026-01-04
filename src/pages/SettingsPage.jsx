@@ -51,7 +51,7 @@ const AVATAR_PRESETS = [
 const SettingsPage = () => {
     const { user, userProfile, logout, updateProfile, updateProfilePicture, linkProvider, getLinkedProviders, canMergeAccounts, mergeExistingAccount, completeMerge } = useAuthStore();
     const { currentTheme, setTheme } = useThemeStore();
-    const { expertMode, toggleExpertMode } = useProgressStore();
+    const { expertMode, toggleExpertMode, experiments, toggleExperiment } = useProgressStore();
     const { isTeacherMode, toggleTeacherMode } = useTeacherStore();
 
     const [username, setUsername] = useState(userProfile?.username || '');
@@ -575,6 +575,47 @@ const SettingsPage = () => {
                         <option value="zh" disabled>Mandarin (coming soon)</option>
                         <option value="hi" disabled>Hindi (coming soon)</option>
                     </select>
+                </motion.section>
+
+                {/* Experiments Section */}
+                <motion.section
+                    className={styles.section}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.45 }}
+                >
+                    <h2>
+                        <FiZap /> Experiments
+                    </h2>
+                    <p>Try out experimental features. These may be unstable or change without notice.</p>
+
+                    <div className={styles.experimentsList}>
+                        <div className={styles.experimentItem}>
+                            <div>
+                                <h3>🎨 Canvas Playground</h3>
+                                <p>Access the Natural Language coding playground - a VS Code-like environment for writing and testing code.</p>
+                            </div>
+                            <button
+                                className={`${styles.toggle} ${experiments?.canvas ? styles.active : ''}`}
+                                onClick={() => toggleExperiment('canvas')}
+                            >
+                                <span className={styles.toggleSlider} />
+                            </button>
+                        </div>
+
+                        <div className={styles.experimentItem}>
+                            <div>
+                                <h3>🧪 Beta Features</h3>
+                                <p>Get early access to new features before they&apos;re released to everyone.</p>
+                            </div>
+                            <button
+                                className={`${styles.toggle} ${experiments?.betaFeatures ? styles.active : ''}`}
+                                onClick={() => toggleExperiment('betaFeatures')}
+                            >
+                                <span className={styles.toggleSlider} />
+                            </button>
+                        </div>
+                    </div>
                 </motion.section>
 
                 {/* Danger Zone */}

@@ -449,6 +449,36 @@
     color: var(--color-error);
 }
 
+/* Experiments */
+.experimentsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.experimentItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.experimentItem h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.experimentItem p {
+    margin: 0.25rem 0 0;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
 .dangerActions {
     display: flex;
     flex-direction: column;

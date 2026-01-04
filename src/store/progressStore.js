@@ -32,6 +32,22 @@ export const useProgressStore = create(
             // Expert mode - skip prerequisite blocking
             expertMode: false,
 
+            // Experiments - feature flags for experimental features
+            experiments: {
+                canvas: false,
+                betaFeatures: false
+            },
+
+            // Toggle experiment
+            toggleExperiment: (experimentName) => {
+                set((state) => ({
+                    experiments: {
+                        ...state.experiments,
+                        [experimentName]: !state.experiments[experimentName]
+                    }
+                }));
+            },
+
             // Toggle expert mode
             toggleExpertMode: () => {
                 set((state) => ({ expertMode: !state.expertMode }));

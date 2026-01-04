@@ -2,7 +2,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiArrowRight, FiBook, FiAward, FiTrendingUp, FiClock, FiCheckCircle, FiZap, FiRefreshCw, FiPlay, FiCode } from 'react-icons/fi';
+import { FiArrowRight, FiBook, FiAward, FiTrendingUp, FiClock, FiCheckCircle, FiZap, FiRefreshCw, FiPlay } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useProgressStore } from '../store/progressStore';
 import { getAllCourses, getCourse, getLessons } from '../data/courses';
@@ -10,22 +10,20 @@ import ContributionTracker from '../components/ContributionTracker';
 import styles from './DashboardPage.module.css';
 
 // Challenge templates for procedural generation
+// Maps to challenge IDs in ChallengePage
 const CHALLENGE_TEMPLATES = {
     beginner: [
         {
             type: 'output',
             templates: [
-                { title: 'Hello World', desc: 'Display "Hello, World!" to the console', hint: 'display "Hello, World!"' },
-                { title: 'Say Your Name', desc: 'Display a greeting with a name', hint: 'display "Hello, {name}!"' },
-                { title: 'Simple Math', desc: 'Display the result of {a} plus {b}', hint: 'display {a} plus {b}' },
+                { title: 'Hello World', desc: 'Write a function that returns "Hello, World!"', challengeId: 'hello-world' },
+                { title: 'Sum Two Numbers', desc: 'Write a function that adds two numbers together', challengeId: 'sum-two-numbers' },
             ]
         },
         {
-            type: 'variables',
+            type: 'strings',
             templates: [
-                { title: 'Store a Value', desc: 'Create a variable called age and set it to {n}', hint: 'create variable age to {n}' },
-                { title: 'Update Variable', desc: 'Create a variable, then change its value', hint: 'create variable x to 5\nset x to 10' },
-                { title: 'Constant Value', desc: 'Create a constant called PI with value 3.14', hint: 'create constant PI to 3.14' },
+                { title: 'Hello World', desc: 'Write a function that returns "Hello, World!"', challengeId: 'hello-world' },
             ]
         }
     ],
@@ -33,35 +31,30 @@ const CHALLENGE_TEMPLATES = {
         {
             type: 'conditionals',
             templates: [
-                { title: 'Age Check', desc: 'Check if age is greater than {n} and display appropriate message', hint: 'if age is greater than {n} then...' },
-                { title: 'Grade Calculator', desc: 'Given a score, display the letter grade (A/B/C/D/F)', hint: 'Use otherwise if for multiple conditions' },
-                { title: 'Even or Odd', desc: 'Check if a number is even or odd using modulo', hint: 'number modulo 2 is equal to 0' },
+                { title: 'FizzBuzz', desc: 'Classic FizzBuzz problem - divisibility logic', challengeId: 'fizzbuzz' },
+                { title: 'Palindrome Check', desc: 'Check if a string is the same forwards and backwards', challengeId: 'palindrome' },
             ]
         },
         {
             type: 'loops',
             templates: [
-                { title: 'Countdown', desc: 'Count down from {n} to 1', hint: 'repeat while count is greater than 0...' },
-                { title: 'Sum Numbers', desc: 'Calculate the sum of numbers from 1 to {n}', hint: 'Use a loop and accumulator variable' },
-                { title: 'Print Pattern', desc: 'Display {n} stars in a row', hint: 'repeat {n} times' },
+                { title: 'Sum Two Numbers', desc: 'Calculate the sum of two numbers', challengeId: 'sum-two-numbers' },
+                { title: 'FizzBuzz', desc: 'Iterate and apply divisibility rules', challengeId: 'fizzbuzz' },
             ]
         }
     ],
     advanced: [
         {
-            type: 'functions',
+            type: 'algorithms',
             templates: [
-                { title: 'Create a Function', desc: 'Define a function that takes a name and returns a greeting', hint: 'define function greet with parameters name...' },
-                { title: 'Calculator Function', desc: 'Create a function that adds two numbers and returns the result', hint: 'Use return to give back the value' },
-                { title: 'Factorial', desc: 'Write a function to calculate factorial of {n}', hint: 'Use a loop or recursion' },
+                { title: 'Fibonacci', desc: 'Generate Fibonacci numbers efficiently', challengeId: 'fibonacci' },
+                { title: 'Palindrome Check', desc: 'Check if a string is a palindrome', challengeId: 'palindrome' },
             ]
         },
         {
-            type: 'lists',
+            type: 'recursion',
             templates: [
-                { title: 'List Sum', desc: 'Create a list of numbers and calculate their sum', hint: 'for each item in list...' },
-                { title: 'Find Maximum', desc: 'Find the largest number in a list', hint: 'Compare each item to a max variable' },
-                { title: 'Filter List', desc: 'Get all numbers greater than {n} from a list', hint: 'Use conditionals inside a loop' },
+                { title: 'Fibonacci', desc: 'Implement Fibonacci sequence', challengeId: 'fibonacci' },
             ]
         }
     ],
@@ -69,17 +62,15 @@ const CHALLENGE_TEMPLATES = {
         {
             type: 'algorithms',
             templates: [
-                { title: 'FizzBuzz', desc: 'Print 1-{n}, but "Fizz" for 3x, "Buzz" for 5x, "FizzBuzz" for both', hint: 'Use modulo and nested conditionals' },
-                { title: 'Palindrome Check', desc: 'Check if a word is the same forwards and backwards', hint: 'Compare characters from start and end' },
-                { title: 'Prime Checker', desc: 'Determine if {n} is a prime number', hint: 'Check divisibility up to sqrt(n)' },
+                { title: 'FizzBuzz Master', desc: 'Solve FizzBuzz with optimal code', challengeId: 'fizzbuzz' },
+                { title: 'Fibonacci Sequence', desc: 'Efficient Fibonacci implementation', challengeId: 'fibonacci' },
             ]
         },
         {
-            type: 'complex',
+            type: 'optimization',
             templates: [
-                { title: 'Fibonacci', desc: 'Generate the first {n} Fibonacci numbers', hint: 'Each number is sum of previous two' },
-                { title: 'Bubble Sort', desc: 'Sort a list of numbers from smallest to largest', hint: 'Compare adjacent elements repeatedly' },
-                { title: 'Binary Search', desc: 'Find a number in a sorted list efficiently', hint: 'Check middle, then search half' },
+                { title: 'Palindrome', desc: 'Optimize palindrome detection', challengeId: 'palindrome' },
+                { title: 'Fibonacci', desc: 'Optimized Fibonacci with memoization', challengeId: 'fibonacci' },
             ]
         }
     ]
@@ -89,40 +80,26 @@ const CHALLENGE_TEMPLATES = {
 const generateChallenges = (difficulty, count = 3) => {
     const templates = CHALLENGE_TEMPLATES[difficulty] || CHALLENGE_TEMPLATES.beginner;
     const challenges = [];
-    const usedIndices = new Set();
+    const usedChallengeIds = new Set();
 
     // Flatten all templates for this difficulty
     const allTemplates = templates.flatMap(category =>
         category.templates.map(t => ({ ...t, type: category.type }))
     );
 
-    while (challenges.length < count && challenges.length < allTemplates.length) {
-        const idx = Math.floor(Math.random() * allTemplates.length);
-        if (usedIndices.has(idx)) continue;
-        usedIndices.add(idx);
-
-        const template = allTemplates[idx];
-
-        // Replace placeholders with random values
-        const randomNum = Math.floor(Math.random() * 20) + 5;
-        const randomA = Math.floor(Math.random() * 10) + 1;
-        const randomB = Math.floor(Math.random() * 10) + 1;
-        const names = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'];
-        const randomName = names[Math.floor(Math.random() * names.length)];
-
-        const processText = (text) => {
-            return text
-                .replace(/\{n\}/g, randomNum)
-                .replace(/\{a\}/g, randomA)
-                .replace(/\{b\}/g, randomB)
-                .replace(/\{name\}/g, randomName);
-        };
-
+    // Shuffle and pick unique challenges
+    const shuffled = [...allTemplates].sort(() => Math.random() - 0.5);
+    
+    for (const template of shuffled) {
+        if (challenges.length >= count) break;
+        if (usedChallengeIds.has(template.challengeId)) continue;
+        
+        usedChallengeIds.add(template.challengeId);
         challenges.push({
-            id: `${difficulty}-${idx}-${Date.now()}`,
-            title: processText(template.title),
-            description: processText(template.desc),
-            hint: processText(template.hint),
+            id: `${difficulty}-${template.challengeId}-${Date.now()}-${challenges.length}`,
+            challengeId: template.challengeId,
+            title: template.title,
+            description: template.desc,
             type: template.type,
             difficulty
         });
@@ -152,21 +129,18 @@ const DashboardPage = () => {
     // Challenge state
     const [selectedDifficulty, setSelectedDifficulty] = useState('beginner');
     const [challenges, setChallenges] = useState(() => generateChallenges('beginner'));
-    const [expandedChallenge, setExpandedChallenge] = useState(null);
 
     const courses = getAllCourses();
 
     // Regenerate challenges when difficulty changes
     const handleRefreshChallenges = () => {
         setChallenges(generateChallenges(selectedDifficulty));
-        setExpandedChallenge(null);
     };
 
     // Change difficulty
     const handleDifficultyChange = (difficulty) => {
         setSelectedDifficulty(difficulty);
         setChallenges(generateChallenges(difficulty));
-        setExpandedChallenge(null);
     };
 
     // Count completed courses
@@ -368,7 +342,7 @@ const DashboardPage = () => {
                     {challenges.map((challenge, idx) => (
                         <motion.div
                             key={challenge.id}
-                            className={`${styles.challengeCard} ${expandedChallenge === challenge.id ? styles.expanded : ''}`}
+                            className={styles.challengeCard}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 * idx }}
@@ -382,32 +356,13 @@ const DashboardPage = () => {
                             <p className={styles.challengeDesc}>{challenge.description}</p>
 
                             <div className={styles.challengeActions}>
-                                <button
-                                    className={styles.hintBtn}
-                                    onClick={() => setExpandedChallenge(
-                                        expandedChallenge === challenge.id ? null : challenge.id
-                                    )}
-                                >
-                                    {expandedChallenge === challenge.id ? 'Hide Hint' : 'Show Hint'}
-                                </button>
                                 <Link
-                                    to="/canvas"
+                                    to={`/challenge/${challenge.challengeId}`}
                                     className={styles.tryBtn}
                                 >
-                                    <FiPlay /> Try in Canvas
+                                    <FiPlay /> Start Challenge
                                 </Link>
                             </div>
-
-                            {expandedChallenge === challenge.id && (
-                                <motion.div
-                                    className={styles.challengeHint}
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: 'auto' }}
-                                >
-                                    <FiCode />
-                                    <pre>{challenge.hint}</pre>
-                                </motion.div>
-                            )}
                         </motion.div>
                     ))}
                 </div>
