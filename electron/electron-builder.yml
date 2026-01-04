@@ -18,7 +18,7 @@ files:
 # macOS configuration
 mac:
   category: public.app-category.developer-tools
-  icon: public/favicon.svg
+  icon: build/icon.icns
   hardenedRuntime: true
   gatekeeperAssess: false
   target:
@@ -33,7 +33,7 @@ mac:
 
 # Windows configuration  
 win:
-  icon: public/favicon.svg
+  icon: build/icon.ico
   target:
     - target: nsis
       arch:
@@ -50,12 +50,11 @@ nsis:
 
 # Linux configuration
 linux:
-  icon: public/favicon.svg
+  icon: build/icon.png
   category: Development
   target:
     - AppImage
     - deb
-    - rpm
 
 # Auto-update configuration
 publish:
