@@ -48,12 +48,12 @@ const Discussion = ({ lessonId, courseId }) => {
                     ...doc.data(),
                     createdAt: doc.data().createdAt?.toDate()
                 }));
-                
+
                 // Sort by popularity if needed
                 if (sortBy === 'popular') {
                     fetchedComments.sort((a, b) => (b.likes || 0) - (a.likes || 0));
                 }
-                
+
                 setComments(fetchedComments);
             }, (error) => {
                 console.warn('Could not load discussions:', error.message);
@@ -197,15 +197,15 @@ const Discussion = ({ lessonId, courseId }) => {
     // Format relative time
     const formatTime = (date) => {
         if (!date) return 'Just now';
-        
+
         const now = new Date();
         const diff = Math.floor((now - date) / 1000);
-        
+
         if (diff < 60) return 'Just now';
         if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
         if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
         if (diff < 604800) return `${Math.floor(diff / 86400)}d ago`;
-        
+
         return date.toLocaleDateString();
     };
 

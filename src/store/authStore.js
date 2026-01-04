@@ -580,7 +580,7 @@ export const useAuthStore = create(
                     // Step 4: Sign back into the current/original account
                     // We need the user to sign in again to their original account
                     // For now, return the data and let the UI handle re-authentication
-                    
+
                     return {
                         success: true,
                         otherAccountData: otherData,

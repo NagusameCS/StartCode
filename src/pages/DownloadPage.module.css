@@ -71,8 +71,13 @@
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .errorState svg {
@@ -186,7 +191,7 @@
     font-size: 0.875rem;
 }
 
-.altDownloads > span {
+.altDownloads>span {
     display: block;
     color: var(--color-text-muted);
     margin-bottom: 0.5rem;

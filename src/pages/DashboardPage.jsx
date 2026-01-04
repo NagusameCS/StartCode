@@ -92,7 +92,7 @@ const generateChallenges = (difficulty, count = 3) => {
     const usedIndices = new Set();
 
     // Flatten all templates for this difficulty
-    const allTemplates = templates.flatMap(category => 
+    const allTemplates = templates.flatMap(category =>
         category.templates.map(t => ({ ...t, type: category.type }))
     );
 
@@ -102,7 +102,7 @@ const generateChallenges = (difficulty, count = 3) => {
         usedIndices.add(idx);
 
         const template = allTemplates[idx];
-        
+
         // Replace placeholders with random values
         const randomNum = Math.floor(Math.random() * 20) + 5;
         const randomA = Math.floor(Math.random() * 10) + 1;
@@ -148,7 +148,7 @@ const DIFFICULTY_LABELS = {
 const DashboardPage = () => {
     const { userProfile } = useAuthStore();
     const { completedLessons, certificates, courseProgress } = useProgressStore();
-    
+
     // Challenge state
     const [selectedDifficulty, setSelectedDifficulty] = useState('beginner');
     const [challenges, setChallenges] = useState(() => generateChallenges('beginner'));
@@ -337,7 +337,7 @@ const DashboardPage = () => {
                     <h2 className={styles.sectionTitle}>
                         <FiZap style={{ color: DIFFICULTY_COLORS[selectedDifficulty] }} /> Coding Challenges
                     </h2>
-                    <button 
+                    <button
                         className={styles.refreshBtn}
                         onClick={handleRefreshChallenges}
                         title="Generate new challenges"
@@ -353,7 +353,7 @@ const DashboardPage = () => {
                             key={key}
                             className={`${styles.difficultyTab} ${selectedDifficulty === key ? styles.active : ''}`}
                             onClick={() => handleDifficultyChange(key)}
-                            style={{ 
+                            style={{
                                 '--tab-color': DIFFICULTY_COLORS[key],
                                 borderColor: selectedDifficulty === key ? DIFFICULTY_COLORS[key] : 'transparent'
                             }}
@@ -380,7 +380,7 @@ const DashboardPage = () => {
                             </div>
                             <h4 className={styles.challengeTitle}>{challenge.title}</h4>
                             <p className={styles.challengeDesc}>{challenge.description}</p>
-                            
+
                             <div className={styles.challengeActions}>
                                 <button
                                     className={styles.hintBtn}
@@ -390,8 +390,8 @@ const DashboardPage = () => {
                                 >
                                     {expandedChallenge === challenge.id ? 'Hide Hint' : 'Show Hint'}
                                 </button>
-                                <Link 
-                                    to="/canvas" 
+                                <Link
+                                    to="/canvas"
                                     className={styles.tryBtn}
                                 >
                                     <FiPlay /> Try in Canvas

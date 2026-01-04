@@ -463,7 +463,7 @@ const SettingsPage = () => {
                         <div className={styles.pendingMerge}>
                             <h4>Complete Account Merge</h4>
                             <p>
-                                Found progress data from your {pendingMerge.provider} account. 
+                                Found progress data from your {pendingMerge.provider} account.
                                 Click below to merge this progress with your current account.
                             </p>
                             <div className={styles.pendingMergeActions}>

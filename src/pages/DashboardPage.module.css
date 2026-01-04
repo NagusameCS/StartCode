@@ -436,7 +436,7 @@
     .statsGrid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .challengesGrid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -459,17 +459,17 @@
     .recommendedGrid {
         grid-template-columns: 1fr;
     }
-    
+
     .challengesGrid {
         grid-template-columns: 1fr;
     }
-    
+
     .difficultyTabs {
         overflow-x: auto;
         flex-wrap: nowrap;
         padding-bottom: 0.5rem;
     }
-    
+
     .difficultyTab {
         white-space: nowrap;
     }

@@ -70,10 +70,10 @@ const DownloadPage = () => {
     // Get all download assets for a platform
     const getPlatformAssets = (platformId) => {
         if (!releaseInfo?.assets) return [];
-        
+
         const patterns = platformPatterns[platformId] || [];
         const assets = [];
-        
+
         for (const { pattern, label } of patterns) {
             const asset = releaseInfo.assets.find(a => pattern.test(a.name));
             if (asset) {
@@ -86,7 +86,7 @@ const DownloadPage = () => {
                 });
             }
         }
-        
+
         return assets;
     };
 
@@ -152,7 +152,7 @@ const DownloadPage = () => {
     const handleDownload = (url, platformId) => {
         if (!url) return;
         setDownloadingPlatform(platformId);
-        
+
         // Create a temporary link and click it
         const link = document.createElement('a');
         link.href = url;
@@ -160,7 +160,7 @@ const DownloadPage = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        
+
         // Reset after a delay
         setTimeout(() => setDownloadingPlatform(null), 2000);
     };
@@ -203,9 +203,9 @@ const DownloadPage = () => {
                     <div className={styles.errorState}>
                         <FiAlertCircle />
                         <span>{error}</span>
-                        <a 
-                            href="https://github.com/NagusameCS/StartCode/releases" 
-                            target="_blank" 
+                        <a
+                            href="https://github.com/NagusameCS/StartCode/releases"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-secondary"
                         >
@@ -222,8 +222,8 @@ const DownloadPage = () => {
                             const isAvailable = !!primaryDownload;
 
                             return (
-                                <div 
-                                    key={platform.id} 
+                                <div
+                                    key={platform.id}
                                     className={`${styles.platformCard} ${!isAvailable ? styles.unavailable : ''}`}
                                 >
                                     <div className={styles.platformHeader}>
@@ -295,9 +295,9 @@ const DownloadPage = () => {
                                 day: 'numeric'
                             })}
                         </p>
-                        <a 
+                        <a
                             href={releaseInfo.html_url}
-                            target="_blank" 
+                            target="_blank"
                             rel="noopener noreferrer"
                             className={styles.releaseLink}
                         >

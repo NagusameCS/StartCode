@@ -480,7 +480,7 @@ const CanvasPage = () => {
             if (doc.title.toLowerCase().includes(query)) return true;
             if (doc.description?.toLowerCase().includes(query)) return true;
             if (doc.syntax) {
-                return doc.syntax.some(s => 
+                return doc.syntax.some(s =>
                     s.signature.toLowerCase().includes(query) ||
                     s.description.toLowerCase().includes(query)
                 );
@@ -562,7 +562,7 @@ const CanvasPage = () => {
                                 <div className={styles.signature}>
                                     <code>{item.signature.replace(/\\n/g, '\n')}</code>
                                 </div>
-                                
+
                                 <p className={styles.syntaxDescription}>{item.description}</p>
 
                                 {item.parameters && item.parameters.length > 0 && (
