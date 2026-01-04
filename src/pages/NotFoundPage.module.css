@@ -1,0 +1,165 @@
+/* 404 Not Found Page */
+
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background: var(--color-background);
+}
+
+.content {
+    max-width: 500px;
+    text-align: center;
+}
+
+.errorCode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.digit {
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--color-text);
+    line-height: 1;
+}
+
+.zero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    background: linear-gradient(135deg, var(--color-primary), #8b5cf6);
+    border-radius: 50%;
+    color: white;
+    font-size: 2.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.content h1 {
+    font-size: 1.75rem;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+}
+
+.content > p {
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+    line-height: 1.6;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.primaryBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--color-primary);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.primaryBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.secondaryBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--color-backgroundSecondary);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    color: var(--color-text);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.secondaryBtn:hover {
+    border-color: var(--color-primary);
+}
+
+.suggestions {
+    padding: 1.5rem;
+    background: var(--color-backgroundSecondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+
+.suggestions h2 {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem;
+    font-weight: 500;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.suggestionLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.suggestionLink:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.suggestionLink svg {
+    color: var(--color-primary);
+}
+
+@media (max-width: 480px) {
+    .digit {
+        font-size: 3.5rem;
+    }
+
+    .zero {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.75rem;
+    }
+
+    .links {
+        flex-direction: column;
+    }
+}

@@ -44,17 +44,17 @@ const CHALLENGES_404 = [
     // - range: difference between max and min
 }`,
         testCases: [
-            { 
-                input: [[440, 880, 220, 660]], 
-                expected: { dominant: 880, average: 550, range: 660 } 
+            {
+                input: [[440, 880, 220, 660]],
+                expected: { dominant: 880, average: 550, range: 660 }
             },
-            { 
-                input: [[100, 200, 300, 400, 500]], 
-                expected: { dominant: 500, average: 300, range: 400 } 
+            {
+                input: [[100, 200, 300, 400, 500]],
+                expected: { dominant: 500, average: 300, range: 400 }
             },
-            { 
-                input: [[1000]], 
-                expected: { dominant: 1000, average: 1000, range: 0 } 
+            {
+                input: [[1000]],
+                expected: { dominant: 1000, average: 1000, range: 0 }
             }
         ],
         hints: [
@@ -106,12 +106,12 @@ const CHALLENGES_404 = [
     // Return sorted array
 }`,
         testCases: [
-            { 
+            {
                 input: [[
                     { suit: 'Hearts', value: 'K' },
                     { suit: 'Hearts', value: '2' },
                     { suit: 'Clubs', value: 'A' }
-                ]], 
+                ]],
                 expected: [
                     { suit: 'Clubs', value: 'A' },
                     { suit: 'Hearts', value: '2' },
@@ -183,9 +183,9 @@ const CHALLENGES_404 = [
     // - strings: array of string literals found
 }`,
         testCases: [
-            { 
-                input: ['var _0x1a2b = "hello"; function _0xabcd() { return _0x1a2b; }'], 
-                expected: { 
+            {
+                input: ['var _0x1a2b = "hello"; function _0xabcd() { return _0x1a2b; }'],
+                expected: {
                     identifiers: ['_0x1a2b', '_0xabcd'],
                     strings: ['hello']
                 }
@@ -246,20 +246,20 @@ const CHALLENGES_404 = [
     // Return { valid: true/false, error: null or error message }
 }`,
         testCases: [
-            { 
-                input: ['{"name": "John", "age": 30}'], 
+            {
+                input: ['{"name": "John", "age": 30}'],
                 expected: { valid: true, error: null }
             },
-            { 
-                input: ['{"name": "John",}'], 
+            {
+                input: ['{"name": "John",}'],
                 expected: { valid: false, error: 'Unexpected token' }
             },
-            { 
-                input: ['[1, 2, 3]'], 
+            {
+                input: ['[1, 2, 3]'],
                 expected: { valid: true, error: null }
             },
-            { 
-                input: ['{"key": undefined}'], 
+            {
+                input: ['{"key": undefined}'],
                 expected: { valid: false, error: 'Unexpected token' }
             }
         ],
@@ -365,7 +365,7 @@ export async function importChallengesFromRepo() {
                 where('authorName', '==', 'NagusameCS')
             );
             const existing = await getDocs(existingQuery);
-            
+
             if (!existing.empty) {
                 results.skipped.push(challenge.title);
                 console.log(`Skipped (already exists): ${challenge.title}`);

@@ -1,0 +1,110 @@
+/* Error Boundary Styles */
+
+.errorBoundary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background: var(--color-background);
+}
+
+.errorContent {
+    max-width: 500px;
+    text-align: center;
+    padding: 3rem;
+    background: var(--color-backgroundSecondary);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+}
+
+.errorIcon {
+    font-size: 4rem;
+    color: #f59e0b;
+    margin-bottom: 1.5rem;
+}
+
+.errorContent h1 {
+    font-size: 1.75rem;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+}
+
+.errorContent p {
+    color: var(--color-text-muted);
+    margin: 0 0 1.5rem;
+    line-height: 1.6;
+}
+
+.errorDetails {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--color-backgroundTertiary);
+    border-radius: 8px;
+    font-size: 0.75rem;
+}
+
+.errorDetails summary {
+    cursor: pointer;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.errorDetails pre {
+    margin: 0.5rem 0 0;
+    padding: 0.5rem;
+    background: var(--color-background);
+    border-radius: 4px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: #ef4444;
+    font-size: 0.7rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.errorActions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.primaryBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.primaryBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.secondaryBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-backgroundTertiary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.secondaryBtn:hover {
+    border-color: var(--color-primary);
+}

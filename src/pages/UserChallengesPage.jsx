@@ -15,7 +15,9 @@ import {
     FiUsers,
     FiAward,
     FiZap,
-    FiDownload
+    FiDownload,
+    FiEdit2,
+    FiGithub
 } from 'react-icons/fi';
 import { useAuthStore } from '../store/authStore';
 import { useChallengeStore, CHALLENGE_CONSTRAINTS } from '../store/challengeStore';
@@ -113,7 +115,7 @@ const UserChallengesPage = () => {
     // Handle importing challenges from 404 repo (teacher only)
     const handleImportChallenges = async () => {
         if (!isTeacherMode) return;
-        
+
         setImporting(true);
         try {
             const results = await importChallengesFromRepo();
@@ -159,7 +161,7 @@ const UserChallengesPage = () => {
                 </div>
                 <div className={styles.headerActions}>
                     {isTeacherMode && (
-                        <button 
+                        <button
                             className={styles.importBtn}
                             onClick={handleImportChallenges}
                             disabled={importing}
@@ -321,8 +323,9 @@ const UserChallengesPage = () => {
 
                                 <div className={styles.cardFooter}>
                                     <div className={styles.authorInfo}>
-                                        <FiUser />
+                                        {challenge.sourceRepo ? <FiGithub /> : <FiUser />}
                                         <span>{challenge.authorName || 'Anonymous'}</span>
+                                        {challenge.featured && <span className={styles.featuredBadge}>⭐ Featured</span>}
                                     </div>
                                     <span className={styles.cardDate}>
                                         {formatDate(challenge.createdAt)}
@@ -342,6 +345,16 @@ const UserChallengesPage = () => {
                                     >
                                         <FiHeart /> {challenge.likes || 0}
                                     </button>
+                                    {/* Edit button for author */}
+                                    {user && (challenge.authorId === user.uid || challenge.authorId === `github:${user.uid}`) && (
+                                        <Link
+                                            to={`/challenges/edit/${challenge.id}`}
+                                            className={styles.editBtn}
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            <FiEdit2 />
+                                        </Link>
+                                    )}
                                 </div>
 
                                 <div className={styles.categoryTag}>

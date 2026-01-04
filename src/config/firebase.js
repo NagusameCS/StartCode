@@ -5,15 +5,17 @@ import { getAuth, GoogleAuthProvider, GithubAuthProvider, EmailAuthProvider } fr
 import { getFirestore } from 'firebase/firestore';
 import { getDatabase } from 'firebase/database';
 
+// Use environment variables if available, otherwise fall back to hardcoded values
+// In production, set these in your hosting environment (Vercel, Netlify, etc.)
 const firebaseConfig = {
-    apiKey: "AIzaSyBoaDx24qTMWb9snZwkyh0aH_YjHfAw49M",
-    authDomain: "startcode.firebaseapp.com",
-    projectId: "startcode",
-    storageBucket: "startcode.firebasestorage.app",
-    messagingSenderId: "585392626036",
-    appId: "1:585392626036:web:46ac3a774b4a0730a83421",
-    measurementId: "G-0CWSZTSX1T",
-    databaseURL: "https://startcode-default-rtdb.firebaseio.com"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyBoaDx24qTMWb9snZwkyh0aH_YjHfAw49M",
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "startcode.firebaseapp.com",
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "startcode",
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "startcode.firebasestorage.app",
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "585392626036",
+    appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:585392626036:web:46ac3a774b4a0730a83421",
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || "G-0CWSZTSX1T",
+    databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL || "https://startcode-default-rtdb.firebaseio.com"
 };
 
 // Initialize Firebase
