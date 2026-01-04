@@ -16,25 +16,25 @@ const logger = {
             console.log('[StartCode]', ...args);
         }
     },
-    
+
     info: (...args) => {
         if (isDev && !disableLogs) {
             console.info('[StartCode]', ...args);
         }
     },
-    
+
     warn: (...args) => {
         if (!disableLogs) {
             console.warn('[StartCode]', ...args);
         }
     },
-    
+
     error: (...args) => {
         if (!disableLogs) {
             console.error('[StartCode]', ...args);
         }
     },
-    
+
     debug: (...args) => {
         if (isDev && !disableLogs) {
             console.debug('[StartCode]', ...args);
@@ -47,7 +47,7 @@ const logger = {
             console.group(`[StartCode] ${label}`);
         }
     },
-    
+
     groupEnd: () => {
         if (isDev && !disableLogs) {
             console.groupEnd();

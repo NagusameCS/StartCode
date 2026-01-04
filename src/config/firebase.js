@@ -30,12 +30,12 @@ const isProd = import.meta.env.PROD;
 const getEnvVar = (key, devFallback) => {
     const value = import.meta.env[key];
     if (value) return value;
-    
+
     // In production, warn if using fallbacks (they shouldn't be used)
     if (isProd && devFallback) {
         console.warn(`[Firebase] Missing env var: ${key}. Using development fallback.`);
     }
-    
+
     return devFallback;
 };
 
