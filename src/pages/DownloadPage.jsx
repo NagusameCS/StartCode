@@ -116,7 +116,7 @@ const DownloadPage = () => {
             name: 'Linux',
             icon: FaLinux,
             version: 'Ubuntu, Fedora, etc.',
-            color: '#333333'
+            color: '#ffffff'
         }
     ];
 
@@ -359,6 +359,70 @@ const DownloadPage = () => {
                     >
                         <FiGithub /> View on GitHub
                     </a>
+                </div>
+            </motion.div>
+
+            {/* Installation Instructions */}
+            <motion.div
+                className={styles.installSection}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45 }}
+            >
+                <h3><FiAlertCircle /> Installation Instructions</h3>
+                <p className={styles.installNote}>
+                    Since StartCode is not yet code-signed, your operating system may show security warnings.
+                    This is normal for open-source software. Here's how to install:
+                </p>
+                
+                <div className={styles.installInstructions}>
+                    <div className={styles.instructionCard}>
+                        <div className={styles.instructionHeader}>
+                            <FaApple /> macOS
+                        </div>
+                        <ol className={styles.instructionSteps}>
+                            <li>Download the <code>.dmg</code> file</li>
+                            <li>Open the <code>.dmg</code> and drag StartCode to Applications</li>
+                            <li>When you first open it, you'll see "damaged" or "unidentified developer"</li>
+                            <li>Open <strong>Terminal</strong> and run:</li>
+                            <li><code>xattr -cr /Applications/StartCode.app</code></li>
+                            <li>Now open StartCode normally</li>
+                        </ol>
+                        <p className={styles.instructionAlt}>
+                            Or: Right-click the app → Open → Click "Open" in the dialog
+                        </p>
+                    </div>
+
+                    <div className={styles.instructionCard}>
+                        <div className={styles.instructionHeader}>
+                            <FaWindows /> Windows
+                        </div>
+                        <ol className={styles.instructionSteps}>
+                            <li>Download the <code>.exe</code> installer</li>
+                            <li>When you see "Windows protected your PC":</li>
+                            <li>Click <strong>"More info"</strong></li>
+                            <li>Click <strong>"Run anyway"</strong></li>
+                            <li>Follow the installation wizard</li>
+                        </ol>
+                        <p className={styles.instructionAlt}>
+                            If the exe doesn't run, try right-clicking → "Run as administrator"
+                        </p>
+                    </div>
+
+                    <div className={styles.instructionCard}>
+                        <div className={styles.instructionHeader}>
+                            <FaLinux style={{ color: 'var(--color-text)' }} /> Linux
+                        </div>
+                        <ol className={styles.instructionSteps}>
+                            <li>Download the <code>.AppImage</code> file</li>
+                            <li>Make it executable:</li>
+                            <li><code>chmod +x StartCode-*.AppImage</code></li>
+                            <li>Run: <code>./StartCode-*.AppImage</code></li>
+                        </ol>
+                        <p className={styles.instructionAlt}>
+                            For .deb: <code>sudo dpkg -i startcode_*.deb</code>
+                        </p>
+                    </div>
                 </div>
             </motion.div>
 

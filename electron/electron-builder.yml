@@ -11,7 +11,7 @@ directories:
 # Files to include
 files:
   - dist/**/*
-  - electron/**/*
+  - electron/*.cjs
   - public/favicon.svg
   - package.json
 
