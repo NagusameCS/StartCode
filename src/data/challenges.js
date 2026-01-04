@@ -1068,11 +1068,11 @@ A prime number is only divisible by 1 and itself.`,
 export const getAllChallenges = () => Object.values(CHALLENGES);
 
 // Get challenges by category
-export const getChallengesByCategory = (category) => 
+export const getChallengesByCategory = (category) =>
     Object.values(CHALLENGES).filter(c => c.category === category);
 
 // Get challenges by difficulty
-export const getChallengesByDifficulty = (difficulty) => 
+export const getChallengesByDifficulty = (difficulty) =>
     Object.values(CHALLENGES).filter(c => c.difficulty === difficulty);
 
 // Get challenge by ID

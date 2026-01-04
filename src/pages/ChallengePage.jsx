@@ -17,7 +17,10 @@ import {
     FiHelpCircle,
     FiCheckCircle,
     FiLock,
-    FiTrendingUp
+    FiTrendingUp,
+    FiUser,
+    FiHeart,
+    FiAlertTriangle
 } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import CodeMirror from '@uiw/react-codemirror';
@@ -25,6 +28,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { python } from '@codemirror/lang-python';
 import { java } from '@codemirror/lang-java';
 import { useProgressStore } from '../store/progressStore';
+import { useChallengeStore, CHALLENGE_CONSTRAINTS } from '../store/challengeStore';
 import { CATEGORIES, DIFFICULTIES, getChallenge } from '../data/challenges';
 import styles from './ChallengePage.module.css';
 
@@ -55,20 +59,47 @@ const LANGUAGES = {
 };
 
 const ChallengePage = () => {
-    const { challengeId } = useParams();
+    const { challengeId, userChallengeId } = useParams();
     const navigate = useNavigate();
 
     // Progress store
-    const { 
-        completeChallenge, 
-        isChallengeCompleted, 
+    const {
+        completeChallenge,
+        isChallengeCompleted,
         getChallengeBestTime
     } = useProgressStore();
 
-    // Get challenge from data
-    const challenge = getChallenge(challengeId) || getChallenge('hello-world');
-    const isCompleted = isChallengeCompleted(challenge.id);
-    const bestTime = getChallengeBestTime(challenge.id);
+    // Challenge store for user-submitted challenges
+    const { getUserChallenge, recordPlay, recordCompletion } = useChallengeStore();
+
+    // State for user challenge
+    const [userChallenge, setUserChallenge] = useState(null);
+    const [loadingUserChallenge, setLoadingUserChallenge] = useState(false);
+
+    // Determine if this is a user challenge
+    const isUserChallenge = !!userChallengeId;
+
+    // Load user challenge if needed
+    useEffect(() => {
+        if (isUserChallenge && userChallengeId) {
+            setLoadingUserChallenge(true);
+            getUserChallenge(userChallengeId).then(challenge => {
+                setUserChallenge(challenge);
+                setLoadingUserChallenge(false);
+                if (challenge) {
+                    recordPlay(userChallengeId);
+                }
+            });
+        }
+    }, [isUserChallenge, userChallengeId, getUserChallenge, recordPlay]);
+
+    // Get challenge from data or user challenge
+    const challenge = isUserChallenge 
+        ? userChallenge 
+        : (getChallenge(challengeId) || getChallenge('hello-world'));
+
+    const isCompleted = challenge ? isChallengeCompleted(challenge.id) : false;
+    const bestTime = challenge ? getChallengeBestTime(challenge.id) : null;
 
     // State
     const [language, setLanguage] = useState('javascript');
@@ -81,10 +112,17 @@ const ChallengePage = () => {
     const [hintLevel, setHintLevel] = useState(0);
     const [timer, setTimer] = useState(0);
     const [timerActive, setTimerActive] = useState(true);
+    const [constraintViolations, setConstraintViolations] = useState([]);
 
     // Initialize code with starter code
     useEffect(() => {
-        const starter = challenge.starterCode?.[language] || '';
+        if (!challenge) return;
+        
+        // For user challenges, starterCode is a string; for built-in, it's an object
+        const starter = isUserChallenge 
+            ? (challenge.starterCode || '') 
+            : (challenge.starterCode?.[language] || '');
+        
         const commentChar = language === 'python' ? '#' : '//';
         const header = `${commentChar} Challenge: ${challenge.title}\n${commentChar} ${challenge.description}\n\n`;
         setCode(header + starter);
@@ -94,7 +132,8 @@ const ChallengePage = () => {
         setTimerActive(true);
         setHintLevel(0);
         setShowHint(false);
-    }, [challenge, language]);
+        setConstraintViolations([]);
+    }, [challenge, language, isUserChallenge]);
 
     // Timer
     useEffect(() => {
@@ -112,8 +151,103 @@ const ChallengePage = () => {
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     };
 
+    // Check constraints
+    const checkConstraints = useCallback((codeToCheck) => {
+        if (!challenge?.constraints) return [];
+        
+        const violations = [];
+        const constraints = challenge.constraints;
+        
+        // Strip comments for analysis
+        const codeWithoutComments = codeToCheck
+            .replace(/\/\/.*$/gm, '')
+            .replace(/\/\*[\s\S]*?\*\//g, '')
+            .replace(/#.*$/gm, '');
+        
+        // Max line count
+        if (constraints.maxLineCount) {
+            const lines = codeWithoutComments.split('\n').filter(l => l.trim()).length;
+            if (lines > constraints.maxLineCount) {
+                violations.push(`Line count: ${lines}/${constraints.maxLineCount} (exceeded)`);
+            }
+        }
+        
+        // Max char count
+        if (constraints.maxCharCount) {
+            const chars = codeWithoutComments.replace(/\s/g, '').length;
+            if (chars > constraints.maxCharCount) {
+                violations.push(`Character count: ${chars}/${constraints.maxCharCount} (exceeded)`);
+            }
+        }
+        
+        // No loops
+        if (constraints.noLoops) {
+            if (/\b(for|while|do)\s*\(/.test(codeWithoutComments)) {
+                violations.push('No loops allowed (for, while, do-while detected)');
+            }
+        }
+        
+        // No recursion (basic check - function calls itself)
+        if (constraints.noRecursion) {
+            const fnMatch = codeWithoutComments.match(/function\s+(\w+)/);
+            if (fnMatch) {
+                const fnName = fnMatch[1];
+                const fnBody = codeWithoutComments.split(fnMatch[0])[1] || '';
+                if (new RegExp(`\\b${fnName}\\s*\\(`).test(fnBody)) {
+                    violations.push('No recursion allowed (function calls itself)');
+                }
+            }
+        }
+        
+        // Must use recursion
+        if (constraints.mustUseRecursion) {
+            const fnMatch = codeWithoutComments.match(/function\s+(\w+)/);
+            if (fnMatch) {
+                const fnName = fnMatch[1];
+                const fnBody = codeWithoutComments.split(fnMatch[0])[1] || '';
+                if (!new RegExp(`\\b${fnName}\\s*\\(`).test(fnBody)) {
+                    violations.push('Must use recursion (function must call itself)');
+                }
+            }
+        }
+        
+        // No built-ins
+        if (constraints.noBuiltIns) {
+            const builtIns = ['map', 'filter', 'reduce', 'sort', 'reverse', 'find', 'findIndex', 'some', 'every', 'includes', 'indexOf', 'join', 'split', 'slice', 'splice'];
+            for (const method of builtIns) {
+                if (new RegExp(`\\.${method}\\s*\\(`).test(codeWithoutComments)) {
+                    violations.push(`No built-in methods allowed (.${method} detected)`);
+                    break;
+                }
+            }
+        }
+        
+        // Single expression
+        if (constraints.singleExpression) {
+            const fnBody = codeWithoutComments.match(/function[^{]*\{([\s\S]*)\}/);
+            if (fnBody) {
+                const body = fnBody[1].trim();
+                const statements = body.split(';').filter(s => s.trim());
+                if (statements.length > 1 || !body.startsWith('return')) {
+                    violations.push('Must be a single return expression');
+                }
+            }
+        }
+        
+        // No extra variables
+        if (constraints.noVariables) {
+            if (/\b(const|let|var)\s+/.test(codeWithoutComments)) {
+                violations.push('No variable declarations allowed (const, let, var detected)');
+            }
+        }
+        
+        return violations;
+    }, [challenge?.constraints]);
+
     // Run tests
     const runTests = useCallback(async () => {
+        if (!challenge) return;
+        
         if (language !== 'javascript') {
             toast.error(`${LANGUAGES[language].name} execution requires a server. Try JavaScript for now.`);
             return;
@@ -121,13 +255,28 @@ const ChallengePage = () => {
 
         setIsRunning(true);
         setOutput('Running tests...');
+        
+        // Check constraints first
+        const violations = checkConstraints(code);
+        setConstraintViolations(violations);
+        
+        if (violations.length > 0) {
+            setOutput(`Constraint violations:\n${violations.join('\n')}`);
+            setIsRunning(false);
+            toast.error('Fix constraint violations before running tests');
+            return;
+        }
 
-        const allTests = [...(challenge.tests?.visible || []), ...(challenge.tests?.hidden || [])];
+        // Get tests - user challenges have a flat array, built-in have visible/hidden
+        const allTests = isUserChallenge 
+            ? (challenge.tests || [])
+            : [...(challenge.tests?.visible || []), ...(challenge.tests?.hidden || [])];
+        
         const results = { visible: [], hidden: [], passed: 0, total: allTests.length };
 
         for (let i = 0; i < allTests.length; i++) {
             const test = allTests[i];
-            const isHidden = i >= (challenge.tests?.visible?.length || 0);
+            const isHidden = isUserChallenge ? false : i >= (challenge.tests?.visible?.length || 0);
 
             try {
                 const fnName = challenge.testFunction || code.match(/function\s+(\w+)/)?.[1];
@@ -136,14 +285,39 @@ const ChallengePage = () => {
                 }
 
                 const langConfig = LANGUAGES[language];
-                const { result, error } = langConfig.runner(code, fnName, test.input || []);
+                
+                // For user challenges, parse input string
+                let testInput;
+                if (isUserChallenge && typeof test.input === 'string') {
+                    try {
+                        testInput = JSON.parse(`[${test.input}]`);
+                    } catch {
+                        testInput = [test.input];
+                    }
+                } else {
+                    testInput = test.input || [];
+                }
+                
+                // Parse expected for user challenges
+                let expectedValue;
+                if (isUserChallenge && typeof test.expected === 'string') {
+                    try {
+                        expectedValue = JSON.parse(test.expected);
+                    } catch {
+                        expectedValue = test.expected;
+                    }
+                } else {
+                    expectedValue = test.expected;
+                }
+                
+                const { result, error } = langConfig.runner(code, fnName, testInput);
 
                 if (error) {
                     throw new Error(error);
                 }
 
-                const passed = JSON.stringify(result) === JSON.stringify(test.expected);
-                const testResult = { ...test, actual: result, passed, hidden: isHidden };
+                const passed = JSON.stringify(result) === JSON.stringify(expectedValue);
+                const testResult = { ...test, expected: expectedValue, actual: result, passed, hidden: isHidden };
 
                 if (passed) results.passed++;
                 if (isHidden) {
@@ -166,9 +340,15 @@ const ChallengePage = () => {
 
         if (results.passed === results.total && results.total > 0) {
             setTimerActive(false);
-            const isNewCompletion = await completeChallenge(challenge.id, challenge.category, challenge.difficulty, timer);
-            const points = DIFFICULTIES[challenge.difficulty]?.points || 10;
             
+            // Record completion for user challenges
+            if (isUserChallenge) {
+                await recordCompletion(userChallengeId);
+            }
+            
+            const isNewCompletion = await completeChallenge(challenge.id, challenge.category, challenge.difficulty, timer);
+            const points = DIFFICULTIES[challenge.difficulty]?.points || challenge.points || 10;
+
             if (isNewCompletion) {
                 toast.success(`🎉 Challenge complete! +${points} points!`);
             } else if (bestTime && timer < bestTime) {
@@ -179,7 +359,7 @@ const ChallengePage = () => {
         }
 
         setIsRunning(false);
-    }, [code, challenge, language, timer, completeChallenge, bestTime]);
+    }, [code, challenge, language, timer, completeChallenge, bestTime, isUserChallenge, userChallengeId, recordCompletion, checkConstraints]);
 
     // Run code without tests
     const runCode = useCallback(() => {
@@ -201,22 +381,47 @@ const ChallengePage = () => {
 
     // Reset code
     const resetCode = useCallback(() => {
-        const starter = challenge.starterCode?.[language] || '';
+        if (!challenge) return;
+        
+        const starter = isUserChallenge 
+            ? (challenge.starterCode || '') 
+            : (challenge.starterCode?.[language] || '');
         const commentChar = language === 'python' ? '#' : '//';
         const header = `${commentChar} Challenge: ${challenge.title}\n${commentChar} ${challenge.description}\n\n`;
         setCode(header + starter);
         setTestResults(null);
         setOutput('');
+        setConstraintViolations([]);
         toast('Code reset to starter template');
-    }, [challenge, language]);
+    }, [challenge, language, isUserChallenge]);
 
     // Get next hint
     const showNextHint = useCallback(() => {
-        if (challenge.hints && hintLevel < challenge.hints.length) {
+        if (challenge?.hints && hintLevel < challenge.hints.length) {
             setHintLevel(h => h + 1);
             setShowHint(true);
         }
-    }, [challenge.hints, hintLevel]);
+    }, [challenge?.hints, hintLevel]);
+
+    // Loading state
+    if (loadingUserChallenge) {
+        return (
+            <div className={styles.loading}>
+                <div className={styles.spinner}></div>
+                <span>Loading challenge...</span>
+            </div>
+        );
+    }
+
+    // Not found state
+    if (!challenge) {
+        return (
+            <div className={styles.notFound}>
+                <h2>Challenge not found</h2>
+                <button onClick={() => navigate('/challenges')}>Back to Challenges</button>
+            </div>
+        );
+    }
 
     const langExtension = useMemo(() => LANGUAGES[language]?.extension?.() || [], [language]);
     const difficultyConfig = DIFFICULTIES[challenge.difficulty] || DIFFICULTIES.beginner;
@@ -226,8 +431,8 @@ const ChallengePage = () => {
         <div className={styles.challenge}>
             {/* Header */}
             <div className={styles.header}>
-                <button className={styles.backBtn} onClick={() => navigate('/challenges')}>
-                    <FiChevronLeft /> Challenges
+                <button className={styles.backBtn} onClick={() => navigate(isUserChallenge ? '/challenges/community' : '/challenges')}>
+                    <FiChevronLeft /> {isUserChallenge ? 'Community' : 'Challenges'}
                 </button>
                 <div className={styles.titleSection}>
                     <h1>
@@ -242,8 +447,13 @@ const ChallengePage = () => {
                             {categoryConfig.icon} {categoryConfig.name}
                         </span>
                         <span className={styles.points}>
-                            <FiAward /> {difficultyConfig.points} pts
+                            <FiAward /> {challenge.points || difficultyConfig.points} pts
                         </span>
+                        {isUserChallenge && challenge.authorName && (
+                            <span className={styles.author}>
+                                <FiUser /> {challenge.authorName}
+                            </span>
+                        )}
                     </div>
                 </div>
                 <div className={styles.headerRight}>
@@ -259,6 +469,37 @@ const ChallengePage = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Constraint Violations Warning */}
+            {constraintViolations.length > 0 && (
+                <div className={styles.constraintWarning}>
+                    <FiAlertTriangle />
+                    <div>
+                        <strong>Constraint Violations:</strong>
+                        <ul>
+                            {constraintViolations.map((v, i) => (
+                                <li key={i}>{v}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            )}
+
+            {/* Active Constraints Display */}
+            {isUserChallenge && challenge.constraints && Object.keys(challenge.constraints).length > 0 && (
+                <div className={styles.constraintsBar}>
+                    <span className={styles.constraintsLabel}><FiLock /> Constraints:</span>
+                    {Object.entries(challenge.constraints).map(([key, value]) => (
+                        <span key={key} className={styles.constraintBadge}>
+                            {CHALLENGE_CONSTRAINTS[key]?.icon}{' '}
+                            {typeof value === 'boolean'
+                                ? CHALLENGE_CONSTRAINTS[key]?.label
+                                : `${CHALLENGE_CONSTRAINTS[key]?.label}: ${value}`
+                            }
+                        </span>
+                    ))}
+                </div>
+            )}
 
             <div className={styles.content}>
                 {/* Left Panel - Instructions */}

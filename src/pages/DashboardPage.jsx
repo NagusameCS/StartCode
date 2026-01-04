@@ -13,19 +13,19 @@ import styles from './DashboardPage.module.css';
 // Generate random challenges based on difficulty from challenges data
 const generateChallenges = (difficulty, completedChallenges = [], count = 3) => {
     const allChallenges = getChallengesByDifficulty(difficulty);
-    
+
     // Sort: uncompleted first, then shuffle within each group
     const uncompleted = allChallenges.filter(c => !completedChallenges.includes(c.id));
     const completed = allChallenges.filter(c => completedChallenges.includes(c.id));
-    
+
     // Shuffle both arrays
     const shuffleArray = arr => [...arr].sort(() => Math.random() - 0.5);
     const shuffledUncompleted = shuffleArray(uncompleted);
     const shuffledCompleted = shuffleArray(completed);
-    
+
     // Prefer uncompleted challenges
     const combined = [...shuffledUncompleted, ...shuffledCompleted];
-    
+
     return combined.slice(0, count).map((challenge) => ({
         ...challenge,
         isCompleted: completedChallenges.includes(challenge.id)

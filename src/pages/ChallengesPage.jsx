@@ -11,12 +11,14 @@ import {
     FiTrendingUp,
     FiClock,
     FiZap,
-    FiTarget
+    FiTarget,
+    FiUsers,
+    FiPlus
 } from 'react-icons/fi';
 import { useProgressStore } from '../store/progressStore';
-import { 
-    getAllChallenges, 
-    CATEGORIES, 
+import {
+    getAllChallenges,
+    CATEGORIES,
     DIFFICULTIES,
     getChallengeCountByCategory,
     getChallengeCountByDifficulty
@@ -25,7 +27,7 @@ import styles from './ChallengesPage.module.css';
 
 const ChallengesPage = () => {
     const { completedChallenges, challengeStats, isChallengeCompleted, getChallengeBestTime } = useProgressStore();
-    
+
     // Filters
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
@@ -42,27 +44,27 @@ const ChallengesPage = () => {
             // Search filter
             if (searchQuery) {
                 const query = searchQuery.toLowerCase();
-                if (!challenge.title.toLowerCase().includes(query) && 
+                if (!challenge.title.toLowerCase().includes(query) &&
                     !challenge.description.toLowerCase().includes(query)) {
                     return false;
                 }
             }
-            
+
             // Category filter
             if (selectedCategory !== 'all' && challenge.category !== selectedCategory) {
                 return false;
             }
-            
+
             // Difficulty filter
             if (selectedDifficulty !== 'all' && challenge.difficulty !== selectedDifficulty) {
                 return false;
             }
-            
+
             // Completed filter
             if (!showCompleted && isChallengeCompleted(challenge.id)) {
                 return false;
             }
-            
+
             return true;
         });
     }, [allChallenges, searchQuery, selectedCategory, selectedDifficulty, showCompleted, isChallengeCompleted]);
@@ -87,7 +89,17 @@ const ChallengesPage = () => {
                     <h1><FiTarget /> Coding Challenges</h1>
                     <p>Practice your skills with {allChallenges.length} challenges across {Object.keys(CATEGORIES).length} categories</p>
                 </div>
-                
+
+                {/* Action Buttons */}
+                <div className={styles.headerActions}>
+                    <Link to="/challenges/community" className={styles.communityBtn}>
+                        <FiUsers /> Community Challenges
+                    </Link>
+                    <Link to="/challenges/submit" className={styles.createBtn}>
+                        <FiPlus /> Create Challenge
+                    </Link>
+                </div>
+
                 {/* Stats Cards */}
                 <div className={styles.statsRow}>
                     <div className={styles.statCard}>
@@ -175,7 +187,7 @@ const ChallengesPage = () => {
                         const total = difficultyCount[key] || 0;
                         const completed = challengeStats.completedByDifficulty?.[key] || 0;
                         const percentage = total > 0 ? (completed / total) * 100 : 0;
-                        
+
                         return (
                             <div key={key} className={styles.progressItem}>
                                 <div className={styles.progressLabel}>
@@ -183,8 +195,8 @@ const ChallengesPage = () => {
                                     <span>{completed}/{total}</span>
                                 </div>
                                 <div className={styles.progressBar}>
-                                    <div 
-                                        className={styles.progressFill} 
+                                    <div
+                                        className={styles.progressFill}
                                         style={{ width: `${percentage}%`, background: diff.color }}
                                     />
                                 </div>
@@ -201,7 +213,7 @@ const ChallengesPage = () => {
                     {Object.entries(CATEGORIES).map(([key, cat]) => {
                         const total = categoryCount[key] || 0;
                         const completed = challengeStats.completedByCategory?.[key] || 0;
-                        
+
                         return (
                             <button
                                 key={key}
@@ -222,7 +234,7 @@ const ChallengesPage = () => {
                 <div className={styles.sectionHeader}>
                     <h2>Challenges ({filteredChallenges.length})</h2>
                 </div>
-                
+
                 {filteredChallenges.length === 0 ? (
                     <div className={styles.emptyState}>
                         <FiSearch />
@@ -241,7 +253,7 @@ const ChallengesPage = () => {
                             const bestTime = getChallengeBestTime(challenge.id);
                             const diffConfig = DIFFICULTIES[challenge.difficulty];
                             const catConfig = CATEGORIES[challenge.category];
-                            
+
                             return (
                                 <motion.div
                                     key={challenge.id}
@@ -254,7 +266,7 @@ const ChallengesPage = () => {
                                         className={`${styles.challengeCard} ${isComplete ? styles.completed : ''}`}
                                     >
                                         <div className={styles.cardHeader}>
-                                            <span 
+                                            <span
                                                 className={styles.difficultyBadge}
                                                 style={{ background: diffConfig.color }}
                                             >
@@ -266,10 +278,10 @@ const ChallengesPage = () => {
                                                 </span>
                                             )}
                                         </div>
-                                        
+
                                         <h3 className={styles.cardTitle}>{challenge.title}</h3>
                                         <p className={styles.cardDesc}>{challenge.description}</p>
-                                        
+
                                         <div className={styles.cardFooter}>
                                             <span className={styles.categoryTag}>
                                                 {catConfig.icon} {catConfig.name}

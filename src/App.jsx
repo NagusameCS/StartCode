@@ -20,6 +20,8 @@ import CertificatePage from './pages/CertificatePage';
 import CanvasPage from './pages/CanvasPage';
 import ChallengePage from './pages/ChallengePage';
 import ChallengesPage from './pages/ChallengesPage';
+import UserChallengesPage from './pages/UserChallengesPage';
+import SubmitChallengePage from './pages/SubmitChallengePage';
 
 // Components
 import Layout from './components/Layout';
@@ -107,7 +109,10 @@ function App() {
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/canvas" element={<CanvasPage />} />
             <Route path="/challenges" element={<ChallengesPage />} />
+            <Route path="/challenges/community" element={<UserChallengesPage />} />
+            <Route path="/challenges/submit" element={<SubmitChallengePage />} />
             <Route path="/challenge/:challengeId" element={<ChallengePage />} />
+            <Route path="/challenge/user/:userChallengeId" element={<ChallengePage />} />
             <Route path="/certificate/:certId" element={<CertificatePage />} />
           </Route>
         </Route>

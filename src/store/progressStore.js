@@ -77,8 +77,8 @@ export const useProgressStore = create(
                 const currentBest = challengeStats.bestTimes[challengeId];
                 const newBestTime = (!currentBest || timeInSeconds < currentBest) ? timeInSeconds : currentBest;
 
-                const newCompletedChallenges = alreadyCompleted 
-                    ? completedChallenges 
+                const newCompletedChallenges = alreadyCompleted
+                    ? completedChallenges
                     : [...completedChallenges, challengeId];
 
                 const newStats = {
